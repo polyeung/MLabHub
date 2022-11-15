@@ -1,0 +1,6 @@
+Makefile
+setcookie
+/target[0-8]
+*~
+\#*
+__pycache__
