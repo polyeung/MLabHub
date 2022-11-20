@@ -4,3 +4,4 @@ source env/bin/activate
 pip install -r requirements.txt
 pip install -e index_server
 pip install -e search_server
+yo
