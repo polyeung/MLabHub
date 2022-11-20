@@ -1,0 +1,6 @@
+Flask
+pycodestyle
+pydocstyle
+pylint
+pytest
+requests
