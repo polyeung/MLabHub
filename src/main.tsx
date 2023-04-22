@@ -4,6 +4,7 @@ import Page1 from './pages/page1';
 import Navbar from './components/navbar';
 
 function Main() {
+  
   return (
     <Router>
       <React.Fragment>

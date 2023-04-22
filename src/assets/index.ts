@@ -1,3 +1,3 @@
 import logo from './logo.png';
-
-export const logoImg = logo;
+import logo2 from './logo2.png';
+export const logoImg = logo2;
