@@ -21,7 +21,7 @@ export default function labinfo({ name, link, people, intro }: labinfoInt ) {
                 },
             }}
         >
-            <Paper elevation={3} >
+            <Paper elevation={3} sx={{ padding: '10px'}}>
                 <Typography>{name}</Typography>
                 <Typography>{link}</Typography>
                 <Typography>{people}</Typography>

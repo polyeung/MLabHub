@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Labinfo from 'components/labinfo';
+import Labinfo from 'components/modal';
 import Grid from '@mui/material/Grid';
 import LabData from 'data/labData';
 

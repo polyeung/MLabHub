@@ -20,6 +20,6 @@
         "noImplicitThis": true,
         "strictNullChecks": true,
     },
-    "include": ["**/*.ts", "**/*.tsx"],
+    "include": ["**/*.ts", "**/*.tsx", "*.d.ts"],
     "exclude": ["node_modules"]
 }
