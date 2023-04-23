@@ -18,7 +18,7 @@
         "outDir": "./build",
         "noImplicitAny": true,
         "noImplicitThis": true,
-        "strictNullChecks": true
+        "strictNullChecks": true,
     },
     "include": ["**/*.ts", "**/*.tsx"],
     "exclude": ["node_modules"]

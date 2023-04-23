@@ -1,7 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Page1 from './pages/page1';
-import Navbar from './components/navbar';
+import { Container } from '@mui/material';
+import Page1 from 'pages/page1';
+import Navbar from 'components/navbar';
+import Overview from 'pages/overview';
 
 function Main() {
   
@@ -9,12 +11,22 @@ function Main() {
     <Router>
       <React.Fragment>
         <Navbar />
+        <Container
+				maxWidth="lg"
+				sx={{
+					flexGrow: 2,
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'center',
+				}}
+			>
         <Routes>
-          <Route path="/" element={<Page1 />} />
+          <Route path="/" element={<Overview />} />
           <Route path="/page1" element={<Page1 />} />
           <Route path="/page2" element={<Page1 />} />
           <Route path="/page3" element={<Page1 />} />
-        </Routes>
+          </Routes>
+      </Container>
       </React.Fragment>
     </Router>
   );
