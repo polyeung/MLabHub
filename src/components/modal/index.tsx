@@ -1,6 +1,9 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import { Paper, Typography } from '@mui/material';
+import { Paper, Typography, Grid, IconButton } from '@mui/material';
+import LinkIcon from '@mui/icons-material/Link';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import { useNavigate } from 'react-router-dom';
 
 interface labinfoInt { 
     name: string,
@@ -8,7 +11,9 @@ interface labinfoInt {
     people: string[],
     intro: string,
 };
-export default function labinfo({ name, link, people, intro }: labinfoInt ) { 
+
+export default function labinfo({ name, link, people, intro }: labinfoInt) { 
+    const navigate = useNavigate();
     return (
         <Box
             sx={{
@@ -21,12 +26,31 @@ export default function labinfo({ name, link, people, intro }: labinfoInt ) {
                 },
             }}
         >
-            <Paper elevation={3} sx={{ padding: '10px'}}>
-                <Typography>{name}</Typography>
-                <Typography>{link}</Typography>
-                <Typography>{people}</Typography>
-                <Typography>{name}</Typography>
-                <Typography>{ intro }</Typography>
+            <Paper elevation={3} sx={{ padding: '10px' }}>
+                
+                <Grid container spacing={1}>
+                    <Grid item xs={10}>
+                        <Typography variant='h6'>{name}</Typography>
+                    </Grid>
+                    <Grid item xs={1}>
+                    <a href={ link }>
+                    <LinkIcon />
+                    </a>
+                    </Grid>
+                    <Grid item xs={1}>
+                        <IconButton
+                            sx={{ padding: 0 }}
+                            onClick={() => navigate(name.replace(/\s+/g, ''))}>
+                            <MoreHorizIcon sx={{ fontSize: 'inherit' }} />
+                        </IconButton>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Typography>{people.join(", ")}</Typography>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Typography>{intro}</Typography>
+                    </Grid>
+                </Grid>
                 
             </Paper>
         </Box>);

@@ -17,7 +17,8 @@ function Main() {
 					flexGrow: 2,
 					display: 'flex',
 					alignItems: 'center',
-					justifyContent: 'center',
+          justifyContent: 'center',
+          padding: '10px'
 				}}
 			>
         <Routes>
