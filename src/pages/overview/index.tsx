@@ -16,7 +16,7 @@ export default function overview() {
     return (
         <Grid container spacing={2}>
             {data.map((item) => (
-                <Grid item xs={4}>
+                <Grid item xs={4} key={ item.id }>
                     <Labinfo
                         name={item.name}
                         people={item.people}

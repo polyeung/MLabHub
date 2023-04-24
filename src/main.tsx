@@ -4,6 +4,7 @@ import { Container } from '@mui/material';
 import Page1 from 'pages/page1';
 import Navbar from 'components/navbar';
 import Overview from 'pages/overview';
+import Labpage from 'pages/labpage';
 
 function Main() {
   
@@ -23,7 +24,7 @@ function Main() {
 			>
         <Routes>
           <Route path="/" element={<Overview />} />
-          <Route path="/page1" element={<Page1 />} />
+          <Route path="/labpage" element={<Labpage />} />
           <Route path="/page2" element={<Page1 />} />
           <Route path="/page3" element={<Page1 />} />
           </Routes>
