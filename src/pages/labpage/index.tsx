@@ -1,19 +1,13 @@
 import React, { useMemo } from "react";
 import { Box, Typography } from '@mui/material';
-import { useLocation, NavigateOptions,  } from 'react-router-dom';
-
-interface LocationState extends NavigateOptions {
-    state: {
-      pathname: string;
-    };
-  }
-  
+import { useLocation } from 'react-router-dom';
+import { LocationState } from 'types/interface';
 
 const labpage= () =>{ 
     const location = useLocation();
     // get ID from previous url
     const ID = useMemo(() => {
-        const { state } = location as LocationState || { state: { pathname: "1" } };
+        const { state } = location as LocationState || { state: {pathname: "1" } };
         return state.pathname;
     }, [location]);
 

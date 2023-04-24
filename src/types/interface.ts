@@ -1,4 +1,4 @@
-
+import { NavigateOptions,  } from 'react-router-dom';
 
 export interface LabInfoType { 
     id: number,
@@ -6,4 +6,10 @@ export interface LabInfoType {
     link: string,
     people: string,
     intro: string
+};
+
+export interface LocationState extends NavigateOptions {
+    state: {
+      pathname: string;
+    };
 };
