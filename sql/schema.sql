@@ -1,0 +1,8 @@
+PRAGMA foreign_keys = ON;
+CREATE TABLE labs(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name VARCHAR(20) NOT NULL,
+    link VARCHAR(20) NOT NULL,
+    intro VARCHAR(200) NOT NULL,
+    people VARCHAR(100)
+);
