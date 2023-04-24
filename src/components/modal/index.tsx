@@ -3,17 +3,37 @@ import Box from '@mui/material/Box';
 import { Paper, Typography, Grid, IconButton } from '@mui/material';
 import LinkIcon from '@mui/icons-material/Link';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, NavigateOptions } from 'react-router-dom';
 
 interface labinfoInt { 
     name: string,
     link: string,
     people: string,
     intro: string,
+    id: number
 };
 
-export default function labinfo({ name, link, people, intro }: labinfoInt) { 
+
+interface MyNavigateOptions extends NavigateOptions {
+    id: string;
+};
+interface LocationState extends NavigateOptions {
+    state: {
+      pathname: string;
+    };
+  }
+export default function labinfo({ name, link, people, intro, id }: labinfoInt) { 
     const navigate = useNavigate();
+
+    function handleClick() { 
+        const options: LocationState = {
+            state: {
+                pathname: String(id)
+            }
+            };
+        navigate('/labpage', options);
+        // console.log(options);
+    }
     return (
         <Box
             sx={{
@@ -40,7 +60,7 @@ export default function labinfo({ name, link, people, intro }: labinfoInt) {
                     <Grid item xs={1}>
                         <IconButton
                             sx={{ padding: 0 }}
-                            onClick={() => navigate(name.replace(/\s+/g, ''))}>
+                            onClick={handleClick}>
                             <MoreHorizIcon sx={{ fontSize: 'inherit' }} />
                         </IconButton>
                     </Grid>

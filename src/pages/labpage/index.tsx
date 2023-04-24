@@ -1,6 +1,22 @@
+import React, { useMemo } from "react";
 import { Box, Typography } from '@mui/material';
+import { useLocation, NavigateOptions,  } from 'react-router-dom';
 
-export default function labpage() { 
+interface LocationState extends NavigateOptions {
+    state: {
+      pathname: string;
+    };
+  }
+  
+
+const labpage= () =>{ 
+    const location = useLocation();
+    // get ID from previous url
+    const ID = useMemo(() => {
+        const { state } = location as LocationState || { state: { pathname: "1" } };
+        return state.pathname;
+    }, [location]);
+
     return (<Box
         display="grid"
         gridTemplateColumns="repeat(12, 1fr)"
@@ -64,7 +80,7 @@ export default function labpage() {
                 }}
             />
             <Typography variant="h6">Reviews</Typography>
-            
+            <Typography>{ ID }</Typography>
         </Box>
 
        
@@ -72,3 +88,4 @@ export default function labpage() {
 );
 };
 
+export default labpage;
