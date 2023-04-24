@@ -11,4 +11,6 @@ npm start
 python3 -m venv env
 source env/bin/activate
 brew install sqlite curl
+pip install flask-cors
+
 ```

@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 interface labinfoInt { 
     name: string,
     link: string,
-    people: string[],
+    people: string,
     intro: string,
 };
 
@@ -45,7 +45,7 @@ export default function labinfo({ name, link, people, intro }: labinfoInt) {
                         </IconButton>
                     </Grid>
                     <Grid item xs={12}>
-                        <Typography>{people.join(", ")}</Typography>
+                        <Typography>{people}</Typography>
                     </Grid>
                     <Grid item xs={12}>
                         <Typography>{intro}</Typography>
