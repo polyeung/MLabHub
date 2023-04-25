@@ -1,9 +1,37 @@
 import React, { useMemo, useState, useEffect } from "react";
-import { Box, Typography, Grid} from '@mui/material';
+import { Box, Typography, Grid, TextField, Button, Avatar, Tooltip} from '@mui/material';
 import { useLocation } from 'react-router-dom';
-import { LocationState, RichLabInfoType, RichLabInfoTemplate} from 'types/interface';
+import { LocationState, RichLabInfoType, RichLabInfoTemplate, ReviewsType, parsedNameInt} from 'types/interface';
+import Rating from '@mui/material/Rating';
 
-const labpage= () =>{ 
+
+function getRandomColor(): string { 
+    const colors = ['red','#90731E', '#0277BD', 'pink', 'green', 'orange', 'purple', '#F29902', 'brown', 'gray', 'teal'];
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    return colors[randomIndex];
+}
+
+const ReviewsData: ReviewsType[] = [
+    {
+        rating: 5,
+        comment: "This lab is so great, really recommended!",
+        name: "Tommy"
+    },
+    {
+        rating: 4,
+        comment: "Very meaningful project, love it!",
+        name: "Kevin"
+    },
+    {
+        rating: 4,
+        comment: "People are nice, very worth it",
+        name: "Emily"
+    },
+];
+
+
+
+const labpage = () =>{ 
     const location = useLocation();
     // get ID from previous url
     const ID = useMemo(() => {
@@ -11,6 +39,19 @@ const labpage= () =>{
         return state.pathname;
     }, [location]);
     const [labinfo, setLabinfo] = useState<RichLabInfoType>(RichLabInfoTemplate);
+    // return Initial along with full name
+    function parseName(strIN: string): parsedNameInt[] {
+        const strList = strIN.split(',');
+        let ret: parsedNameInt[] = [];
+        for (let i = 0; i < strList.length; i++) {
+            let nameSep = strList[i].trim().split(' ');
+            // console.log(nameSep);
+
+            let initial = nameSep.length == 1 ? String(nameSep[0][0]) : String(nameSep[0][0] + nameSep[1][0]);
+            ret.push({ name: strList[i], initial: initial });
+        }
+        return ret;
+      }
 
     // fetch content through api
     useEffect(() => {
@@ -54,9 +95,16 @@ const labpage= () =>{
                 }}
             />
             { /* Real content begin */}
-            <Typography>{labinfo.name}</Typography>
-            <Typography>{ labinfo.people }</Typography>
-            <Typography>{ labinfo.intro }</Typography>
+            <Typography variant="h5">{labinfo.name}</Typography>
+            <Box sx={{display: 'flex', flexDirection: 'row', mt: '10px'}}>
+                {parseName(labinfo.people).map((item) => (
+                    <Tooltip title={ item.name }>
+                    <Avatar sx={{ bgcolor: getRandomColor(), mr: '5px', width: 40, height: 40}}>{ item.initial }</Avatar>
+                    </Tooltip>
+                ))}
+            </Box>
+
+            <Typography sx={{ mt: '10px' }}>{ labinfo.intro }</Typography>
         </Box>
         <Box
             padding={2}
@@ -88,7 +136,48 @@ const labpage= () =>{
             />
             { /* Real content begin */}
             <Typography variant="h6">Reviews</Typography>
-           
+                {ReviewsData.map((item) => (
+                    <Box
+                    padding={2}
+                    sx={{
+                        backgroundColor: 'white',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'left',
+                        overflow: 'auto',
+                        boxShadow: '0px 2px 3px rgba(0, 0, 0, 0.5)',
+                        position: 'relative',
+                        marginTop: '10px'
+                    }}
+                    >  <Box sx={{ display: 'flex', flexDirection: 'row'}}>
+                        <Typography sx={{ mr: 2 }}>{item.name}</Typography>
+                        <Rating
+                            name="simple-controlled"
+                            value={item.rating}
+                            />
+                        </Box>
+                        <Typography>{item.comment}</Typography>
+                        
+                        </Box>
+                    
+                ))}
+            <Box sx={{
+                    position: "absolute",
+                    bottom: 10,
+                    width: "90%",
+                    display: 'flex',
+                    flexDirection: 'row'
+                }}>
+            <TextField
+                    id="filled-multiline-flexible"
+                    label="Comment"
+                    multiline
+                    maxRows={4}
+                    variant="filled"
+                    sx={{ mr: 2 }}
+            />
+                <Button variant="contained">Submit</Button>
+            </Box>
         </Box>
 
        

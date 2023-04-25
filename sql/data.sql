@@ -1,7 +1,8 @@
 PRAGMA foreign_keys = ON;
 
 INSERT INTO labs(name, link, intro, people)
-VALUES ('Data Science Lab', 'http://datasciencelab.com', 'We specialize in data analysis and machine learning.', 'Emily, Michael, Sarah');
+VALUES ('Lifelong Learning Lab', 'https://web.eecs.umich.edu/~xwanghci/lab.html', 'Their research focuses on the intersection of Human-Computer Interaction, Learning Sciences, and Artificial Intelligence to help people learn more easily and efficiently. ',
+'Xinyue Chen, Gregory Croisdale, Jingying Wang, Christopher Kok.');
 
 INSERT INTO labs(name, link, intro, people)
 VALUES ('Robotics Lab', 'http://roboticslab.com', 'We design and build cutting-edge robots.', 'Alex, Ben, Carol, David');

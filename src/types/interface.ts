@@ -29,3 +29,14 @@ export const RichLabInfoTemplate:RichLabInfoType = {
     people: "",
     intro: "",
 };
+
+export interface ReviewsType {
+    rating: number,
+    comment: string,
+    name: string
+};
+export interface parsedNameInt { 
+    name: string,
+    initial: string,
+}
+ 
