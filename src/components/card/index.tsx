@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -16,6 +16,8 @@ import { umichImg } from 'assets';
 import { useNavigate } from 'react-router-dom';
 import StarIcon from '@mui/icons-material/Star';
 import { LocationState } from 'types/interface';
+import { Alert } from '@mui/material';
+import CheckIcon from '@mui/icons-material/Check';
 
 
 interface labinfoInt { 
@@ -28,7 +30,17 @@ interface labinfoInt {
 
 export default function RecipeReviewCard({ name, link, people, intro, id }: labinfoInt) {
     const navigate = useNavigate();
-
+    const [showAlert, setShowAlert] = useState<boolean>(false);
+    useEffect(() => {
+        if (showAlert) {
+          const timeoutId = setTimeout(() => {
+            setShowAlert(false);
+          }, 2000);
+    
+          return () => clearTimeout(timeoutId);
+        }
+      }, [showAlert]);
+    
     function handleClick() { 
         const options: LocationState = {
             state: {
@@ -74,9 +86,9 @@ export default function RecipeReviewCard({ name, link, people, intro, id }: labi
               
       </CardContent>
       <CardActions disableSpacing sx={{ position: 'absolute', bottom: 0 }}>
-        <IconButton aria-label="star to save">
+              <IconButton aria-label="star to save" onClick={ () => setShowAlert(true)}>
           <StarIcon />
-              </IconButton>
+        </IconButton>
         <a href={ link }>
             <IconButton aria-label="link to web page page">
                 <LinkIcon/>
@@ -84,7 +96,16 @@ export default function RecipeReviewCard({ name, link, people, intro, id }: labi
         </a>
         
       </CardActions>
-      
+      {showAlert && (
+        <Alert
+          severity="success"
+          sx={{ position: 'fixed', bottom: 16, left: 16 }}
+          onClose={() => setShowAlert(false)}
+          icon={<CheckIcon fontSize="inherit" />}
+        >
+          Saved lab information!
+        </Alert>
+      )}
     </Card>
   );
 }
