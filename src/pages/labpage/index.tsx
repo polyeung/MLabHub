@@ -1,7 +1,7 @@
-import React, { useMemo } from "react";
-import { Box, Typography } from '@mui/material';
+import React, { useMemo, useState, useEffect } from "react";
+import { Box, Typography, Grid} from '@mui/material';
 import { useLocation } from 'react-router-dom';
-import { LocationState } from 'types/interface';
+import { LocationState, RichLabInfoType, RichLabInfoTemplate} from 'types/interface';
 
 const labpage= () =>{ 
     const location = useLocation();
@@ -10,6 +10,14 @@ const labpage= () =>{
         const { state } = location as LocationState || { state: {pathname: "1" } };
         return state.pathname;
     }, [location]);
+    const [labinfo, setLabinfo] = useState<RichLabInfoType>(RichLabInfoTemplate);
+
+    // fetch content through api
+    useEffect(() => {
+        fetch(`http://localhost:8000/getLabInfo/${ID}`)
+            .then(response => response.json())
+            .then(data =>  setLabinfo(data));
+    }, []);
 
     return (<Box
         display="grid"
@@ -27,7 +35,9 @@ const labpage= () =>{
                 borderRadius: '10px',
                 boxShadow: '0px 3px 10px rgba(0, 0, 0, 0.5)',
                 borderTop: '1px solid blue',
-                position: 'relative'
+                position: 'relative',
+                display: 'flex',
+                flexDirection: 'column',
             }}
         >
             <Box
@@ -43,7 +53,10 @@ const labpage= () =>{
                     borderBottom: '1px solid #00274c',
                 }}
             />
-
+            { /* Real content begin */}
+            <Typography>{labinfo.name}</Typography>
+            <Typography>{ labinfo.people }</Typography>
+            <Typography>{ labinfo.intro }</Typography>
         </Box>
         <Box
             padding={2}
@@ -73,8 +86,9 @@ const labpage= () =>{
                     borderBottom: '1px solid #FFCB02',
                 }}
             />
+            { /* Real content begin */}
             <Typography variant="h6">Reviews</Typography>
-            <Typography>{ ID }</Typography>
+           
         </Box>
 
        

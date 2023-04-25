@@ -19,7 +19,8 @@ function Main() {
 					display: 'flex',
 					alignItems: 'center',
           justifyContent: 'center',
-          padding: '10px'
+          padding: '10px',
+          marginTop: '10px'
 				}}
 			>
         <Routes>

@@ -13,3 +13,19 @@ export interface LocationState extends NavigateOptions {
       pathname: string;
     };
 };
+
+export interface RichLabInfoType { 
+    id: number,
+    name: string,
+    link: string,
+    people: string,
+    intro: string
+};
+
+export const RichLabInfoTemplate:RichLabInfoType = { 
+    id: 1,
+    name: "",
+    link: "",
+    people: "",
+    intro: "",
+};
