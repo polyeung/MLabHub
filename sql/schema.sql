@@ -6,3 +6,12 @@ CREATE TABLE labs(
     intro VARCHAR(200) NOT NULL,
     people VARCHAR(100)
 );
+
+CREATE TABLE comments(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    labid INTEGER NOT NULL,
+    rating INTEGER NOT NULL, 
+    name VARCHAR(20) NOT NULL,
+    word VARCHAR(200) NOT NULL,
+    FOREIGN KEY (labid) REFERENCES labs(id)
+);

@@ -39,4 +39,10 @@ export interface parsedNameInt {
     name: string,
     initial: string,
 }
- 
+
+export interface commentsInt { 
+    id: number,
+    name: string,
+    rating: number,
+    word: string
+}

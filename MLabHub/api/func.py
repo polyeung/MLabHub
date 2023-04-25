@@ -26,3 +26,11 @@ def get_detailedLabInfo(id):
     # add more detailed select for more rich content
     cur = connection.execute("SELECT * FROM labs WHERE id = ?", (id,)).fetchone()
     return cur
+
+@MLabHub.app.route('/getComments/<id>')
+def get_comments(id):
+    """Feed content for each detailed lab page."""
+    connection = MLabHub.model.get_db()
+    # add more detailed select for more rich content
+    cur = connection.execute("SELECT id,rating,name,word FROM comments WHERE labid = ?", (id,)).fetchall()
+    return cur

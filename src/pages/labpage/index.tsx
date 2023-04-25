@@ -1,7 +1,7 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { Box, Typography, Grid, TextField, Button, Avatar, Tooltip} from '@mui/material';
 import { useLocation } from 'react-router-dom';
-import { LocationState, RichLabInfoType, RichLabInfoTemplate, ReviewsType, parsedNameInt} from 'types/interface';
+import { LocationState, RichLabInfoType, RichLabInfoTemplate, ReviewsType, parsedNameInt, commentsInt} from 'types/interface';
 import Rating from '@mui/material/Rating';
 
 
@@ -39,6 +39,7 @@ const labpage = () =>{
         return state.pathname;
     }, [location]);
     const [labinfo, setLabinfo] = useState<RichLabInfoType>(RichLabInfoTemplate);
+    const [comments, setComments] = useState<commentsInt[]>([]);
     // return Initial along with full name
     function parseName(strIN: string): parsedNameInt[] {
         const strList = strIN.split(',');
@@ -58,6 +59,13 @@ const labpage = () =>{
         fetch(`http://localhost:8000/getLabInfo/${ID}`)
             .then(response => response.json())
             .then(data =>  setLabinfo(data));
+    }, []);
+
+    // fetch comments
+    useEffect(() => {
+        fetch(`http://localhost:8000/getComments/${ID}`)
+            .then(response => response.json())
+            .then(data =>  setComments(data));
     }, []);
 
     return (<Box
@@ -136,7 +144,7 @@ const labpage = () =>{
             />
             { /* Real content begin */}
             <Typography variant="h6">Reviews</Typography>
-                {ReviewsData.map((item) => (
+                {comments.map((item) => (
                     <Box
                     padding={2}
                     sx={{
@@ -156,7 +164,7 @@ const labpage = () =>{
                             value={item.rating}
                             />
                         </Box>
-                        <Typography>{item.comment}</Typography>
+                        <Typography>{item.word}</Typography>
                         
                         </Box>
                     

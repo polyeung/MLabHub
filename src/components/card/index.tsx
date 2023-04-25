@@ -10,7 +10,6 @@ import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import LinkIcon from '@mui/icons-material/Link';
-import ShareIcon from '@mui/icons-material/Share';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { umichImg } from 'assets';
 import { useNavigate } from 'react-router-dom';
