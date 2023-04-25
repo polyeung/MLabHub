@@ -3,7 +3,7 @@ import { Box, Typography, Grid, TextField, Button, Avatar, Tooltip} from '@mui/m
 import { useLocation } from 'react-router-dom';
 import { LocationState, RichLabInfoType, RichLabInfoTemplate, ReviewsType, parsedNameInt, commentsInt} from 'types/interface';
 import Rating from '@mui/material/Rating';
-
+import ComPopper from 'components/comPopper';
 
 function getRandomColor(): string { 
     const colors = ['red','#90731E', '#0277BD', 'pink', 'green', 'orange', 'purple', '#F29902', 'brown', 'gray', 'teal'];
@@ -176,15 +176,7 @@ const labpage = () =>{
                     display: 'flex',
                     flexDirection: 'row'
                 }}>
-            <TextField
-                    id="filled-multiline-flexible"
-                    label="Comment"
-                    multiline
-                    maxRows={4}
-                    variant="filled"
-                    sx={{ mr: 2 }}
-            />
-                <Button variant="contained">Submit</Button>
+            <ComPopper />
             </Box>
         </Box>
 
