@@ -3,7 +3,7 @@ import Labinfo from 'components/modal';
 import Grid from '@mui/material/Grid';
 import LabData from 'data/labData';
 import { LabInfoType } from 'types/interface';
-
+import Cards from 'components/card';
 export default function overview() { 
     const [data, setData] = useState<LabInfoType[]>([]);
     useEffect(() => {
@@ -15,14 +15,21 @@ export default function overview() {
     return (
         <Grid container spacing={2}>
             {data.map((item) => (
-                <Grid item xs={4} key={ item.id }>
+                <Grid item xs={4} key={item.id}>
+                    {/*
                     <Labinfo
                         name={item.name}
                         people={item.people}
                         link={item.link}
                         intro={item.intro}
                         id={ item.id }
-                     />
+            />*/}
+                    <Cards
+                        name={item.name}
+                        people={item.people}
+                        link={item.link}
+                        intro={item.intro}
+                        id={ item.id }/>
                 </Grid>
             ))}
         </Grid>);
