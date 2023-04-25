@@ -11,11 +11,13 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import { useNavigate } from 'react-router-dom';
+import ScienceIcon from '@mui/icons-material/Science';
+import SchoolIcon from '@mui/icons-material/School';
+import WorkIcon from '@mui/icons-material/Work';
 import { logoImg } from 'assets';
 
-const pages = [['Products', '/products'], ['Pricing', '/pricing'], ['Blog', '/blog']];
+const pages = [['Research Opportunities', '/jobs', '1'], ['Post Jobs', '/post', '2'], ['Post Lab Info', '/create', '3']];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
@@ -91,9 +93,9 @@ function ResponsiveAppBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map(([page, link]) => (
+              {pages.map(([page, link, id]) => (
                 <MenuItem key={page} onClick={() => { setAnchorElNav(null); navigate(link); }}>
-                  <Typography textAlign="center">{page}</Typography>
+                    <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -118,13 +120,17 @@ function ResponsiveAppBar() {
             MLabHub
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map(([page, link]) => (
+            {pages.map(([page, link, id]) => (
               <Button
                 key={page}
                 onClick={() => { setAnchorElNav(null); navigate(link); }}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'white', display: 'flex', mr: '10px', // set display to flex
+                alignItems: 'center', // vertically center the contents
+                justifyContent: 'center'}}
+                startIcon={id == '1' ? <SchoolIcon />:(id == '2'? <WorkIcon/>:<ScienceIcon />)}
+                
               >
-                {page}
+                  {page}
               </Button>
             ))}
           </Box>
