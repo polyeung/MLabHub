@@ -5,12 +5,30 @@ import Page1 from 'pages/page1';
 import Navbar from 'components/navbar';
 import Overview from 'pages/overview';
 import Labpage from 'pages/labpage';
+import {Amplify} from 'aws-amplify';
+import AwsConfig from './aws-exports';
+import {
+  withAuthenticator,
+  WithAuthenticatorProps,
+} from '@aws-amplify/ui-react';
 
-function Main() {
-  
+import '@aws-amplify/ui-react/styles.css';
+
+Amplify.configure(AwsConfig);
+
+interface Props extends WithAuthenticatorProps {
+  isPassedToWithAuthenticator: boolean;
+}
+
+function Main({ isPassedToWithAuthenticator, signOut, user }: Props) {
+  if (!isPassedToWithAuthenticator) {
+    throw new Error(`isPassedToWithAuthenticator was not provided`);
+  }
+
   return (
     <Router>
       <React.Fragment>
+       <button onClick={signOut}>Sign out</button>
         <Navbar />
         <Container
 				maxWidth="lg"
@@ -35,4 +53,12 @@ function Main() {
   );
 }
 
-export default Main;
+export default withAuthenticator(Main);
+
+export async function getStaticProps() {
+  return {
+    props: {
+      isPassedToWithAuthenticator: true,
+    },
+  };
+}
