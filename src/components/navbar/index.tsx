@@ -16,9 +16,19 @@ import ScienceIcon from '@mui/icons-material/Science';
 import SchoolIcon from '@mui/icons-material/School';
 import WorkIcon from '@mui/icons-material/Work';
 import { logoImg } from 'assets';
+import {
+  withAuthenticator,
+  WithAuthenticatorProps,
+  Authenticator,
+  useAuthenticator
+} from '@aws-amplify/ui-react';
+import { Amplify, Auth } from 'aws-amplify';
+
 
 const pages = [['Research Opportunities', '/jobs', '1'], ['Post Jobs', '/post', '2'], ['Post Lab Info', '/create', '3']];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
+
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -30,7 +40,9 @@ function ResponsiveAppBar() {
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
-
+  
+  const { authStatus } = useAuthenticator((context) => [context.user]);
+  
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
     console.log("navigate");
@@ -40,6 +52,34 @@ function ResponsiveAppBar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  
+  async function isUserSignedIn() {
+    try {
+      const user = await Auth.currentAuthenticatedUser();
+      return !!user; // return true if user is signed in, false otherwise
+    } catch (error) {
+      return false; // return false if Auth.currentAuthenticatedUser() throws an error (i.e., user is not signed in)
+    }
+  }
+async function signOutFunc() {
+  try {
+    await Auth.signOut();
+  } catch (error) {
+    console.log('error signing out: ', error);
+  }
+  };
+  function getButton() {
+    Auth.currentAuthenticatedUser()
+    .then((isUserSignedIn) => {
+      if (isUserSignedIn) {
+        // User is signed in, do something
+        return <Button variant="text" onClick={signOutFunc} sx={{ width: '100%' }}>Logout</Button>;
+      } else {
+        // User is not signed in, do something else
+        return <Button variant="text" onClick={() => console.log("signin")} sx={{ width: '100%' }}>Login</Button>;
+      }
+    });
+  }
 
   return (
     <AppBar position="static" style={{ backgroundColor: '#01305c' }}>
@@ -157,11 +197,17 @@ function ResponsiveAppBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+              
+              <MenuItem key="1" onClick={handleCloseUserMenu}>
+                
+                
+                {authStatus !== 'authenticated' ? (
+                  <Button variant='text' onClick={() => { <Authenticator/> }}>Sign in</Button>
+                ) : (
+                  <Button variant='text' onClick={ signOutFunc}>Logout</Button>
+                )}
                 </MenuItem>
-              ))}
+              
             </Menu>
           </Box>
         </Toolbar>

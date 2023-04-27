@@ -5,31 +5,29 @@ import Page1 from 'pages/page1';
 import Navbar from 'components/navbar';
 import Overview from 'pages/overview';
 import Labpage from 'pages/labpage';
-import {Amplify} from 'aws-amplify';
-import AwsConfig from './aws-exports';
+
+import Jobs from 'pages/jobs';
+
 import {
   withAuthenticator,
-  WithAuthenticatorProps,
+    WithAuthenticatorProps,
+    useAuthenticator,
+  Authenticator
 } from '@aws-amplify/ui-react';
 
 import '@aws-amplify/ui-react/styles.css';
 
-Amplify.configure(AwsConfig);
 
-interface Props extends WithAuthenticatorProps {
-  isPassedToWithAuthenticator: boolean;
-}
 
-function Main({ isPassedToWithAuthenticator, signOut, user }: Props) {
-  if (!isPassedToWithAuthenticator) {
-    throw new Error(`isPassedToWithAuthenticator was not provided`);
-  }
 
+
+function Main() {
+
+  
   return (
     <Router>
       <React.Fragment>
-       <button onClick={signOut}>Sign out</button>
-        <Navbar />
+        <Navbar/>
         <Container
 				maxWidth="lg"
 				sx={{
@@ -44,8 +42,9 @@ function Main({ isPassedToWithAuthenticator, signOut, user }: Props) {
         <Routes>
           <Route path="/" element={<Overview />} />
           <Route path="/labpage" element={<Labpage />} />
-          <Route path="/page2" element={<Page1 />} />
-          <Route path="/page3" element={<Page1 />} />
+          <Route path="/jobs" element={<Jobs />} />
+            <Route path="/post" element={<Page1 />} />
+            <Route path="/create" element={<Page1 />} />
           </Routes>
       </Container>
       </React.Fragment>
@@ -53,12 +52,5 @@ function Main({ isPassedToWithAuthenticator, signOut, user }: Props) {
   );
 }
 
-export default withAuthenticator(Main);
+export default Main;
 
-export async function getStaticProps() {
-  return {
-    props: {
-      isPassedToWithAuthenticator: true,
-    },
-  };
-}
