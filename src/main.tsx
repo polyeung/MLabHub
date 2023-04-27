@@ -1,20 +1,19 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Container } from '@mui/material';
-import Page1 from 'pages/page1';
 import Navbar from 'components/navbar';
 import Overview from 'pages/overview';
 import Labpage from 'pages/labpage';
-
+import { componentsSetting } from 'utility';
 import Jobs from 'pages/jobs';
-
+import Post from 'pages/post';
+import Create from 'pages/create';
 import {
   withAuthenticator,
     WithAuthenticatorProps,
     useAuthenticator,
   Authenticator
 } from '@aws-amplify/ui-react';
-
 import '@aws-amplify/ui-react/styles.css';
 
 
@@ -43,8 +42,9 @@ function Main() {
           <Route path="/" element={<Overview />} />
           <Route path="/labpage" element={<Labpage />} />
           <Route path="/jobs" element={<Jobs />} />
-            <Route path="/post" element={<Page1 />} />
-            <Route path="/create" element={<Page1 />} />
+            <Route path="/post" element={<Post />} />
+            <Route path="/create" element={<Create />} />
+            <Route path="/login" element={<Authenticator components={componentsSetting} />} />
           </Routes>
       </Container>
       </React.Fragment>

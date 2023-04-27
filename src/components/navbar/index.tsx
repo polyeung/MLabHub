@@ -53,14 +53,7 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
   
-  async function isUserSignedIn() {
-    try {
-      const user = await Auth.currentAuthenticatedUser();
-      return !!user; // return true if user is signed in, false otherwise
-    } catch (error) {
-      return false; // return false if Auth.currentAuthenticatedUser() throws an error (i.e., user is not signed in)
-    }
-  }
+
 async function signOutFunc() {
   try {
     await Auth.signOut();
@@ -68,18 +61,6 @@ async function signOutFunc() {
     console.log('error signing out: ', error);
   }
   };
-  function getButton() {
-    Auth.currentAuthenticatedUser()
-    .then((isUserSignedIn) => {
-      if (isUserSignedIn) {
-        // User is signed in, do something
-        return <Button variant="text" onClick={signOutFunc} sx={{ width: '100%' }}>Logout</Button>;
-      } else {
-        // User is not signed in, do something else
-        return <Button variant="text" onClick={() => console.log("signin")} sx={{ width: '100%' }}>Login</Button>;
-      }
-    });
-  }
 
   return (
     <AppBar position="static" style={{ backgroundColor: '#01305c' }}>
@@ -202,11 +183,16 @@ async function signOutFunc() {
                 
                 
                 {authStatus !== 'authenticated' ? (
-                  <Button variant='text' onClick={() => { <Authenticator/> }}>Sign in</Button>
+                  <Button variant='text' >Sign in</Button>
                 ) : (
-                  <Button variant='text' onClick={ signOutFunc}>Logout</Button>
+                  <Button variant='text' >Logout</Button>
                 )}
+              </MenuItem>
+              {authStatus === 'authenticated' &&
+                <MenuItem key="2" onClick={handleCloseUserMenu}>
+                  <Button variant='text' >Dashboard</Button>
                 </MenuItem>
+              }
               
             </Menu>
           </Box>

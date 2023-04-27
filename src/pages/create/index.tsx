@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Amplify, Hub } from 'aws-amplify';
 import { Button, Typography, Box} from '@mui/material';
 import { useAuthenticator } from '@aws-amplify/ui-react';
-import JobsContent from './jobsContent';
+import JobsContent from './createContent';
 import LoginPage from 'pages/loginPage';
 import { useNavigate } from 'react-router-dom';
 
