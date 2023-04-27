@@ -1,22 +1,19 @@
-import React, { useState } from 'react';
 import {
     Authenticator
 } from '@aws-amplify/ui-react';
 import { Box } from '@mui/material';
 import { componentsSetting } from 'utility';
-import { Hub, } from 'aws-amplify';
-import { useNavigate } from 'react-router-dom';
-import { useAuthenticator } from '@aws-amplify/ui-react';
+import { Hub } from 'aws-amplify';
 
-export default function loginPage() { 
-
-    const navigate = useNavigate();
+interface loginPageProps { 
+    setIsSignIn: (value: boolean) => void;
+};
+export default function loginPage({ setIsSignIn }: loginPageProps) { 
     const listener = (data: any) => {
     switch (data.payload.event) {
           case 'signIn':
             console.log("Signin! from authenticator");
-
-            navigate('/')
+            setIsSignIn(true);
             break;
         }
     };

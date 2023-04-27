@@ -4,5 +4,5 @@ import { signOutFunc } from 'utility';
 
 export default function createContent() { 
     
-    return (<div> Create page content! Welcome <Button variant='outlined' onClick={signOutFunc }>Sign out</Button></div>);
+    return (<div> Create page content! Welcome </div>);
 };

@@ -8,6 +8,7 @@ import { componentsSetting } from 'utility';
 import Jobs from 'pages/jobs';
 import Post from 'pages/post';
 import Create from 'pages/create';
+import LoginPage from 'pages/loginPage';
 import {
   withAuthenticator,
     WithAuthenticatorProps,
@@ -44,7 +45,7 @@ function Main() {
           <Route path="/jobs" element={<Jobs />} />
             <Route path="/post" element={<Post />} />
             <Route path="/create" element={<Create />} />
-            <Route path="/login" element={<Authenticator components={componentsSetting} />} />
+            <Route path="/login" element={<LoginPage /> } />
           </Routes>
       </Container>
       </React.Fragment>

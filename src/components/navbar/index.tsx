@@ -22,7 +22,7 @@ import {
   Authenticator,
   useAuthenticator
 } from '@aws-amplify/ui-react';
-import { Amplify, Auth } from 'aws-amplify';
+import { Hub, Auth } from 'aws-amplify';
 
 
 const pages = [['Research Opportunities', '/jobs', '1'], ['Post Jobs', '/post', '2'], ['Post Lab Info', '/create', '3']];
@@ -42,7 +42,7 @@ function ResponsiveAppBar() {
   };
   
   const { authStatus } = useAuthenticator((context) => [context.user]);
-  
+  const [isLogin, setIsLogin] = React.useState<boolean>(authStatus === 'authenticated');
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
     console.log("navigate");
@@ -53,14 +53,32 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
   
-
+  function signInFunc() { 
+    navigate('/login');
+  }
 async function signOutFunc() {
   try {
     await Auth.signOut();
   } catch (error) {
     console.log('error signing out: ', error);
   }
+  setIsLogin(false);
   };
+
+  const listener = (data: any) => {
+    switch (data.payload.event) {
+          case 'signIn':
+            console.log("Signin! from navbar");
+            setIsLogin(true);
+          break;
+          case 'signOut':
+            console.log("Signout! from navbar");
+            setIsLogin(false);
+            break;
+        }
+    };
+    Hub.listen('auth', listener);
+
 
   return (
     <AppBar position="static" style={{ backgroundColor: '#01305c' }}>
@@ -182,13 +200,13 @@ async function signOutFunc() {
               <MenuItem key="1" onClick={handleCloseUserMenu}>
                 
                 
-                {authStatus !== 'authenticated' ? (
-                  <Button variant='text' >Sign in</Button>
+                {!isLogin ? (
+                  <Button variant='text' onClick={ signInFunc} >Login</Button>
                 ) : (
-                  <Button variant='text' >Logout</Button>
+                    <Button variant='text' onClick={ signOutFunc}>Logout</Button>
                 )}
               </MenuItem>
-              {authStatus === 'authenticated' &&
+              {isLogin &&
                 <MenuItem key="2" onClick={handleCloseUserMenu}>
                   <Button variant='text' >Dashboard</Button>
                 </MenuItem>

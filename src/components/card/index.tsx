@@ -98,7 +98,7 @@ export default function RecipeReviewCard({ name, link, people, intro, id }: labi
       {showAlert && (
         <Alert
           severity="success"
-          sx={{ position: 'fixed', bottom: 16, left: 16 }}
+          sx={{ position: 'fixed', bottom: 16, left: 16, zIndex: 10, width: 400}}
           onClose={() => setShowAlert(false)}
           icon={<CheckIcon fontSize="inherit" />}
         >

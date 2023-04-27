@@ -4,5 +4,5 @@ import { signOutFunc } from 'utility';
 
 
 export default function jobsContent() { 
-    return (<div> jobs page content! Welcome <Button variant='outlined' onClick={signOutFunc }>Sign out</Button></div>);
+    return (<div> jobs page content! Welcome </div>);
 };
