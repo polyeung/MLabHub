@@ -15,3 +15,10 @@ CREATE TABLE comments(
     word VARCHAR(200) NOT NULL,
     FOREIGN KEY (labid) REFERENCES labs(id)
 );
+
+CREATE TABLE users (
+    username        VARCHAR(20),
+    password        VARCHAR(256),   -- not present for Google OAuth2 users
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    created         TIMESTAMP       NOT NULL    DEFAULT CURRENT_TIMESTAMP
+);

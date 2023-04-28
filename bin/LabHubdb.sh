@@ -28,6 +28,8 @@ case $1 in
     ;;
   "dump")
     sqlite3 -batch -line var/LabHub.sqlite3 'SELECT * FROM labs'
+    sqlite3 -batch -line var/LabHub.sqlite3 'SELECT * FROM comments'
+    sqlite3 -batch -line var/LabHub.sqlite3 'SELECT * FROM users'
     ;;
   "random")
     SHUF=shuf
