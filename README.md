@@ -1,5 +1,5 @@
 # MHubLab
-
+# this Version is using aws-amplify for authentication!
 A collection of lab info in Umich
 
 # setup
