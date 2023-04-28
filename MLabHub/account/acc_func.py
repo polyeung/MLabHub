@@ -5,7 +5,7 @@ from flask import jsonify
 import MLabHub
 @MLabHub.app.route('/api/account/', methods=['GET'])
 def handle_account():
-    return "account page!"
+    return "account page! you are in"
 
 @MLabHub.app.route('/api/account/create/', methods=['POST'])
 def handle_get_account():

@@ -4,18 +4,11 @@ import { Container } from '@mui/material';
 import Navbar from 'components/navbar';
 import Overview from 'pages/overview';
 import Labpage from 'pages/labpage';
-import { componentsSetting } from 'utility';
 import Jobs from 'pages/jobs';
 import Post from 'pages/post';
 import Create from 'pages/create';
 import LoginPage from 'pages/loginPage';
-import {
-  withAuthenticator,
-    WithAuthenticatorProps,
-    useAuthenticator,
-  Authenticator
-} from '@aws-amplify/ui-react';
-import '@aws-amplify/ui-react/styles.css';
+
 
 
 

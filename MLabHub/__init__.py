@@ -20,3 +20,4 @@ app.config.from_object('MLabHub.config')
 import MLabHub.api  # noqa: E402  pylint: disable=wrong-import-position
 #import insta485.views  # noqa: E402  pylint: disable=wrong-import-position
 import MLabHub.model  # noqa: E402  pylint: disable=wrong-import-position
+import MLabHub.account # noqa: E402  pylint: disable=wrong-import-position

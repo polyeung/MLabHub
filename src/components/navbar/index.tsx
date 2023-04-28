@@ -16,13 +16,7 @@ import ScienceIcon from '@mui/icons-material/Science';
 import SchoolIcon from '@mui/icons-material/School';
 import WorkIcon from '@mui/icons-material/Work';
 import { logoImg } from 'assets';
-import {
-  withAuthenticator,
-  WithAuthenticatorProps,
-  Authenticator,
-  useAuthenticator
-} from '@aws-amplify/ui-react';
-import { Hub, Auth } from 'aws-amplify';
+
 
 
 const pages = [['Research Opportunities', '/jobs', '1'], ['Post Jobs', '/post', '2'], ['Post Lab Info', '/create', '3']];
@@ -41,12 +35,11 @@ function ResponsiveAppBar() {
     setAnchorElUser(event.currentTarget);
   };
   
-  const { authStatus } = useAuthenticator((context) => [context.user]);
-  const [isLogin, setIsLogin] = React.useState<boolean>(authStatus === 'authenticated');
+
+
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
-    console.log("navigate");
-    navigate('/page1');
+
   };
 
   const handleCloseUserMenu = () => {
@@ -56,29 +49,9 @@ function ResponsiveAppBar() {
   function signInFunc() { 
     navigate('/login');
   }
-async function signOutFunc() {
-  try {
-    await Auth.signOut();
-  } catch (error) {
-    console.log('error signing out: ', error);
-  }
-  setIsLogin(false);
-  };
 
-  const listener = (data: any) => {
-    switch (data.payload.event) {
-          case 'signIn':
-            console.log("Signin! from navbar");
-            setIsLogin(true);
-          break;
-          case 'signOut':
-            console.log("Signout! from navbar");
-            setIsLogin(false);
-            break;
-        }
-    };
-    Hub.listen('auth', listener);
 
+  
 
   return (
     <AppBar position="static" style={{ backgroundColor: '#01305c' }}>
@@ -198,19 +171,9 @@ async function signOutFunc() {
             >
               
               <MenuItem key="1" onClick={handleCloseUserMenu}>
-                
-                
-                {!isLogin ? (
-                  <Button variant='text' onClick={ signInFunc} >Login</Button>
-                ) : (
-                    <Button variant='text' onClick={ signOutFunc}>Logout</Button>
-                )}
+                  <Button variant='text' >Login</Button>
               </MenuItem>
-              {isLogin &&
-                <MenuItem key="2" onClick={handleCloseUserMenu}>
-                  <Button variant='text' >Dashboard</Button>
-                </MenuItem>
-              }
+             
               
             </Menu>
           </Box>
