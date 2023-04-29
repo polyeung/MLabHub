@@ -1,27 +1,27 @@
-
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Card, CardContent, Typography, TextField, Container } from '@mui/material';
 
 
-function LoginPage() {
+function SignupPage() {
 
 	const navigate = useNavigate();
 	const [waiting, setWaiting] = useState(false);
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 
+
 	const handleSubmit = (e: any) => {
 		e.preventDefault();
 		setWaiting(true);
-		fetch('http://localhost:8000/api/account/login/', {
+		fetch('http://localhost:8000/api/account/create/', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ username, password }),
 		})
 			.then(res => {
 				if (res.ok) {
-					console.log("login success!")
+					//notifs.addNotif({ severity: 'success', message: 'Successfully signed up!' });
 					navigate('/');
 				} 
 				setWaiting(false);
@@ -31,21 +31,6 @@ function LoginPage() {
 
 	return (
 		<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-			<div style={{ display: 'flex' }}>
-				
-				<div
-					style={{
-						margin: '0px 16px',
-						display: 'flex',
-						flexDirection: 'column',
-						justifyContent: 'center',
-					}}
-				>
-					<div style={{ fontSize: 24 }}>The</div>
-					<div style={{ fontSize: 48 }}>Morality</div>
-					<div style={{ fontSize: 48 }}>Game</div>
-				</div>
-			</div>
 			<Container maxWidth="xs">
 				<Card
 					style={{
@@ -57,7 +42,11 @@ function LoginPage() {
 				>
 					<CardContent>
 						<Typography variant="h6" sx={{ marginBottom: 2 }}>
-							Login
+							Sign Up
+						</Typography>
+						<Typography variant="body2" sx={{ marginBottom: 2 }}>
+							By signing up, you consent to allow your data to be used in an anonymous and aggregated
+							manner for research purposes.
 						</Typography>
 						<form onSubmit={handleSubmit}>
 							<TextField
@@ -83,6 +72,7 @@ function LoginPage() {
 								value={password}
 								onChange={e => setPassword(e.target.value)}
 							/>
+							
 							<Button
 								type="submit"
 								fullWidth
@@ -93,11 +83,11 @@ function LoginPage() {
 									margin: '12px 0 8px 0',
 								}}
 							>
-								Sign In
+								Sign Up
 							</Button>
 						</form>
-						<Link to="/signup">
-							<Typography variant="body2">Don't have an account? Sign Up</Typography>
+						<Link to="/login">
+							<Typography variant="body2">Already have an account? Sign In</Typography>
 						</Link>
 					</CardContent>
 				</Card>
@@ -106,4 +96,4 @@ function LoginPage() {
 	);
 }
 
-export default LoginPage;
+export default SignupPage;
