@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Card, CardContent, Typography, TextField, Container } from '@mui/material';
-
+import { useNotifs } from 'context';
 
 function SignupPage() {
-
+	const notifs = useNotifs();
 	const navigate = useNavigate();
 	const [waiting, setWaiting] = useState(false);
 	const [username, setUsername] = useState('');
@@ -20,10 +20,16 @@ function SignupPage() {
 		})
 			.then(res => {
 				if (res.ok) {
-					//notifs.addNotif({ severity: 'success', message: 'Successfully signed up!' });
-					alert("signup successful!");
+					notifs.addNotif({ severity: 'success', message: 'Successfully signed up!' });
 					navigate('/');
-				} 
+				} else {
+					res.json().then(data =>
+						notifs.addNotif({
+							severity: 'error',
+							message: `Signup error: ${data.error}`,
+						}),
+					);
+				}
 				setWaiting(false);
 			})
 			.catch(console.warn);
