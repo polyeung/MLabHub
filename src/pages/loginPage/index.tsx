@@ -16,6 +16,7 @@ function LoginPage() {
 		setWaiting(true);
 		fetch('http://localhost:8000/api/account/login/', {
 			method: 'POST',
+			credentials: 'include',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ username, password }),
 		})
