@@ -14,9 +14,9 @@ pip install -e .
 npm install
 
 # initialize fresh db
-./bin/LabHubdb destroy
-./bin/LabHubdb create
+./bin/LabHubdb.sh destroy
+./bin/LabHubdb.sh create
 
-# run app
+# run frontend app
 npm start
-./bin/LabHubrun.sh
+

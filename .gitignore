@@ -24,6 +24,13 @@ yarn-error.log*
 
 # env
 /env
+*.pem
+/env
+__pycache__
+*.egg-info
+**/__pycache__/
+**/*.pyc
+.vscode
 
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend

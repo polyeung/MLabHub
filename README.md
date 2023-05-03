@@ -2,15 +2,16 @@
 
 A collection of lab info in Umich
 
-# setup
+# setup and run frontend
 
 ```
-npm i
-npm start
+cd MLabHub
+./bin/installAndRun.sh
+./bin/LabHubrun.sh
+```
 
-python3 -m venv env
-source env/bin/activate
-brew install sqlite curl
-pip install flask-cors
-
+# run backend (open a new terminal)
+```
+cd MLabHub
+./bin/LabHubrun.sh
 ```
