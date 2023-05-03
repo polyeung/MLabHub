@@ -36,10 +36,10 @@ function Main() {
           <Route path="/" element={<Overview />} />
           <Route path="/labpage" element={<Labpage />} />
           <Route path="/jobs" element={<Jobs />} />
-            <Route path="/post" element={<Post />} />
-            <Route path="/create" element={<Create />} />
-            <Route path="/login" element={<LoginPage /> } />
-          </Routes>
+          <Route path="/post" element={<Post />} />
+          <Route path="/create" element={<Create />} />
+          <Route path="/login" element={<LoginPage /> } />
+        </Routes>
       </Container>
       </React.Fragment>
     </Router>

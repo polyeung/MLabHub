@@ -117,7 +117,7 @@ function ResponsiveAppBar() {
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -170,7 +170,7 @@ function ResponsiveAppBar() {
               onClose={handleCloseUserMenu}
             >
               
-              <MenuItem key="1" onClick={handleCloseUserMenu}>
+              <MenuItem key="1" onClick={signInFunc}>
                   <Button variant='text' >Login</Button>
               </MenuItem>
              
