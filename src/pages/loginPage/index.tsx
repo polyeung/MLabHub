@@ -16,12 +16,13 @@ function LoginPage() {
 		setWaiting(true);
 		fetch('http://localhost:8000/api/account/login/', {
 			method: 'POST',
+			credentials: 'include',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ username, password }),
 		})
 			.then(res => {
 				if (res.ok) {
-					console.log("login success!")
+					alert("login success!");
 					navigate('/');
 				} 
 				setWaiting(false);
@@ -31,21 +32,7 @@ function LoginPage() {
 
 	return (
 		<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-			<div style={{ display: 'flex' }}>
-				
-				<div
-					style={{
-						margin: '0px 16px',
-						display: 'flex',
-						flexDirection: 'column',
-						justifyContent: 'center',
-					}}
-				>
-					<div style={{ fontSize: 24 }}>The</div>
-					<div style={{ fontSize: 48 }}>Morality</div>
-					<div style={{ fontSize: 48 }}>Game</div>
-				</div>
-			</div>
+			
 			<Container maxWidth="xs">
 				<Card
 					style={{

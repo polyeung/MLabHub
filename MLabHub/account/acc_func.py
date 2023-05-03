@@ -5,9 +5,38 @@ from flask import jsonify
 import MLabHub
 from MLabHub.model import get_db
 
+@MLabHub.app.route('/api/account/test/<name>', methods=['GET'])
+def test1(name):
+    flask.session['logname'] = name
+    return f"session set to {name}"
+@MLabHub.app.route('/api/account/test/clear', methods=['GET'])
+def test3():
+    flask.session.clear()
+    return f"session cleared!"
+
+@MLabHub.app.route('/api/account/test/', methods=['GET'])
+def test2():
+    logname = flask.session.get('logname')
+    return f"session is {logname}"
+
 @MLabHub.app.route('/api/account/', methods=['GET'])
 def handle_account():
-    return "account page! you are in"
+    logname = flask.session.get('logname')
+    if logname is not None:
+        # TODO: check error here
+        conn = get_db()
+        cur = conn.execute(
+            "SELECT username FROM users "
+            "WHERE username = ?",(logname, ))
+        user = cur.fetchone()
+
+        if user is None:
+            flask.session.clear()
+            return flask.jsonify({'error': 'Invalid session.'}), 401
+
+        return flask.jsonify(user)
+    else:
+        return flask.jsonify({'error': 'Not logged in.'}), 401
 
 @MLabHub.app.route('/api/account/create/', methods=['POST'])
 def handle_get_account():
@@ -93,6 +122,7 @@ def handle_logout():
 
     # Check if user is logged in
     logname = flask.session.get('logname')
+    print("logname is: ", logname)
     if logname is None:
         return flask.jsonify({'error': 'Not logged in.'}), 401
 

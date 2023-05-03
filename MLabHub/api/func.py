@@ -7,7 +7,7 @@ import MLabHub
 @MLabHub.app.route('/')
 def get_default():
     """Feed content for default page."""
-    return "Hi! Checkout /getLabInfo"
+    return "Hi! Checkout /getLabInfo "
 
 @MLabHub.app.route('/getLabInfo')
 def get_labInfo():

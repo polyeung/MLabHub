@@ -10,7 +10,6 @@ function SignupPage() {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 
-
 	const handleSubmit = (e: any) => {
 		e.preventDefault();
 		setWaiting(true);
@@ -22,6 +21,7 @@ function SignupPage() {
 			.then(res => {
 				if (res.ok) {
 					//notifs.addNotif({ severity: 'success', message: 'Successfully signed up!' });
+					alert("signup successful!");
 					navigate('/');
 				} 
 				setWaiting(false);
@@ -31,6 +31,7 @@ function SignupPage() {
 
 	return (
 		<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+			
 			<Container maxWidth="xs">
 				<Card
 					style={{
@@ -44,10 +45,7 @@ function SignupPage() {
 						<Typography variant="h6" sx={{ marginBottom: 2 }}>
 							Sign Up
 						</Typography>
-						<Typography variant="body2" sx={{ marginBottom: 2 }}>
-							By signing up, you consent to allow your data to be used in an anonymous and aggregated
-							manner for research purposes.
-						</Typography>
+						
 						<form onSubmit={handleSubmit}>
 							<TextField
 								variant="outlined"
