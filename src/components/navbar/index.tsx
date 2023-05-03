@@ -55,11 +55,6 @@ function logoutFunc() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  
-  function signInFunc() { 
-    navigate('/login');
-  }
-
 
   
 
@@ -186,7 +181,7 @@ function logoutFunc() {
               
                 {userData &&
                 <MenuItem key="2" onClick={handleCloseUserMenu}>
-                  <Button variant='text' >Dashboard</Button>
+                  <Button variant='text' onClick={ () => navigate('/dashboard')}>Dashboard</Button>
                 </MenuItem>}
               
               {!userData &&

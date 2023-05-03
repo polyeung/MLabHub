@@ -10,6 +10,7 @@ import LoginPage from 'pages/loginPage';
 import SignupPage from 'pages/signupPage';
 import Navbar from 'components/navbar';
 import { UserData } from 'types/interface';
+import Dashboard from 'pages/dashboard';
 
 function ProtectedRoute(props: {
 	userData: UserData | undefined | null;
@@ -70,7 +71,8 @@ function Main() {
             <Route path="/jobs" element={<Jobs />} />
             { /*Protected routes */}
             <Route path="/post" element={<ProtectedRoute userData={userData} page={<Post />}/>} />
-            <Route path="/create" element={<ProtectedRoute userData={userData} page={<Create />}  />} />
+          <Route path="/create" element={<ProtectedRoute userData={userData} page={<Create />} />} />
+          <Route path="/dashboard" element={<ProtectedRoute userData={userData} page={<Dashboard />} />} />
             { /* Account routes */}
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
