@@ -12,3 +12,11 @@ pip install -e .
 
 # install the frontend
 npm install
+
+# initialize fresh db
+./bin/LabHubdb destroy
+./bin/LabHubdb create
+
+# run app
+npm start
+./bin/LabHubrun.sh
