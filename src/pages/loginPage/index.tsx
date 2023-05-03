@@ -2,10 +2,10 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Card, CardContent, Typography, TextField, Container } from '@mui/material';
-
+import { useNotifs } from 'context';
 
 function LoginPage() {
-
+	const notifs = useNotifs();
 	const navigate = useNavigate();
 	const [waiting, setWaiting] = useState(false);
 	const [username, setUsername] = useState('');
@@ -22,9 +22,16 @@ function LoginPage() {
 		})
 			.then(res => {
 				if (res.ok) {
-					alert("login success!");
+					notifs.addNotif({ severity: 'success', message: 'Successfully logged in!' });
 					navigate('/');
-				} 
+				} else { 
+					res.json().then(data =>
+						notifs.addNotif({
+							severity: 'error',
+							message: `Login error: ${data.error}`,
+						}),
+					);
+				}
 				setWaiting(false);
 			})
 			.catch(console.warn);

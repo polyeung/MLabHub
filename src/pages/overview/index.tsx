@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Labinfo from 'components/modal';
 import Grid from '@mui/material/Grid';
-import LabData from 'data/labData';
 import { LabInfoType } from 'types/interface';
 import Cards from 'components/card';
 export default function overview() { 
