@@ -7,7 +7,6 @@ A collection of lab info in Umich
 ```
 cd MLabHub
 ./bin/installAndRun.sh
-./bin/LabHubrun.sh
 ```
 
 # run backend (open a new terminal)
