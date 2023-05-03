@@ -5,19 +5,6 @@ from flask import jsonify
 import MLabHub
 from MLabHub.model import get_db
 
-@MLabHub.app.route('/api/account/test/<name>', methods=['GET'])
-def test1(name):
-    flask.session['logname'] = name
-    return f"session set to {name}"
-@MLabHub.app.route('/api/account/test/clear', methods=['GET'])
-def test3():
-    flask.session.clear()
-    return f"session cleared!"
-
-@MLabHub.app.route('/api/account/test/', methods=['GET'])
-def test2():
-    logname = flask.session.get('logname')
-    return f"session is {logname}"
 
 @MLabHub.app.route('/api/account/', methods=['GET'])
 def handle_account():

@@ -8,7 +8,7 @@ import Post from 'pages/post';
 import Create from 'pages/create';
 import LoginPage from 'pages/loginPage';
 import SignupPage from 'pages/signup';
-import Test from 'components/test';
+
 { /* navbar begin */ }
 
 import AppBar from '@mui/material/AppBar';
@@ -280,7 +280,6 @@ function Main() {
             { /*Protected routes */}
             <Route path="/post" element={<ProtectedRoute userData={userData} page={<Post />}/>} />
             <Route path="/create" element={<ProtectedRoute userData={userData} page={<Create />}  />} />
-            <Route path="/test" element={<Test />} />
             { /* Account routes */}
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
