@@ -16,18 +16,16 @@ import ScienceIcon from '@mui/icons-material/Science';
 import SchoolIcon from '@mui/icons-material/School';
 import WorkIcon from '@mui/icons-material/Work';
 import { logoImg } from 'assets';
-
-
+import { useNotifs } from 'context';
+import { UserData } from 'types/interface';
 
 const pages = [['Research Opportunities', '/jobs', '1'], ['Post Jobs', '/post', '2'], ['Post Lab Info', '/create', '3']];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-
-
-function ResponsiveAppBar() {
+function NavBar({ userData }: { userData?: UserData | null }) {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
   const navigate = useNavigate();
+  const notifs = useNotifs();
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -35,7 +33,19 @@ function ResponsiveAppBar() {
     setAnchorElUser(event.currentTarget);
   };
   
+function logoutFunc() {
+  
+  fetch('http://localhost:8000/api/account/logout/', { method: 'POST', credentials: 'include' }).then(res => {
 
+        if (res.ok) {
+            //notifs.addNotif({ severity: 'success', message: 'Successfully logged out.' });
+            notifs.addNotif({ severity: 'success', message: 'Successfully logged out.' });
+            navigate('/login');
+        } else {
+          notifs.addNotif({ severity: 'error', message: 'Failed to logout.' });
+        }
+    });
+};
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
@@ -148,9 +158,9 @@ function ResponsiveAppBar() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+            <Tooltip title={ userData?.username? userData.username: "Not Login"}>
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt={ userData?.username} src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
             <Menu
@@ -169,11 +179,21 @@ function ResponsiveAppBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
+              {userData &&
+                <MenuItem key="1" onClick={handleCloseUserMenu}>
+                  <Button variant='text' onClick={ logoutFunc }>Logout</Button>
+                </MenuItem>}
               
-              <MenuItem key="1" onClick={handleCloseUserMenu}>
-                  <Button variant='text' >Login</Button>
+                {userData &&
+                <MenuItem key="2" onClick={handleCloseUserMenu}>
+                  <Button variant='text' >Dashboard</Button>
+                </MenuItem>}
+              
+              {!userData &&
+                <MenuItem key="3" onClick={handleCloseUserMenu}>
+                  <Button variant='text' onClick={ () => navigate('/login')} >Login</Button>
               </MenuItem>
-             
+              }
               
             </Menu>
           </Box>
@@ -182,4 +202,5 @@ function ResponsiveAppBar() {
     </AppBar>
   );
 }
-export default ResponsiveAppBar;
+
+export default NavBar;

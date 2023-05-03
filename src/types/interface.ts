@@ -46,3 +46,7 @@ export interface commentsInt {
     rating: number,
     word: string
 }
+
+export interface UserData {
+	username: string;
+};

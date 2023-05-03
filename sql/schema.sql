@@ -22,3 +22,12 @@ CREATE TABLE users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     created         TIMESTAMP       NOT NULL    DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE sessions(
+    id INTEGER NOT NULL,
+    session_id VARCHAR(255),
+    data BLOG,
+    expiry DATETIME,
+    PRIMARY KEY (id),
+    UNIQUE (session_id)
+);

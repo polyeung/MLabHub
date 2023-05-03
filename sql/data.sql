@@ -67,3 +67,4 @@ VALUES (1, 3, "Jasmine Lee", "This lab was average. The instructors were okay, b
 
 INSERT INTO comments(labid, rating, name, word)
 VALUES (6, 4, "Sophia Wang", "I had a great experience at this lab. The staff were friendly and the lab had all the equipment I needed.");
+

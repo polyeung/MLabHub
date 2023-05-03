@@ -1,10 +1,9 @@
-
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Card, CardContent, Typography, TextField, Container } from '@mui/material';
 import { useNotifs } from 'context';
 
-function LoginPage() {
+function SignupPage() {
 	const notifs = useNotifs();
 	const navigate = useNavigate();
 	const [waiting, setWaiting] = useState(false);
@@ -14,21 +13,20 @@ function LoginPage() {
 	const handleSubmit = (e: any) => {
 		e.preventDefault();
 		setWaiting(true);
-		fetch('http://localhost:8000/api/account/login/', {
+		fetch('http://localhost:8000/api/account/create/', {
 			method: 'POST',
-			credentials: 'include',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ username, password }),
 		})
 			.then(res => {
 				if (res.ok) {
-					notifs.addNotif({ severity: 'success', message: 'Successfully logged in!' });
+					notifs.addNotif({ severity: 'success', message: 'Successfully signed up!' });
 					navigate('/');
-				} else { 
+				} else {
 					res.json().then(data =>
 						notifs.addNotif({
 							severity: 'error',
-							message: `Login error: ${data.error}`,
+							message: `Signup error: ${data.error}`,
 						}),
 					);
 				}
@@ -51,8 +49,9 @@ function LoginPage() {
 				>
 					<CardContent>
 						<Typography variant="h6" sx={{ marginBottom: 2 }}>
-							Login
+							Sign Up
 						</Typography>
+						
 						<form onSubmit={handleSubmit}>
 							<TextField
 								variant="outlined"
@@ -77,6 +76,7 @@ function LoginPage() {
 								value={password}
 								onChange={e => setPassword(e.target.value)}
 							/>
+							
 							<Button
 								type="submit"
 								fullWidth
@@ -87,11 +87,11 @@ function LoginPage() {
 									margin: '12px 0 8px 0',
 								}}
 							>
-								Sign In
+								Sign Up
 							</Button>
 						</form>
-						<Link to="/signup">
-							<Typography variant="body2">Don't have an account? Sign Up</Typography>
+						<Link to="/login">
+							<Typography variant="body2">Already have an account? Sign In</Typography>
 						</Link>
 					</CardContent>
 				</Card>
@@ -100,4 +100,4 @@ function LoginPage() {
 	);
 }
 
-export default LoginPage;
+export default SignupPage;
