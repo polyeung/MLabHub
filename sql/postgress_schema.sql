@@ -28,10 +28,9 @@ CREATE TABLE users (
 );
 
 CREATE TABLE sessions(
-    id INTEGER NOT NULL,
+    id SERIAL PRIMARY KEY,
     session_id VARCHAR(255),
     data BYTEA,
     expiry TIMESTAMP,
-    PRIMARY KEY (id),
     UNIQUE (session_id)
 );
