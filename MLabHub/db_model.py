@@ -2,8 +2,11 @@
 import sqlite3
 import flask
 import MLabHub
+import os
+import psycopg
+from psycopg.rows import dict_row
 
-
+# here is the db modal for sqlite
 def dict_factory(cursor, row):
     """Go Function Decoration."""
     return {col[0]: row[idx] for idx, col in enumerate(cursor.description)}
@@ -29,3 +32,27 @@ def close_db(error):
     if sqlite_db is not None:
         sqlite_db.commit()
         sqlite_db.close()
+
+# here is the db modal for postgress
+
+def get_pg_db():
+    if 'db' not in flask.g:
+        flask.g.db = psycopg.connect(
+            host=os.getenv('DB_HOST'),
+            port=os.getenv('DB_PORT'),
+            dbname=os.getenv('DB_NAME'),
+            user=os.getenv('DB_USER'),
+            password=os.getenv('DB_PASS')
+        )
+        flask.g.db.row_factory = dict_row
+
+    return flask.g.db
+
+
+@MLabHub.app.teardown_appcontext
+def close_pg_db(exception):
+    db = flask.g.pop('db', None)
+    if db is not None:
+        db.commit()
+        db.close()
+

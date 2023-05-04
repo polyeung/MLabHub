@@ -33,38 +33,38 @@ VALUES ('Quantum Computing Lab', 'http://quantumcomputinglab.com', 'We work on q
 
 
 INSERT INTO comments(labid, rating, name, word)
-VALUES (1, 4, "Yang Li", "I love this lab so much");
+VALUES (1, 4, 'Yang Li', 'I love this lab so much');
 
 INSERT INTO comments(labid, rating, name, word)
-VALUES (1, 3, "Elijah Qi", "This lab is overral great. But a little bit pushy and not that well-structured");
+VALUES (1, 3, 'Elijah Qi', 'This lab is overral great. But a little bit pushy and not that well-structured');
 
 INSERT INTO comments(labid, rating, name, word)
-VALUES (2, 5, "Megan Lee", "This lab exceeded my expectations. The staff were very helpful and knowledgeable.");
+VALUES (2, 5, 'Megan Lee', 'This lab exceeded my expectations. The staff were very helpful and knowledgeable.');
 
 INSERT INTO comments(labid, rating, name, word)
-VALUES (7, 2, "Jason Wang", "I did not have a good experience at this lab. The equipment was outdated and the staff were unhelpful.");
+VALUES (7, 2, 'Jason Wang', 'I did not have a good experience at this lab. The equipment was outdated and the staff were unhelpful.');
 
 INSERT INTO comments(labid, rating, name, word)
-VALUES (4, 4, "Rachel Chen", "I really enjoyed my time at this lab. The instructors were great and the lab was well-maintained.");
+VALUES (4, 4, 'Rachel Chen', 'I really enjoyed my time at this lab. The instructors were great and the lab was well-maintained.');
 
 INSERT INTO comments(labid, rating, name, word)
-VALUES (9, 3, "David Kim", "This lab was okay. The equipment was good, but the instructors were not very engaging.");
+VALUES (9, 3, 'David Kim', 'This lab was okay. The equipment was good, but the instructors were not very engaging.');
 
 INSERT INTO comments(labid, rating, name, word)
-VALUES (10, 5, "Jennifer Nguyen", "This lab was amazing! The staff were friendly and knowledgeable, and the lab was well-organized.");
+VALUES (10, 5, 'Jennifer Nguyen', 'This lab was amazing! The staff were friendly and knowledgeable, and the lab was well-organized.');
 
 INSERT INTO comments(labid, rating, name, word)
-VALUES (5, 2, "Alex Smith", "I had a terrible experience at this lab. The equipment was not working properly and the staff were unresponsive.");
+VALUES (5, 2, 'Alex Smith', 'I had a terrible experience at this lab. The equipment was not working properly and the staff were unresponsive.');
 
 INSERT INTO comments(labid, rating, name, word)
-VALUES (3, 4, "Emily Rodriguez", "I enjoyed my time at this lab. The instructors were knowledgeable and the lab was well-maintained.");
+VALUES (3, 4, 'Emily Rodriguez', 'I enjoyed my time at this lab. The instructors were knowledgeable and the lab was well-maintained.');
 
 INSERT INTO comments(labid, rating, name, word)
-VALUES (8, 5, "Michael Chen", "This lab was fantastic! The staff were friendly and helpful, and the lab had all the equipment I needed.");
+VALUES (8, 5, 'Michael Chen', 'This lab was fantastic! The staff were friendly and helpful, and the lab had all the equipment I needed.');
 
 INSERT INTO comments(labid, rating, name, word)
-VALUES (1, 3, "Jasmine Lee", "This lab was average. The instructors were okay, but the lab was not well-organized.");
+VALUES (1, 3, 'Jasmine Lee', 'This lab was average. The instructors were okay, but the lab was not well-organized.');
 
 INSERT INTO comments(labid, rating, name, word)
-VALUES (6, 4, "Sophia Wang", "I had a great experience at this lab. The staff were friendly and the lab had all the equipment I needed.");
+VALUES (6, 4, 'Sophia Wang', 'I had a great experience at this lab. The staff were friendly and the lab had all the equipment I needed.');
 

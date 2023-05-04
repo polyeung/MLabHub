@@ -4,6 +4,12 @@ import { Box, Typography, IconButton, TextField  } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import SaveIcon from '@mui/icons-material/Save';
 import { useNotifs } from 'context';
+
+function pretifyDate(input: String) {
+    let splitWord: String[] = input.split(' ');
+    console.log(splitWord);
+    return (splitWord[0] + ' ' + splitWord[1]+ ' ' + splitWord[2]);
+}
 function dashboard(props: { userData: UserData |  null | undefined; }) { 
     const [localUser, setLocalUser] = useState<UserData | null | undefined>(props.userData ?? {
         email: '', username: '', name: '', created: ''
@@ -145,7 +151,7 @@ function dashboard(props: { userData: UserData |  null | undefined; }) {
                 </Box>
                 <Box sx={{ display: 'flex', flexDirection: 'row' }}>
                     <Typography sx={{fontWeight: 'bold', mr: '15px'}}>Created: </Typography>
-                    <Typography>{localUser?.created.split(" ")[0]}</Typography>
+                    <Typography>{pretifyDate(localUser?.created? localUser?.created:"" )}</Typography>
                 </Box>
                 
             </Box>
