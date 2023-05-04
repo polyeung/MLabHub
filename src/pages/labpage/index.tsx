@@ -11,25 +11,6 @@ function getRandomColor(): string {
     return colors[randomIndex];
 }
 
-const ReviewsData: ReviewsType[] = [
-    {
-        rating: 5,
-        comment: "This lab is so great, really recommended!",
-        name: "Tommy"
-    },
-    {
-        rating: 4,
-        comment: "Very meaningful project, love it!",
-        name: "Kevin"
-    },
-    {
-        rating: 4,
-        comment: "People are nice, very worth it",
-        name: "Emily"
-    },
-];
-
-
 
 const labpage = () =>{ 
     const location = useLocation();

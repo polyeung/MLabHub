@@ -13,7 +13,7 @@ def handle_account():
         # TODO: check error here
         conn = get_db()
         cur = conn.execute(
-            "SELECT username FROM users "
+            "SELECT username, name, email, created FROM users "
             "WHERE username = ?",(logname, ))
         user = cur.fetchone()
 
@@ -24,6 +24,33 @@ def handle_account():
         return flask.jsonify(user)
     else:
         return flask.jsonify({'error': 'Not logged in.'}), 401
+
+@MLabHub.app.route('/api/account/update/', methods=['POST'])
+def handle_account_update():
+     # Abort if already logged in
+
+    # Get request body
+    body = flask.request.json
+    if body is None:
+        flask.abort(400)
+    name = body.get('name')
+    email = body.get('email')
+    username = body.get('username')
+
+    conn = get_db()
+    try:
+        cur = conn.execute(
+            "UPDATE users SET email = ?, name = ? WHERE username = ?",
+            (email, name, username)
+        )
+        conn.commit()
+    except Exception as e:
+        print(f"Error updating account: {e}")
+        return flask.jsonify({'error': 'Failed to update account'}), 500
+    
+    return flask.jsonify({'success': True}), 200
+
+
 
 @MLabHub.app.route('/api/account/create/', methods=['POST'])
 def handle_get_account():
