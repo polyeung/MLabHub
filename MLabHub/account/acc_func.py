@@ -3,7 +3,7 @@ import flask
 import bcrypt
 from flask import jsonify
 import MLabHub
-from MLabHub.model import get_db
+from MLabHub.db_model import get_pg_db
 
 
 @MLabHub.app.route('/api/account/', methods=['GET'])
@@ -11,10 +11,10 @@ def handle_account():
     logname = flask.session.get('logname')
     if logname is not None:
         # TODO: check error here
-        conn = get_db()
+        conn = get_pg_db()
         cur = conn.execute(
-            "SELECT username FROM users "
-            "WHERE username = ?",(logname, ))
+            """SELECT username, name, email, created FROM users 
+            WHERE username = %(logname)s""",{'logname':logname})
         user = cur.fetchone()
 
         if user is None:
@@ -24,6 +24,34 @@ def handle_account():
         return flask.jsonify(user)
     else:
         return flask.jsonify({'error': 'Not logged in.'}), 401
+
+@MLabHub.app.route('/api/account/update/', methods=['POST'])
+def handle_account_update():
+     # Abort if already logged in
+    # Get request body
+    body = flask.request.json
+    if body is None:
+        flask.abort(400)
+    name = body.get('name')
+    email = body.get('email')
+    username = body.get('username')
+    conn = get_pg_db()
+    try:
+        cur = conn.execute(
+            """UPDATE users SET email = %(email)s, name = %(name)s WHERE username = %(username)s""",
+            {
+                'name':name,
+                'email':email,
+                'username': username
+            }
+        )
+        conn.commit()
+    except Exception as e:
+        return flask.jsonify({'error': f'Failed to update account, {e}'}), 500
+    
+    return flask.jsonify({'success': True}), 200
+
+
 
 @MLabHub.app.route('/api/account/create/', methods=['POST'])
 def handle_get_account():
@@ -52,9 +80,10 @@ def handle_get_account():
 
     # Insert account into database
     try:
-        conn = get_db()
-        cur = conn.execute("INSERT INTO users (username, password)"
-                           "VALUES (?, ?) ", (username, hash))
+        print(username, hash)
+        conn = get_pg_db()
+        conn.execute("INSERT INTO users (username, password) VALUES (%(username)s, %(password)s)", 
+        {'username': username, 'password': hash})
         conn.commit()
     except:
         return flask.jsonify({'error': 'Account with name already exists.'}), 409
@@ -82,10 +111,10 @@ def handle_login():
         flask.abort(400)
 
     # Query user from database
-    conn = get_db()
+    conn = get_pg_db()
     cur = conn.execute(
         "SELECT username, password FROM users "
-        "WHERE username = ?",
+        "WHERE username = %s",
         (username, )
     )
     user = cur.fetchone()

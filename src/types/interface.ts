@@ -48,5 +48,8 @@ export interface commentsInt {
 }
 
 export interface UserData {
-	username: string;
+    username: string,
+    name: string | null,
+    email: string | null,
+    created: string
 };

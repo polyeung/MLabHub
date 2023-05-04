@@ -6,13 +6,12 @@ import Modal from '@mui/material/Modal';
 import {TextField, Rating} from '@mui/material';
 
 const style = {
-  position: 'absolute' as 'absolute',
+  position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 1600,
+  width: '80%',
   bgcolor: 'background.paper',
-
   boxShadow: 24,
   p: 4,
 };

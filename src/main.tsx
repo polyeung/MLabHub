@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {  Route, Routes, Navigate, useNavigate, useLocation} from 'react-router-dom';
+import {  Route, Routes, useNavigate, useLocation} from 'react-router-dom';
 import { Container, CircularProgress, Button} from '@mui/material';
 import Overview from 'pages/overview';
 import Labpage from 'pages/labpage';
@@ -10,6 +10,7 @@ import LoginPage from 'pages/loginPage';
 import SignupPage from 'pages/signupPage';
 import Navbar from 'components/navbar';
 import { UserData } from 'types/interface';
+import Dashboard from 'pages/dashboard';
 
 function ProtectedRoute(props: {
 	userData: UserData | undefined | null;
@@ -34,7 +35,6 @@ function ProtectedRoute(props: {
 
 function Main() {
   const location = useLocation();
-	const navigate = useNavigate();
 	const [userData, setUserData] = useState<UserData | undefined | null>(undefined);
   useEffect(() => {
 		fetch('http://localhost:8000/api/account/',{credentials: 'include'}).then(res => {
@@ -64,16 +64,17 @@ function Main() {
 				}}
 			>
         <Routes>
-            { /*Non protected Routes */}
+          { /*Non protected Routes */}
           <Route path="/" element={<Overview />} />
-            <Route path="/labpage" element={<Labpage />} />
-            <Route path="/jobs" element={<Jobs />} />
+          <Route path="/labpage" element={<Labpage />} />
+          <Route path="/jobs" element={<Jobs />} />
             { /*Protected routes */}
-            <Route path="/post" element={<ProtectedRoute userData={userData} page={<Post />}/>} />
-            <Route path="/create" element={<ProtectedRoute userData={userData} page={<Create />}  />} />
-            { /* Account routes */}
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/signup" element={<SignupPage />} />
+          <Route path="/post" element={<ProtectedRoute userData={userData} page={<Post />}/>} />
+          <Route path="/create" element={<ProtectedRoute userData={userData} page={<Create />} />} />
+          <Route path="/dashboard" element={<ProtectedRoute userData={userData} page={<Dashboard userData={userData}/>} />} />
+          { /* Account routes */}
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
           </Routes>
       </Container>
       </React.Fragment>
