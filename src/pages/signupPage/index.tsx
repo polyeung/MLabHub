@@ -9,7 +9,14 @@ function SignupPage() {
 	const [waiting, setWaiting] = useState(false);
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
-
+	{ /*Username only alow alphabet, number and dash */}
+	function handleChangeUsername(e: any) { 
+		const ALPHA_NUMERIC_DASH_REGEX = /^[a-zA-Z0-9-]+$/;
+		if (e.target.value !== "" && !ALPHA_NUMERIC_DASH_REGEX.test(e.target.value)) {
+			return;
+		}
+		setUsername(e.target.value)
+	};
 	const handleSubmit = (e: any) => {
 		e.preventDefault();
 		setWaiting(true);
@@ -62,7 +69,7 @@ function SignupPage() {
 								label="Username"
 								name="username"
 								value={username}
-								onChange={e => setUsername(e.target.value)}
+								onChange={ (e) =>  handleChangeUsername(e)}
 							/>
 							<TextField
 								variant="outlined"
