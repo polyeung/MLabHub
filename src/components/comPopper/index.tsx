@@ -54,18 +54,19 @@ export default function BasicModal() {
           multiline
           rows={6}
           maxRows={6}
+          inputProps={{ maxLength: 590 }}
           variant="filled"
                   />
-                  <Box sx={{display: 'flex', flexDirection: 'row', mt: '10px'}}>
-                  <Button variant="contained"
-                      style={{ color: '#01305C', backgroundColor: '#FFCB02' }}
-                      onClick={ handleClose} >
-                      Submit
-                  </Button>
-                      <Button variant="contained"  onClick={handleClose} style={{marginLeft: '5px',backgroundColor: '#c7c3c3'}}>
-                        Cancle
-                      </Button>
-                      </Box>
+          <Box sx={{display: 'flex', flexDirection: 'row', mt: '10px'}}>
+          <Button variant="contained"
+              style={{ color: '#01305C', backgroundColor: '#FFCB02' }}
+              onClick={ handleClose} >
+              Submit
+          </Button>
+              <Button variant="contained"  onClick={handleClose} style={{marginLeft: '5px',backgroundColor: '#c7c3c3'}}>
+                Cancle
+              </Button>
+          </Box>
                   
         </Box>
       </Modal>
