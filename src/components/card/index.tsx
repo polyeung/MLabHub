@@ -17,7 +17,8 @@ import StarIcon from '@mui/icons-material/Star';
 import { LocationState } from 'types/interface';
 import { Alert } from '@mui/material';
 import CheckIcon from '@mui/icons-material/Check';
-
+import { UserData } from 'types/interface';
+import { useNotifs } from 'context';
 
 interface labinfoInt { 
     name: string,
@@ -25,21 +26,22 @@ interface labinfoInt {
     people: string,
     intro: string,
     id: number
+    userData: UserData | null | undefined;
 };
 
-export default function RecipeReviewCard({ name, link, people, intro, id }: labinfoInt) {
-    const navigate = useNavigate();
-    const [showAlert, setShowAlert] = useState<boolean>(false);
-    useEffect(() => {
-        if (showAlert) {
-          const timeoutId = setTimeout(() => {
-            setShowAlert(false);
-          }, 2000);
+export default function RecipeReviewCard({ name, link, people, intro, id, userData}: labinfoInt) {
+  const navigate = useNavigate();
+  const notifs = useNotifs();
     
-          return () => clearTimeout(timeoutId);
-        }
-      }, [showAlert]);
     
+  function handleStarClick() {
+    if (!userData) {
+      notifs.addNotif({ severity: 'error', message: 'Please login to save!' });
+    } else {
+      notifs.addNotif({ severity: 'success', message: 'Successfully saved!' });
+    }
+    
+  };
     function handleClick() { 
         const options: LocationState = {
             state: {
@@ -85,7 +87,7 @@ export default function RecipeReviewCard({ name, link, people, intro, id }: labi
               
       </CardContent>
       <CardActions disableSpacing sx={{ position: 'absolute', bottom: 0 }}>
-              <IconButton aria-label="star to save" onClick={ () => setShowAlert(true)}>
+              <IconButton aria-label="star to save" onClick={ handleStarClick }>
           <StarIcon />
         </IconButton>
         <a href={ link }>
@@ -95,16 +97,7 @@ export default function RecipeReviewCard({ name, link, people, intro, id }: labi
         </a>
         
       </CardActions>
-      {showAlert && (
-        <Alert
-          severity="success"
-          sx={{ position: 'fixed', bottom: 16, left: 16, zIndex: 10, width: 400}}
-          onClose={() => setShowAlert(false)}
-          icon={<CheckIcon fontSize="inherit" />}
-        >
-          Saved lab information!
-        </Alert>
-      )}
+      
     </Card>
   );
 }

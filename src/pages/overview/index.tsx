@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Labinfo from 'components/modal';
 import Grid from '@mui/material/Grid';
 import { LabInfoType } from 'types/interface';
 import Cards from 'components/card';
-export default function overview() { 
+import { UserData } from 'types/interface';
+
+export default function overview(props: {
+    userData: UserData | undefined | null;
+}) { 
     const [data, setData] = useState<LabInfoType[]>([]);
     useEffect(() => {
         fetch('http://localhost:8000/getLabInfo')
@@ -28,7 +31,8 @@ export default function overview() {
                         people={item.people}
                         link={item.link}
                         intro={item.intro}
-                        id={ item.id }/>
+                        id={item.id}
+                        userData={props.userData}/>
                 </Grid>
             ))}
         </Grid>);
