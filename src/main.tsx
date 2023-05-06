@@ -66,7 +66,7 @@ function Main() {
         <Routes>
           { /*Non protected Routes */}
           <Route path="/" element={<Overview userData={userData}/>} />
-          <Route path="/labpage" element={<Labpage />} />
+          <Route path="/labpage" element={<Labpage userData={userData}/>} />
           <Route path="/jobs" element={<Jobs />} />
             { /*Protected routes */}
           <Route path="/post" element={<ProtectedRoute userData={userData} page={<Post />}/>} />

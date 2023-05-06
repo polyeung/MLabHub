@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { LocationState, RichLabInfoType, RichLabInfoTemplate, ReviewsType, parsedNameInt, commentsInt} from 'types/interface';
 import Rating from '@mui/material/Rating';
 import ComPopper from 'components/comPopper';
+import { UserData } from "types/interface";
 
 function getRandomColor(): string { 
     const colors = ['red','#90731E', '#0277BD', 'pink', 'green', 'orange', 'purple', '#F29902', 'brown', 'gray', 'teal'];
@@ -12,7 +13,7 @@ function getRandomColor(): string {
 }
 
 
-const labpage = () =>{ 
+const labpage = (props: {userData: UserData | undefined | null}) =>{ 
     const location = useLocation();
     // get ID from previous url
     const ID = useMemo(() => {
@@ -28,7 +29,6 @@ const labpage = () =>{
         for (let i = 0; i < strList.length; i++) {
             let nameSep = strList[i].trim().split(' ');
             // console.log(nameSep);
-
             let initial = nameSep.length == 1 ? String(nameSep[0][0]) : String(nameSep[0][0] + nameSep[1][0]);
             ret.push({ name: strList[i], initial: initial });
         }
@@ -157,7 +157,7 @@ const labpage = () =>{
                     display: 'flex',
                     flexDirection: 'row'
                 }}>
-            <ComPopper />
+                <ComPopper userData={props.userData} labid={ID} />
             </Box>
         </Box>
 

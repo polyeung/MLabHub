@@ -6,7 +6,6 @@ set -Eeuo pipefail
 
 if test ! -e var/LabHub.sqlite3; then
     echo "Creating database"
-    ./bin/LabHubdb create
 fi
 
 # Set FLASK_ENV and FLASK_APP environment variables

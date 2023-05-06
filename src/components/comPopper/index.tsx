@@ -1,10 +1,11 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import {TextField, Rating} from '@mui/material';
-
+import { UserData } from 'types/interface';
+import { useNotifs } from 'context';
 const style = {
   position: 'absolute',
   top: '50%',
@@ -16,12 +17,45 @@ const style = {
   p: 4,
 };
 
-export default function BasicModal() {
-    const [open, setOpen] = React.useState(false);
-    const [value, setValue] = React.useState<number | null>(4);
-
+interface modalProps { 
+  labid: string;
+  userData: UserData | undefined | null;
+}
+export default function BasicModal({ labid, userData}: modalProps) {
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState<number | null>(4);
+  const [word, setWord] = useState<string>("");
+  const [waiting, setWaiting] = useState(false);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const notifs = useNotifs();
+  function handleSubmit() { 
+    setWaiting(true);
+    fetch(`http://localhost:8000/addComments/${labid}`, {
+			method: 'POST',
+			credentials: 'include',
+			headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        'name': userData?.username,
+        'rating': value,
+        'word': word,
+      }),
+    })
+    .then(res => {
+      if (res.ok) {
+        notifs.addNotif({ severity: 'success', message: 'Comments added successfully!' });
+        setOpen(false);
+      } else { 
+        res.json().then(data =>
+          notifs.addNotif({
+            severity: 'error',
+            message: `Login error: ${data.error}`,
+          }),
+        );
+      }
+      setWaiting(false);
+    })
+    .catch(console.warn);
+  };
 
   return (
     <div>
@@ -31,7 +65,7 @@ export default function BasicModal() {
           </Button>
       <Modal
         open={open}
-        onClose={handleClose}
+        onClose={() => setOpen(false)}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -51,6 +85,8 @@ export default function BasicModal() {
           id="outlined-textarea"
           label="Share details of your own experience at this lab"
           placeholder="type..."
+          value={word}
+          onChange={ (e) => setWord(e.target.value)}
           multiline
           rows={6}
           maxRows={6}
@@ -60,10 +96,11 @@ export default function BasicModal() {
           <Box sx={{display: 'flex', flexDirection: 'row', mt: '10px'}}>
           <Button variant="contained"
               style={{ color: '#01305C', backgroundColor: '#FFCB02' }}
-              onClick={ handleClose} >
+              onClick={handleSubmit}
+              disabled={waiting}>
               Submit
           </Button>
-              <Button variant="contained"  onClick={handleClose} style={{marginLeft: '5px',backgroundColor: '#c7c3c3'}}>
+              <Button variant="contained"  onClick={() => setOpen(false)} style={{marginLeft: '5px',backgroundColor: '#c7c3c3'}}>
                 Cancle
               </Button>
           </Box>
