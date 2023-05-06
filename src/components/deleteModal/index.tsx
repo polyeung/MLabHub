@@ -38,7 +38,10 @@ export default function DeleteModal(props: {userData: UserData | null | undefine
         fetch('http://localhost:8000/api/account/delete/', {
             method: 'POST',
             credentials: 'include',
-            headers: { 'Content-Type': 'application/json' }
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                'password': password
+              })
         })
         .then(res => {
             if (res.ok) {

@@ -22,8 +22,8 @@ CREATE TABLE users (
     password        VARCHAR(256),   -- not present for Google OAuth2 users
     id SERIAL PRIMARY KEY,
     created         TIMESTAMP       NOT NULL    DEFAULT CURRENT_TIMESTAMP,
-    name            VARCHAR(20),
-    email           VARCHAR(20)
+    name            VARCHAR(50),
+    email           VARCHAR(100)
 
 );
 

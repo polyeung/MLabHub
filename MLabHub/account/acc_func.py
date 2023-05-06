@@ -153,9 +153,31 @@ def handle_delete_account():
     logname = flask.session.get('logname')
     if logname is None:
         return flask.jsonify({'error': 'Not logged in.'}), 401
-    
-    # try to delete it
+    # check confirm password correctness
+    body = flask.request.json
+    if body is None:
+        flask.abort(400)
     conn = get_pg_db()
+    password = body.get('password')
+
+    if password is None:
+         flask.abort(400)
+
+    cur = conn.execute(
+        "SELECT username, password FROM users "
+        "WHERE username = %s",
+        (logname, )
+    )
+    user = cur.fetchone()
+
+    # Make sure user exists
+    if user is None:
+        return flask.jsonify({'error': 'User does not exist.'}), 404
+
+    # Check if password is correct
+    if not bcrypt.checkpw(password.encode('utf-8'), user['password'].encode('utf-8')):
+        return flask.jsonify({'error': 'Incorrect password.'}), 401
+    # try to delete it
     try:
         conn.execute(
             """
