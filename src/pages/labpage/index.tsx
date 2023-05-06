@@ -167,8 +167,9 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
                         boxShadow: '0px 2px 3px rgba(0, 0, 0, 0.5)',
                         position: 'relative',
                         marginTop: '10px'
+                        
                     }}
-                    >  <Box sx={{ display: 'flex', flexDirection: 'row'}}>
+                    >  <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
                         <Typography sx={{ mr: 2 }}>{item.name}</Typography>
                         <Rating
                             name="simple-controlled"
@@ -178,7 +179,7 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
                                 <IconButton
                                     disabled={waiting}
                                     onClick={ handleDelete}
-                                    sx={{ color: 'red', ml: '5px', size: 'small' }}>
+                                    sx={{ color: '#7f181b', position: 'absolute', top: 0, right: 0, }}>
                                     <CancelIcon />
                                 </IconButton>
                         }
