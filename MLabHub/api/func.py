@@ -85,3 +85,29 @@ def add_comments(labid):
     except Exception as e:
         return flask.jsonify({'error': f'Failed to insert comment, {e}'}), 500
     return flask.jsonify({'success': True}), 200
+
+@MLabHub.app.route('/deleteComments/<labid>', methods=['POST'])
+def delete_comments(labid):
+    logname = flask.session.get('logname')
+    if logname is None:
+        return flask.jsonify({'error': 'Please login to comment'}), 401
+    connection = get_pg_db()
+    # check wether comments exist
+    cur = connection.execute(
+        """SELECT id FROM comments
+            WHERE name = %(name)s
+        """,{'name': logname}).fetchall()
+
+    if not cur:
+        return flask.jsonify({'error': 'No comments yet!'}), 401
+    try:
+       cur = connection.execute(
+        """
+        DELETE FROM comments
+        WHERE name = %(name)s
+        """, {
+            'name': logname
+        })
+    except Exception as e:
+        return flask.jsonify({'error': f'Failed to delete comment, {e}'}), 500
+    return flask.jsonify({'success': True}), 200

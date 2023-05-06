@@ -1,11 +1,12 @@
 import React, { useMemo, useState, useEffect } from "react";
-import { Box, Typography, Grid, TextField, Button, Avatar, Tooltip} from '@mui/material';
+import { Box, Typography, Grid, TextField, Button, IconButton, Avatar, Tooltip} from '@mui/material';
 import { useLocation } from 'react-router-dom';
 import { LocationState, RichLabInfoType, RichLabInfoTemplate, ReviewsType, parsedNameInt, commentsInt} from 'types/interface';
 import Rating from '@mui/material/Rating';
 import ComPopper from 'components/comPopper';
 import { UserData } from "types/interface";
-
+import CancelIcon from '@mui/icons-material/Cancel';
+import { useNotifs } from "context";
 function getRandomColor(): string { 
     const colors = ['red','#90731E', '#0277BD', 'pink', 'green', 'orange', 'purple', '#F29902', 'brown', 'gray', 'teal'];
     const randomIndex = Math.floor(Math.random() * colors.length);
@@ -15,6 +16,9 @@ function getRandomColor(): string {
 
 const labpage = (props: {userData: UserData | undefined | null}) =>{ 
     const location = useLocation();
+    const notifs = useNotifs();
+    const [waiting, setWaiting] = useState<boolean>(false);
+    const [deleteClicked, setDeleteClicked] = useState<boolean>(false);
     // get ID from previous url
     const ID = useMemo(() => {
         const { state } = location as LocationState || { state: {pathname: "1" } };
@@ -44,11 +48,37 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
 
     // fetch comments
     useEffect(() => {
-        fetch(`http://localhost:8000/getComments/${ID}`)
-            .then(response => response.json())
-            .then(data =>  setComments(data));
-    }, []);
+     
+            fetch(`http://localhost:8000/getComments/${ID}`)
+                .then(response => response.json())
+                .then(data => setComments(data));
+        
+    }, [deleteClicked]);
 
+    function handleDelete() { 
+        setWaiting(true);
+        fetch(`http://localhost:8000/deleteComments/${ID}`, {
+                method: 'POST',
+                credentials: 'include',
+                headers: { 'Content-Type': 'application/json' }
+        })
+        .then(res => {
+            if (res.ok) {
+              notifs.addNotif({ severity: 'success', message: 'Comments deleted successfully!' });
+            } else { 
+              res.json().then(data =>
+                notifs.addNotif({
+                  severity: 'error',
+                  message: `Delete error: ${data.error}`,
+                }),
+              );
+            }
+            setWaiting(false);
+            setDeleteClicked(!deleteClicked);
+        })
+        .catch(console.warn);
+    
+    };
     return (<Box
         display="grid"
         gridTemplateColumns="repeat(12, 1fr)"
@@ -144,9 +174,16 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
                             name="simple-controlled"
                             value={item.rating}
                             />
+                        {   (props.userData?.username == item.name) &&
+                                <IconButton
+                                    disabled={waiting}
+                                    onClick={ handleDelete}
+                                    sx={{ color: 'red', ml: '5px', size: 'small' }}>
+                                    <CancelIcon />
+                                </IconButton>
+                        }
                         </Box>
                         <Typography>{item.word}</Typography>
-                        
                         </Box>
                     
                 ))}
@@ -157,7 +194,11 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
                     display: 'flex',
                     flexDirection: 'row'
                 }}>
-                <ComPopper userData={props.userData} labid={ID} />
+                <ComPopper
+                    userData={props.userData}
+                    labid={ID}
+                    deleteClicked={ deleteClicked}
+                    setDeleteClicked={setDeleteClicked} />
             </Box>
         </Box>
 

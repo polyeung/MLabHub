@@ -20,8 +20,11 @@ const style = {
 interface modalProps { 
   labid: string;
   userData: UserData | undefined | null;
+  deleteClicked: boolean;
+  setDeleteClicked: (value: boolean) => void;
+  
 }
-export default function BasicModal({ labid, userData}: modalProps) {
+export default function BasicModal({ labid, userData, deleteClicked, setDeleteClicked}: modalProps) {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState<number | null>(4);
   const [word, setWord] = useState<string>("");
@@ -44,6 +47,7 @@ export default function BasicModal({ labid, userData}: modalProps) {
       if (res.ok) {
         notifs.addNotif({ severity: 'success', message: 'Comments added successfully!' });
         setOpen(false);
+        setDeleteClicked(!deleteClicked);
       } else { 
         res.json().then(data =>
           notifs.addNotif({
