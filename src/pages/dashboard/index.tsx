@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { UserData } from 'types/interface';
-import { Box, Typography, IconButton, TextField  } from '@mui/material';
+import { Box, Typography, IconButton, TextField , Button } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import SaveIcon from '@mui/icons-material/Save';
 import { useNotifs } from 'context';
+import DeleteModal from 'components/deleteModal';
 
 function pretifyDate(input: String) {
     let splitWord: String[] = input.split(' ');
@@ -153,6 +154,8 @@ function dashboard(props: { userData: UserData |  null | undefined; }) {
                     <Typography sx={{fontWeight: 'bold', mr: '15px'}}>Created: </Typography>
                     <Typography>{pretifyDate(localUser?.created? localUser?.created:"" )}</Typography>
                 </Box>
+                <DeleteModal userData={ props.userData } />
+                
                 
             </Box>
 

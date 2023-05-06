@@ -145,3 +145,26 @@ def handle_logout():
     # Reset session
     flask.session.clear()
     return '', 200
+
+
+@MLabHub.app.route('/api/account/delete/', methods=['POST'])
+def handle_delete_account():
+    # Check if user is logged in
+    logname = flask.session.get('logname')
+    if logname is None:
+        return flask.jsonify({'error': 'Not logged in.'}), 401
+    
+    # try to delete it
+    conn = get_pg_db()
+    try:
+        conn.execute(
+            """
+            DELETE FROM users
+            WHERE username = %(logname)s;
+            """,{'logname': logname})
+        conn.commit()
+        # clear session
+        flask.session.clear()
+    except Exception as e:
+        return flask.jsonify({'error': f'Failed to update account, {e}'}), 500
+    return flask.jsonify({'success': True}), 200
