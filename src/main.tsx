@@ -12,6 +12,7 @@ import Navbar from 'components/navbar';
 import { UserData } from 'types/interface';
 import Dashboard from 'pages/dashboard';
 
+
 function ProtectedRoute(props: {
 	userData: UserData | undefined | null;
 	page: JSX.Element;
@@ -68,6 +69,7 @@ function Main() {
           <Route path="/" element={<Overview userData={userData}/>} />
           <Route path="/labpage" element={<Labpage userData={userData}/>} />
           <Route path="/jobs" element={<Jobs />} />
+
             { /*Protected routes */}
           <Route path="/post" element={<ProtectedRoute userData={userData} page={<Post />}/>} />
           <Route path="/create" element={<ProtectedRoute userData={userData} page={<Create />} />} />
