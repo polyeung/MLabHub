@@ -10,7 +10,7 @@ def get_default():
     """Feed content for default page."""
     return "Hi! Checkout /getLabInfo "
 
-@MLabHub.app.route('/getLabInfo')
+@MLabHub.app.route('/api/getLabInfo')
 def get_labInfo():
     """Feed content for brief overview page."""
     connection = get_pg_db()
@@ -18,7 +18,7 @@ def get_labInfo():
     cur = connection.execute("""SELECT * FROM labs""")
     return cur.fetchall()
 
-@MLabHub.app.route('/getLabInfo/<id>')
+@MLabHub.app.route('/api/getLabInfo/<id>')
 def get_detailedLabInfo(id):
     """Feed content for each detailed lab page."""
     connection = get_pg_db()
@@ -29,7 +29,7 @@ def get_detailedLabInfo(id):
         """, {'id': id}).fetchone()
     return cur
 
-@MLabHub.app.route('/getComments/<id>')
+@MLabHub.app.route('/api/getComments/<id>')
 def get_comments(id):
     """Feed content for each detailed lab page."""
     connection = get_pg_db()
@@ -40,7 +40,7 @@ def get_comments(id):
         """, {'id': id}).fetchall()
     return cur
 
-@MLabHub.app.route('/addComments/<labid>', methods=['POST'])
+@MLabHub.app.route('/api/addComments/<labid>', methods=['POST'])
 def add_comments(labid):
     """Feed content for each detailed lab page."""
     # check whether login?
@@ -86,7 +86,7 @@ def add_comments(labid):
         return flask.jsonify({'error': f'Failed to insert comment, {e}'}), 500
     return flask.jsonify({'success': True}), 200
 
-@MLabHub.app.route('/deleteComments/<labid>', methods=['POST'])
+@MLabHub.app.route('/api/deleteComments/<labid>', methods=['POST'])
 def delete_comments(labid):
     logname = flask.session.get('logname')
     if logname is None:
