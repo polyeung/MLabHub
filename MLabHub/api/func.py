@@ -5,10 +5,6 @@ from flask import jsonify
 import MLabHub
 from MLabHub.db_model import get_pg_db
 
-@MLabHub.app.route('/')
-def get_default():
-    """Feed content for default page."""
-    return "Hi! Checkout /getLabInfo "
 
 @MLabHub.app.route('/api/getLabInfo')
 def get_labInfo():

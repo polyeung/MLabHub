@@ -11,6 +11,7 @@ importlib-metadata==6.6.0
 itsdangerous==2.1.2
 Jinja2==3.1.2
 MarkupSafe==2.1.2
+-e git+https://github.com/polyeung/MLabHub.git@603b9f277e54d8c4e3b68f917755f99da6456055#egg=mLabHub
 psycopg==3.1.8
 psycopg-binary==3.1.8
 psycopg2-binary==2.9.6

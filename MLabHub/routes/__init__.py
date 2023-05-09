@@ -1,0 +1,1 @@
+import MLabHub.routes.serve_static

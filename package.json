@@ -28,10 +28,9 @@
         "web-vitals": "^2.1.4"
     },
     "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "dev": "vite",
+		"build": "tsc && vite build",
+		"build:watch": "tsc --watch & vite build --watch"
     },
     "eslintConfig": {
         "extends": [
