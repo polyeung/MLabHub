@@ -1,22 +1,33 @@
-# MHubLab
+# MLabHub
 
-A collection of lab info in Umich
+Uses a React frontend and Flask server.
 
-# setup and run frontend
+## Setup
 
-```
-cd MLabHub
-./bin/installAndRun.sh
-```
-
-# run backend (open a new terminal)
+Install NPM dependencies and set up the Python virtual environment:
 
 ```
-cd MLabHub
-./bin/LabHubrun.sh
+./bin/install.sh
 ```
 
-# AWS RDS
+## Build frontend
 
-Make sure that .env file is in the root directory and include valid
-AWS RDS credential
+Build into the dist folder:
+
+```
+npm run build
+```
+
+Build and watch (development):
+
+```
+./bin/frontend.sh
+```
+
+## Run the server
+
+The Flask server serves the frontend content and also runs the REST API.
+
+```
+./bin/server.sh
+```
