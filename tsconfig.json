@@ -14,12 +14,25 @@
         "isolatedModules": true,
         "noEmit": true,
         "jsx": "react-jsx",
-        "baseUrl": "src/",
         "outDir": "./build",
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": true,
+
+        "paths": {
+			"@/*": [
+				"./src/*"
+			]
+		}
     },
-    "include": ["**/*.ts", "**/*.tsx", "*.d.ts"],
-    "exclude": ["node_modules"]
+    "include": [
+		"src"
+	],
+    "exclude": ["node_modules"],
+    "references": [
+		{
+			"path": "./tsconfig.node.json"
+		}
+	]
+
 }

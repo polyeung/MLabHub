@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Card, CardContent, Typography, TextField, Container } from '@mui/material';
-import { useNotifs } from 'context';
+import { useNotifs } from '@/context';
 
 function SignupPage() {
 	const notifs = useNotifs();

@@ -11,14 +11,12 @@ import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import LinkIcon from '@mui/icons-material/Link';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { umichImg } from 'assets';
+import { umichImg } from '@/assets';
 import { useNavigate } from 'react-router-dom';
 import StarIcon from '@mui/icons-material/Star';
-import { LocationState } from 'types/interface';
-import { Alert } from '@mui/material';
-import CheckIcon from '@mui/icons-material/Check';
-import { UserData } from 'types/interface';
-import { useNotifs } from 'context';
+import { LocationState } from '@/types/interface';
+import { UserData } from '@/types/interface';
+import { useNotifs } from '@/context';
 
 interface labinfoInt { 
     name: string,

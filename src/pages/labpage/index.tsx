@@ -1,12 +1,12 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { Box, Typography, Grid, TextField, Button, IconButton, Avatar, Tooltip} from '@mui/material';
 import { useLocation } from 'react-router-dom';
-import { LocationState, RichLabInfoType, RichLabInfoTemplate, ReviewsType, parsedNameInt, commentsInt} from 'types/interface';
+import { LocationState, RichLabInfoType, RichLabInfoTemplate, ReviewsType, parsedNameInt, commentsInt} from '@/types/interface';
 import Rating from '@mui/material/Rating';
-import ComPopper from 'components/comPopper';
-import { UserData } from "types/interface";
+import ComPopper from '@/components/comPopper';
+import { UserData } from "@/types/interface";
 import CancelIcon from '@mui/icons-material/Cancel';
-import { useNotifs } from "context";
+import { useNotifs } from "@/context";
 function getRandomColor(): string { 
     const colors = ['red','#90731E', '#0277BD', 'pink', 'green', 'orange', 'purple', '#F29902', 'brown', 'gray', 'teal'];
     const randomIndex = Math.floor(Math.random() * colors.length);

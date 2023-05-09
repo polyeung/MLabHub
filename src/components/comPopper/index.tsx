@@ -4,8 +4,8 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import {TextField, Rating} from '@mui/material';
-import { UserData } from 'types/interface';
-import { useNotifs } from 'context';
+import { UserData } from '@/types/interface';
+import { useNotifs } from '@/context';
 const style = {
   position: 'absolute',
   top: '50%',

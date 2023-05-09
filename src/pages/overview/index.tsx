@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Grid from '@mui/material/Grid';
-import { LabInfoType } from 'types/interface';
-import Cards from 'components/card';
-import { UserData } from 'types/interface';
+import { LabInfoType } from '@/types/interface';
+import Cards from '@/components/card';
+import { UserData } from '@/types/interface';
 
 export default function overview(props: {
     userData: UserData | undefined | null;

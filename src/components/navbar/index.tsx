@@ -15,9 +15,9 @@ import { useNavigate } from 'react-router-dom';
 import ScienceIcon from '@mui/icons-material/Science';
 import SchoolIcon from '@mui/icons-material/School';
 import WorkIcon from '@mui/icons-material/Work';
-import { logoImg } from 'assets';
-import { useNotifs } from 'context';
-import { UserData } from 'types/interface';
+import { logoImg } from '@/assets';
+import { useNotifs } from '@/context';
+import { UserData } from '@/types/interface';
 
 const pages = [['Research Opportunities', '/jobs', '1'], ['Post Jobs', '/post', '2'], ['Post Lab Info', '/create', '3']];
 

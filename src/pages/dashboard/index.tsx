@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { UserData } from 'types/interface';
+import { UserData } from '@/types/interface';
 import { Box, Typography, IconButton, TextField , Button } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import SaveIcon from '@mui/icons-material/Save';
-import { useNotifs } from 'context';
-import DeleteModal from 'components/deleteModal';
+import { useNotifs } from '@/context';
+import DeleteModal from '@/components/deleteModal';
 
 function pretifyDate(input: String) {
     let splitWord: String[] = input.split(' ');

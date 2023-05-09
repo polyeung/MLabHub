@@ -4,7 +4,7 @@ import { Paper, Typography, Grid, IconButton } from '@mui/material';
 import LinkIcon from '@mui/icons-material/Link';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { useNavigate } from 'react-router-dom';
-import { LocationState } from 'types/interface';
+import { LocationState } from '@/types/interface';
 
 interface labinfoInt { 
     name: string,

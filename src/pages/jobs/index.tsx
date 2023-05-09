@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Typography, Box} from '@mui/material';
 import JobsContent from './jobsContent';
-import LoginPage from 'components/loginTab';
+import LoginPage from '@/components/loginTab';
 import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
