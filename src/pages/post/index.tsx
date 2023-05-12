@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Amplify, Hub } from 'aws-amplify';
 import { Button, Typography, Box} from '@mui/material';
 import JobsContent from './postContent';
 import LoginPage from '@/components/loginTab';
