@@ -17,7 +17,7 @@ app.config['SESSION_SQLALCHEMY'] = sess_db
 # TODO: change this session cookie domain to sub domain
 app.config['SESSION_COOKIE_DOMAIN'] = 'localhost'
 sess = Session(app)
-CORS(app, supports_credentials=True)
+CORS(app, supports_credentials=True, origins='http://54.236.245.176')
 
 
 
