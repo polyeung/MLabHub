@@ -18,12 +18,12 @@ CREATE TABLE comments(
 );
 
 CREATE TABLE users (
-    username        VARCHAR(20),
+    username        VARCHAR(20)     UNIQUE,
     password        VARCHAR(256),   -- not present for Google OAuth2 users
     id SERIAL PRIMARY KEY,
     created         TIMESTAMP       NOT NULL    DEFAULT CURRENT_TIMESTAMP,
-    name            VARCHAR(20),
-    email           VARCHAR(20)
+    name            VARCHAR(50),
+    email           VARCHAR(100)
 
 );
 

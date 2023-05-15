@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useLayoutEffect, useReducer, useRef, useState } from 'react';
 import { Alert, AlertTitle } from '@mui/material';
-import usePrevious from 'hooks/usePrevious';
+import usePrevious from '../hooks/usePrevious';
 
 let nextId = 0;
 function genId() {

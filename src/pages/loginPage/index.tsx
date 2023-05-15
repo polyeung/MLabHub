@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Card, CardContent, Typography, TextField, Container } from '@mui/material';
-import { useNotifs } from 'context';
+import { useNotifs } from '@/context';
 
 function LoginPage() {
 	const notifs = useNotifs();
@@ -14,7 +14,7 @@ function LoginPage() {
 	const handleSubmit = (e: any) => {
 		e.preventDefault();
 		setWaiting(true);
-		fetch('http://localhost:8000/api/account/login/', {
+		fetch('/api/account/login/', {
 			method: 'POST',
 			credentials: 'include',
 			headers: { 'Content-Type': 'application/json' },

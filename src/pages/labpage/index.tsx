@@ -1,10 +1,12 @@
 import React, { useMemo, useState, useEffect } from "react";
-import { Box, Typography, Grid, TextField, Button, Avatar, Tooltip} from '@mui/material';
+import { Box, Typography, Grid, TextField, Button, IconButton, Avatar, Tooltip} from '@mui/material';
 import { useLocation } from 'react-router-dom';
-import { LocationState, RichLabInfoType, RichLabInfoTemplate, ReviewsType, parsedNameInt, commentsInt} from 'types/interface';
+import { LocationState, RichLabInfoType, RichLabInfoTemplate, ReviewsType, parsedNameInt, commentsInt} from '@/types/interface';
 import Rating from '@mui/material/Rating';
-import ComPopper from 'components/comPopper';
-
+import ComPopper from '@/components/comPopper';
+import { UserData } from "@/types/interface";
+import CancelIcon from '@mui/icons-material/Cancel';
+import { useNotifs } from "@/context";
 function getRandomColor(): string { 
     const colors = ['red','#90731E', '#0277BD', 'pink', 'green', 'orange', 'purple', '#F29902', 'brown', 'gray', 'teal'];
     const randomIndex = Math.floor(Math.random() * colors.length);
@@ -12,8 +14,11 @@ function getRandomColor(): string {
 }
 
 
-const labpage = () =>{ 
+const labpage = (props: {userData: UserData | undefined | null}) =>{ 
     const location = useLocation();
+    const notifs = useNotifs();
+    const [waiting, setWaiting] = useState<boolean>(false);
+    const [deleteClicked, setDeleteClicked] = useState<boolean>(false);
     // get ID from previous url
     const ID = useMemo(() => {
         const { state } = location as LocationState || { state: {pathname: "1" } };
@@ -28,7 +33,6 @@ const labpage = () =>{
         for (let i = 0; i < strList.length; i++) {
             let nameSep = strList[i].trim().split(' ');
             // console.log(nameSep);
-
             let initial = nameSep.length == 1 ? String(nameSep[0][0]) : String(nameSep[0][0] + nameSep[1][0]);
             ret.push({ name: strList[i], initial: initial });
         }
@@ -37,18 +41,44 @@ const labpage = () =>{
 
     // fetch content through api
     useEffect(() => {
-        fetch(`http://localhost:8000/getLabInfo/${ID}`)
+        fetch(`/api/getLabInfo/${ID}`)
             .then(response => response.json())
             .then(data =>  setLabinfo(data));
     }, []);
 
     // fetch comments
     useEffect(() => {
-        fetch(`http://localhost:8000/getComments/${ID}`)
-            .then(response => response.json())
-            .then(data =>  setComments(data));
-    }, []);
+     
+            fetch(`/api/getComments/${ID}`)
+                .then(response => response.json())
+                .then(data => setComments(data));
+        
+    }, [deleteClicked]);
 
+    function handleDelete() { 
+        setWaiting(true);
+        fetch(`/api/deleteComments/${ID}`, {
+                method: 'POST',
+                credentials: 'include',
+                headers: { 'Content-Type': 'application/json' }
+        })
+        .then(res => {
+            if (res.ok) {
+              notifs.addNotif({ severity: 'success', message: 'Comments deleted successfully!' });
+            } else { 
+              res.json().then(data =>
+                notifs.addNotif({
+                  severity: 'error',
+                  message: `Delete error: ${data.error}`,
+                }),
+              );
+            }
+            setWaiting(false);
+            setDeleteClicked(!deleteClicked);
+        })
+        .catch(console.warn);
+    
+    };
     return (<Box
         display="grid"
         gridTemplateColumns="repeat(12, 1fr)"
@@ -137,16 +167,24 @@ const labpage = () =>{
                         boxShadow: '0px 2px 3px rgba(0, 0, 0, 0.5)',
                         position: 'relative',
                         marginTop: '10px'
+                        
                     }}
-                    >  <Box sx={{ display: 'flex', flexDirection: 'row'}}>
+                    >  <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
                         <Typography sx={{ mr: 2 }}>{item.name}</Typography>
                         <Rating
                             name="simple-controlled"
                             value={item.rating}
                             />
+                        {   (props.userData?.username == item.name) &&
+                                <IconButton
+                                    disabled={waiting}
+                                    onClick={ handleDelete}
+                                    sx={{ color: '#7f181b', position: 'absolute', top: 0, right: 0, }}>
+                                    <CancelIcon />
+                                </IconButton>
+                        }
                         </Box>
                         <Typography>{item.word}</Typography>
-                        
                         </Box>
                     
                 ))}
@@ -157,7 +195,11 @@ const labpage = () =>{
                     display: 'flex',
                     flexDirection: 'row'
                 }}>
-            <ComPopper />
+                <ComPopper
+                    userData={props.userData}
+                    labid={ID}
+                    deleteClicked={ deleteClicked}
+                    setDeleteClicked={setDeleteClicked} />
             </Box>
         </Box>
 
