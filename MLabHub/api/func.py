@@ -59,8 +59,8 @@ def add_comments(labid):
     # check wether comments exist
     cur = connection.execute(
         """SELECT id FROM comments
-            WHERE name = %(name)s
-        """,{'name': logname}).fetchall()
+            WHERE name = %(name)s and labid = %(labid)s
+        """,{'name': logname, 'labid': labid}).fetchall()
 
     if cur:
         return flask.jsonify({'error': 'Already comment! Please Remove comment first.'}), 401

@@ -1,5 +1,4 @@
-from MLabHub import app
-
+from MLabHub import app, socketio
 
 if __name__ == "__main__":
-    app.run(port=8000)
+     socketio.run(app, port=8000)

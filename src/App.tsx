@@ -38,7 +38,7 @@ function App() {
   const location = useLocation();
 	const [userData, setUserData] = useState<UserData | undefined | null>(undefined);
   useEffect(() => {
-		fetch('http://localhost:8000/api/account/',{credentials: 'include'}).then(res => {
+		fetch('/api/account/',{credentials: 'include'}).then(res => {
       if (res.ok) {
         res.json().then(data => setUserData(data));
       } else { 

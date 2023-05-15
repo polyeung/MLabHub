@@ -18,4 +18,4 @@ pip install -r requirements.txt
 
 # restart gunicorn on port 5000
 pkill -f gunicorn || true
-gunicorn -b localhost:5000 -w 2 -D server:app
+gunicorn -b localhost:8000 -w 2 -D MLabHub:app
