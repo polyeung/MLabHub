@@ -35,7 +35,7 @@ function NavBar({ userData }: { userData?: UserData | null }) {
   
 function logoutFunc() {
   
-  fetch('http://localhost:8000/api/account/logout/', { method: 'POST', credentials: 'include' }).then(res => {
+  fetch('/api/account/logout/', { method: 'POST', credentials: 'include' }).then(res => {
 
         if (res.ok) {
             //notifs.addNotif({ severity: 'success', message: 'Successfully logged out.' });

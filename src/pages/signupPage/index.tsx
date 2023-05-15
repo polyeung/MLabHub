@@ -45,7 +45,7 @@ function SignupPage() {
 			return;
 		}
 		setWaiting(true);
-		fetch('http://localhost:8000/api/account/create/', {
+		fetch('/api/account/create/', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ username, password }),

@@ -9,7 +9,7 @@ export default function overview(props: {
 }) { 
     const [data, setData] = useState<LabInfoType[]>([]);
     useEffect(() => {
-        fetch('http://localhost:8000/api/getLabInfo')
+        fetch('/api/getLabInfo')
             .then(response => response.json())
             .then(data => setData(data));
       }, []);

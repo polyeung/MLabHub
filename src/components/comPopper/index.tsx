@@ -33,7 +33,7 @@ export default function BasicModal({ labid, userData, deleteClicked, setDeleteCl
   const notifs = useNotifs();
   function handleSubmit() { 
     setWaiting(true);
-    fetch(`http://localhost:8000/api/addComments/${labid}`, {
+    fetch(`/api/addComments/${labid}`, {
 			method: 'POST',
 			credentials: 'include',
 			headers: { 'Content-Type': 'application/json' },

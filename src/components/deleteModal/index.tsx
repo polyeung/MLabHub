@@ -35,7 +35,7 @@ export default function DeleteModal(props: {userData: UserData | null | undefine
     function handleDelete() {
         handleClose();
         setWaiting(true);
-        fetch('http://localhost:8000/api/account/delete/', {
+        fetch('/api/account/delete/', {
             method: 'POST',
             credentials: 'include',
             headers: { 'Content-Type': 'application/json' },

@@ -14,7 +14,7 @@ function LoginPage() {
 	const handleSubmit = (e: any) => {
 		e.preventDefault();
 		setWaiting(true);
-		fetch('http://localhost:8000/api/account/login/', {
+		fetch('/api/account/login/', {
 			method: 'POST',
 			credentials: 'include',
 			headers: { 'Content-Type': 'application/json' },

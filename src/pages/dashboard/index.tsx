@@ -21,7 +21,7 @@ function dashboard(props: { userData: UserData |  null | undefined; }) {
     const [edit, setEdit] = useState<boolean>(false);
     function handleSubmit() {
 		setWaiting(true);
-		fetch('http://localhost:8000/api/account/update/', {
+		fetch('/api/account/update/', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

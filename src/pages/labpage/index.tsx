@@ -41,7 +41,7 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
 
     // fetch content through api
     useEffect(() => {
-        fetch(`http://localhost:8000/api/getLabInfo/${ID}`)
+        fetch(`/api/getLabInfo/${ID}`)
             .then(response => response.json())
             .then(data =>  setLabinfo(data));
     }, []);
@@ -49,7 +49,7 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
     // fetch comments
     useEffect(() => {
      
-            fetch(`http://localhost:8000/api/getComments/${ID}`)
+            fetch(`/api/getComments/${ID}`)
                 .then(response => response.json())
                 .then(data => setComments(data));
         
@@ -57,7 +57,7 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
 
     function handleDelete() { 
         setWaiting(true);
-        fetch(`http://localhost:8000/api/deleteComments/${ID}`, {
+        fetch(`/api/deleteComments/${ID}`, {
                 method: 'POST',
                 credentials: 'include',
                 headers: { 'Content-Type': 'application/json' }
