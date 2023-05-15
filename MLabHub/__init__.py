@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 # app is a single object used by all the code modules in this package
 app = flask.Flask(__name__, static_folder='../dist')  # pylint: disable=invalid-name
-app.config['SECRET_KEY'] = '01/24/2023'
+app.config['SECRET_KEY'] = 'please-change-this-to-secret-key'
 socketio = SocketIO(app, cors_allowed_origins="*")
 
 
