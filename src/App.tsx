@@ -50,7 +50,7 @@ function App() {
   return (
 
       <React.Fragment>
-      { /* navbar begin */}
+      { /* navbar begin. */}
       <Navbar userData={userData} />
       { /*navbar end */}
         <Container
