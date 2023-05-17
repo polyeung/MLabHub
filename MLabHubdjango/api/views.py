@@ -1,28 +1,27 @@
 from django.shortcuts import render
 from django.http import JsonResponse, Http404
 from django.views import View
+from rest_framework.views import APIView
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from MLabHub.db_model import get_pg_db
 from rest_framework.response import Response
-from rest_framework import generics
+from rest_framework import generics, permissions, status
 from .serializers import LabSerializer
 from .models import Lab, Comment
 import pprint
 import json
 
-class GetLabInfo(generics.GenericAPIView):
-    queryset = Lab.objects.all()
-    serializer_class = LabSerializer
+class GetLabInfo(APIView):
+    permission_classes = (permissions.AllowAny, )
     def get(self, request):
-        data = self.get_queryset()
-        serializer = self.get_serializer(data, many=True)
-        #pprint.pprint(serializer.data)
-        return JsonResponse(serializer.data, safe = False)
-        return Response(serializer.data)
+        labs = Lab.objects.all()
+        labs = LabSerializer(labs, many = True)
+        return Response(labs.data)
     
 
 class GetDetailedLabInfo(generics.GenericAPIView):
+    permission_classes = (permissions.AllowAny, )
     def get(self, request, id):
         try:
             lab = Lab.objects.get(pk=id)
@@ -43,6 +42,7 @@ class GetComments(View):
         comments = Comment.objects.filter(labid=id).values('id', 'rating', 'name', 'word')
         comments_list = list(comments)
         return JsonResponse(comments_list, safe=False)
+
 
 class AddComments(View):
     def post(self, request, labid):
