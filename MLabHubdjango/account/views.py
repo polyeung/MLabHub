@@ -82,11 +82,13 @@ class LoginView(APIView):
             return Response({'error': 'Something went wrong when logging in'})
 
 
-
+@method_decorator(csrf_protect, name = 'dispatch')
 class LogoutView(APIView):
+    permission_classes = (permissions.AllowAny, )
     def post(self, request, format = None):
         try:
             auth.logout(request)
+            print(request.data)
             return Response({'success':'Logged out'}, status = status.HTTP_200_OK)
         except:
             return Response({'error': "Something went wrong when logging out"}, status = status.HTTP_400_BAD_REQUEST)

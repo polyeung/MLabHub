@@ -32,19 +32,46 @@ function NavBar({ userData }: { userData?: UserData | null }) {
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
+  function getCookie(name: string) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+  }
   
-function logoutFunc() {
-  
-  fetch('/api/account/logout/', { method: 'POST', credentials: 'include' }).then(res => {
+  function logoutFunc() {
+  // get csrf first
+  fetch('/api/account/csrf_cookie')
+			.then(response => response.json())
+    .then(data => {
+      const csrftoken: (string | null) = getCookie('csrftoken');
+      fetch('/api/account/logout', {
+        method: 'POST', credentials: 'include',
+        headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': csrftoken ? csrftoken : "random_token"
+      },}).then(res => {
 
         if (res.ok) {
             //notifs.addNotif({ severity: 'success', message: 'Successfully logged out.' });
             notifs.addNotif({ severity: 'success', message: 'Successfully logged out.' });
             navigate('/login');
         } else {
-          notifs.addNotif({ severity: 'error', message: 'Failed to logout.' });
+          notifs.addNotif({ severity: 'error', message: "Failed to logout"});
         }
     });
+    }
+  )
+  
 };
 
   const handleCloseNavMenu = () => {
