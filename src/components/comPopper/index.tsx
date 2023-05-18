@@ -52,7 +52,7 @@ export default function BasicModal({ labid, userData, deleteClicked, setDeleteCl
         res.json().then(data =>
           notifs.addNotif({
             severity: 'error',
-            message: `Login error: ${data.error}`,
+            message: `Comment error: ${data.error}`,
           }),
         );
       }

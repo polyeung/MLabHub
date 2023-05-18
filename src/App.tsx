@@ -48,11 +48,10 @@ function App() {
         .then(data => {
           const csrftoken: (string | null) = getCookie('csrftoken');
           console.log('csrftoken:',csrftoken)
-          fetch('/api/account/is_login',{credentials: 'include',
-                  headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': csrftoken ? csrftoken : "random_token"
-                  },
+          fetch('/api/account/is_login',{
+                  method: 'GET',
+                  credentials: 'include',
+
                     }).then(res => {
             if (res.ok) {
               res.json().then(data => setUserData(data));

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse, Http404
 from django.views import View
+from django.contrib.auth.models import User
 from rest_framework.views import APIView
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
@@ -44,65 +45,56 @@ class GetComments(View):
         return JsonResponse(comments_list, safe=False)
 
 
-class AddComments(View):
+@method_decorator(csrf_exempt, name = 'dispatch')
+class AddComments(APIView):
     def post(self, request, labid):
-        logname = request.session.get('logname')
-        if logname is None:
-            return JsonResponse({'error': 'Please login to comment'}, status=401)
+
         try:
-            body = json.loads(request.body)
-        except json.JSONDecodeError:
-            return JsonResponse({'error': 'No body json'}, status=401)
+            print('Before authenticated')
+            IsAuthenticated = User.is_authenticated
+            print(IsAuthenticated)
+            if IsAuthenticated:
+                data = self.request.data
+                print(data)
+                try:
+                    rating = data['rating']
+                    name = data['name']
+                    word = data['word']
+                    print(rating, name, word)
+                    Comment.objects.create(
+                        labid_id=labid, 
+                        rating=rating, 
+                        name=name,
+                        word=word
+                    )
+                    return Response({'success': True}, status = status.HTTP_200_OK)
+                except:
+                    return Response({'error':'Something went wrong when create comment'})
 
-        connection = get_pg_db()
-        # check wether comments exist
-        cur = connection.execute(
-            """SELECT id FROM comments
-                WHERE name = %(name)s
-            """,{'name': logname}).fetchall()
+                
+            else:
+                return Response({'error': 'Please login to comment'}, status = status.HTTP_401_UNAUTHORIZED)
+        except:
+            return Response({'error':"Something went wrong when checking authentication status"})
 
-        if cur:
-            return JsonResponse({'error': 'Already comment! Please Remove comment first.'}, 401)
 
-        # add more detailed select for more rich content
-        try:
-            cur = connection.execute(
-                """
-                INSERT INTO comments(labid,rating,name,word)
-                VALUES (%(labid)s, %(rating)s, %(name)s, %(word)s)
-                """, {
-                    'labid': labid,
-                    'rating': rating,
-                    'name': name,
-                    'word': word
-                    })
-            connection.commit()
-        except Exception as e:
-            return JsonResponse({'error': f'Failed to insert comment, {e}'}, 500)
-        return JsonResponse({'success': True}, 200)
-
-class DeleteComments(View):
+@method_decorator(csrf_exempt, name='dispatch')
+class DeleteComments(APIView):
     def post(self, request, labid):
-        logname = request.session.get('logname')
-        if logname is None:
-            return JsonResponse({'error': 'Please login to comment'}, status=401)
-        connection = get_pg_db()
-        # check wether comments exist
-        cur = connection.execute(
-            """SELECT id FROM comments
-                WHERE name = %(name)s
-            """,{'name': logname}).fetchall()
+        user = request.user
 
-        if not cur:
-            return JsonResponse({'error': 'No comments yet!'}, 401)
+        # Check if user is authenticated
+        if not user.is_authenticated:
+            return Response({'error': 'Please login to comment'}, status=status.HTTP_401_UNAUTHORIZED)
+        
+        # Check if comments exist
+        comments = Comment.objects.filter(labid=self.request.id)
+        if not comments.exists():
+            return Response({'error': 'No comments yet!'}, status=status.HTTP_401_UNAUTHORIZED)
+        
         try:
-            cur = connection.execute(
-                """
-                DELETE FROM comments
-                WHERE name = %(name)s
-                """, {
-                    'name': logname
-                })
+            # Delete comments
+            comments.delete()
+            return Response({'success': True}, status=status.HTTP_200_OK)
         except Exception as e:
-            return JsonResponse({'error': f'Failed to delete comment, {e}'}, 500)
-        return JsonResponse({'success': True}, 200)
+            return Response({'error': f'Failed to delete comment, {e}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
