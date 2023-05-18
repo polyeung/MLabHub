@@ -5,7 +5,7 @@ from .views import UpdateUserProfileView, GetUserProfileView
 urlpatterns = [
     path('create', SignupView.as_view()),
     path('csrf_cookie', GetCSRFToken.as_view()),
-    path('authenticated', CheckAuthenticatedView.as_view()),
+    path('is_login', CheckAuthenticatedView.as_view()),
     path('logout', LogoutView.as_view()),
     path('login',LoginView.as_view()),
     path('delete',DeleteAccountView.as_view()),

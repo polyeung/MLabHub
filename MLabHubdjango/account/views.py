@@ -9,7 +9,7 @@ from .serializers import UserSerializer, UserProfileSerializer
 from .models import UserProfile, UserProfile
 import pprint
 
-@method_decorator(csrf_protect, name = 'dispatch')
+#@method_decorator(csrf_protect, name = 'dispatch')
 class CheckAuthenticatedView(APIView):
     def get(self, request, format = None):
 
@@ -17,7 +17,13 @@ class CheckAuthenticatedView(APIView):
             IsAuthenticated = User.is_authenticated
 
             if IsAuthenticated:
-                return Response({'isAuthenticated': 'success'}, status = status.HTTP_200_OK)
+                user = self.request.user
+                username = user.username
+                # TODO: select name and created from another tables:
+                return Response({'isAuthenticated': 'success',
+                                 'username': username,
+                                 'name': "some names",
+                                 'created': 'xx-xx-xx'}, status = status.HTTP_200_OK)
             else:
                 return Response({'isAuthenticated': 'error'}, status = status.HTTP_400_BAD_REQUEST)
         except:
