@@ -9,7 +9,7 @@ from .serializers import UserSerializer, UserProfileSerializer
 from .models import UserProfile, UserProfile
 import pprint
 
-#@method_decorator(csrf_protect, name = 'dispatch')
+@method_decorator(csrf_protect, name = 'dispatch')
 class CheckAuthenticatedView(APIView):
     def get(self, request, format = None):
 

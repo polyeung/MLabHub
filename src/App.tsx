@@ -11,6 +11,7 @@ import SignupPage from './pages/signupPage';
 import Navbar from './components/navbar';
 import { UserData } from './types/interface';
 import Dashboard from './pages/dashboard';
+import getCookie from './components/csrfToken';
 
 
 function ProtectedRoute(props: {
@@ -38,14 +39,36 @@ function App() {
   const location = useLocation();
 	const [userData, setUserData] = useState<UserData | undefined | null>(undefined);
   useEffect(() => {
-		fetch('/api/account/is_login',{credentials: 'include'}).then(res => {
-      if (res.ok) {
-        res.json().then(data => setUserData(data));
-        console.log(res);
-      } else { 
-        setUserData(null);
-      }
-		});
+		
+
+
+    // get csrf first
+    fetch('/api/account/csrf_cookie')
+      .then(response => response.json())
+        .then(data => {
+          const csrftoken: (string | null) = getCookie('csrftoken');
+          console.log('csrftoken:',csrftoken)
+          fetch('/api/account/is_login',{credentials: 'include',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrftoken ? csrftoken : "random_token"
+                  },
+                    }).then(res => {
+            if (res.ok) {
+              res.json().then(data => setUserData(data));
+              console.log(res);
+            } else { 
+              setUserData(null);
+            }
+          });
+        }).catch(error => console.error('Error:', error));
+
+
+
+
+
+
+
 	}, [location]);
 
   return (
