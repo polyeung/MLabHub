@@ -11,14 +11,13 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link} from 'react-router-dom';
 import ScienceIcon from '@mui/icons-material/Science';
 import SchoolIcon from '@mui/icons-material/School';
 import WorkIcon from '@mui/icons-material/Work';
 import { logoImg } from '@/assets';
 import { useNotifs } from '@/context';
 import { UserData } from '@/types/interface';
-import getCookie from '../csrfToken';
 
 const pages = [['Research Opportunities', '/jobs', '1'], ['Post Jobs', '/post', '2'], ['Post Lab Info', '/create', '3']];
 
@@ -33,31 +32,44 @@ function NavBar({ userData }: { userData?: UserData | null }) {
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
-  
+  function getCookie(name: string) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+  }
   
   function logoutFunc() {
-    // get csrf first
-    fetch('/api/account/csrf_cookie')
-        .then(response => response.json())
-      .then(data => {
-        const csrftoken: (string | null) = getCookie('csrftoken');
-        fetch('/api/account/logout', {
-          method: 'POST', credentials: 'include',
-          headers: {
-          'Content-Type': 'application/json',
-          'X-CSRFToken': csrftoken ? csrftoken : "random_token"
-        },}).then(res => {
-
-          if (res.ok) {
-              //notifs.addNotif({ severity: 'success', message: 'Successfully logged out.' });
-              notifs.addNotif({ severity: 'success', message: 'Successfully logged out.' });
-              navigate('/login');
-          } else {
-            notifs.addNotif({ severity: 'error', message: "Failed to logout"});
-          }
-      });
-      }
-    )
+  // get csrf first
+  fetch('/api/account/csrf_cookie')
+			.then(response => response.json())
+    .then(data => {
+      const csrftoken: (string | null) = getCookie('csrftoken');
+      fetch('/api/account/logout', {
+        method: 'POST', credentials: 'include',
+        headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': csrftoken ? csrftoken : "random_token"
+      },}).then(res => {
+        if (res.ok) {
+            //notifs.addNotif({ severity: 'success', message: 'Successfully logged out.' });
+            notifs.addNotif({ severity: 'success', message: 'Successfully logged out.' });
+            navigate('/login');
+        } else {
+          notifs.addNotif({ severity: 'error', message: "Failed to logout"});
+        }
+    });
+    }
+  )
   
 };
 
@@ -76,24 +88,25 @@ function NavBar({ userData }: { userData?: UserData | null }) {
     <AppBar position="static" style={{ backgroundColor: '#01305c' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <img src={logoImg} style={{maxWidth: '50px', marginRight: '5px'}} />
+          <img src={logoImg} style={{ maxWidth: '50px', marginRight: '5px' }} />
+          <Link to="/" style={{ textDecoration: 'none' }}>
           <Typography
             variant="h5"
             noWrap
             component="a"
-            href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'inherit',
+              color: 'white',
               textDecoration: 'none',
             }}
           >
             LabHub
-          </Typography>
+            </Typography>
+            </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -131,12 +144,11 @@ function NavBar({ userData }: { userData?: UserData | null }) {
               ))}
             </Menu>
           </Box>
-
+          <Link to="/" style={{ textDecoration: 'none' }}>
           <Typography
             variant="h5"
             noWrap
             component="a"
-            href=""
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -144,12 +156,13 @@ function NavBar({ userData }: { userData?: UserData | null }) {
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'inherit',
+              color: 'white',
               textDecoration: 'none',
             }}
           >
             MLabHub
-          </Typography>
+            </Typography>
+            </Link>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map(([page, link, id]) => (
               <Button
