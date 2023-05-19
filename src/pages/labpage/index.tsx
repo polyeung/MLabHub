@@ -143,6 +143,7 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
                 flexDirection: 'column',
                 alignItems: 'left',
                 overflow: 'auto',
+                maxHeight: '60vh',
                 borderRadius: '10px',
                 boxShadow: '0px 3px 10px rgba(0, 0, 0, 0.5)',
                 position: 'relative'
@@ -163,6 +164,12 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
             />
             { /* Real content begin */}
             <Typography variant="h6">Reviews</Typography>
+                <Box
+                    sx={{
+                        maxHeight: '50vh',
+                        overflowY: 'auto',
+                    }}
+                >
                 {comments.map((item) => (
                     <Box
                     padding={2}
@@ -194,8 +201,9 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
                         </Box>
                         <Typography>{item.word}</Typography>
                         </Box>
-                    
-                ))}
+                   
+                    ))}
+                </Box> 
             <Box sx={{
                     position: "absolute",
                     bottom: 10,
