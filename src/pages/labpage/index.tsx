@@ -8,12 +8,25 @@ import { UserData } from "@/types/interface";
 import CancelIcon from '@mui/icons-material/Cancel';
 import { useNotifs } from "@/context";
 import getCookie from '../../components/csrfToken';
+import styled from 'styled-components';
 function getRandomColor(): string { 
     const colors = ['red','#90731E', '#0277BD', 'pink', 'green', 'orange', 'purple', '#F29902', 'brown', 'gray', 'teal'];
     const randomIndex = Math.floor(Math.random() * colors.length);
     return colors[randomIndex];
 }
 
+const boxStyles = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(12, 1fr)',
+    gridAutoRows: '400px',
+    gap: '20px',
+    width: '100vw',
+  };
+  
+const smallScreenStyles = {
+    gridTemplateColumns: 'repeat(6, 1fr)',
+    gridAutoRows: '200px',
+};
 
 const labpage = (props: {userData: UserData | undefined | null}) =>{ 
     const location = useLocation();
@@ -87,14 +100,7 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
                     .catch(console.warn);
         })
     };
-    return (<Box
-        display="grid"
-        gridTemplateColumns="repeat(12, 1fr)"
-        gridAutoRows="400px"
-        gap="20px"
-        width="100vw"
-        
-    >
+    return (<Box style={boxStyles} sx={{ '@media (max-width: 600px)': smallScreenStyles }}>
         <Box padding={2}
             sx={{
                 gridColumn: 'span 8',
@@ -103,6 +109,7 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
                 borderRadius: '10px',
                 boxShadow: '0px 3px 10px rgba(0, 0, 0, 0.5)',
                 borderTop: '1px solid blue',
+                maxHeight: '60vh',
                 position: 'relative',
                 display: 'flex',
                 flexDirection: 'column',
@@ -115,6 +122,7 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
                     left: '20',
                     width: '50%', // change this value to adjust the length of the stroke
                     height: '10px',
+                    
                     backgroundColor: '#00274c',
                     borderTopLeftRadius: '10px',
                     borderTopRightRadius: '10px',
