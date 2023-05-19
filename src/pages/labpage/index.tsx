@@ -7,6 +7,7 @@ import ComPopper from '@/components/comPopper';
 import { UserData } from "@/types/interface";
 import CancelIcon from '@mui/icons-material/Cancel';
 import { useNotifs } from "@/context";
+import getCookie from '../../components/csrfToken';
 function getRandomColor(): string { 
     const colors = ['red','#90731E', '#0277BD', 'pink', 'green', 'orange', 'purple', '#F29902', 'brown', 'gray', 'teal'];
     const randomIndex = Math.floor(Math.random() * colors.length);
@@ -57,27 +58,34 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
 
     function handleDelete() { 
         setWaiting(true);
-        fetch(`/api/deleteComments/${ID}`, {
-                method: 'POST',
-                credentials: 'include',
-                headers: { 'Content-Type': 'application/json' }
+        fetch('/api/account/csrf_cookie')
+            .then(response => response.json())
+            .then(data => {
+                const csrftoken: (string | null) = getCookie('csrftoken');
+                fetch(`/api/deleteComments/${ID}`, {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrftoken ? csrftoken : "random_token"
+                    }
+                })
+                    .then(res => {
+                        if (res.ok) {
+                            notifs.addNotif({ severity: 'success', message: 'Comments deleted successfully!' });
+                        } else {
+                            res.json().then(data =>
+                                notifs.addNotif({
+                                    severity: 'error',
+                                    message: `Delete error: ${data.error}`,
+                                }),
+                            );
+                        }
+                        setWaiting(false);
+                        setDeleteClicked(!deleteClicked);
+                    })
+                    .catch(console.warn);
         })
-        .then(res => {
-            if (res.ok) {
-              notifs.addNotif({ severity: 'success', message: 'Comments deleted successfully!' });
-            } else { 
-              res.json().then(data =>
-                notifs.addNotif({
-                  severity: 'error',
-                  message: `Delete error: ${data.error}`,
-                }),
-              );
-            }
-            setWaiting(false);
-            setDeleteClicked(!deleteClicked);
-        })
-        .catch(console.warn);
-    
     };
     return (<Box
         display="grid"

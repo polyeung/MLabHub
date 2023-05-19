@@ -48,19 +48,18 @@ class GetComments(View):
 @method_decorator(csrf_exempt, name = 'dispatch')
 class AddComments(APIView):
     def post(self, request, labid):
-
         try:
             print('Before authenticated')
             IsAuthenticated = User.is_authenticated
-            print(IsAuthenticated)
             if IsAuthenticated:
                 data = self.request.data
-                print(data)
                 try:
                     rating = data['rating']
                     name = data['name']
                     word = data['word']
-                    print(rating, name, word)
+                    if Comment.objects.filter(labid=labid, name=name).exists():
+                        return Response({'error': 'Please delete your comment first!'}, status=status.HTTP_403_FORBIDDEN)
+                    print("reach here")
                     Comment.objects.create(
                         labid_id=labid, 
                         rating=rating, 
@@ -69,7 +68,7 @@ class AddComments(APIView):
                     )
                     return Response({'success': True}, status = status.HTTP_200_OK)
                 except:
-                    return Response({'error':'Something went wrong when create comment'})
+                    return Response({'error':'Something went wrong when create comment'}, status=status.HTTP_400_BAD_REQUEST)
 
                 
             else:
@@ -88,7 +87,7 @@ class DeleteComments(APIView):
             return Response({'error': 'Please login to comment'}, status=status.HTTP_401_UNAUTHORIZED)
         
         # Check if comments exist
-        comments = Comment.objects.filter(labid=self.request.id)
+        comments = Comment.objects.filter(labid=labid ,name = user.username)
         if not comments.exists():
             return Response({'error': 'No comments yet!'}, status=status.HTTP_401_UNAUTHORIZED)
         
