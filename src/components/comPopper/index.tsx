@@ -6,6 +6,7 @@ import Modal from '@mui/material/Modal';
 import {TextField, Rating} from '@mui/material';
 import { UserData } from '@/types/interface';
 import { useNotifs } from '@/context';
+import getCookie from '../csrfToken'
 const style = {
   position: 'absolute',
   top: '50%',
@@ -33,34 +34,42 @@ export default function BasicModal({ labid, userData, deleteClicked, setDeleteCl
   const notifs = useNotifs();
   function handleSubmit() { 
     setWaiting(true);
-    fetch(`/api/addComments/${labid}`, {
-			method: 'POST',
-			credentials: 'include',
-			headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        'name': userData?.username,
-        'rating': value,
-        'word': word,
-      }),
-    })
-    .then(res => {
-      if (res.ok) {
-        notifs.addNotif({ severity: 'success', message: 'Comments added successfully!' });
-        setOpen(false);
-        setDeleteClicked(!deleteClicked);
-      } else { 
-        res.json().then(data =>
-          notifs.addNotif({
-            severity: 'error',
-            message: `Comment error: ${data.error}`,
+    fetch('/api/account/csrf_cookie')
+			.then(response => response.json())
+			.then(data => {
+				const csrftoken: (string | null) = getCookie('csrftoken');
+        fetch(`/api/addComments/${labid}`, {
+          method: 'POST',
+          credentials: 'include',
+          headers: { 
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken ? csrftoken : "random_token"
+          },
+          body: JSON.stringify({
+            'name': userData?.username,
+            'rating': value,
+            'word': word,
           }),
-        );
-      }
-      setWaiting(false);
+        })
+        .then(res => {
+          if (res.ok) {
+            notifs.addNotif({ severity: 'success', message: 'Comments added successfully!' });
+            setOpen(false);
+            setDeleteClicked(!deleteClicked);
+          } else { 
+            res.json().then(data =>
+              notifs.addNotif({
+                severity: 'error',
+                message: `Comment error: ${data.error}`,
+              }),
+            );
+          }
+          setWaiting(false);
     })
     .catch(console.warn);
+    })
   };
-
+  
   return (
     <div>
           <Button onClick={handleOpen} 
