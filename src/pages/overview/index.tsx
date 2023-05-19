@@ -17,7 +17,7 @@ export default function overview(props: {
     return (
         <Grid container spacing={2}>
             {data.map((item) => (
-                <Grid item xs={12} sm={6} md={4}  key={item.id}>
+                <Grid item xs={12} sm={6} md={4}  key={item.id} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     {/*
                     <Labinfo
                         name={item.name}
