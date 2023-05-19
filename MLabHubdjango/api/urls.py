@@ -9,4 +9,5 @@ urlpatterns = [
     path('addComments/<int:labid>', views.AddComments.as_view()),
     path('deleteComments/<int:labid>', views.DeleteComments.as_view()),
     path('account/', include('account.urls')),
+    path('jobpages/', include('jobpage.urls')),
 ]
