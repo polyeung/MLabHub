@@ -1,3 +1,4 @@
+import { extend } from 'lodash';
 import { NavigateOptions,  } from 'react-router-dom';
 
 export interface LabInfoType { 
@@ -52,4 +53,61 @@ export interface UserData {
     name: string | null,
     email: string | null,
     created: string
+};
+
+export interface LabInfoTypeForm {
+    name: string,
+    link: string,
+    dep: string,
+    addr: string,
+    funding: string
+};
+
+export const LabInfoTypeFormTemplate: LabInfoTypeForm = {
+    name: "",
+    link: "",
+    dep: "",
+    addr: "",
+    funding: ""
+};
+
+export interface PersonInfoType { 
+    name: string,
+    email: string,
+};
+
+export interface FinalLabType extends LabInfoTypeForm{ 
+    peopleDict: Record<string, PersonInfoType>;
+};
+
+export interface AddrInfoType { 
+    addr1: string,
+    addr2: string,
+    city: string,
+    zip: string,
+    country: string,
+    state:string
+};
+
+export const AddrInfoTemplate: AddrInfoType = {
+    addr1: '',
+    addr2: '',
+    city: '',
+    zip: '',
+    country: '',
+    state: ''
+};
+
+export interface LabFormProps { 
+    info: LabInfoTypeForm,
+    addr: AddrInfoType,
+    handleSetAddr: (key: string, value: string) => any;
+    handleSetInfo: (key: string, value: string) => any;
+};
+
+export interface PeopleFormProps { 
+    peopleDict: Record<string, PersonInfoType>;
+    handleAddPerson: (id: string, name: string, email: string) => any;
+    handleDeletePerson: (id: string) => any;
+    handleGetPerson: (id: string) => string[];
 };

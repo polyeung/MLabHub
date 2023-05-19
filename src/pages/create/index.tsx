@@ -15,6 +15,10 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AddressForm from './LabInfoForm';
 import PaymentForm from './PeopleInfoForm';
 import Review from './Review';
+import {
+    LabInfoTypeForm, LabInfoTypeFormTemplate,
+    AddrInfoType, AddrInfoTemplate,PersonInfoType
+    } from '@/types/interface';
 
 function Copyright() {
   return (
@@ -31,33 +35,94 @@ function Copyright() {
 
 const steps = ['Lab information', 'People information', 'Review your info'];
 
-function getStepContent(step: number) {
-  switch (step) {
-    case 0:
-      return <AddressForm />;
-    case 1:
-      return <PaymentForm />;
-    case 2:
-      return <Review />;
-    default:
-      throw new Error('Unknown step');
-  }
-}
+
 
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
-export default function Checkout() {
-  const [activeStep, setActiveStep] = React.useState(0);
+export default function CreateLabForm() {
+    const [activeStep, setActiveStep] = React.useState(0);
+    //for form 1
+    const [info, setInfo] = React.useState<LabInfoTypeForm>(LabInfoTypeFormTemplate);
+    const [addr, setAddr] = React.useState<AddrInfoType>(AddrInfoTemplate);
+    const handleSetAddr = (key: string, value: string) => {
+        setAddr((prevInfo) => ({
+             ...prevInfo,
+             [key]: value,
+         }));
+     };
+ 
+   const handleSetInfo = (key: string, value: string) => {
+         setInfo((prevInfo) => ({
+             ...prevInfo,
+             [key]: value,
+         }));
+   };
+    //for form 2
+    const [peopleDict, setPeopleDict] = React.useState<Record<string, PersonInfoType>>({
+        "0": {
+            name: "",
+            email: ""
+        }
+    });
+    const handleAddPerson = (id: string, name: string, email: string) => {
+        const newPersonInfo = {
+          name: name,
+          email: email,
+        };
+        setPeopleDict((prevPeopleDict) => ({
+          ...prevPeopleDict,
+          [id]: newPersonInfo,
+        }));
+    };
+    const handleDeletePerson = (id: string) => {
+        setPeopleDict((prevPeopleDict) => {
+            const { [id]: _, ...updatedPeopleDict } = prevPeopleDict;
+            return updatedPeopleDict;
+        });
+    };
 
-  const handleNext = () => {
-    setActiveStep(activeStep + 1);
-  };
+    const handleGetPerson = (id: string): string[] => {
+        return [peopleDict[id].name, peopleDict[id].email];
+     }
+  
 
-  const handleBack = () => {
-    setActiveStep(activeStep - 1);
-  };
+     const handleUpdatePerson= (id: string, name: string, email: string): void => {
+        setPeopleDict((prevPeopleDict) => {
+            return {
+              ...prevPeopleDict,
+              [id]: {
+                ...prevPeopleDict[id],
+                name: name,
+                email: email,
+              },
+            };
+          });
+      };
 
+  function getStepContent(step: number) {
+    switch (step) {
+      case 0:
+            return <AddressForm
+                        info={info}
+                        addr={addr}
+                        handleSetAddr={handleSetAddr}
+                        handleSetInfo={handleSetInfo} />;
+      case 1:
+            return <PaymentForm
+                peopleDict={peopleDict}
+                handleAddPerson={handleAddPerson}
+                handleDeletePerson={handleDeletePerson}
+                handleGetPerson={handleGetPerson}
+                handleUpdatePerson={ handleUpdatePerson}
+            />;
+      case 2:
+        return <Review />;
+      default:
+        throw new Error('Unknown step');
+    }
+  }
+    
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
@@ -90,13 +155,13 @@ export default function Checkout() {
               {getStepContent(activeStep)}
               <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                 {activeStep !== 0 && (
-                  <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
+                                <Button onClick={() => { setActiveStep(activeStep - 1) }} sx={{ mt: 3, ml: 1 }}>
                     Back
                   </Button>
                 )}
                 <Button
                   variant="contained"
-                  onClick={handleNext}
+                                      onClick={() => { setActiveStep(activeStep + 1); console.log(info); console.log(addr); }}
                   sx={{ mt: 3, ml: 1 }}
                 >
                   {activeStep === steps.length - 1 ? 'Place order' : 'Next'}

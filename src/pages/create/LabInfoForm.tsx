@@ -9,13 +9,15 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import InputAdornment from '@mui/material/InputAdornment';
+import { PeopleFormProps } from '@/types/interface';
 
-export default function AddressForm() {
-  const [age, setAge] = React.useState('');
+export default function AddressForm({ info, addr, handleSetAddr, handleSetInfo}: PeopleFormProps) {
 
   const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string);
+    handleSetInfo('dep',event.target.value as string);
   };
+
+  
 
   return (
     <React.Fragment>
@@ -29,6 +31,8 @@ export default function AddressForm() {
             fullWidth
             autoComplete="given-name"
             variant="standard"
+            value={info.name}
+            onChange={(e) => { handleSetInfo('name', e.target.value)}}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -43,6 +47,8 @@ export default function AddressForm() {
             InputProps={{
               startAdornment: <InputAdornment position="start">$USD</InputAdornment>,
             }}
+            value={info.funding}
+            onChange={(e) => { handleSetInfo('funding', e.target.value)}}
           />
         </Grid>
         <Grid item xs={12}>
@@ -52,7 +58,7 @@ export default function AddressForm() {
               required
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              value={age}
+              value={info.dep}
               label="Department"
               onChange={handleChange}
             >
@@ -64,12 +70,26 @@ export default function AddressForm() {
         </Grid>
         <Grid item xs={12}>
           <TextField
+            required
+            id="link"
+            name="link"
+            label="Website URL"
+            fullWidth
+            variant="standard"
+            value={info.link}
+            onChange={(e) => { handleSetInfo('link', e.target.value)}}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
             id="address1"
             name="address1"
             label="Address line 1"
             fullWidth
             autoComplete="lab address-line1"
             variant="standard"
+            value={addr.addr1}
+            onChange={(e) => { handleSetAddr('addr1', e.target.value)}}
           />
         </Grid>
         <Grid item xs={12}>
@@ -80,6 +100,8 @@ export default function AddressForm() {
             fullWidth
             autoComplete="lab address-line2"
             variant="standard"
+            value={addr.addr2}
+            onChange={(e) => { handleSetAddr('addr2', e.target.value)}}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -91,6 +113,8 @@ export default function AddressForm() {
             fullWidth
             autoComplete="shipping address-level2"
             variant="standard"
+            value={addr.city}
+            onChange={(e) => { handleSetAddr('city', e.target.value)}}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -100,6 +124,8 @@ export default function AddressForm() {
             label="State/Province/Region"
             fullWidth
             variant="standard"
+            value={addr.state}
+            onChange={(e) => { handleSetAddr('state', e.target.value)}}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -111,6 +137,9 @@ export default function AddressForm() {
             fullWidth
             autoComplete="shipping postal-code"
             variant="standard"
+            type="number"
+            value={addr.zip}
+            onChange={(e) => { handleSetAddr('zip', e.target.value)}}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -122,6 +151,8 @@ export default function AddressForm() {
             fullWidth
             autoComplete="shipping country"
             variant="standard"
+            value={addr.country}
+            onChange={(e) => { handleSetAddr('country', e.target.value)}}
           />
         </Grid>
         
