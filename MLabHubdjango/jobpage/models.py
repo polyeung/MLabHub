@@ -6,12 +6,13 @@ class JobData(models.Model):
     labid = models.ForeignKey(Lab, on_delete=models.CASCADE, db_column='labid')
     title = models.CharField(max_length = 100)
     course = models.CharField(max_length=100)
-    rate = models.IntegerField()
+    rate = models.FloatField()
     contact = models.EmailField()
     intro = models.TextField()
     labname = models.CharField(max_length=100) 
 
     def __str__(self):
-        self.title
+        return self.title
+
 
 
