@@ -6,11 +6,7 @@ import SaveIcon from '@mui/icons-material/Save';
 import { useNotifs } from '@/context';
 import DeleteModal from '@/components/deleteModal';
 
-function pretifyDate(input: String) {
-    let splitWord: String[] = input.split(' ');
-    console.log(splitWord);
-    return (splitWord[0] + ' ' + splitWord[1]+ ' ' + splitWord[2]);
-}
+
 function dashboard(props: { userData: UserData |  null | undefined; }) { 
     const [localUser, setLocalUser] = useState<UserData | null | undefined>(props.userData ?? {
         email: '', username: '', name: '', created: ''
@@ -21,7 +17,7 @@ function dashboard(props: { userData: UserData |  null | undefined; }) {
     const [edit, setEdit] = useState<boolean>(false);
     function handleSubmit() {
 		setWaiting(true);
-		fetch('/api/account/update/', {
+		fetch('/api/account/update', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -115,8 +111,8 @@ function dashboard(props: { userData: UserData |  null | undefined; }) {
           />
                 {/* Real content begin */}
                 {edit ?
-                    <IconButton onClick={() => { handleSubmit();setEdit(!edit) }}><SaveIcon /></IconButton> :
-                    <IconButton onClick={() =>  setEdit(!edit) }><EditIcon /></IconButton>}
+                <IconButton disabled={ waiting } onClick={() => { handleSubmit();setEdit(!edit) }}><SaveIcon /></IconButton> :
+                <IconButton disabled={ waiting } onClick={() =>  setEdit(!edit) }><EditIcon /></IconButton>}
             
                 <Box sx={{ display: 'flex', flexDirection: 'row' }}>
                     <Typography sx={{fontWeight: 'bold', mr: '15px'}}>Username: </Typography>
@@ -152,7 +148,7 @@ function dashboard(props: { userData: UserData |  null | undefined; }) {
                 </Box>
                 <Box sx={{ display: 'flex', flexDirection: 'row' }}>
                     <Typography sx={{fontWeight: 'bold', mr: '15px'}}>Created: </Typography>
-                    <Typography>{pretifyDate(localUser?.created? localUser?.created:"" )}</Typography>
+            <Typography>{localUser?.created ? localUser?.created : ""}</Typography>
                 </Box>
                 <DeleteModal userData={ props.userData } />
                 

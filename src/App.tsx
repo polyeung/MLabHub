@@ -39,19 +39,14 @@ function App() {
   const location = useLocation();
 	const [userData, setUserData] = useState<UserData | undefined | null>(undefined);
   useEffect(() => {
-		
-
-
     // get csrf first
     fetch('/api/account/csrf_cookie')
       .then(response => response.json())
         .then(data => {
           const csrftoken: (string | null) = getCookie('csrftoken');
-          console.log('csrftoken:',csrftoken)
           fetch('/api/account/is_login',{
                   method: 'GET',
                   credentials: 'include',
-
                     }).then(res => {
             if (res.ok) {
               res.json().then(data => setUserData(data));

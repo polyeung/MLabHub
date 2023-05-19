@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from .serializers import UserSerializer, UserProfileSerializer
 from .models import UserProfile, UserProfile
 import pprint
+from datetime import datetime
 
 @method_decorator(csrf_exempt, name = 'dispatch')
 class CheckAuthenticatedView(APIView):
@@ -17,13 +18,23 @@ class CheckAuthenticatedView(APIView):
             IsAuthenticated = User.is_authenticated
 
             if IsAuthenticated:
-                user = self.request.user
+                # comes from session and get user object
+                user = request.user
                 username = user.username
+                print(username)
                 # TODO: select name and created from another tables:
-                return Response({'isAuthenticated': 'success',
+                userprofile = UserProfile.objects.get(user=user)
+                print(userprofile.created)
+                print({
                                  'username': username,
-                                 'name': "some names",
-                                 'created': 'xx-xx-xx'}, status = status.HTTP_200_OK)
+                                 'name': userprofile.name,
+                                 'email': userprofile.email,
+                                 'created': userprofile.created})
+                return Response({
+                                 'username': username,
+                                 'name': userprofile.name,
+                                 'email': userprofile.email,
+                                 'created': userprofile.created.strftime('%Y-%m-%d')}, status = status.HTTP_200_OK)
             else:
                 return Response({'isAuthenticated': 'error'}, status = status.HTTP_400_BAD_REQUEST)
         except:
