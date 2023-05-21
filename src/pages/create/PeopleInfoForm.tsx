@@ -36,57 +36,59 @@ export default function PeopleForm({ peopleDict,  handleUpdatePerson,handleDelet
       </Typography>
       <Grid container spacing={3}>
       {Object.entries(peopleDict).map(([id, person]) => (
-  <React.Fragment key={id}>
-    <Grid item xs={12} md={6}>
-      <TextField
-        required={id === "1"}
-        id={"Name " + id}
-        label={"Name " + id}
-        fullWidth
-        variant="standard"
-        value={person.name}
-        onChange={(e) => {
-          const updatedValue = {
-            ...person,
-            name: e.target.value
-          };
-          handleUpdatePerson(id, updatedValue.name, updatedValue.email);
-        }}
-      />
-    </Grid>
-    <Grid item xs={12} md={6}>
-      <TextField
-        id={"Email " + id}
-        label={"Email " + id}
-        fullWidth
-        variant="standard"
-        required={id === "1"}
-        value={person.email}
-        onChange={(e) => {
-          const updatedValue = {
-            ...person,
-            email: e.target.value
-          };
-          handleUpdatePerson(id, updatedValue.name, updatedValue.email);
-        }}
-      />
-    </Grid>
-  </React.Fragment>
-))}
+        <React.Fragment key={id}>
+           
+            <Grid item xs={12} md={6}>
+              <TextField
+                required={id === "1"}
+                id={"Name " + id}
+                label={"Name " + id}
+                fullWidth
+                variant="standard"
+                value={person.name}
+                onChange={(e) => {
+                  const updatedValue = {
+                    ...person,
+                    name: e.target.value
+                  };
+                  handleUpdatePerson(id, updatedValue.name, updatedValue.email);
+                }}
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                id={"Email " + id}
+                label={"Email " + id}
+                fullWidth
+                variant="standard"
+                required={id === "1"}
+                value={person.email}
+                onChange={(e) => {
+                  const updatedValue = {
+                    ...person,
+                    email: e.target.value
+                  };
+                  handleUpdatePerson(id, updatedValue.name, updatedValue.email);
+                }}
+              />
+            </Grid>
+          </React.Fragment>
+        ))}
 
-        <Grid item xs={12} md={6}>
-        <ButtonGroup variant="contained" aria-label="outlined primary button group">
-            {Object.keys(peopleDict).length < 5 && (<IconButton onClick={handleAddClick}>
-              <AddCircleRoundedIcon />
-            </IconButton>)
-            }
-            <Divider orientation="vertical" flexItem />
-            {Object.keys(peopleDict).length > 1 &&
-            (<IconButton onClick={  handleDeleteClick }>
-              <RemoveCircleRoundedIcon/>
-            </IconButton>)}
+        <Grid item xs={12} md={12}>
+        <ButtonGroup size="small" aria-label="small button group">
+            {Object.keys(peopleDict).length < 5 && (<Button key={ "addbutton"} onClick={handleAddClick}>+</Button>)}
+            {Object.keys(peopleDict).length > 1 &&(<Button  key={ "deletebutton"} onClick={  handleDeleteClick }>-</Button>)}
         </ButtonGroup>
         </Grid>
+
+        {Object.keys(peopleDict).length == 5 && (<Grid item xs={12} md={12}>
+          <Typography variant="subtitle2">*Max 5 members</Typography>
+        </Grid>)}
+
+        {Object.keys(peopleDict).length == 1 && (<Grid item xs={12} md={12}>
+          <Typography variant="subtitle2">*Please at least input one member's info</Typography>
+        </Grid>)}
       </Grid>
 
     </React.Fragment>
