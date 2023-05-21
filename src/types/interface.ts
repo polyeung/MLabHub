@@ -110,3 +110,8 @@ export interface PeopleFormProps {
     handleDeletePerson:(id: string) => any
 };
 
+export interface ReviewFormProps { 
+    peopleDict: { [key: string]: PersonInfoType },
+    addr: AddrInfoType,
+    info: LabInfoTypeForm
+};

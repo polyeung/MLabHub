@@ -62,12 +62,15 @@ export default function CreateLabForm() {
         return 2;
     };
 
-    function checkPeopleFormInfo():number { 
-        if (peopleDict["1"].name == "" || peopleDict["1"].email == "") { 
+    function checkPeopleFormInfo(): number {
+        // Check that all names that exist are not empty
+        for (const value of Object.values(peopleDict)) {
+          if (value.name === "") {
             return 0;
+          }
         }
         return 1;
-    };
+      }
 
     const handleAddStep = () => {
         if (activeStep == 0) {
@@ -111,8 +114,8 @@ export default function CreateLabForm() {
     const [peopleDict, setPeopleDict] = React.useState<{ [key: string]: PersonInfoType }>(
         {
             "1": {
-                email: "",
-                name: ""
+                email: "testing",
+                name: "testing"
             }
         }
     );
@@ -152,7 +155,10 @@ export default function CreateLabForm() {
                 handleDeletePerson={ handleDeletePerson}
             />;
       case 2:
-        return <Review />;
+            return <Review
+                    info={info}
+                    addr={addr}
+                    peopleDict={peopleDict}/>;
       default:
         throw new Error('Unknown step');
     }
@@ -199,7 +205,7 @@ export default function CreateLabForm() {
                                       onClick={handleAddStep}
                   sx={{ mt: 3, ml: 1 }}
                 >
-                  {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+                  {activeStep === steps.length - 1 ? 'Post Lab Info' : 'Next'}
                 </Button>
               </Box>
             </React.Fragment>

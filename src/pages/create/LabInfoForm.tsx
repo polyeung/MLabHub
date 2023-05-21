@@ -59,9 +59,9 @@ export default function LabInfoForm({ info, addr, handleSetAddr, handleSetInfo}:
               label="Department"
               onChange={handleChange}
             >
-              <MenuItem value={10}>CSE</MenuItem>
-              <MenuItem value={20}>ECE</MenuItem>
-              <MenuItem value={30}>CHEM</MenuItem>
+              <MenuItem value={"CSE"}>CSE</MenuItem>
+              <MenuItem value={"ECE"}>ECE</MenuItem>
+              <MenuItem value={"CHEM"}>CHEM</MenuItem>
             </Select>
           </FormControl>
         </Grid>

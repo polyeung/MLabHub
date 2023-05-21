@@ -40,10 +40,10 @@ export default function PeopleForm({ peopleDict,  handleUpdatePerson,handleDelet
            
             <Grid item xs={12} md={6}>
               <TextField
-                required={id === "1"}
+                required
                 id={"Name " + id}
                 label={"Name " + id}
-                fullWidth
+              fullWidth
                 variant="standard"
                 value={person.name}
                 onChange={(e) => {
