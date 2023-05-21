@@ -21,15 +21,8 @@ class CheckAuthenticatedView(APIView):
                 # comes from session and get user object
                 user = request.user
                 username = user.username
-                print(username)
                 # TODO: select name and created from another tables:
                 userprofile = UserProfile.objects.get(user=user)
-                print(userprofile.created)
-                print({
-                                 'username': username,
-                                 'name': userprofile.name,
-                                 'email': userprofile.email,
-                                 'created': userprofile.created})
                 return Response({
                                  'username': username,
                                  'name': userprofile.name,

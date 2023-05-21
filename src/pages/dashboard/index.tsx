@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { UserData } from '@/types/interface';
-import { Box, Typography, IconButton, TextField , Button } from '@mui/material';
+import { Box, Typography, IconButton, TextField , Button, Grid} from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import SaveIcon from '@mui/icons-material/Save';
 import { useNotifs } from '@/context';
@@ -41,13 +41,14 @@ function dashboard(props: { userData: UserData |  null | undefined; }) {
 			})
 			.catch(console.warn);
 	};
-    return (
+  return (
       <Box
         display="grid"
         gridTemplateColumns="repeat(12, 1fr)"
-        gridAutoRows="300px"
+        gridTemplateRows="repeat(6, 1fr)"
         gap="20px"
         width="100vw"
+        flexDirection={{ xs: 'column', md: 'row' }}
 
         >
         {/* Top half of the left-hand side */}
@@ -55,7 +56,7 @@ function dashboard(props: { userData: UserData |  null | undefined; }) {
           padding={2}
           sx={{
             gridColumn: 'span 6',
-            gridRow: 'span 1',
+            gridRow: 'span 3',
             backgroundColor: 'white',
             borderRadius: '10px',
             boxShadow: '0px 3px 10px rgba(0, 0, 0, 0.5)',
@@ -87,7 +88,7 @@ function dashboard(props: { userData: UserData |  null | undefined; }) {
           padding={2}
           sx={{
             gridColumn: 'span 6',
-            gridRow: 'span 2',
+            gridRow: 'span 6',
             backgroundColor: 'white',
             borderRadius: '10px',
             boxShadow: '0px 3px 10px rgba(0, 0, 0, 0.5)',
@@ -161,7 +162,7 @@ function dashboard(props: { userData: UserData |  null | undefined; }) {
             padding={2}
             sx={{
                 gridColumn: 'span 6',
-                gridRow: 'span 1',
+                gridRow: 'span 3',
                 backgroundColor: 'white',
                 display: 'flex',
                 flexDirection: 'column',
@@ -191,6 +192,8 @@ function dashboard(props: { userData: UserData |  null | undefined; }) {
            
             </Box>
       </Box>
+
+
     );
 }
 
