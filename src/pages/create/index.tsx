@@ -14,6 +14,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import LabInfoForm from './LabInfoForm';
 import PeopleInfoForm from './PeopleInfoForm';
 import Review from './Review';
+import { useNotifs } from '@/context';
 import {
     LabInfoTypeForm, LabInfoTypeFormTemplate,
     AddrInfoType, AddrInfoTemplate, PersonInfoType,
@@ -41,9 +42,42 @@ const defaultTheme = createTheme();
 
 export default function CreateLabForm() {
     const [activeStep, setActiveStep] = React.useState(0);
+    const notifs = useNotifs();
     //for form 1
     const [info, setInfo] = React.useState<LabInfoTypeForm>(LabInfoTypeFormTemplate);
     const [addr, setAddr] = React.useState<AddrInfoType>(AddrInfoTemplate);
+
+    // check info for labform whether fillin required fields
+    //1. check labname not empty
+    //2. check department not empty
+    //3. check website url not empty and start with https:// or http
+    function checkLabFormInfo():number { 
+        if (info.name == "" || info.dep == "" || info.link == "") { 
+            return 0;
+        }
+        const prefixes = ["http://", "https://"];
+        if (!prefixes.some(prefix => info.link.startsWith(prefix))) { 
+            return 1;
+        }
+        return 2;
+    };
+
+    const handleAddStep = () => {
+        if (activeStep == 0) { 
+            // check lab info
+            const res: number = checkLabFormInfo();
+            console.log("res: ", res);
+            if (res == 0) {
+                notifs.addNotif({ severity: 'error', message: 'Please fill in all required info' });
+            } else if (res == 1) {
+                notifs.addNotif({ severity: 'error', message: 'Url should start with http:// or https://' });
+            } else { 
+                notifs.addNotif({ severity: 'success', message: 'Lab Data Saved!' });
+                setActiveStep(activeStep + 1);
+            }
+        }
+        
+    }
     const handleSetAddr = (key: string, value: string) => {
         setAddr((prevInfo) => ({
              ...prevInfo,
@@ -66,8 +100,6 @@ export default function CreateLabForm() {
             }
         }
     );
-    
-
 
      const handleUpdatePerson= (id: string, name: string, email: string): void => {
         setPeopleDict((prevPeopleDict) => {
@@ -148,7 +180,7 @@ export default function CreateLabForm() {
                 )}
                 <Button
                   variant="contained"
-                                      onClick={() => { setActiveStep(activeStep + 1); console.log(info); console.log(addr); console.log(peopleDict); }}
+                                      onClick={handleAddStep}
                   sx={{ mt: 3, ml: 1 }}
                 >
                   {activeStep === steps.length - 1 ? 'Place order' : 'Next'}

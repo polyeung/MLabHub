@@ -53,7 +53,7 @@ export default function LabInfoForm({ info, addr, handleSetAddr, handleSetInfo}:
         </Grid>
         <Grid item xs={12}>
         <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">Department</InputLabel>
+            <InputLabel id="demo-simple-select-label">Department *</InputLabel>
             <Select
               required
               labelId="demo-simple-select-label"
@@ -106,7 +106,7 @@ export default function LabInfoForm({ info, addr, handleSetAddr, handleSetInfo}:
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-            required
+           
             id="city"
             name="city"
             label="City"
@@ -130,7 +130,7 @@ export default function LabInfoForm({ info, addr, handleSetAddr, handleSetInfo}:
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-            required
+            
             id="zip"
             name="zip"
             label="Zip / Postal code"
@@ -144,7 +144,7 @@ export default function LabInfoForm({ info, addr, handleSetAddr, handleSetInfo}:
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-            required
+            
             id="country"
             name="country"
             label="Country"
