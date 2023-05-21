@@ -65,13 +65,13 @@ export default function Review({ peopleDict, addr, info }: ReviewFormProps) {
       <List disablePadding>
         {Object.entries(peopleDict).map(([key, value]) => (
           <ListItem key={key} sx={{ py: 1, px: 0 }}>
-            <ListItemText primary={"member" + key} secondary={value.email} />
+            <ListItemText primary={"member" + key} sx={{ fontWeight: 600 }} secondary={value.email} />
                 
-                 <Typography variant="body2">{value.name}</Typography>
+                 <Typography variant="body2" sx={{ fontWeight: 500 }}>{value.name}</Typography>
           </ListItem>
         ))}
         <ListItem sx={{ py: 1, px: 0 }}>
-          <ListItemText primary="Number of Members" />
+          <ListItemText primary="Number of Members" sx={{ fontWeight: 600 }}/>
           <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
             { Object.keys(peopleDict).length }
           </Typography>

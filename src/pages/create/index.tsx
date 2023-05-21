@@ -15,10 +15,24 @@ import LabInfoForm from './LabInfoForm';
 import PeopleInfoForm from './PeopleInfoForm';
 import Review from './Review';
 import { useNotifs } from '@/context';
+import Modal from '@mui/material/Modal';
 import {
     LabInfoTypeForm, LabInfoTypeFormTemplate,
     AddrInfoType, AddrInfoTemplate, PersonInfoType,
     } from '@/types/interface';
+
+const style = {
+        position: 'absolute' as 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 400,
+        bgcolor: 'background.paper',
+        border: '2px solid #000',
+        boxShadow: 24,
+        p: 4,
+      };
+      
 
 function Copyright() {
   return (
@@ -46,6 +60,10 @@ export default function CreateLabForm() {
     //for form 1
     const [info, setInfo] = React.useState<LabInfoTypeForm>(LabInfoTypeFormTemplate);
     const [addr, setAddr] = React.useState<AddrInfoType>(AddrInfoTemplate);
+    // state variables for modal:
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
     // check info for labform whether fillin required fields
     //1. check labname not empty
@@ -81,19 +99,26 @@ export default function CreateLabForm() {
                 notifs.addNotif({ severity: 'error', message: 'Please fill in all required info' });
             } else if (res == 1) {
                 notifs.addNotif({ severity: 'error', message: 'Url should start with http:// or https://' });
-            } else {
+            }
+            else {
                 notifs.addNotif({ severity: 'success', message: 'Lab Data Saved!' });
                 setActiveStep(activeStep + 1);
             }
-        } else if (activeStep == 1) { 
+        } else if (activeStep == 1) {
             const res: number = checkPeopleFormInfo();
 
-            if (res == 0) { 
+            if (res == 0) {
                 notifs.addNotif({ severity: 'error', message: 'Please fill in all required info' });
             } else {
                 notifs.addNotif({ severity: 'success', message: 'Members Data Saved!' });
                 setActiveStep(activeStep + 1);
             }
+        } else { 
+            
+                // add model to check url
+                //setActiveStep(activeStep + 1);
+            handleOpen();
+
         }
         
     }
@@ -154,16 +179,50 @@ export default function CreateLabForm() {
                 handleUpdatePerson={handleUpdatePerson}
                 handleDeletePerson={ handleDeletePerson}
             />;
-      case 2:
-            return <Review
-                    info={info}
-                    addr={addr}
-                    peopleDict={peopleDict}/>;
+        case 2:
+            return <><Review
+                info={info}
+                addr={addr}
+                peopleDict={peopleDict} />
+                { BasicModal(info.link)}
+            </>;
       default:
         throw new Error('Unknown step');
     }
   }
-    
+
+    const handleFinalSubmit = () => { 
+        setActiveStep(activeStep + 1);
+        notifs.addNotif({ severity: 'success', message: 'Submission Saved!' });
+    };
+  function BasicModal(url: string) {
+    return (
+      <div>
+        
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              Final Check
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                    Please double check your Lab URL is correct! 
+                    </Typography>
+                    <Typography id="modal-modal-description" sx={{ mt: 1 }}>Click <a href={ url }>here</a></Typography>
+            
+            <Box sx={{mt: 2}}>
+            <Button  onClick={handleClose} variant="outlined">Back</Button>
+            <Button variant="contained" onClick={handleFinalSubmit  }>Confirm</Button>
+            </Box>
+          </Box>
+        </Modal>
+      </div>
+    );
+  }
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
@@ -183,12 +242,11 @@ export default function CreateLabForm() {
           {activeStep === steps.length ? (
             <React.Fragment>
               <Typography variant="h5" gutterBottom>
-                Thank you for your order.
+                Thank you for submitting your lab info.
               </Typography>
               <Typography variant="subtitle1">
-                Your order number is #2001539. We have emailed your order
-                confirmation, and will send you an update when your order has
-                shipped.
+                Your request number is #2001539. We will double check your submission and post it
+                on our website! You will get a notified email shortly! 
               </Typography>
             </React.Fragment>
           ) : (
@@ -196,7 +254,7 @@ export default function CreateLabForm() {
               {getStepContent(activeStep)}
               <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                 {activeStep !== 0 && (
-                                <Button onClick={() => { setActiveStep(activeStep - 1) }} sx={{ mt: 3, ml: 1 }}>
+                <Button onClick={() => { setActiveStep(activeStep - 1) }} sx={{ mt: 3, ml: 1 }}>
                     Back
                   </Button>
                 )}
