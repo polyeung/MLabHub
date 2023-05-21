@@ -62,17 +62,33 @@ export default function CreateLabForm() {
         return 2;
     };
 
+    function checkPeopleFormInfo():number { 
+        if (peopleDict["1"].name == "" || peopleDict["1"].email == "") { 
+            return 0;
+        }
+        return 1;
+    };
+
     const handleAddStep = () => {
-        if (activeStep == 0) { 
+        if (activeStep == 0) {
             // check lab info
             const res: number = checkLabFormInfo();
-            console.log("res: ", res);
+
             if (res == 0) {
                 notifs.addNotif({ severity: 'error', message: 'Please fill in all required info' });
             } else if (res == 1) {
                 notifs.addNotif({ severity: 'error', message: 'Url should start with http:// or https://' });
-            } else { 
+            } else {
                 notifs.addNotif({ severity: 'success', message: 'Lab Data Saved!' });
+                setActiveStep(activeStep + 1);
+            }
+        } else if (activeStep == 1) { 
+            const res: number = checkPeopleFormInfo();
+
+            if (res == 0) { 
+                notifs.addNotif({ severity: 'error', message: 'Please fill in all required info' });
+            } else {
+                notifs.addNotif({ severity: 'success', message: 'Members Data Saved!' });
                 setActiveStep(activeStep + 1);
             }
         }
