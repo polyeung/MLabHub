@@ -114,8 +114,8 @@ export default function CreateLabForm() {
     const [peopleDict, setPeopleDict] = React.useState<{ [key: string]: PersonInfoType }>(
         {
             "1": {
-                email: "testing",
-                name: "testing"
+                email: "liyangg@Umich.edu",
+                name: "Yang Li"
             }
         }
     );
