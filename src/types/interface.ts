@@ -76,10 +76,6 @@ export interface PersonInfoType {
     email: string,
 };
 
-export interface FinalLabType extends LabInfoTypeForm{ 
-    peopleDict: Record<string, PersonInfoType>;
-};
-
 export interface AddrInfoType { 
     addr1: string,
     addr2: string,
@@ -105,9 +101,12 @@ export interface LabFormProps {
     handleSetInfo: (key: string, value: string) => any;
 };
 
+
+
+
 export interface PeopleFormProps { 
-    peopleDict: Record<string, PersonInfoType>;
-    handleAddPerson: (id: string, name: string, email: string) => any;
-    handleDeletePerson: (id: string) => any;
-    handleGetPerson: (id: string) => string[];
+    peopleDict: { [key: string]: PersonInfoType },
+    handleUpdatePerson: (id: string, name: string, email: string) => any,
+    handleDeletePerson:(id: string) => any
 };
+

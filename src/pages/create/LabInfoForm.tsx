@@ -9,9 +9,9 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import InputAdornment from '@mui/material/InputAdornment';
-import { PeopleFormProps } from '@/types/interface';
+import { LabFormProps } from '@/types/interface';
 
-export default function AddressForm({ info, addr, handleSetAddr, handleSetInfo}: PeopleFormProps) {
+export default function LabInfoForm({ info, addr, handleSetAddr, handleSetInfo}: LabFormProps) {
 
   const handleChange = (event: SelectChangeEvent) => {
     handleSetInfo('dep',event.target.value as string);

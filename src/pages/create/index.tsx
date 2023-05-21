@@ -3,7 +3,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import Toolbar from '@mui/material/Toolbar';
 import Paper from '@mui/material/Paper';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
@@ -12,12 +11,12 @@ import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import AddressForm from './LabInfoForm';
-import PaymentForm from './PeopleInfoForm';
+import LabInfoForm from './LabInfoForm';
+import PeopleInfoForm from './PeopleInfoForm';
 import Review from './Review';
 import {
     LabInfoTypeForm, LabInfoTypeFormTemplate,
-    AddrInfoType, AddrInfoTemplate,PersonInfoType
+    AddrInfoType, AddrInfoTemplate, PersonInfoType,
     } from '@/types/interface';
 
 function Copyright() {
@@ -33,7 +32,7 @@ function Copyright() {
   );
 }
 
-const steps = ['Lab information', 'People information', 'Review your info'];
+const steps = ['Lab information', 'Members information', 'Review'];
 
 
 
@@ -59,62 +58,50 @@ export default function CreateLabForm() {
          }));
    };
     //for form 2
-    const [peopleDict, setPeopleDict] = React.useState<Record<string, PersonInfoType>>({
-        "0": {
-            name: "",
-            email: ""
+    const [peopleDict, setPeopleDict] = React.useState<{ [key: string]: PersonInfoType }>(
+        {
+            "1": {
+                email: "",
+                name: ""
+            }
         }
-    });
-    const handleAddPerson = (id: string, name: string, email: string) => {
-        const newPersonInfo = {
-          name: name,
-          email: email,
-        };
-        setPeopleDict((prevPeopleDict) => ({
-          ...prevPeopleDict,
-          [id]: newPersonInfo,
-        }));
-    };
-    const handleDeletePerson = (id: string) => {
-        setPeopleDict((prevPeopleDict) => {
-            const { [id]: _, ...updatedPeopleDict } = prevPeopleDict;
-            return updatedPeopleDict;
-        });
-    };
+    );
+    
 
-    const handleGetPerson = (id: string): string[] => {
-        return [peopleDict[id].name, peopleDict[id].email];
-     }
-  
 
      const handleUpdatePerson= (id: string, name: string, email: string): void => {
         setPeopleDict((prevPeopleDict) => {
             return {
               ...prevPeopleDict,
               [id]: {
-                ...prevPeopleDict[id],
                 name: name,
                 email: email,
               },
             };
           });
+     };
+     const handleDeletePerson = (id: string): void => {
+        setPeopleDict((prevPeopleDict) => {
+          const updatedPeopleDict = { ...prevPeopleDict };
+          delete updatedPeopleDict[id];
+          return updatedPeopleDict;
+        });
       };
+      
 
   function getStepContent(step: number) {
     switch (step) {
       case 0:
-            return <AddressForm
+            return <LabInfoForm
                         info={info}
                         addr={addr}
                         handleSetAddr={handleSetAddr}
                         handleSetInfo={handleSetInfo} />;
       case 1:
-            return <PaymentForm
+            return <PeopleInfoForm
                 peopleDict={peopleDict}
-                handleAddPerson={handleAddPerson}
-                handleDeletePerson={handleDeletePerson}
-                handleGetPerson={handleGetPerson}
-                handleUpdatePerson={ handleUpdatePerson}
+                handleUpdatePerson={handleUpdatePerson}
+                handleDeletePerson={ handleDeletePerson}
             />;
       case 2:
         return <Review />;
@@ -161,7 +148,7 @@ export default function CreateLabForm() {
                 )}
                 <Button
                   variant="contained"
-                                      onClick={() => { setActiveStep(activeStep + 1); console.log(info); console.log(addr); }}
+                                      onClick={() => { setActiveStep(activeStep + 1); console.log(info); console.log(addr); console.log(peopleDict); }}
                   sx={{ mt: 3, ml: 1 }}
                 >
                   {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
