@@ -55,7 +55,8 @@ export interface jobdataInt {
     rate: number,
     contact: string,
     intro: string,
-    labname: string
+    labname: string,
+    lablink: string
 };
 
 export interface UserData {

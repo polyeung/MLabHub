@@ -43,9 +43,10 @@ interface jobCardProps {
   rate: number,
   contact: string,
   intro: string,
-  labname: string
+  labname: string,
+  lablink: string
 };
-function JobCard({ title, course, rate, contact, intro, labname}: jobCardProps) {
+function JobCard({ title, course, rate, contact, intro, labname, lablink}: jobCardProps) {
   return (
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
@@ -68,7 +69,9 @@ function JobCard({ title, course, rate, contact, intro, labname}: jobCardProps) 
           {intro}
         </Typography>
         <CardActions>
-          <Button size="small">Learn More</Button>
+          <a href={lablink}>
+            <Button size="small">Learn More</Button>
+          </a>
         </CardActions>
       </CardContent>
     </Card>
@@ -92,7 +95,7 @@ function jobs() {
           {jobData.map((item) => (
             <Box sx={{ mt: "20px"}}>
               <JobCard title={item.title} intro={item.intro} rate={item.rate} labname={ item.labname} 
-                        course = {item.course} contact = {item.contact}
+                        course = {item.course} contact = {item.contact} lablink = {item.lablink}
               />
               </Box>
           ))}

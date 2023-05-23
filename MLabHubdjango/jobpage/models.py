@@ -10,6 +10,7 @@ class JobData(models.Model):
     contact = models.EmailField()
     intro = models.TextField()
     labname = models.CharField(max_length=100) 
+    lablink = models.URLField()
 
     def __str__(self):
         return self.title
