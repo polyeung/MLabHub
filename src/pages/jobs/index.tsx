@@ -67,6 +67,9 @@ function JobCard({ title, course, rate, contact, intro, labname}: jobCardProps) 
         <Typography variant="body2" sx={{ mt: '10px' }}>
           {intro}
         </Typography>
+        <CardActions>
+          <Button size="small">Learn More</Button>
+        </CardActions>
       </CardContent>
     </Card>
   );
