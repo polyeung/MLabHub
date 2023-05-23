@@ -38,31 +38,36 @@ const jobData = [
 ];
 */
 interface jobCardProps { 
-  title: String,
-  intro: String,
+  title: string,
+  course: string,
   rate: number,
-  labname: String
+  contact: string,
+  intro: string,
+  labname: string
 };
-function JobCard({ title, intro, rate, labname}: jobCardProps) {
+function JobCard({ title, course, rate, contact, intro, labname}: jobCardProps) {
   return (
-    <Card sx={{ minWidth: 275, }}>
+    <Card sx={{ minWidth: 275 }}>
       <CardContent>
+        <Typography variant="h5" component="div">
+          {title}
+        </Typography>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          { labname}
+          Required Course: {course}
         </Typography>
-        <Typography variant="h5" component="div" >
-          { title }
+        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          Hourly Rate: {rate} USD
         </Typography>
-
-        <Typography variant="body2" sx={{mt: '10px'}}>
-          { intro}
-          
+        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          Contact: {contact}
+        </Typography>
+        <Typography variant="subtitle1" gutterBottom>
+          Lab Introduction:
+        </Typography>
+        <Typography variant="body2" sx={{ mt: '10px' }}>
+          {intro}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-
     </Card>
   );
 }
@@ -83,7 +88,9 @@ function jobs() {
         
           {jobData.map((item) => (
             <Box sx={{ mt: "20px"}}>
-              <JobCard title={item.title} intro={item.intro} rate={item.rate} labname={ item.labname} />
+              <JobCard title={item.title} intro={item.intro} rate={item.rate} labname={ item.labname} 
+                        course = {item.course} contact = {item.contact}
+              />
               </Box>
           ))}
         </Box>
