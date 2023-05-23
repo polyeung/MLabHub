@@ -15,6 +15,7 @@ import json
 
 
 class GetJobInfo(APIView):
+    permission_classes = (permissions.AllowAny, )
     def get(self, request):
         try:
             jobs = JobData.objects.all()

@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Button, Typography, Box} from '@mui/material';
 import JobsContent from './jobsContent';
 import LoginPage from '@/components/loginTab';
+import { jobdataInt } from '@/types/interface';
 import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 
+/*
 const jobData = [
   {
     "labid": "1",
@@ -34,13 +36,13 @@ const jobData = [
     "labname": "Human AI Lab"
   }
 ];
-
+*/
 interface jobCardProps { 
   title: String,
   intro: String,
-  rate: String,
+  rate: number,
   labname: String
-}
+};
 function JobCard({ title, intro, rate, labname}: jobCardProps) {
   return (
     <Card sx={{ minWidth: 275, }}>
@@ -66,6 +68,13 @@ function JobCard({ title, intro, rate, labname}: jobCardProps) {
 }
 function jobs() { 
     const navigate = useNavigate();
+    const [jobData, setJobData] = useState<jobdataInt[]>([]);
+
+    useEffect(() => {
+      fetch(`/api/jobpages/getJobInfo`)
+          .then(response => response.json())
+          .then(data =>  setJobData(data));
+  }, []);
 
     return (
       <>

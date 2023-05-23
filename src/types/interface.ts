@@ -39,14 +39,24 @@ export interface ReviewsType {
 export interface parsedNameInt { 
     name: string,
     initial: string,
-}
+};
 
 export interface commentsInt { 
     id: number,
     name: string,
     rating: number,
     word: string
-}
+};
+
+export interface jobdataInt {
+    labid: number,
+    title: string,
+    course: string,
+    rate: number,
+    contact: string,
+    intro: string,
+    labname: string
+};
 
 export interface UserData {
     username: string,
