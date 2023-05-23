@@ -1,9 +1,10 @@
 
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Button, Card, CardContent, Typography, TextField, Container } from '@mui/material';
+import { Button, Card, CardContent, Typography, TextField, Container, CardMedia} from '@mui/material';
 import { useNotifs } from '@/context';
 import getCookie from '../../components/csrfToken';
+import { MLabHubLogo512 } from '@/assets';
 
 function LoginPage() {
 	const notifs = useNotifs();
@@ -68,11 +69,16 @@ function LoginPage() {
 						alignItems: 'center',
 						padding: '12px 24px',
 					}}
-				>
+				>	<Typography variant="h5" >
+				Login
+			</Typography>
+					<CardMedia
+						component="img"
+						sx={{ transform: 'scale(0.5)' }}
+						image={MLabHubLogo512}
+						alt="MLabHub Logo"
+					/>
 					<CardContent>
-						<Typography variant="h6" sx={{ marginBottom: 2 }}>
-							Login
-						</Typography>
 						<form onSubmit={handleSubmit}>
 							<TextField
 								variant="outlined"
