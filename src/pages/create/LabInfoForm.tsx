@@ -7,6 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import InputAdornment from '@mui/material/InputAdornment';
 import { LabFormProps } from '@/types/interface';
+import { depList } from '@/assets';
 
 export default function LabInfoForm({ info, handleSetInfo}: LabFormProps) {
 
@@ -58,10 +59,12 @@ export default function LabInfoForm({ info, handleSetInfo}: LabFormProps) {
               value={info.dep}
               label="Department"
               onChange={handleChange}
-            >
-              <MenuItem value={"CSE"}>CSE</MenuItem>
-              <MenuItem value={"ECE"}>ECE</MenuItem>
-              <MenuItem value={"CHEM"}>CHEM</MenuItem>
+            > 
+              {depList.map((item:string[]) => (
+                <MenuItem value={item[0]}>{ item[0] + ' ' + item[1] }</MenuItem>
+              ))
+
+              }
             </Select>
           </FormControl>
         </Grid>

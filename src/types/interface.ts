@@ -66,8 +66,8 @@ export interface LabInfoTypeForm {
 export const LabInfoTypeFormTemplate: LabInfoTypeForm = {
     name: "Human AI Lab",
     link: "http://testing.ai.lab.com",
-    dep: "CSE",
-    intro: "",
+    dep: "EECS",
+    intro: "This is a lab from CSE with enthusiasted and professional researchers!",
     funding: ""
 };
 
