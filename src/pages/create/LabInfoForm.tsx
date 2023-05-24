@@ -83,6 +83,7 @@ export default function LabInfoForm({ info, handleSetInfo}: LabFormProps) {
             id="outlined-textarea"
             label="Introduction of your lab"
             placeholder="type..."
+            required
             multiline
             rows={4}
             maxRows={6}

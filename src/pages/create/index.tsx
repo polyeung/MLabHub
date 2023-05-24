@@ -69,13 +69,15 @@ export default function CreateLabForm() {
     //2. check department not empty
     //3. check website url not empty and start with https:// or http
     function checkLabFormInfo():number { 
-        if (info.name == "" || info.dep == "" || info.link == "") { 
+        if (info.name == "" || info.dep == "" || info.link == "" || info.intro == "") { 
             return 0;
         }
         const prefixes = ["http://", "https://"];
         if (!prefixes.some(prefix => info.link.startsWith(prefix))) { 
             return 1;
         }
+      
+      
         return 2;
     };
 
