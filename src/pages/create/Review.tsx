@@ -7,7 +7,7 @@ import Grid from '@mui/material/Grid';
 import { ReviewFormProps } from '@/types/interface';
 
 
-export default function Review({ peopleDict, addr, info }: ReviewFormProps) {
+export default function Review({ peopleDict, info }: ReviewFormProps) {
     function checkEmpty(input: string):string{ 
         if (input.trim().length == 0) { 
             return "Not Filled In";
@@ -17,8 +17,8 @@ export default function Review({ peopleDict, addr, info }: ReviewFormProps) {
     function trans_key(value: string): string { 
         if (value == "link") {
             return "URL";
-        } else if (value == "addr") {
-            return "address";
+        } else if (value == "intro") {
+            return "Introduction:";
         } else if (value == "dep") { 
             return "Department"
         }
@@ -31,13 +31,13 @@ export default function Review({ peopleDict, addr, info }: ReviewFormProps) {
       </Typography>
       <Grid container spacing={2}>
         
-              <Grid item container direction="column" xs={12} sm={6}>
+              <Grid item container direction="column" xs={12} sm={12}>
           <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
             Basic Info
           </Typography>
           <Grid container>
             {Object.entries(info).map(([key, value]) => (
-                key !== 'addr' && (<React.Fragment key={key}>
+                (<React.Fragment key={key}>
                     <Grid item xs={5}>
                         <Typography sx={{ fontWeight: 600 }} gutterBottom>{trans_key(key)}</Typography>
                     </Grid>
@@ -46,12 +46,8 @@ export default function Review({ peopleDict, addr, info }: ReviewFormProps) {
                     </Grid>
                 </React.Fragment>)
             ))}
-            <Grid item xs={12}>
-            <Typography gutterBottom sx={{ fontWeight: 600 }}>Address</Typography>
-            </Grid>
-                      <Grid item xs={6}>
-                          <Typography gutterBottom>{ checkEmpty(Object.values(addr).join(' '))}</Typography>
-            </Grid>
+            
+
           </Grid>
         </Grid>
           </Grid>

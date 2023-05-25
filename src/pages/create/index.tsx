@@ -18,7 +18,7 @@ import { useNotifs } from '@/context';
 import Modal from '@mui/material/Modal';
 import {
     LabInfoTypeForm, LabInfoTypeFormTemplate,
-    AddrInfoType, AddrInfoTemplate, PersonInfoType,
+    PersonInfoType,
     } from '@/types/interface';
 
 const style = {
@@ -59,7 +59,6 @@ export default function CreateLabForm() {
     const notifs = useNotifs();
     //for form 1
     const [info, setInfo] = React.useState<LabInfoTypeForm>(LabInfoTypeFormTemplate);
-    const [addr, setAddr] = React.useState<AddrInfoType>(AddrInfoTemplate);
     // state variables for modal:
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
@@ -70,13 +69,15 @@ export default function CreateLabForm() {
     //2. check department not empty
     //3. check website url not empty and start with https:// or http
     function checkLabFormInfo():number { 
-        if (info.name == "" || info.dep == "" || info.link == "") { 
+        if (info.name == "" || info.dep == "" || info.link == "" || info.intro == "") { 
             return 0;
         }
         const prefixes = ["http://", "https://"];
         if (!prefixes.some(prefix => info.link.startsWith(prefix))) { 
             return 1;
         }
+      
+      
         return 2;
     };
 
@@ -122,12 +123,6 @@ export default function CreateLabForm() {
         }
         
     }
-    const handleSetAddr = (key: string, value: string) => {
-        setAddr((prevInfo) => ({
-             ...prevInfo,
-             [key]: value,
-         }));
-     };
  
    const handleSetInfo = (key: string, value: string) => {
          setInfo((prevInfo) => ({
@@ -170,8 +165,6 @@ export default function CreateLabForm() {
       case 0:
             return <LabInfoForm
                         info={info}
-                        addr={addr}
-                        handleSetAddr={handleSetAddr}
                         handleSetInfo={handleSetInfo} />;
       case 1:
             return <PeopleInfoForm
@@ -182,7 +175,6 @@ export default function CreateLabForm() {
         case 2:
             return <><Review
                 info={info}
-                addr={addr}
                 peopleDict={peopleDict} />
                 { BasicModal(info.link)}
             </>;
