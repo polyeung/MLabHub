@@ -85,7 +85,7 @@ function jobs() {
       fetch(`/api/jobpages/getJobInfo`)
           .then(response => response.json())
           .then(data =>  setJobData(data));
-  }, []);
+    }, []);
 
     return (
       <>

@@ -31,17 +31,26 @@ class PostNewJob(APIView):
             IsAuthenticated = User.is_authenticated
 
             if IsAuthenticated:
-                # comes from session and get user object
-                user = request.user
-                username = user.username
-                # TODO: select name and created from another tables:
-                userprofile = UserProfile.objects.get(user=user)
-                return Response({
-                                 'username': username,
-                                 'name': userprofile.name,
-                                 'email': userprofile.email,
-                                 'created': userprofile.created.strftime('%Y-%m-%d')}, status = status.HTTP_200_OK)
+                data = self.request.data
+                try:
+                    rating = data['rating']
+                    name = data['name']
+                    word = data['word']
+                    if Comment.objects.filter(labid=labid, name=name).exists():
+                        return Response({'error': 'Please delete your comment first!'}, status=status.HTTP_403_FORBIDDEN)
+                    print("reach here")
+                    Comment.objects.create(
+                        labid_id=labid, 
+                        rating=rating, 
+                        name=name,
+                        word=word
+                    )
+                    return Response({'success': True}, status = status.HTTP_200_OK)
+                except:
+                    return Response({'error':'Something went wrong when create comment'}, status=status.HTTP_400_BAD_REQUEST)
+
+                
             else:
-                return Response({'error': 'authenticate failed'}, status = status.HTTP_400_BAD_REQUEST)
+                return Response({'error': 'Please login to comment'}, status = status.HTTP_401_UNAUTHORIZED)
         except:
             return Response({'error':'Something went wrong when creating a new job'}, status=status.HTTP_400_BAD_REQUEST)

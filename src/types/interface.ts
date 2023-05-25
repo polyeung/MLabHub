@@ -56,7 +56,20 @@ export interface jobdataInt {
     contact: string,
     intro: string,
     labname: string,
-    lablink: string
+    lablink: string,
+    rate_type: string
+};
+
+export const jobdataIntTemplate: jobdataInt = {
+    labid: 1,
+    title: "testing job",
+    course: "required course",
+    rate: 15,
+    contact: "example@umich.edu",
+    intro: "This is a template example",
+    labname: "Example labname",
+    lablink: "https://umich.edu",
+    rate_type: "Number"
 };
 
 export interface UserData {
@@ -112,6 +125,12 @@ export interface LabFormProps {
     handleSetInfo: (key: string, value: string) => any;
 };
 
+export interface JobFormProps{
+    info: jobdataInt,
+    handleSetInfo: (key: string, value: string) => any;
+    handleSetInfoid: (key: string, value: number|null) => any;
+};
+
 
 
 
@@ -125,4 +144,9 @@ export interface ReviewFormProps {
     peopleDict: { [key: string]: PersonInfoType },
     addr: AddrInfoType,
     info: LabInfoTypeForm
+};
+
+export interface JobReviewFormProps { 
+    peopleDict: { [key: string]: PersonInfoType },
+    info: jobdataInt
 };
