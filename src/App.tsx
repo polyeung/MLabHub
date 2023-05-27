@@ -14,6 +14,7 @@ import Dashboard from './pages/dashboard';
 import getCookie from './components/csrfToken';
 
 
+
 function ProtectedRoute(props: {
 	userData: UserData | undefined | null;
 	page: JSX.Element;

@@ -8,6 +8,8 @@ import { UserData } from "@/types/interface";
 import CancelIcon from '@mui/icons-material/Cancel';
 import { useNotifs } from "@/context";
 import getCookie from '../../components/csrfToken';
+import CircularProgress from '@mui/material/CircularProgress';
+
 function getRandomColor(): string { 
     const colors = ['red','#90731E', '#0277BD', 'pink', 'green', 'orange', 'purple', '#F29902', 'brown', 'gray', 'teal'];
     const randomIndex = Math.floor(Math.random() * colors.length);
@@ -30,6 +32,8 @@ const smallScreenStyles = {
 const labpage = (props: {userData: UserData | undefined | null}) =>{ 
     const location = useLocation();
     const notifs = useNotifs();
+    const [isWaitingCom, setIsWaitingCom] = useState<boolean>(false);
+    const [isWaitingInfo, setIsWaitingInfo] = useState<boolean>(false);
     const [waiting, setWaiting] = useState<boolean>(false);
     const [deleteClicked, setDeleteClicked] = useState<boolean>(false);
     // get ID from previous url
@@ -54,17 +58,18 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
 
     // fetch content through api
     useEffect(() => {
+        setIsWaitingInfo(true);
         fetch(`/api/getLabInfo/${ID}`)
             .then(response => response.json())
-            .then(data =>  setLabinfo(data));
+            .then(data => { setLabinfo(data); setIsWaitingInfo(false)});
     }, []);
 
     // fetch comments
     useEffect(() => {
-     
+            setIsWaitingCom(true);
             fetch(`/api/getComments/${ID}`)
                 .then(response => response.json())
-                .then(data => setComments(data));
+                .then(data => { setComments(data); setIsWaitingCom(false); });
         
     }, [deleteClicked]);
 
@@ -129,6 +134,8 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
                 }}
             />
             { /* Real content begin */}
+            {isWaitingInfo ? <Typography variant='h5'>Loading Lab content ...<CircularProgress /> </Typography>:
+            <Box>
             <Typography variant="h5">{labinfo.name}</Typography>
             <Box sx={{display: 'flex', flexDirection: 'row', mt: '10px'}}>
                 {parseName(labinfo.people).map((item) => (
@@ -139,6 +146,8 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
             </Box>
 
             <Typography sx={{ mt: '10px' }}>{ labinfo.intro }</Typography>
+            </Box>
+            }
         </Box>
         <Box
             padding={2}
@@ -171,46 +180,49 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
             />
             { /* Real content begin */}
             <Typography variant="h6">Reviews</Typography>
+            {isWaitingCom?  <Typography variant='h5'>Loading Lab comments...<CircularProgress /></Typography>:
                 <Box
                     sx={{
                         maxHeight: '50vh',
                         overflowY: 'auto',
                     }}
                 >
-                {comments.map((item) => (
-                    <Box
-                    padding={2}
-                    sx={{
-                        backgroundColor: 'white',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'left',
-                        overflow: 'auto',
-                        boxShadow: '0px 2px 3px rgba(0, 0, 0, 0.5)',
-                        position: 'relative',
-                        marginTop: '10px'
+            
+                    {comments.map((item) => (
+                        <Box
+                            padding={2}
+                            sx={{
+                                backgroundColor: 'white',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'left',
+                                overflow: 'auto',
+                                boxShadow: '0px 2px 3px rgba(0, 0, 0, 0.5)',
+                                position: 'relative',
+                                marginTop: '10px'
                         
-                    }}
-                    >  <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
-                        <Typography sx={{ mr: 2 }}>{item.name}</Typography>
-                        <Rating
-                            name="simple-controlled"
-                            value={item.rating}
-                            />
-                        {   (props.userData?.username == item.name) &&
-                                <IconButton
-                                    disabled={waiting}
-                                    onClick={ handleDelete}
-                                    sx={{ color: '#7f181b', position: 'absolute', top: 0, right: 0, }}>
-                                    <CancelIcon />
-                                </IconButton>
-                        }
-                        </Box>
-                        <Typography>{item.word}</Typography>
+                            }}
+                        >  <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                                <Typography sx={{ mr: 2 }}>{item.name}</Typography>
+                                <Rating
+                                    name="simple-controlled"
+                                    value={item.rating}
+                                />
+                                {(props.userData?.username == item.name) &&
+                                    <IconButton
+                                        disabled={waiting}
+                                        onClick={handleDelete}
+                                        sx={{ color: '#7f181b', position: 'absolute', top: 0, right: 0, }}>
+                                        <CancelIcon />
+                                    </IconButton>
+                                }
+                            </Box>
+                            <Typography>{item.word}</Typography>
                         </Box>
                    
                     ))}
-                </Box> 
+                </Box>
+            }
             <Box sx={{
                     position: "absolute",
                     bottom: 10,

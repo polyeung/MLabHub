@@ -7,36 +7,8 @@ import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
+import CircularProgress from '@mui/material/CircularProgress';
 
-/*
-const jobData = [
-  {
-    "labid": "1",
-    "title": "student software developer",
-    "course": "EECS 280, EECS 281",
-    "rate": "14",
-    "contact": "ly842605942@gmail.com",
-    "intro": "this job requires heavy skills of typescript and frontend skills",
-    "labname": "Human AI Lab"
-  },{
-    "labid": "1",
-    "title": "student software developer",
-    "course": "EECS 280, EECS 281",
-    "rate": "14",
-    "contact": "ly842605942@gmail.com",
-    "intro": "this job requires heavy skills of typescript and frontend skills,this job requires heavy skills of typescript and frontend skills,this job requires heavy skills of typescript and frontend skills, this job requires heavy skills of typescript and frontend skillsthis job requires heavy skills of typescript and frontend skills",
-    "labname": "Human AI Lab"
-  }, {
-    "labid": "1",
-    "title": "student software developer",
-    "course": "EECS 280, EECS 281",
-    "rate": "14",
-    "contact": "ly842605942@gmail.com",
-    "intro": "this job requires heavy skills of typescript and frontend skills",
-    "labname": "Human AI Lab"
-  }
-];
-*/
 interface jobCardProps { 
   title: string,
   course: string,
@@ -80,26 +52,28 @@ function JobCard({ title, course, rate, contact, intro, labname, lablink}: jobCa
 function jobs() { 
     const navigate = useNavigate();
     const [jobData, setJobData] = useState<jobdataInt[]>([]);
-
-    useEffect(() => {
+    const [isWaiting, setIsWaiting] = useState<boolean>(false);
+  useEffect(() => {
+    setIsWaiting(true);
       fetch(`/api/jobpages/getJobInfo`)
           .then(response => response.json())
-          .then(data =>  setJobData(data));
+        .then(data => { setJobData(data); setIsWaiting(false); });
     }, []);
 
     return (
       <>
-        <Box  sx={{display: 'flex', flexDirection: 'column'}}>
-        <Typography variant="h4">Jobs page welcome!</Typography>
+        {isWaiting ? <CircularProgress />:
+          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+            <Typography variant="h4">Jobs page welcome!</Typography>
         
-          {jobData.map((item) => (
-            <Box sx={{ mt: "20px"}}>
-              <JobCard title={item.title} intro={item.intro} rate={item.rate} labname={ item.labname} 
-                        course = {item.course} contact = {item.contact} lablink = {item.lablink}
-              />
+            {jobData.map((item) => (
+              <Box sx={{ mt: "20px" }}>
+                <JobCard title={item.title} intro={item.intro} rate={item.rate} labname={item.labname}
+                  course={item.course} contact={item.contact} lablink={item.lablink}
+                />
               </Box>
-          ))}
-        </Box>
+            ))}
+          </Box>}
         </>
       );
 };
