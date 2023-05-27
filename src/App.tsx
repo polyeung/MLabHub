@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {  Route, Routes, useNavigate, useLocation} from 'react-router-dom';
-import { Container, CircularProgress, Button} from '@mui/material';
+import { Container, CircularProgress, Button, Box, Typography} from '@mui/material';
 import Overview from './pages/overview';
 import Labpage from './pages/labpage';
 import Jobs from './pages/jobs';
@@ -64,8 +64,28 @@ function App() {
 
 
 
-	}, [location]);
-
+  }, [location]);
+  
+  const BottomBanner = () => {
+    return (
+      <Box
+        style={{
+          backgroundColor: '#01305c',
+          padding: '10px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          marginTop: '10px',
+          height: '100px',
+          borderTop: '4px solid #FFCB02',
+          color: 'white'
+        }}
+      >
+        {/* Add your banner content here */}
+        <Typography>© 2023 mlabhub.com. All Rights Reserved.</Typography>
+      </Box>
+    );
+  };
   return (
 
       <React.Fragment>
@@ -98,6 +118,7 @@ function App() {
           <Route path="/signup" element={<SignupPage />} />
           </Routes>
       </Container>
+      <BottomBanner/>
       </React.Fragment>
 
   );

@@ -8,7 +8,6 @@ import { UserData } from "@/types/interface";
 import CancelIcon from '@mui/icons-material/Cancel';
 import { useNotifs } from "@/context";
 import getCookie from '../../components/csrfToken';
-import styled from 'styled-components';
 function getRandomColor(): string { 
     const colors = ['red','#90731E', '#0277BD', 'pink', 'green', 'orange', 'purple', '#F29902', 'brown', 'gray', 'teal'];
     const randomIndex = Math.floor(Math.random() * colors.length);

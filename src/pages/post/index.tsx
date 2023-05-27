@@ -17,7 +17,7 @@ import { useNotifs } from '@/context';
 import Modal from '@mui/material/Modal';
 import {
     jobdataInt, jobdataIntTemplate,
-    AddrInfoType, AddrInfoTemplate, PersonInfoType,
+    PersonInfoType
     } from '@/types/interface';
 
 const style = {
