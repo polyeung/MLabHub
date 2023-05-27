@@ -261,7 +261,7 @@ export default function CreateLabForm() {
             </React.Fragment>
           )}
         </Paper>
-        <Copyright />
+
       </Container>
     </ThemeProvider>
   );

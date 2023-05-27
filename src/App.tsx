@@ -76,9 +76,13 @@ function App() {
           alignItems: 'center',
           justifyContent: 'center',
           marginTop: '10px',
-          height: '100px',
+          height: '80px',
           borderTop: '4px solid #FFCB02',
-          color: 'white'
+          color: 'white',
+
+          left: 0,
+          bottom: 0,
+          width: '100%',
         }}
       >
         {/* Add your banner content here */}
