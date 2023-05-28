@@ -46,7 +46,7 @@ function SignupPage() {
 			return;
 		}
 		setWaiting(true);
-		fetch('/api/account/create/', {
+		fetch('/api/account/create', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ username, password }),
