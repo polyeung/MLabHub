@@ -6,6 +6,9 @@ class Lab(models.Model):
     link = models.CharField(max_length=200)
     intro = models.CharField(max_length=400)
     people = models.CharField(max_length=200, blank=True)
+    funding = models.CharField(max_length=20, default="NA")
+    dep = models.CharField(max_length=20, default="NA")
+    approved = models.BooleanField(default=False)
     # funding = models.CharField(max_length=100)
     # Match this class to table "labs"
     class Meta:

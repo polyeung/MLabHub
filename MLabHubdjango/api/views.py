@@ -10,13 +10,15 @@ from rest_framework.response import Response
 from rest_framework import generics, permissions, status
 from .serializers import LabSerializer
 from .models import Lab, Comment
+from django.db.models import Q
 import pprint
 import json
 
 class GetLabInfo(APIView):
     permission_classes = (permissions.AllowAny, )
     def get(self, request):
-        labs = Lab.objects.all()
+        # only retrieve lab info that has been approved
+        labs = Lab.objects.filter(~Q(approved=False))
         labs = LabSerializer(labs, many = True)
         return Response(labs.data)
     

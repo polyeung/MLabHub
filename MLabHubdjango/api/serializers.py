@@ -4,4 +4,4 @@ from .models import Lab
 class LabSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lab
-        fields = ['id', 'name', 'link', 'intro', 'people']
+        fields = ['id', 'name', 'link', 'intro', 'people','funding', 'dep', 'approved']
