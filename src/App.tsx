@@ -105,7 +105,8 @@ function App() {
 					alignItems: 'center',
           justifyContent: 'center',
           padding: '10px',
-          marginTop: '10px'
+          marginTop: '10px',
+          minHeight: '100vh', // Set container to fill the viewport height
 				}}
 			>
         <Routes>
@@ -121,7 +122,8 @@ function App() {
           { /* Account routes */}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
-          </Routes>
+        </Routes>
+        
       </Container>
       <BottomBanner/>
       </React.Fragment>
