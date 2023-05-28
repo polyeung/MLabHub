@@ -43,8 +43,8 @@ class SignupView(APIView):
         data = self.request.data
         username = data['username']
         password = data['password']
-        name = data['name']
-        email = data['email']
+        name = "NAME REQUIRED, TYPE AGAIN"
+        email = "EXAMPLE@umich.edu"
         try:
             if User.objects.filter(username = username).exists():
                 return Response({'error': 'Account with name already exists.'}, status = status.HTTP_409_CONFLICT)

@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button, CardMedia, Card, CardContent, Typography, TextField, Container } from '@mui/material';
 import { useNotifs } from '@/context';
 import {MLabHubLogo512} from '@/assets';
+import getCookie from '../../components/csrfToken';
 
 function SignupPage() {
 	const notifs = useNotifs();
@@ -46,26 +47,39 @@ function SignupPage() {
 			return;
 		}
 		setWaiting(true);
-		fetch('/api/account/create', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ username, password }),
-		})
-			.then(res => {
-				if (res.ok) {
-					notifs.addNotif({ severity: 'success', message: 'Successfully signed up!' });
-					navigate('/');
-				} else {
-					res.json().then(data =>
-						notifs.addNotif({
-							severity: 'error',
-							message: `Signup error: ${data.error}`,
-						}),
-					);
-				}
-				setWaiting(false);
-			})
-			.catch(console.warn);
+		fetch('/api/account/csrf_cookie')
+			.then(response => response.json())
+			.then(data => {
+				const csrftoken: (string | null) = getCookie('csrftoken');
+				fetch('/api/account/create', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' ,
+						'X-CSRFToken': csrftoken ? csrftoken : "random_token"
+						},
+					body: JSON.stringify({ username, password }),
+				})
+					.then(res => {
+						if (res.ok) {
+							notifs.addNotif({ severity: 'success', message: 'Successfully signed up!' });
+							navigate('/');
+						} else {
+							res.json().then(data =>
+								notifs.addNotif({
+									severity: 'error',
+									message: `Signup error: ${data.error}`,
+								}),
+							);
+						}
+						setWaiting(false);
+					})
+					.catch(console.warn);
+
+
+			}).catch(error => {
+				// Handle any errors
+				console.error(error);
+			});
+		
 	};
 
 	return (
