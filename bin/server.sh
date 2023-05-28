@@ -5,4 +5,6 @@ set -Eeuo pipefail
 source env/bin/activate
 
 # run the backend
-python3 MLabHub
+cd MLabHubdjango
+
+python3 manage.py runserver
