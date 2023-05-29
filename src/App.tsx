@@ -86,7 +86,7 @@ function App() {
           width: '100%',
         }}
       >
-        {/* Banner content starts. */}
+        {/* Banner content starts.. */}
         <Typography>© 2023 mlabhub.com. All Rights Reserved.</Typography>
       </Box>
     );
