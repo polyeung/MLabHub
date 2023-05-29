@@ -77,7 +77,7 @@ function App() {
           alignItems: 'center',
           justifyContent: 'center',
           marginTop: '10px',
-          height: '80px',
+          height: '10vh',
           borderTop: '4px solid #FFCB02',
           color: 'white',
 
@@ -106,7 +106,7 @@ function App() {
           justifyContent: 'center',
           padding: '10px',
           marginTop: '10px',
-          minHeight: '100vh', // Set container to fill the viewport height
+          minHeight: '90vh', // Set container to fill the viewport height
 				}}
 			>
         <Routes>
