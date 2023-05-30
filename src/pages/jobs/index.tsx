@@ -28,7 +28,10 @@ function JobCard({ title, course, rate, contact, intro, labname, lablink}: jobCa
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           Required Course: {
             course.map((item, index) =>(
-              <span key={index}>{item}</span>
+              <span key={index}>
+                {item}
+                {index !== course.length - 1 && " "} {/* Add a space if it's not the last item */}
+              </span>
             ))
           }
         </Typography>

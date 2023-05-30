@@ -15,6 +15,9 @@ import JobInfoForm from './JobInfoForm';
 import Review from './Review';
 import { useNotifs } from '@/context';
 import Modal from '@mui/material/Modal';
+import getCookie from '../../components/csrfToken';
+import { useNavigate } from 'react-router-dom';
+
 import {
     jobdataInt, jobdataIntTemplate,
     PersonInfoType
@@ -56,6 +59,7 @@ const defaultTheme = createTheme();
 export default function Post() {
     const [activeStep, setActiveStep] = React.useState(0);
     const notifs = useNotifs();
+    const navigate = useNavigate();
     //for form 1
     const [info, setInfo] = React.useState<jobdataInt>(jobdataIntTemplate);
     // state variables for modal:
@@ -172,7 +176,40 @@ export default function Post() {
 
     const handleFinalSubmit = () => { 
         setActiveStep(activeStep + 1);
-        notifs.addNotif({ severity: 'success', message: 'Submission Saved!' });
+        
+        console.log("I'm currently at the last step to handle final submit");
+
+        fetch('/api/account/csrf_cookie')
+          .then(response => response.json())
+          .then(data => {
+            const csrftoken: (string | null) = getCookie('csrftoken');
+            fetch('/api/jobpages/jobCreate', {
+              method: 'POST',
+              credentials: 'include',
+              headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken ? csrftoken : "random_token"
+              },
+              body: JSON.stringify(info),
+            }).then(res => {
+              if (res.ok) {
+                notifs.addNotif({ severity: 'success', message: 'Submission Saved!' });
+                navigate('/jobs');
+              } else { 
+                res.json().then(data =>
+                  notifs.addNotif({
+                    severity: 'error',
+                    message: `Login error: ${data.error}`,
+                  }),
+                );
+              }
+            }).catch(console.warn);
+          })
+          .catch(error => {
+            // Handle any errors
+            console.error(error);
+          });
+          
     };
   function BasicModal(url: string) {
     return (

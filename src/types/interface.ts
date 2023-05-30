@@ -63,7 +63,7 @@ export interface jobdataInt {
 export const jobdataIntTemplate: jobdataInt = {
     labid: 1,
     title: "testing job",
-    course: [],
+    course: [''],
     rate: 15,
     contact: "example@umich.edu",
     intro: "This is a template example",
