@@ -33,24 +33,33 @@ class PostNewJob(APIView):
             if IsAuthenticated:
                 data = self.request.data
                 try:
-                    rating = data['rating']
-                    name = data['name']
-                    word = data['word']
-                    if Comment.objects.filter(labid=labid, name=name).exists():
-                        return Response({'error': 'Please delete your comment first!'}, status=status.HTTP_403_FORBIDDEN)
-                    print("reach here")
-                    Comment.objects.create(
-                        labid_id=labid, 
-                        rating=rating, 
-                        name=name,
-                        word=word
+                    labid = data['labid']
+                    title = data['title']
+                    course =  data['course']
+                    rate_type = data['rate_type']
+                    rate = data['rate']
+                    contact = data['contact']
+                    intro = data['intro']
+                    labname = data['labname']
+                    lablink = data['lablink']
+                    JobData.objects.create(
+                        labid_id=labid,
+                        title=title,
+                        course=course,
+                        rate_type=rate_type,
+                        rate=rate,
+                        contact=contact,
+                        intro=intro,
+                        labname=labname,
+                        lablink=lablink
                     )
+                    print("reach here")
                     return Response({'success': True}, status = status.HTTP_200_OK)
                 except:
-                    return Response({'error':'Something went wrong when create comment'}, status=status.HTTP_400_BAD_REQUEST)
+                    return Response({'error':'Something went wrong when post job'}, status=status.HTTP_400_BAD_REQUEST)
 
                 
             else:
-                return Response({'error': 'Please login to comment'}, status = status.HTTP_401_UNAUTHORIZED)
+                return Response({'error': 'Please login to post your job'}, status = status.HTTP_401_UNAUTHORIZED)
         except:
-            return Response({'error':'Something went wrong when creating a new job'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'error':'Something went wrong when posting a new job'}, status=status.HTTP_400_BAD_REQUEST)

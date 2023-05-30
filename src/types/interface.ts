@@ -109,6 +109,7 @@ export interface JobFormProps{
     info: jobdataInt,
     handleSetInfo: (key: string, value: string) => any;
     handleSetInfoid: (key: string, value: number|null) => any;
+    handleSetInfoArray: (key: string, value: string[]) => any;
 };
 
 
@@ -126,6 +127,5 @@ export interface ReviewFormProps {
 };
 
 export interface JobReviewFormProps { 
-    peopleDict: { [key: string]: PersonInfoType },
     info: jobdataInt
 };

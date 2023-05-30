@@ -68,7 +68,7 @@ export default function Post() {
     //2. check department not empty
     //3. check website url not empty and start with https:// or http
     function checkJobFormInfo():number { 
-        if (info.intro == "" || info.course.length == 0 || info.lablink == "") { 
+        if (info.intro == "" || info.course.length == 0 || info.lablink == "" || info.course.length == 0 || info.contact == "" || info.title == "")  { 
             return 0;
         }
         const prefixes = ["http://", "https://"];
@@ -102,15 +102,6 @@ export default function Post() {
                 notifs.addNotif({ severity: 'success', message: 'Lab Data Saved!' });
                 setActiveStep(activeStep + 1);
             }
-        } else if (activeStep == 1) {
-            const res: number = checkPeopleFormInfo();
-
-            if (res == 0) {
-                notifs.addNotif({ severity: 'error', message: 'Please fill in all required info' });
-            } else {
-                notifs.addNotif({ severity: 'success', message: 'Members Data Saved!' });
-                setActiveStep(activeStep + 1);
-            }
         } else { 
             
                 // add model to check url
@@ -136,6 +127,15 @@ export default function Post() {
         })
         );
    };
+
+   const handleSetInfoArray = (key: string, value: string[]) => {
+          setInfo((prevInfo)=>({
+            ...prevInfo,
+            [key]: value,
+          })
+          );
+   };
+
     //for form 2
     const [peopleDict, setPeopleDict] = React.useState<{ [key: string]: PersonInfoType }>(
         {
@@ -157,11 +157,12 @@ export default function Post() {
                             info={info}
                             handleSetInfo={handleSetInfo} 
                             handleSetInfoid={handleSetInfoid}
+                            handleSetInfoArray={handleSetInfoArray}
                             />;
         case 1:
             return <><Review
                 info={info}
-                peopleDict={peopleDict} />
+                />
                 { BasicModal(info.lablink)}
             </>;
         default:

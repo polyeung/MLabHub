@@ -13,7 +13,23 @@ import InputAdornment from '@mui/material/InputAdornment';
 import { RichLabInfoType, RichLabInfoTemplate } from '@/types/interface';
 import { JobFormProps } from '@/types/interface';
 
-export default function JobInfoForm({ info, handleSetInfo, handleSetInfoid}: JobFormProps) {
+export default function JobInfoForm({ info, handleSetInfo, handleSetInfoid, handleSetInfoArray}: JobFormProps) {
+
+  const courses_req: string[] = info['course']
+
+  const handleAddClick = () => {
+
+    courses_req.push("");
+    handleSetInfoArray('course', courses_req);
+    console.log("Object.keys(peopleDict).length: ", Object.keys(courses_req).length);
+  }
+  const handleDeleteClick = () => {
+    // delete react element
+    courses_req.pop();
+    handleSetInfoArray('course', courses_req);
+    console.log("Object.keys(peopleDict).length: ", Object.keys(courses_req).length);
+
+  };
 
   const handleChange = (event: (Event&{target:{value:1,name:"default name"}})) => {
     const selectedValue = event.target.value;
@@ -34,7 +50,8 @@ export default function JobInfoForm({ info, handleSetInfo, handleSetInfoid}: Job
   };
 
   const handleUpdatecourse = (id:number, course:string) =>{
-    info.course[id] = course;
+    courses_req[id] = course;
+    handleSetInfoArray('course', courses_req);
   };
 
   const [labinfo, setLabinfo] = useState<RichLabInfoType[]>([]);
@@ -104,18 +121,6 @@ export default function JobInfoForm({ info, handleSetInfo, handleSetInfoid}: Job
         
         <Grid item xs={12}>
           <TextField
-            required
-            id="course"
-            name="course"
-            label="Required Course"
-            fullWidth
-            variant="standard"
-            value={info.course}
-            onChange={(e) => { handleSetInfo('course', e.target.value)}}
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
             required={info.rate_type !== "Credit"}
             id="rate"
             name="rate"
@@ -139,7 +144,7 @@ export default function JobInfoForm({ info, handleSetInfo, handleSetInfoid}: Job
             onChange={(e) => { handleSetInfo('contact', e.target.value)}}
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12}>
           <TextField
             required
             id="intro"
@@ -152,11 +157,13 @@ export default function JobInfoForm({ info, handleSetInfo, handleSetInfoid}: Job
           />
         </Grid>
       </Grid>
+      {/* Add some space*/}
+      <Grid item xs={12} style={{ marginBottom: '16px' }}></Grid>
       <Typography variant="h6" gutterBottom>
         Required Courses
       </Typography>
       <Grid container spacing={3}>
-      {Object.entries(info['course']).map((item, id) => (
+      {courses_req.map((item, id) => (
         <React.Fragment key={id}>
            
             <Grid item xs={12} md={6}>
@@ -181,17 +188,17 @@ export default function JobInfoForm({ info, handleSetInfo, handleSetInfoid}: Job
 
         <Grid item xs={12} md={12}>
         <ButtonGroup size="small" aria-label="small button group">
-            {Object.keys(peopleDict).length < 5 && (<Button key={ "addbutton"} onClick={handleAddClick}>+</Button>)}
-            {Object.keys(peopleDict).length > 1 &&(<Button  key={ "deletebutton"} onClick={  handleDeleteClick }>-</Button>)}
+            {info['course'].length < 5 && (<Button key={ "addbutton"} onClick={handleAddClick}>+</Button>)}
+            {info['course'].length > 1 &&(<Button  key={ "deletebutton"} onClick={  handleDeleteClick }>-</Button>)}
         </ButtonGroup>
         </Grid>
 
-        {Object.keys(peopleDict).length == 5 && (<Grid item xs={12} md={12}>
-          <Typography variant="subtitle2">*Max 5 members</Typography>
+        {Object.keys(courses_req).length == 5 && (<Grid item xs={12} md={12}>
+          <Typography variant="subtitle2">*Max 5 courses</Typography>
         </Grid>)}
 
-        {Object.keys(peopleDict).length == 1 && (<Grid item xs={12} md={12}>
-          <Typography variant="subtitle2">*Please at least input one member's info</Typography>
+        {Object.keys(courses_req).length == 1 && (<Grid item xs={12} md={12}>
+          <Typography variant="subtitle2">*Please at least input one required course</Typography>
         </Grid>)}
       </Grid>
     </React.Fragment>

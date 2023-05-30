@@ -7,7 +7,7 @@ import Grid from '@mui/material/Grid';
 import { JobReviewFormProps } from '@/types/interface';
 
 
-export default function Review({ peopleDict, info }: JobReviewFormProps) {
+export default function Review({ info }: JobReviewFormProps) {
     function checkEmpty(input: string):string{ 
         if (input.trim().length == 0) { 
             return "Not Filled In";
@@ -24,20 +24,25 @@ export default function Review({ peopleDict, info }: JobReviewFormProps) {
         }
         return value;
     };
+    {console.log(info)}
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
         Review Information
       </Typography>
+      
       <Grid container spacing={2}>
         
               <Grid item container direction="column" xs={12} sm={6}>
           <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
             Basic Info
           </Typography>
+          
           <Grid container>
+            
             {Object.entries(info).map(([key, value]) => (
-                key !== 'addr' && (<React.Fragment key={key}>
+                key !== 'addr' && key!=='rate' 
+                 && key!=='labid' &&key !== 'course' && key!=='rate_type' && (<React.Fragment key={key}>
                     <Grid item xs={5}>
                         <Typography sx={{ fontWeight: 600 }} gutterBottom>{trans_key(key)}</Typography>
                     </Grid>
@@ -53,25 +58,50 @@ export default function Review({ peopleDict, info }: JobReviewFormProps) {
           <Grid container spacing={2}>
             <Grid item container direction="column" xs={12} sm={6}>
             <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
-            Members
+            Required Courses:
             </Typography>
               </Grid>
               </Grid>
       <List disablePadding>
-        {Object.entries(peopleDict).map(([key, value]) => (
-          <ListItem key={key} sx={{ py: 1, px: 0 }}>
-            <ListItemText primary={"member" + key} sx={{ fontWeight: 600 }} secondary={value.email} />
+        {info.course.map((item, idx) => (
+          <ListItem key={idx} sx={{ py: 1, px: 0 }}>
+            <ListItemText primary={"required course " + (idx + 1)} sx={{ fontWeight: 600 }}  />
                 
-                 <Typography variant="body2" sx={{ fontWeight: 500 }}>{value.name}</Typography>
+                 <Typography variant="body2" sx={{ fontWeight: 500 }}>{item}</Typography>
           </ListItem>
         ))}
         <ListItem sx={{ py: 1, px: 0 }}>
-          <ListItemText primary="Number of Members" sx={{ fontWeight: 600 }}/>
+          <ListItemText primary="Number of Required Courses" sx={{ fontWeight: 600 }}/>
           <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-            { Object.keys(peopleDict).length }
+            { Object.keys(info.course).length }
           </Typography>
         </ListItem>
       </List>
+        <Grid container spacing={2}>
+          <Grid item container direction="column" xs={12} sm={6}>
+            <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
+              Rate Type and Rate
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid container>
+          <React.Fragment key='ratetype'>
+              <Grid item xs={5}>
+                  <Typography sx={{ fontWeight: 600 }} gutterBottom>{'Rate Type'}</Typography>
+              </Grid>
+              <Grid item xs={7}>
+                  <Typography gutterBottom>{info.rate_type == 'Number'? 'Hourly Rate' : 'Course Credit'}</Typography>
+              </Grid>
+              {info.rate_type == 'Number' && (<React.Fragment key='rate'>
+                <Grid item xs={5}>
+                    <Typography sx={{ fontWeight: 600 }} gutterBottom>{'Rate'}</Typography>
+                </Grid>
+                <Grid item xs={7}>
+                    <Typography gutterBottom>{info.rate}</Typography>
+                </Grid>
+                </React.Fragment>)}
+          </React.Fragment>
+        </Grid>
     </React.Fragment>
   );
 }
