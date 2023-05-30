@@ -9,6 +9,8 @@ class Lab(models.Model):
     funding = models.CharField(max_length=20, default="NA")
     dep = models.CharField(max_length=20, default="NA")
     approved = models.BooleanField(default=False)
+    emails = models.CharField(max_length=200, default="NA")
+    creator_id = models.IntegerField()
     # funding = models.CharField(max_length=100)
     # Match this class to table "labs"
     class Meta:
