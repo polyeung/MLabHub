@@ -1,11 +1,14 @@
 import * as React from 'react';
 import {useState, useEffect} from 'react';
+import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
 import InputAdornment from '@mui/material/InputAdornment';
 import { RichLabInfoType, RichLabInfoTemplate } from '@/types/interface';
 import { JobFormProps } from '@/types/interface';
@@ -24,10 +27,14 @@ export default function JobInfoForm({ info, handleSetInfo, handleSetInfoid}: Job
     if (event.target.value === "Credit") {
       
       handleSetInfo('rate_type', "Credit");
-      handleSetInfoid('rate', null);
+      handleSetInfoid('rate', 0);
     }else{
       handleSetInfo('rate_type', "Number");
     }
+  };
+
+  const handleUpdatecourse = (id:number, course:string) =>{
+    info.course[id] = course;
   };
 
   const [labinfo, setLabinfo] = useState<RichLabInfoType[]>([]);
@@ -109,6 +116,7 @@ export default function JobInfoForm({ info, handleSetInfo, handleSetInfoid}: Job
         </Grid>
         <Grid item xs={12}>
           <TextField
+            required={info.rate_type !== "Credit"}
             id="rate"
             name="rate"
             label="Hourly Rate"
@@ -121,6 +129,7 @@ export default function JobInfoForm({ info, handleSetInfo, handleSetInfoid}: Job
         </Grid>
         <Grid item xs={12}>
           <TextField
+            required
             id="contact"
             name="contact"
             label="Contact Email"
@@ -132,6 +141,7 @@ export default function JobInfoForm({ info, handleSetInfo, handleSetInfoid}: Job
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
+            required
             id="intro"
             name="intro"
             label="Introduction to this job position"
@@ -141,6 +151,48 @@ export default function JobInfoForm({ info, handleSetInfo, handleSetInfoid}: Job
             onChange={(e) => { handleSetInfo('intro', e.target.value)}}
           />
         </Grid>
+      </Grid>
+      <Typography variant="h6" gutterBottom>
+        Required Courses
+      </Typography>
+      <Grid container spacing={3}>
+      {Object.entries(info['course']).map((item, id) => (
+        <React.Fragment key={id}>
+           
+            <Grid item xs={12} md={6}>
+              <TextField
+                required
+                id={"course " + id}
+                label={"course " + id}
+              fullWidth
+                variant="standard"
+                value={item}
+                onChange={(e) => {
+                  const updatedValue = {
+                    course: e.target.value
+                  };
+                  handleUpdatecourse(id, updatedValue.course);
+                }}
+              />
+            </Grid>
+            
+          </React.Fragment>
+        ))}
+
+        <Grid item xs={12} md={12}>
+        <ButtonGroup size="small" aria-label="small button group">
+            {Object.keys(peopleDict).length < 5 && (<Button key={ "addbutton"} onClick={handleAddClick}>+</Button>)}
+            {Object.keys(peopleDict).length > 1 &&(<Button  key={ "deletebutton"} onClick={  handleDeleteClick }>-</Button>)}
+        </ButtonGroup>
+        </Grid>
+
+        {Object.keys(peopleDict).length == 5 && (<Grid item xs={12} md={12}>
+          <Typography variant="subtitle2">*Max 5 members</Typography>
+        </Grid>)}
+
+        {Object.keys(peopleDict).length == 1 && (<Grid item xs={12} md={12}>
+          <Typography variant="subtitle2">*Please at least input one member's info</Typography>
+        </Grid>)}
       </Grid>
     </React.Fragment>
   );

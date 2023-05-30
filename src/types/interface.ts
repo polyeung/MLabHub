@@ -51,7 +51,7 @@ export interface commentsInt {
 export interface jobdataInt {
     labid: number,
     title: string,
-    course: string,
+    course: string[],
     rate: number,
     contact: string,
     intro: string,
@@ -63,7 +63,7 @@ export interface jobdataInt {
 export const jobdataIntTemplate: jobdataInt = {
     labid: 1,
     title: "testing job",
-    course: "required course",
+    course: [],
     rate: 15,
     contact: "example@umich.edu",
     intro: "This is a template example",

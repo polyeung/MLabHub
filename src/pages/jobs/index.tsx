@@ -11,7 +11,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 interface jobCardProps { 
   title: string,
-  course: string,
+  course: string[],
   rate: number,
   contact: string,
   intro: string,
@@ -26,7 +26,11 @@ function JobCard({ title, course, rate, contact, intro, labname, lablink}: jobCa
           {title}
         </Typography>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Required Course: {course}
+          Required Course: {
+            course.map((item, index) =>(
+              <span key={index}>{item}</span>
+            ))
+          }
         </Typography>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           Hourly Rate: {rate} USD

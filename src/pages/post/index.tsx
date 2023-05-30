@@ -68,7 +68,7 @@ export default function Post() {
     //2. check department not empty
     //3. check website url not empty and start with https:// or http
     function checkJobFormInfo():number { 
-        if (info.intro == "" || info.course == "" || info.lablink == "") { 
+        if (info.intro == "" || info.course.length == 0 || info.lablink == "") { 
             return 0;
         }
         const prefixes = ["http://", "https://"];
@@ -240,7 +240,7 @@ export default function Post() {
                                       onClick={handleAddStep}
                   sx={{ mt: 3, ml: 1 }}
                 >
-                  {activeStep === steps.length - 1 ? 'Post Lab Info' : 'Next'}
+                  {activeStep === steps.length - 1 ? 'Post Job Info' : 'Next'}
                 </Button>
               </Box>
             </React.Fragment>
