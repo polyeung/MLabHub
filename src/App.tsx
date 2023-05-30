@@ -77,7 +77,7 @@ function App() {
           alignItems: 'center',
           justifyContent: 'center',
           marginTop: '10px',
-          height: '80px',
+          height: '10vh',
           borderTop: '4px solid #FFCB02',
           color: 'white',
 
@@ -86,7 +86,7 @@ function App() {
           width: '100%',
         }}
       >
-        {/* Add your banner content here */}
+        {/* Banner content starts.. */}
         <Typography>© 2023 mlabhub.com. All Rights Reserved.</Typography>
       </Box>
     );
@@ -105,7 +105,8 @@ function App() {
 					alignItems: 'center',
           justifyContent: 'center',
           padding: '10px',
-          marginTop: '10px'
+          marginTop: '10px',
+          minHeight: '90vh', // Set container to fill the viewport height
 				}}
 			>
         <Routes>
@@ -121,7 +122,8 @@ function App() {
           { /* Account routes */}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
-          </Routes>
+        </Routes>
+        
       </Container>
       <BottomBanner/>
       </React.Fragment>
