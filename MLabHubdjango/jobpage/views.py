@@ -3,17 +3,19 @@ from django.http import JsonResponse, Http404
 from django.views import View
 from django.contrib.auth.models import User
 from rest_framework.views import APIView
+from django.views.decorators.csrf import ensure_csrf_cookie, csrf_protect, csrf_exempt
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from MLabHub.db_model import get_pg_db
 from rest_framework.response import Response
 from rest_framework import generics, permissions, status
 from .models import JobData
+from .models import Lab
 from .serializers import JobDataSerializer
 import pprint
 import json
 
-
+@method_decorator(csrf_exempt, name = 'dispatch')
 class GetJobInfo(APIView):
     permission_classes = (permissions.AllowAny, )
     def get(self, request):
@@ -24,7 +26,7 @@ class GetJobInfo(APIView):
         except:
             return Response({'error':'Something went wrong when get Job Info'}, status=status.HTTP_400_BAD_REQUEST)
 
-
+@method_decorator(csrf_protect, name = 'dispatch')
 class PostNewJob(APIView):
     def post(self,request):
         try:
@@ -33,6 +35,7 @@ class PostNewJob(APIView):
             if IsAuthenticated:
                 data = self.request.data
                 try:
+                    print(data)
                     labid = data['labid']
                     title = data['title']
                     course =  data['course']
@@ -42,6 +45,9 @@ class PostNewJob(APIView):
                     intro = data['intro']
                     labname = data['labname']
                     lablink = data['lablink']
+                    print('reach here 1')
+                    
+                    
                     JobData.objects.create(
                         labid_id=labid,
                         title=title,
@@ -53,7 +59,9 @@ class PostNewJob(APIView):
                         labname=labname,
                         lablink=lablink
                     )
-                    print("reach here")
+                    
+
+                    print("reach here 2")
                     return Response({'success': True}, status = status.HTTP_200_OK)
                 except:
                     return Response({'error':'Something went wrong when post job'}, status=status.HTTP_400_BAD_REQUEST)
