@@ -48,15 +48,15 @@ The Flask server serves the frontend content and also runs the REST API.
 ## backend development guideline
 The Django backend consists of multiple apps, each serving a specific purpose. Here is an overview of the project structure:
 
-urls.py
+* urls.py
 This file defines the URL patterns for your Django project. It includes the following URLs:
 
-/api-auth/: URL for including authentication-related URLs provided by the Django Rest Framework.
-/api/: URL for including the URLs defined in the api.urls module.
-/: URL for the index view.
-/admin/: URL for accessing the Django administration site.
+* /api-auth/: URL for including authentication-related URLs provided by the Django Rest Framework.
+* /api/: URL for including the URLs defined in the api.urls module.
+* /: URL for the index view.
+* /admin/: URL for accessing the Django administration site.
 
-account/urls.py
+* account/urls.py
 This file defines the URL patterns for the account app. It includes the following URLs:
 
 /create: URL for the SignupView to handle user signup.
