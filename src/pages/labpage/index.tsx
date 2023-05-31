@@ -59,7 +59,7 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
     // fetch content through api
     useEffect(() => {
         setIsWaitingInfo(true);
-        fetch(`/api/getLabInfo/${ID}`)
+        fetch(`/api/lab/getLabInfo/${ID}`)
             .then(response => response.json())
             .then(data => { setLabinfo(data); setIsWaitingInfo(false)});
     }, []);
@@ -67,7 +67,7 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
     // fetch comments
     useEffect(() => {
             setIsWaitingCom(true);
-            fetch(`/api/getComments/${ID}`)
+            fetch(`/api/comment/getComments/${ID}`)
                 .then(response => response.json())
                 .then(data => { setComments(data); setIsWaitingCom(false); });
         
@@ -79,7 +79,7 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
             .then(response => response.json())
             .then(data => {
                 const csrftoken: (string | null) = getCookie('csrftoken');
-                fetch(`/api/deleteComments/${ID}`, {
+                fetch(`/api/comment/deleteComments/${ID}`, {
                     method: 'POST',
                     credentials: 'include',
                     headers: {

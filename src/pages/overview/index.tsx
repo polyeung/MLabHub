@@ -14,7 +14,7 @@ export default function overview(props: {
     const [isWaiting, setIsWaiting] = useState<boolean>(false);
     useEffect(() => {
         setIsWaiting(true);
-        fetch('/api/getLabInfo')
+        fetch('/api/lab/getLabInfo')
             .then(response => response.json())
             .then(data => {
                 setData(data);

@@ -57,7 +57,7 @@ export default function JobInfoForm({ info, handleSetInfo, handleSetInfoid, hand
   const [labinfo, setLabinfo] = useState<RichLabInfoType[]>([]);
 
   useEffect(() => {
-    fetch(`/api/getLabInfo`)
+    fetch(`/api/lab/getLabInfo`)
         .then(response => response.json())
         .then(data =>  setLabinfo(data));
   }, []);

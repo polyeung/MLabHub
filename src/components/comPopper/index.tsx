@@ -38,7 +38,7 @@ export default function BasicModal({ labid, userData, deleteClicked, setDeleteCl
 			.then(response => response.json())
 			.then(data => {
 				const csrftoken: (string | null) = getCookie('csrftoken');
-        fetch(`/api/addComments/${labid}`, {
+        fetch(`/api/comment/addComments/${labid}`, {
           method: 'POST',
           credentials: 'include',
           headers: { 
