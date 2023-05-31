@@ -37,17 +37,60 @@ The Flask server serves the frontend content and also runs the REST API.
 ./bin/server.sh
 ```
 
-# frontend development guideline
 
-# backend development guideline
 
-The backend is coded in Python 3.10. The backend is using django and django rest framework. Every django function should have one app. 
 
-Current app includes:
-1. account
-    subtitle 1. 
-2. lab related
-    subtitle 1.
-3. job related
-    subtitle 1.
+
+# Project Structure
+## frontend development guideline
+
+
+## backend development guideline
+The Django backend consists of multiple apps, each serving a specific purpose. Here is an overview of the project structure:
+
+project_name/
+├── app1/
+│   ├── __init__.py
+│   ├── models.py
+│   ├── serializers.py
+│   ├── urls.py
+│   └── views.py
+├── app2/
+│   ├── __init__.py
+│   ├── models.py
+│   ├── serializers.py
+│   ├── urls.py
+│   └── views.py
+├── app3/
+│   ├── __init__.py
+│   ├── models.py
+│   ├── serializers.py
+│   ├── urls.py
+│   └── views.py
+├── app4/
+│   ├── __init__.py
+│   ├── models.py
+│   ├── serializers.py
+│   ├── urls.py
+│   └── views.py
+├── app5/
+│   ├── __init__.py
+│   ├── models.py
+│   ├── serializers.py
+│   ├── urls.py
+│   └── views.py
+├── app6/
+│   ├── __init__.py
+│   ├── models.py
+│   ├── serializers.py
+│   ├── urls.py
+│   └── views.py
+├── project_name/
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── manage.py
+└── requirements.txt
+
 
