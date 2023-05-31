@@ -14,6 +14,8 @@ from lab.models import Lab
 from .serializers import LabSerializer
 from django.db.models import Q
 
+from .serializers import CreateLabSerializer
+from django.contrib.auth.models import User
 
 class GetLabInfo(APIView):
     permission_classes = (permissions.AllowAny, )
@@ -42,3 +44,24 @@ class GetDetailedLabInfo(generics.GenericAPIView):
         return JsonResponse(lab_data, safe = False)
 
     
+@method_decorator(csrf_exempt, name = 'dispatch')
+class CreateLabInfo(APIView):
+    def post(self, request):
+        try:
+            IsAuthenticated = User.is_authenticated
+
+            if IsAuthenticated:
+                # comes from session and get user object
+                user = request.user
+                serializer = CreateLabSerializer(data=request.data)
+                # add creator_id
+                
+                if serializer.is_valid():
+                    serializer.validated_data['creator_id'] = user.id
+                    serializer.save()
+                    return Response(serializer.data, status=status.HTTP_201_CREATED)
+                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            else:
+                return Response({'isAuthenticated': 'error'}, status = status.HTTP_400_BAD_REQUEST)
+        except:
+            return Response({'error':"Something went wrong when checking authentication status"})

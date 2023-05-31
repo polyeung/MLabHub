@@ -16,6 +16,8 @@ import PeopleInfoForm from './PeopleInfoForm';
 import Review from './Review';
 import { useNotifs } from '@/context';
 import Modal from '@mui/material/Modal';
+import getCookie from '@/components/csrfToken';
+
 import {
     LabInfoTypeForm, LabInfoTypeFormTemplate,
     PersonInfoType,
@@ -34,21 +36,7 @@ const style = {
       };
       
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://mlabhub.com/">
-        mlabhub.com
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
 const steps = ['Lab information', 'Members information', 'Review'];
-
 
 
 // TODO remove, this demo shouldn't need to reset the theme.
@@ -182,10 +170,49 @@ export default function CreateLabForm() {
         throw new Error('Unknown step');
     }
   }
+  const getPeopleAndEmails = () => { 
+    let peopleList: string[] = [];
+    let emailsList: string[] = [];
 
-    const handleFinalSubmit = () => { 
-        setActiveStep(activeStep + 1);
-        notifs.addNotif({ severity: 'success', message: 'Submission Saved!' });
+    Object.entries(peopleDict).forEach(([key, value]) => {
+      peopleList.push(value.name.trim());
+      emailsList.push(value.email.trim()?value.email.trim() : 'NA');
+    });
+    return [peopleList.join(','), emailsList.join(',')];
+  }
+  const handleFinalSubmit = () => { 
+      // implement submit logic code
+    let peopleEmailRes: string[] = getPeopleAndEmails();
+      fetch('/api/account/csrf_cookie')
+      .then(response => response.json())
+        .then(data => {
+          const csrftoken: (string | null) = getCookie('csrftoken');
+
+          fetch('/lab/create',{
+                  method: 'POST',
+                  credentials: 'include',
+                  headers: { 
+                  'Content-Type': 'application/json',
+                  'X-CSRFToken': csrftoken ? csrftoken : "random_token"
+                },
+                  body: JSON.stringify({
+                    'name': info.name,
+                    'link': info.link,
+                    'intro': info.intro,
+                    'people': peopleEmailRes[0],
+                    'emails': peopleEmailRes[1],
+                    'funding': info.funding? info.funding:'NA',
+                    'dep': info.dep
+                  }),
+                    }).then(res => {
+                      if (res.ok) {
+                        setActiveStep(activeStep + 1);
+                        notifs.addNotif({ severity: 'success', message: 'Submission Saved!' });
+                      } else { 
+                        notifs.addNotif({ severity: 'error', message: 'Cannot create lab!' });
+                      }
+          });
+        }).catch(error => console.error('Error:', error));
     };
   function BasicModal(url: string) {
     return (
