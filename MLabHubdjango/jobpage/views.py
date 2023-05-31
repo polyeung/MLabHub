@@ -10,7 +10,7 @@ from MLabHub.db_model import get_pg_db
 from rest_framework.response import Response
 from rest_framework import generics, permissions, status
 from .models import JobData
-from .models import Lab
+from lab.models import Lab
 from .serializers import JobDataSerializer
 import pprint
 import json

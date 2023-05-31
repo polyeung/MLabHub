@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'api',
     'jobpage',
     'lab',
+    'comment',
 ]
 
 MIDDLEWARE = [

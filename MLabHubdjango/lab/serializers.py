@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.models import Lab
+from lab.models import Lab
 
 class LabSerializer(serializers.ModelSerializer):
     class Meta:

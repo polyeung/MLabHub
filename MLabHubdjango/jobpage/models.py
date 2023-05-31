@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.postgres.fields import ArrayField
-from api.models import Lab
+from lab.models import Lab
 
 class JobData(models.Model):
     CREDIT = 'credit'
