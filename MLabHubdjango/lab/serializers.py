@@ -9,4 +9,4 @@ class LabSerializer(serializers.ModelSerializer):
 class CreateLabSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lab
-        fields = ['name', 'link', 'intro', 'people', 'funding', 'dep', 'emails']
+        fields = ['name', 'link', 'intro', 'people', 'funding', 'dep', 'emails', 'creator_id']
