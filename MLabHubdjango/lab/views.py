@@ -52,8 +52,6 @@ class CreateLabInfo(APIView):
                 # comes from session and get user object
                 user = request.user
                 data = self.request.data
-                print(data)
-                
                 Lab.objects.create(
                     name=data['name'],
                     link=data['link'],
