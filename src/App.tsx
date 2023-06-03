@@ -9,6 +9,7 @@ import Create from './pages/create';
 import LoginPage from './pages/loginPage';
 import SignupPage from './pages/signupPage';
 import Navbar from './components/navbar';
+import OidcLoginPage from './pages/oidcLoginPage';
 import { UserData } from './types/interface';
 import Dashboard from './pages/dashboard';
 import getCookie from './components/csrfToken';
@@ -119,7 +120,7 @@ function App() {
           <Route path="/create" element={<ProtectedRoute userData={userData} page={<Create />} />} />
           <Route path="/dashboard" element={<ProtectedRoute userData={userData} page={<Dashboard userData={userData}/>} />} />
           { /* Account routes */}
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/login" element={<OidcLoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
         </Routes>
         

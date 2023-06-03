@@ -71,7 +71,52 @@ function NavBar({ userData }: { userData?: UserData | null }) {
     }
   )
   
-};
+  };
+  
+  function logoutFuncOidc() { 
+    fetch('/api/account/csrf_cookie')
+      .then(response => response.json())
+      .then(data => {
+        const csrftoken: (string | null) = getCookie('csrftoken');
+        fetch('/api/account/logout', {
+          method: 'POST', credentials: 'include',
+          headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': csrftoken ? csrftoken : "random_token"
+        },})
+          .then(response => {
+            if (response.ok) {
+              return response.json(); // Parse the response body as JSON
+            } else {
+              throw new Error('get logout url failed');
+            }
+          })
+          .then(data => {
+            const logoutUrl = data.logout_url;
+            console.log("logoutUrl", logoutUrl);
+            fetch(logoutUrl,  {
+              method: 'POST', credentials: 'include',
+              headers: {
+              'Content-Type': 'application/json',
+              'X-CSRFToken': csrftoken ? csrftoken : "random_token"
+            },})
+              .then(response => {
+                if (response.ok) {
+                  console.log('Logout success');
+                } else {
+                  console.log('Logout failed');
+                }
+              })
+              .catch(error => {
+                console.log('Logout request failed:', error);
+              });
+          })
+          .catch(error => {
+            console.log('Logout request failed:', error);
+          })
+      })
+  };
+  
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
@@ -203,7 +248,7 @@ function NavBar({ userData }: { userData?: UserData | null }) {
             >
               {userData &&
                 <MenuItem key="1" onClick={handleCloseUserMenu}>
-                  <Button variant='text' onClick={ logoutFunc }>Logout</Button>
+                  <Button variant='text' onClick={ logoutFuncOidc }>Logout</Button>
                 </MenuItem>}
               
                 {userData &&

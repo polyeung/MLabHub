@@ -1,6 +1,7 @@
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+from decouple import config
 
 # load credentials:
 load_dotenv()
@@ -25,7 +26,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    #'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -38,6 +39,8 @@ INSTALLED_APPS = [
     'jobpage',
     'lab',
     'comment',
+    'oidc_auth',
+    'mozilla_django_oidc',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +53,30 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+# OIDC setup for umich login auth
+AUTHENTICATION_BACKENDS = [
+    'oidc_auth.oidc_ab.MyOIDCAB',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+# mozilla-django-oidc
+# https://mozilla-django-oidc.readthedocs.io/en/stable/installation.html
+
+AUTH_USER_MODEL = 'oidc_auth.User'
+
+IDP_ROOT_URL = config('IDP_ROOT_URL', default='shib.url')
+OIDC_RP_CLIENT_ID = config('OIDC_RP_CLIENT_ID', default='fake_id')
+OIDC_RP_CLIENT_SECRET = config('OIDC_RP_CLIENT_SECRET', default='fake_secret')
+OIDC_RP_SIGN_ALGO = 'RS256'
+OIDC_OP_AUTHORIZATION_ENDPOINT = IDP_ROOT_URL + '/idp/profile/oidc/authorize'
+OIDC_OP_TOKEN_ENDPOINT = IDP_ROOT_URL + '/idp/profile/oidc/token'
+OIDC_OP_USER_ENDPOINT = IDP_ROOT_URL + '/idp/profile/oidc/userinfo'
+OIDC_OP_JWKS_ENDPOINT = IDP_ROOT_URL + '/oidc/keyset.jwk'
+OIDC_RP_SCOPES = 'openid email profile eduperson_affiliation'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_URL = '/oidc/authenticate/'
+OIDC_OP_LOGOUT_REDIRECT_URL = '/'
 
 ROOT_URLCONF = 'MLabHubdjango.urls'
 

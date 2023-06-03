@@ -9,6 +9,8 @@ from .serializers import UserSerializer, UserProfileSerializer
 from .models import UserProfile, UserProfile
 import pprint
 from datetime import datetime
+from django.http import JsonResponse
+from django.urls import reverse
 
 @method_decorator(csrf_exempt, name = 'dispatch')
 class CheckAuthenticatedView(APIView):
@@ -96,6 +98,10 @@ class LogoutView(APIView):
             return Response({'success':'Logged out'}, status = status.HTTP_200_OK)
         except:
             return Response({'error': "Something went wrong when logging out"}, status = status.HTTP_400_BAD_REQUEST)
+
+def get_logout_url(request):
+     logout_url = reverse('oidc_logout')
+     return JsonResponse({'logout_url': logout_url})
 
 class DeleteAccountView(APIView):
     def delete(self, request, format = None):

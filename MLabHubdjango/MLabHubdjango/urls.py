@@ -6,8 +6,9 @@ from django.contrib import admin
 urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include('api.urls')),
+    path('', include('oidc_auth.urls')),
     path('', views.index, name='index'),
-    path('admin/', admin.site.urls)
+    #path('admin/', admin.site.urls)
 ]
 
 #urlpatterns += [re_path(r'^.*', TemplateView.as_view(template_name = 'index.html'))]
