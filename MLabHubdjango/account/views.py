@@ -22,12 +22,12 @@ class CheckAuthenticatedView(APIView):
             if IsAuthenticated:
                 # comes from session and get user object
                 user = request.user
-
-                print("is student? ", user.is_student)
-                username = user.username
                 # TODO: select name and created from another tables:
                 #userprofile = UserProfile.objects.get(user=user)
-                return Response({
+                return Response({'username': user.username,
+                                 'name': user.first_name + " " + user.last_name,
+                                 'email': user.email,
+                                 'created': "NA"
                                  }, status = status.HTTP_200_OK)
             else:
                 return Response({'isAuthenticated': 'error'}, status = status.HTTP_400_BAD_REQUEST)
