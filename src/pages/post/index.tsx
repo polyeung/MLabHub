@@ -75,6 +75,13 @@ export default function Post() {
         if (info.intro == "" || info.course.length == 0 || info.lablink == "" || info.course.length == 0 || info.contact == "" || info.title == "")  { 
             return 0;
         }
+        // check if course is empty
+        for (let i = 0; i < info.course.length; i++) {
+          const element = info.course[i];
+          if (element == "") {
+            return 0;
+          }
+        }
         const prefixes = ["http://", "https://"];
         if (!prefixes.some(prefix => info.lablink.startsWith(prefix))) { 
             return 1;

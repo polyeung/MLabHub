@@ -16,6 +16,11 @@ import { JobFormProps } from '@/types/interface';
 export default function JobInfoForm({ info, handleSetInfo, handleSetInfoid, handleSetInfoArray}: JobFormProps) {
 
   const courses_req: string[] = info['course']
+  const [workHoursRequirement, setWorkHoursRequirement] = useState<string>("");
+  const [workModel, setWorkModel] = useState<string>("");
+  const [consecutiveSemesters, setConsecutiveSemesters] = useState<string>("");
+
+
 
   const handleAddClick = () => {
 
@@ -77,7 +82,9 @@ export default function JobInfoForm({ info, handleSetInfo, handleSetInfoid, hand
                 onChange={handleChangeRateType}
               > 
                 <MenuItem value={"Credit"}>Credit</MenuItem>
-                <MenuItem value={"Number"}>Hourly Rate</MenuItem>
+                <MenuItem value={"Number"}>Pay</MenuItem>
+                <MenuItem value={"Volunteer"}>Volunteer</MenuItem>
+                <MenuItem value={"Flexible"}>Credit or Pay or Volunteer</MenuItem>
               </Select>
           </FormControl>
         </Grid>
@@ -156,6 +163,64 @@ export default function JobInfoForm({ info, handleSetInfo, handleSetInfoid, hand
             onChange={(e) => { handleSetInfo('intro', e.target.value)}}
           />
         </Grid>
+        <Grid item xs={12}>
+          <FormControl fullWidth>
+            <InputLabel id="work-hours-label">Weekly Work Hours Requirement *</InputLabel>
+            <Select
+              required
+              labelId="work-hours-label"
+              id="work-hours-select"
+              value={workHoursRequirement}
+              label="Weekly Work Hours Requirement"
+              onChange={(e) => setWorkHoursRequirement(e.target.value as string)}
+            >
+              <MenuItem value="< 10 hours">&lt; 10 hours</MenuItem>
+              <MenuItem value="10-20 hours">10-20 hours</MenuItem>
+              <MenuItem value="20-30 hours">20-30 hours</MenuItem>
+              <MenuItem value="> 30 hours">&gt; 30 hours</MenuItem>
+              <MenuItem value="flexible">Flexible</MenuItem>
+            </Select>
+          </FormControl>
+        </Grid>
+        <Grid item xs={12}>
+          <FormControl fullWidth>
+            <InputLabel id="work-model-label">Work Model *</InputLabel>
+            <Select
+              required
+              labelId="work-model-label"
+              id="work-model-select"
+              value={workModel}
+              label="Work Model"
+              onChange={(e) => setWorkModel(e.target.value as string)}
+            >
+              <MenuItem value="Onsite">Onsite</MenuItem>
+              <MenuItem value="Remote">Remote</MenuItem>
+              <MenuItem value="Hybrid">Hybrid</MenuItem>
+              <MenuItem value="Unsure">Unsure</MenuItem>
+            </Select>
+          </FormControl>
+        </Grid>
+        <Grid item xs={12}>
+          <FormControl fullWidth>
+            <InputLabel id="consecutive-semesters-label">Required Consecutive Working Semesters *</InputLabel>
+            <Select
+              required
+              labelId="consecutive-semesters-label"
+              id="consecutive-semesters-select"
+              value={consecutiveSemesters}
+              label="Required Consecutive Working Semesters"
+              onChange={(e) => setConsecutiveSemesters(e.target.value as string)}
+            >
+              <MenuItem value="A semester">A semester</MenuItem>
+              <MenuItem value="Two semesters">Two semesters</MenuItem>
+              <MenuItem value="Academic year">Academic year</MenuItem>
+              <MenuItem value="Summer">Summer</MenuItem>
+            </Select>
+          </FormControl>
+        </Grid>
+
+
+
       </Grid>
       {/* Add some space*/}
       <Grid item xs={12} style={{ marginBottom: '16px' }}></Grid>
