@@ -260,8 +260,8 @@ function NavBar({ userData }: { userData?: UserData | null }) {
               
               {!userData &&
                 <MenuItem key="3" onClick={handleCloseUserMenu}>
-                  <Button variant='text' onClick={ () => navigate('/login')} >Login</Button>
-              </MenuItem>
+                  <Button component="a" href="" rel="noopener noreferrer" onClick={ () => navigate('/oidc/authenticate/')} >Login</Button>
+                </MenuItem>
               }
               
             </Menu>
