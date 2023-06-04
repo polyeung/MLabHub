@@ -4,7 +4,7 @@ import getCookie from '@/components/csrfToken';
 import { useNotifs } from '@/context';
 
 export default function oidcLoginPage() {
-    const navigate = useNavigate();
+
     const notifs = useNotifs();
     /*
     const loginFunc = () => { 
