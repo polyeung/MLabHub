@@ -103,6 +103,8 @@ function NavBar({ userData }: { userData?: UserData | null }) {
               .then(response => {
                 if (response.ok) {
                   console.log('Logout success');
+                  notifs.addNotif({ severity: 'success', message: 'Successfully logged out.' });
+                  navigate('/');
                 } else {
                   console.log('Logout failed');
                 }

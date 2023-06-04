@@ -50,8 +50,9 @@ function App() {
                   method: 'GET',
                   credentials: 'include',
                     }).then(res => {
-            if (res.ok) {
-              res.json().then(data => setUserData(data));
+                      if (res.ok) {
+                        
+                        res.json().then(data => { setUserData(data); console.log(data) });
 
             } else { 
               setUserData(null);

@@ -17,23 +17,22 @@ class CheckAuthenticatedView(APIView):
     def get(self, request, format = None):
 
         try:
-            IsAuthenticated = User.is_authenticated
-
+            IsAuthenticated = request.user.is_authenticated
+            print("user authenticated? ", IsAuthenticated)
             if IsAuthenticated:
                 # comes from session and get user object
                 user = request.user
+
+                print("is student? ", user.is_student)
                 username = user.username
                 # TODO: select name and created from another tables:
-                userprofile = UserProfile.objects.get(user=user)
+                #userprofile = UserProfile.objects.get(user=user)
                 return Response({
-                                 'username': username,
-                                 'name': userprofile.name,
-                                 'email': userprofile.email,
-                                 'created': userprofile.created.strftime('%Y-%m-%d')}, status = status.HTTP_200_OK)
+                                 }, status = status.HTTP_200_OK)
             else:
                 return Response({'isAuthenticated': 'error'}, status = status.HTTP_400_BAD_REQUEST)
         except:
-            return Response({'error':"Something went wrong when checking authentication status"})
+            return Response({'error':"Something went wrong when checking authentication status"}, status = status.HTTP_400_BAD_REQUEST)
 
 
 @method_decorator(csrf_protect, name = 'dispatch')
