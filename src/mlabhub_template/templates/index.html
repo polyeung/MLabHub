@@ -1,9 +1,13 @@
-{% load static %}
+{% load static %} {% load render_bundle from webpack_loader %}
 <!DOCTYPE html>
 <html>
   <head>
     <title>MLabHub</title>
-    <link rel="icon" href="{% static '/images/mlabhub_icon512.png' %}" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="{% static 'images/favicon.png' %}"
+    />
     <!-- Include any necessary CSS files or other head elements -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,9 +18,9 @@
   </head>
   <body>
     <!-- Include your JavaScript bundle using the webpack_loader -->
-    {% load render_bundle from webpack_loader %}
+
     <div id="root"></div>
     <!-- Webpack rendered JS -->
-    {% render_bundle 'main' 'js' %}
+    {% block scripts %} {% render_bundle 'main' 'js' %} {% endblock %}
   </body>
 </html>

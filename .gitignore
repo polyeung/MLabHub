@@ -23,6 +23,7 @@ yarn-debug.log*
 yarn-error.log*
 # credentials files
 .env
+/src/.env
 
 # env
 /env
@@ -39,3 +40,4 @@ __pycache__
 # ignore assests folder from webpack bunddle
 /static
 /src/assets
+/src/frontend/bundles
