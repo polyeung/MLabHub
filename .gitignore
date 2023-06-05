@@ -1,7 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+/src/frontend/node_modules
 /.pnp
 .pnp.js
 
@@ -38,4 +38,4 @@ __pycache__
 
 # ignore assests folder from webpack bunddle
 /static
-/MLabHubdjango/assets
+/src/assets

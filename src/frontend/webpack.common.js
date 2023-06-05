@@ -10,7 +10,7 @@ const BundleTracker = require('webpack-bundle-tracker');
 module.exports = {
   entry: './src/main.tsx',
   output: {
-    path: path.join(__dirname, '/MLabHubdjango/assets/'),
+    path: path.join(__dirname, '../assets/'),
   },
   module: {
     rules: [
@@ -52,7 +52,7 @@ module.exports = {
       filename: 'index.html',
     }),
     new BundleTracker({
-      path: path.resolve(__dirname, 'MLabHubdjango/assets'),
+      path: path.resolve(__dirname, '../assets'),
       filename: "webpack-stats.json"
     }),
   ],
