@@ -4,7 +4,7 @@
 
 ### MLabHub
 
-Uses a React frontend and Flask server.
+Uses a React frontend and Django server.
 
 ### Setup
 

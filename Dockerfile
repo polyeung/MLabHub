@@ -1,22 +1,42 @@
-# init a base image (Alpine is small linux distro)
-FROM node:14.17.3-buster AS build
-# define the present working directory
-WORKDIR /docker-MLabHub
-# copy over frontend content
-COPY package.json /docker-MLabHub/package.json
-COPY package-lock.json /docker-MLabHub/package-lock.json
-# set up frontend, run inside the image
+# Stage 1 - Frontend
+FROM node:16 AS webpack-builder
+
+WORKDIR /usr/src/app
+
+COPY src/package*.json .
 RUN npm install
-COPY . .
-RUN npm run build:watch
 
-FROM python:3.10.5-alpine
-WORKDIR /docker-MLabHub
-COPY requirements.txt ./
-COPY MLabHub /docker-MLabHub/MLabHub
-RUN pip install --upgrade pip setuptools wheel
-RUN pip install -r requirements.txt
+COPY src .
+CMD npm run build
 
-# copy the built application iver
-COPY --from=build /docker-MLabHub/build /docker-MLabHub/static
-CMD ["python3", "MLabHub"]
+
+# Stage 2 - Application
+
+FROM python:3.10
+
+ARG ENVIRONMENT=PRODUCTION
+
+ENV GUNICORN_WORKERS=2 \
+    GUNICORN_THREADS=4 \
+    PYTHONUNBUFFERED=1 \
+    WEB_CONCURRENCY=5 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1
+
+
+
+RUN apt-get --allow-insecure-repositories update && export DEBIAN_FRONTEND=noninteractive && \
+    apt-get install -y python3 default-libmysqlclient-dev build-essential libaio1 && \
+    apt-get upgrade -y
+
+WORKDIR /usr/src/app
+
+COPY requirements.txt /tmp/
+RUN pip install -r /tmp/requirements.txt
+RUN pip install django-filter
+COPY . /usr/src/app
+
+EXPOSE 8000
+
+ENTRYPOINT ["/usr/src/app/docker-entrypoint.sh"]
+
+CMD ["sh", "-c", "gunicorn MLabHubdjango.asgi:application -b=0.0.0.0:8000 -w=${GUNICORN_WORKERS} --threads=${GUNICORN_THREADS} -k uvicorn.workers.UvicornWorker"]
