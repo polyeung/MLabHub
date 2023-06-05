@@ -1,7 +1,5 @@
 # Development guide
 
-## step 1: install dependencies
-
 ### MLabHub
 
 Uses a React frontend and Django server.
@@ -29,7 +27,7 @@ docker-compose up
 docker-compose stop
 ```
 
-4. Stop and remove containers
+5. Stop and remove containers
 
 ```
 docker-compose down
