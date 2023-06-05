@@ -7,7 +7,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include('api.urls')),
     path('', include('oidc_auth.urls')),
-    path('', views.index, name='index'),
+    path('', include('mlabhub_template.urls')),
     #path('admin/', admin.site.urls)
 ]
 

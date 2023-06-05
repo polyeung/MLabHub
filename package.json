@@ -23,13 +23,17 @@
         "react-scripts": "5.0.1",
         "react-start": "^1.1.2",
         "styled-components": "^6.0.0-rc.1",
-        "web-vitals": "^2.1.4"
+        "uglifyjs-webpack-plugin": "^2.2.0",
+        "web-vitals": "^2.1.4",
+        "webpack": "5.39.1",
+        "webpack-cli": "3.3.12",
+        "webpack-merge": "^4.2.2"
     },
     "scripts": {
         "start": "react-scripts start",
         "dev": "vite",
-        "build": "tsc && vite build",
-        "build:watch": "tsc --watch & vite build --watch"
+        "build": "npx webpack --config webpack.dev.js",
+        "build:watch": "npx webpack --watch --config webpack.dev.js"
     },
     "eslintConfig": {
         "extends": [
@@ -58,6 +62,7 @@
         "@typescript-eslint/eslint-plugin": "^5.20.0",
         "@typescript-eslint/parser": "^5.20.0",
         "@vitejs/plugin-react-swc": "^3.0.0",
+        "css-loader": "^5.2.7",
         "eslint": "^8.23.0",
         "eslint-config-airbnb": "^19.0.4",
         "eslint-config-airbnb-typescript": "^17.0.0",
@@ -68,9 +73,10 @@
         "eslint-plugin-react-hooks": "^4.4.0",
         "eslint-plugin-typescript": "^0.14.0",
         "eslint-plugin-unused-imports": "^2.0.0",
+        "file-loader": "^6.2.0",
         "prettier": "^2.6.2",
         "typescript": "^5.0.4",
-        "vite": "^4.1.0"
+        "webpack-bundle-tracker": "^2.0.0"
     },
     "overrides": {
         "react-scripts": {

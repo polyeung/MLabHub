@@ -6,7 +6,6 @@ import Labpage from './pages/labpage';
 import Jobs from './pages/jobs';
 import Post from './pages/post';
 import Create from './pages/create';
-import LoginPage from './pages/loginPage';
 import SignupPage from './pages/signupPage';
 import Navbar from './components/navbar';
 import OidcLoginPage from './pages/oidcLoginPage';
