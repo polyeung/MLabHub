@@ -7,6 +7,6 @@ __pycache__/
 .vscode
 .git*
 
-assets/node_modules/
-assets/bundles/
+frontend/node_modules/
+frontend/bundles/
 .env

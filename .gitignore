@@ -41,4 +41,4 @@ __pycache__
 /static
 /src/assets
 /src/frontend/bundles
-/src/staticfiles
+**/staticfiles
