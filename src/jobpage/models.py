@@ -6,11 +6,16 @@ from lab.models import Lab
 class JobData(models.Model):
     CREDIT = 'credit'
     NUMBER = 'number'
+    VOLUNTEER = 'volunteer'
+    FLEXIBLE = 'flexible'
     RATE_CHOICES = (
         (CREDIT, 'Credit'),
         (NUMBER, 'Number'),
+        (VOLUNTEER, 'Volunteer'),
+        (FLEXIBLE, 'Flexible'),
     )
 
+    #creator = models.ForeignKey(oidc_auth_user, on_delete=models.CASCADE, db_column='creator_id')
     labid = models.ForeignKey(Lab, on_delete=models.CASCADE, db_column='labid')
     title = models.CharField(max_length=100)
     course = ArrayField(models.CharField(max_length=100))
@@ -23,6 +28,7 @@ class JobData(models.Model):
 
     def __str__(self):
         return self.title
+
 
 
 
