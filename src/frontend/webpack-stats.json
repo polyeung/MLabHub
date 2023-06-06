@@ -1,0 +1,38 @@
+{
+  "status": "done",
+  "assets": {
+    "images/corgi.png": {
+      "name": "images/corgi.png",
+      "path": "/usr/src/app/bundles/images/corgi.png"
+    },
+    "images/logo.png": {
+      "name": "images/logo.png",
+      "path": "/usr/src/app/bundles/images/logo.png"
+    },
+    "images/mlabhub_icon192.png": {
+      "name": "images/mlabhub_icon192.png",
+      "path": "/usr/src/app/bundles/images/mlabhub_icon192.png"
+    },
+    "images/mlabhub_icon512.png": {
+      "name": "images/mlabhub_icon512.png",
+      "path": "/usr/src/app/bundles/images/mlabhub_icon512.png"
+    },
+    "images/myLogo.png": {
+      "name": "images/myLogo.png",
+      "path": "/usr/src/app/bundles/images/myLogo.png"
+    },
+    "images/umich.png": {
+      "name": "images/umich.png",
+      "path": "/usr/src/app/bundles/images/umich.png"
+    },
+    "main.js": {
+      "name": "main.js",
+      "path": "/usr/src/app/bundles/main.js"
+    }
+  },
+  "chunks": {
+    "main": [
+      "main.js"
+    ]
+  }
+}

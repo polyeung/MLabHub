@@ -10,7 +10,7 @@ const BundleTracker = require('webpack-bundle-tracker');
 module.exports = {
   entry: './src/main.tsx',
   output: {
-    path: path.join(__dirname, '../assets/'),
+    path: path.join(__dirname, 'bundles'),
   },
   module: {
     rules: [
@@ -47,12 +47,8 @@ module.exports = {
     },
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.html',
-      filename: 'index.html',
-    }),
     new BundleTracker({
-      path: path.resolve(__dirname, '../assets'),
+      path: path.resolve(__dirname),
       filename: "webpack-stats.json"
     }),
   ],

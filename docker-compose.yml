@@ -1,18 +1,18 @@
-version: '3'
+version: "3"
 
 services:
   api:
     build:
-      context: ./MLabHubdjango
+      context: ./src
       args:
         ENVIRONMENT: DEVELOPMENT
-    env_file: ./.env
+    env_file: ./src/.env
     ports:
       - 127.0.0.1:${APP_PORT:-8000}:8000
     volumes:
       - ./src:/usr/src/app
     entrypoint: ./docker-entrypoint.sh
-    command: 'uvicorn MLabHubdjango.asgi:application --reload --host 0.0.0.0 --port ${APP_PORT:-8000}'
+    command: "uvicorn MLabHubdjango.asgi:application --reload --host 0.0.0.0 --port ${APP_PORT:-8000}"
     restart: on-failure
 
   frontend:
@@ -20,5 +20,5 @@ services:
       context: ./src
       target: webpack-builder
     volumes:
-      - ./src:/usr/src/app
+      - ./src/frontend:/usr/src/app
       - /usr/src/app/node_modules/

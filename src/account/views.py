@@ -18,7 +18,6 @@ class CheckAuthenticatedView(APIView):
 
         try:
             IsAuthenticated = request.user.is_authenticated
-            print("user authenticated? ", IsAuthenticated)
             if IsAuthenticated:
                 # comes from session and get user object
                 user = request.user
