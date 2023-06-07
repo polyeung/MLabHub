@@ -70,7 +70,7 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
             </Typography>
           }
               // TODO: add department subtittle
-        subheader="CSE-testing"
+        subheader="CSE-hshs"
       />
       <CardMedia
         component="img"
@@ -80,7 +80,7 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-                  { intro }
+                  { intro}
         </Typography>
               
       </CardContent>

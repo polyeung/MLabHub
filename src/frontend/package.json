@@ -32,7 +32,7 @@
     "scripts": {
         "start": "react-scripts start",
         "build": "npx webpack --config webpack.dev.js",
-        "build:watch": "npx webpack --watch --config webpack.dev.js"
+        "build:watch": "npx webpack --watch --no-cache --config webpack.dev.js"
     },
     "eslintConfig": {
         "extends": [
