@@ -1,6 +1,7 @@
 {
     "name": "my-app",
     "version": "0.1.0",
+    "author": "MLabHub Dev Team (Yang Li, Elijah Qi, Shun Akiyama)",
     "private": true,
     "dependencies": {
         "@emotion/react": "^11.10.4",
@@ -30,7 +31,6 @@
     },
     "scripts": {
         "start": "react-scripts start",
-        "dev": "vite",
         "build": "npx webpack --config webpack.dev.js",
         "build:watch": "npx webpack --watch --config webpack.dev.js"
     },

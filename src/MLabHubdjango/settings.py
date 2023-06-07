@@ -166,7 +166,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Django webpack loader
 WEBPACK_LOADER = {
     'DEFAULT': {
-        'CACHE': True, #TODO: change this to not DEBUG and set debug variable
+        'CACHE': False, #TODO: change this to not DEBUG and set debug variable
         'BUNDLE_DIR_NAME': '/',  # must end with slash
         'STATS_FILE': os.path.join(BASE_DIR, 'frontend', 'webpack-stats.json'),
         'POLL_INTERVAL': 0.1,

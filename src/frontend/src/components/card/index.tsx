@@ -70,7 +70,7 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
             </Typography>
           }
               // TODO: add department subtittle
-        subheader="CSE"
+        subheader="CSE-testing"
       />
       <CardMedia
         component="img"
