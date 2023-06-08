@@ -7,7 +7,7 @@ COPY frontend/package*.json .
 RUN npm install
 
 COPY frontend .
-CMD npm run build
+CMD npm run build:watch
 
 
 # Stage 2 - Application
