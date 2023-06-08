@@ -7,9 +7,7 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate, Link} from 'react-router-dom';
 import ScienceIcon from '@mui/icons-material/Science';
@@ -31,16 +29,13 @@ function NavBar({ userData }: { userData?: UserData | null }) {
 
 
 const theme = useTheme();
-const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMiddleScreen = useMediaQuery(theme.breakpoints.down('md'));
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
   const navigate = useNavigate();
   const notifs = useNotifs();
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
   };
   function getCookie(name: string) {
     let cookieValue = null;
@@ -109,11 +104,16 @@ const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
-  
+  const getImgStyle = () => { 
+    if (isSmallScreen) {
+      return ['50px', '5%'];
+    } else if (isMiddleScreen) {
+      return ['65px', '5%'];
+    } else { 
+      return ['80px', '15%'];
+    }
+  }
+  const [imgHeight, imgLeftMargin] = getImgStyle();
 
   return (
 
@@ -122,7 +122,7 @@ const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
         style={{ backgroundColor: '#00274c', height: '100px', width: '100vw', display: 'flex', flexDirection: 'row' }}
         component={Link}
         to="/">
-        <img src={MichiganLogo} alt='logo' style={{ height: isSmallScreen? '50px':'80px', marginLeft: isSmallScreen?'5%':'15%', marginTop: '1rem', marginBottom: '0.5rem' }} />
+        <img src={MichiganLogo} alt='logo' style={{ height: imgHeight, marginLeft: imgLeftMargin, marginTop: '1rem', marginBottom: '0.5rem' }} />
       </Box>
       <Container maxWidth="xl" >
       {/*First Tool Bar */ }
