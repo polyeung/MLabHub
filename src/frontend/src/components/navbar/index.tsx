@@ -15,6 +15,9 @@ import { useNavigate, Link} from 'react-router-dom';
 import ScienceIcon from '@mui/icons-material/Science';
 import SchoolIcon from '@mui/icons-material/School';
 import WorkIcon from '@mui/icons-material/Work';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
 import { Favicon,MichiganLogo } from '@/assets';
 import { useNotifs } from '@/context';
 import { UserData } from '@/types/interface';
@@ -180,13 +183,27 @@ const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
                   {page}
               </Button>
             ))}
+            {userData &&
+              <Button
+                key={"dashboard"}
+                onClick={() => { setAnchorElNav(null); navigate('/dashboard'); }}
+                sx={{
+                  my: 2, color: 'white', display: 'flex', mr: '10px', // set display to flex
+                  alignItems: 'center', // vertically center the contents
+                  justifyContent: 'center',
+                  fontSize: '0.8rem'
+                }}
+                startIcon={<AccountBoxIcon />}
+              >
+                {"Dashboard"}
+              </Button>
+            }
           </Box>
           
         </Toolbar>
         
         <Toolbar disableGutters variant='dense'>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'right', justifyContent: 'flex-end' }}>
-
             {!userData &&
               <Button
                 key={"Login"}
@@ -197,7 +214,7 @@ const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
                   justifyContent: 'center',
                   fontSize: '0.8rem'
                 }}
-                startIcon={<WorkIcon />}
+                startIcon={<LoginIcon />}
               >
                 {"Login"}
               </Button>
@@ -212,26 +229,12 @@ const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
                   justifyContent: 'center',
                   fontSize: '0.8rem'
                 }}
-                startIcon={<WorkIcon />}
+                startIcon={<LogoutIcon />}
               >
-                {"Logout"}
+                {"Logout " + userData.name}
               </Button>
             }
-            {userData &&
-              <Button
-                key={"dashboard"}
-                onClick={() => { setAnchorElNav(null); navigate('/dashboard'); }}
-                sx={{
-                  my: 2, color: 'white', display: 'flex', mr: '10px', // set display to flex
-                  alignItems: 'center', // vertically center the contents
-                  justifyContent: 'center',
-                  fontSize: '0.8rem'
-                }}
-                startIcon={<WorkIcon />}
-              >
-                {"Dashboard"}
-              </Button>
-            }
+            
           </Box>
         </Toolbar>
       </Container>

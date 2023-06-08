@@ -37,13 +37,25 @@
       "name": "main-1834de4489fb37494990.js",
       "path": "/Users/polyueng/Desktop/MLabHub_django_yang2/MLabHub/src/frontend/bundles/main-1834de4489fb37494990.js"
     },
+    "main-44d869e93e7255968aa0.js": {
+      "name": "main-44d869e93e7255968aa0.js",
+      "path": "/Users/polyueng/Desktop/MLabHub_django_yang2/MLabHub/src/frontend/bundles/main-44d869e93e7255968aa0.js"
+    },
     "main-5f3330abd4f2dd97891e.js": {
       "name": "main-5f3330abd4f2dd97891e.js",
       "path": "/Users/polyueng/Desktop/MLabHub_django_yang2/MLabHub/src/frontend/bundles/main-5f3330abd4f2dd97891e.js"
     },
+    "main-6fc7f783ee45dcba21e6.js": {
+      "name": "main-6fc7f783ee45dcba21e6.js",
+      "path": "/Users/polyueng/Desktop/MLabHub_django_yang2/MLabHub/src/frontend/bundles/main-6fc7f783ee45dcba21e6.js"
+    },
     "main-9a41434f8e4373029917.js": {
       "name": "main-9a41434f8e4373029917.js",
       "path": "/Users/polyueng/Desktop/MLabHub_django_yang2/MLabHub/src/frontend/bundles/main-9a41434f8e4373029917.js"
+    },
+    "main-a98edb2d78aa1fdeab28.js": {
+      "name": "main-a98edb2d78aa1fdeab28.js",
+      "path": "/Users/polyueng/Desktop/MLabHub_django_yang2/MLabHub/src/frontend/bundles/main-a98edb2d78aa1fdeab28.js"
     },
     "main-b521cf7d113b1ba180cf.js": {
       "name": "main-b521cf7d113b1ba180cf.js",
@@ -52,11 +64,15 @@
     "main-bb2739ad499b286ff401.js": {
       "name": "main-bb2739ad499b286ff401.js",
       "path": "/Users/polyueng/Desktop/MLabHub_django_yang2/MLabHub/src/frontend/bundles/main-bb2739ad499b286ff401.js"
+    },
+    "main-e822c21721ff3dabc016.js": {
+      "name": "main-e822c21721ff3dabc016.js",
+      "path": "/Users/polyueng/Desktop/MLabHub_django_yang2/MLabHub/src/frontend/bundles/main-e822c21721ff3dabc016.js"
     }
   },
   "chunks": {
     "main": [
-      "main-9a41434f8e4373029917.js"
+      "main-e822c21721ff3dabc016.js"
     ]
   }
 }
