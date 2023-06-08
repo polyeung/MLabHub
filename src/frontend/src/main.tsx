@@ -15,7 +15,8 @@ const theme = createTheme({
       styleOverrides: {
         dense: {
           height: 30,
-          minHeight: 30
+          minHeight: 30,
+
         }
       }
     }

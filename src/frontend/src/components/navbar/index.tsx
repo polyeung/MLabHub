@@ -119,7 +119,7 @@ const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
         style={{ backgroundColor: '#00274c', height: '100px', width: '100vw', display: 'flex', flexDirection: 'row' }}
         component={Link}
         to="/">
-        <img src={MichiganLogo} alt='logo' style={{ height: '80px', marginLeft: '15%', marginTop: '1rem', marginBottom: '0.5rem' }} />
+        <img src={MichiganLogo} alt='logo' style={{ height: isSmallScreen? '50px':'80px', marginLeft: isSmallScreen?'5%':'15%', marginTop: '1rem', marginBottom: '0.5rem' }} />
       </Box>
       <Container maxWidth="xl" >
       {/*First Tool Bar */ }
