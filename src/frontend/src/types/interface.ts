@@ -6,7 +6,8 @@ export interface LabInfoType {
     name: string,
     link: string,
     people: string,
-    intro: string
+    intro: string,
+    dep: string
 };
 
 export interface LocationState extends NavigateOptions {

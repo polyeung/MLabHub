@@ -44,6 +44,7 @@ export default function overview(props: {
                                 link={item.link}
                                 intro={item.intro}
                                 id={item.id}
+                                dep={ item.dep }
                                 userData={props.userData} />
                         </Grid>
                     ))}

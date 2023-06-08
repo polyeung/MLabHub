@@ -23,11 +23,12 @@ interface labinfoInt {
     link: string,
     people: string,
     intro: string,
-    id: number
+    id: number,
+    dep: string,
     userData: UserData | null | undefined;
 };
 
-export default function RecipeReviewCard({ name, link, people, intro, id, userData}: labinfoInt) {
+export default function RecipeReviewCard({ name, link, people, intro, id, userData, dep}: labinfoInt) {
   const navigate = useNavigate();
   const notifs = useNotifs();
     
@@ -54,23 +55,23 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                      AD
+            AD
           </Avatar>
         }
         action={
-            <IconButton
+          <IconButton
             sx={{ padding: 0 }}
             onClick={handleClick}>
             <MoreVertIcon sx={{ fontSize: 'inherit' }} />
-            </IconButton>
+          </IconButton>
         }
         title={
-            <Typography variant="h6" >
-              {name}
-            </Typography>
-          }
-              // TODO: add department subtittle
-        subheader="CSE"
+          <Typography variant="h6" >
+            {name}
+          </Typography>
+        }
+        // TODO: add department subtittle
+        subheader={ dep }
       />
       <CardMedia
         component="img"
@@ -80,7 +81,7 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-                  { intro }
+                  { intro}
         </Typography>
               
       </CardContent>

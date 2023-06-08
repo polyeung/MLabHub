@@ -5,9 +5,17 @@
       "name": "images/corgi.png",
       "path": "/Users/elijahqi/Desktop/Mlabhub/MLabHub/src/frontend/bundles/images/corgi.png"
     },
+    "images/favicon.png": {
+      "name": "images/favicon.png",
+      "path": "/usr/src/app/bundles/images/favicon.png"
+    },
     "images/logo.png": {
       "name": "images/logo.png",
       "path": "/Users/elijahqi/Desktop/Mlabhub/MLabHub/src/frontend/bundles/images/logo.png"
+    },
+    "images/michigan-logo.png": {
+      "name": "images/michigan-logo.png",
+      "path": "/usr/src/app/bundles/images/michigan-logo.png"
     },
     "images/mlabhub_icon192.png": {
       "name": "images/mlabhub_icon192.png",
@@ -25,14 +33,36 @@
       "name": "images/umich.png",
       "path": "/Users/elijahqi/Desktop/Mlabhub/MLabHub/src/frontend/bundles/images/umich.png"
     },
+<<<<<<< HEAD
     "main.js": {
       "name": "main.js",
       "path": "/Users/elijahqi/Desktop/Mlabhub/MLabHub/src/frontend/bundles/main.js"
+=======
+    "main-55ea8d4cb51bee21f958.js": {
+      "name": "main-55ea8d4cb51bee21f958.js",
+      "path": "/usr/src/app/bundles/main-55ea8d4cb51bee21f958.js"
+    },
+    "main-658bf4a4610c650b48f4.js": {
+      "name": "main-658bf4a4610c650b48f4.js",
+      "path": "/usr/src/app/bundles/main-658bf4a4610c650b48f4.js"
+    },
+    "main-70f8503d1caa3fe8ff8d.js": {
+      "name": "main-70f8503d1caa3fe8ff8d.js",
+      "path": "/usr/src/app/bundles/main-70f8503d1caa3fe8ff8d.js"
+    },
+    "main-7dd9799177aed6f3b7c3.js": {
+      "name": "main-7dd9799177aed6f3b7c3.js",
+      "path": "/usr/src/app/bundles/main-7dd9799177aed6f3b7c3.js"
+    },
+    "main-a571c19c15d4e22f7e44.js": {
+      "name": "main-a571c19c15d4e22f7e44.js",
+      "path": "/usr/src/app/bundles/main-a571c19c15d4e22f7e44.js"
+>>>>>>> django-react-yang2
     }
   },
   "chunks": {
     "main": [
-      "main.js"
+      "main-658bf4a4610c650b48f4.js"
     ]
   }
 }
