@@ -52,7 +52,7 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
     }
   return (
     <Card sx={{ maxWidth: 345 , height: 450, position: 'relative'}}>
-      <CardHeader
+      <CardHeader onClick={ handleClick }
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
             AD
@@ -76,10 +76,11 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
       <CardMedia
         component="img"
         height="194"
-        image={ umichImg }
+        image={umichImg}
         alt="Lab Image"
+        onClick={ handleClick }
       />
-      <CardContent>
+      <CardContent onClick={ handleClick }>
         <Typography variant="body2" color="text.secondary">
                   { intro}
         </Typography>

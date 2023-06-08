@@ -110,7 +110,7 @@ const theme = useTheme();
     } else if (isMiddleScreen) {
       return ['65px', '5%'];
     } else { 
-      return ['80px', '15%'];
+      return ['80px', '13%'];
     }
   }
   const [imgHeight, imgLeftMargin] = getImgStyle();
