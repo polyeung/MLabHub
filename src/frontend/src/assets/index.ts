@@ -4,6 +4,12 @@ import umich from './umich.png';
 import logo from './logo.png';
 import formalLogo from './mlabhub_icon512.png';
 import formalLogo192 from './mlabhub_icon192.png';
+import favicon from './favicon.png';
+
+import michiganLogo from './michigan-logo.png';
+export const MichiganLogo = michiganLogo;
+export const Favicon = favicon;
+
 export const MLabHubLogo512 = formalLogo;
 export const MLabHubLogo192 = formalLogo192;
 export const logoImg = myLogo;

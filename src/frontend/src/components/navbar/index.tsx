@@ -15,14 +15,20 @@ import { useNavigate, Link} from 'react-router-dom';
 import ScienceIcon from '@mui/icons-material/Science';
 import SchoolIcon from '@mui/icons-material/School';
 import WorkIcon from '@mui/icons-material/Work';
-import { logoImg } from '@/assets';
+import { Favicon,MichiganLogo } from '@/assets';
 import { useNotifs } from '@/context';
 import { UserData } from '@/types/interface';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const pages = [['Research Opportunities', '/jobs', '1'], ['Post Jobs', '/post', '2'], ['Post Lab Info', '/create', '3']];
 const pagesStack = [['Research Opportunities', '/jobs'], ['Post Jobs', '/post'], ['Post Lab Info', '/create'], ['Dashboard', '/dashboard'],['Logout', '']]
 
 function NavBar({ userData }: { userData?: UserData | null }) {
+
+
+const theme = useTheme();
+const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
   const navigate = useNavigate();
@@ -48,32 +54,7 @@ function NavBar({ userData }: { userData?: UserData | null }) {
     }
     return cookieValue;
   }
-  
-  function logoutFunc() {
-  // get csrf first
-  fetch('/api/account/csrf_cookie')
-			.then(response => response.json())
-    .then(data => {
-      const csrftoken: (string | null) = getCookie('csrftoken');
-      fetch('/api/account/logout', {
-        method: 'POST', credentials: 'include',
-        headers: {
-        'Content-Type': 'application/json',
-        'X-CSRFToken': csrftoken ? csrftoken : "random_token"
-      },}).then(res => {
-        if (res.ok) {
-            //notifs.addNotif({ severity: 'success', message: 'Successfully logged out.' });
-            notifs.addNotif({ severity: 'success', message: 'Successfully logged out.' });
-            navigate('/login');
-        } else {
-          notifs.addNotif({ severity: 'error', message: "Failed to logout"});
-        }
-    });
-    }
-  )
-  
-  };
-  
+
   function logoutFuncOidc() { 
     fetch('/api/account/csrf_cookie')
       .then(response => response.json())
@@ -94,7 +75,6 @@ function NavBar({ userData }: { userData?: UserData | null }) {
           })
           .then(data => {
             const logoutUrl = data.logout_url;
-            console.log("logoutUrl", logoutUrl);
             fetch(logoutUrl,  {
               method: 'POST', credentials: 'include',
               headers: {
@@ -135,12 +115,76 @@ function NavBar({ userData }: { userData?: UserData | null }) {
   return (
 
       <AppBar position="static" style={{ backgroundColor: '#001E3E' }}>
-      <Box className="banner" style={{ backgroundColor: '#00274c', height: '50px', width:'100vw'}}>
-        {/* Add your banner content here */}
+      <Box className="banner"
+        style={{ backgroundColor: '#00274c', height: '100px', width: '100vw', display: 'flex', flexDirection: 'row' }}
+        component={Link}
+        to="/">
+        <img src={MichiganLogo} alt='logo' style={{ height: '80px', marginLeft: '15%', marginTop: '1rem', marginBottom: '0.5rem' }} />
       </Box>
       <Container maxWidth="xl" >
       {/*First Tool Bar */ }
-      <Toolbar disableGutters variant='dense'>
+        <Toolbar disableGutters variant='dense'>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none', }  }}>
+            <IconButton
+              size="small"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'left',
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{
+                display: { xs: 'block', md: 'none' },
+              }}
+            >
+              {pagesStack.map(([page, link]) => (
+
+                <MenuItem key={page} onClick={() => { setAnchorElNav(null); navigate(link); }}>
+                     <Typography variant="body2" textAlign="center" fontSize="0.8rem"> 
+                      {page}
+                    </Typography>
+                </MenuItem>
+              
+              ))}
+            </Menu>
+          </Box>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', alignItems: 'right', justifyContent: 'flex-end' } }}>
+            {pages.map(([page, link, id]) => (
+              <Button
+                key={page}
+                onClick={() => { setAnchorElNav(null); navigate(link); }}
+                sx={{ my: 2, color: 'white', display: 'flex', mr: '10px', // set display to flex
+                alignItems: 'center', // vertically center the contents
+                  justifyContent: 'center',
+                fontSize: '0.8rem'
+                }}
+                startIcon={id == '1' ? <SchoolIcon />:(id == '2'? <WorkIcon/>:<ScienceIcon />)}
+                
+              >
+                  {page}
+              </Button>
+            ))}
+          </Box>
+          
+        </Toolbar>
+        
+        <Toolbar disableGutters variant='dense'>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'right', justifyContent: 'flex-end' }}>
 
             {!userData &&
@@ -189,84 +233,6 @@ function NavBar({ userData }: { userData?: UserData | null }) {
               </Button>
             }
           </Box>
-        </Toolbar>
-        <Toolbar disableGutters variant='dense'>
-          {/*<img src={logoImg} style={{ maxWidth: '50px', marginRight: '5px' }} />
-          <Link to="/" style={{ textDecoration: 'none' }}>
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'white',
-              textDecoration: 'none',
-            }}
-          >
-            LabHub
-            </Typography>
-            </Link>*/}
-
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="small"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              {pagesStack.map(([page, link]) => (
-                <MenuItem key={page} onClick={() => { setAnchorElNav(null); navigate(link); }}>
-                     <Typography variant="body2" textAlign="center" fontSize="0.8rem"> 
-                      {page}
-                    </Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map(([page, link, id]) => (
-              <Button
-                key={page}
-                onClick={() => { setAnchorElNav(null); navigate(link); }}
-                sx={{ my: 2, color: 'white', display: 'flex', mr: '10px', // set display to flex
-                alignItems: 'center', // vertically center the contents
-                  justifyContent: 'center',
-                fontSize: '0.8rem'
-                }}
-                startIcon={id == '1' ? <SchoolIcon />:(id == '2'? <WorkIcon/>:<ScienceIcon />)}
-                
-              >
-                  {page}
-              </Button>
-            ))}
-          </Box>
-          
         </Toolbar>
       </Container>
       </AppBar>
