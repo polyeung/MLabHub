@@ -20,6 +20,7 @@ import { useNotifs } from '@/context';
 import { UserData } from '@/types/interface';
 
 const pages = [['Research Opportunities', '/jobs', '1'], ['Post Jobs', '/post', '2'], ['Post Lab Info', '/create', '3']];
+const pagesStack = [['Research Opportunities', '/jobs'], ['Post Jobs', '/post'], ['Post Lab Info', '/create'], ['Dashboard', '/dashboard'],['Logout', '']]
 
 function NavBar({ userData }: { userData?: UserData | null }) {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -132,10 +133,65 @@ function NavBar({ userData }: { userData?: UserData | null }) {
   
 
   return (
-    <AppBar position="static" style={{ backgroundColor: '#01305c' }}>
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <img src={logoImg} style={{ maxWidth: '50px', marginRight: '5px' }} />
+
+      <AppBar position="static" style={{ backgroundColor: '#001E3E' }}>
+      <Box className="banner" style={{ backgroundColor: '#00274c', height: '50px', width:'100vw'}}>
+        {/* Add your banner content here */}
+      </Box>
+      <Container maxWidth="xl" >
+      {/*First Tool Bar */ }
+      <Toolbar disableGutters variant='dense'>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'right', justifyContent: 'flex-end' }}>
+
+            {!userData &&
+              <Button
+                key={"Login"}
+                href="/oidc/authenticate/"
+                sx={{
+                  my: 2, color: 'white', display: 'flex', mr: '10px', // set display to flex
+                  alignItems: 'center', // vertically center the contents
+                  justifyContent: 'center',
+                  fontSize: '0.8rem'
+                }}
+                startIcon={<WorkIcon />}
+              >
+                {"Login"}
+              </Button>
+            }
+            {userData &&
+              <Button
+                key={"Logout"}
+                onClick={ logoutFuncOidc }
+                sx={{
+                  my: 2, color: 'white', display: 'flex', mr: '10px', // set display to flex
+                  alignItems: 'center', // vertically center the contents
+                  justifyContent: 'center',
+                  fontSize: '0.8rem'
+                }}
+                startIcon={<WorkIcon />}
+              >
+                {"Logout"}
+              </Button>
+            }
+            {userData &&
+              <Button
+                key={"dashboard"}
+                onClick={() => { setAnchorElNav(null); navigate('/dashboard'); }}
+                sx={{
+                  my: 2, color: 'white', display: 'flex', mr: '10px', // set display to flex
+                  alignItems: 'center', // vertically center the contents
+                  justifyContent: 'center',
+                  fontSize: '0.8rem'
+                }}
+                startIcon={<WorkIcon />}
+              >
+                {"Dashboard"}
+              </Button>
+            }
+          </Box>
+        </Toolbar>
+        <Toolbar disableGutters variant='dense'>
+          {/*<img src={logoImg} style={{ maxWidth: '50px', marginRight: '5px' }} />
           <Link to="/" style={{ textDecoration: 'none' }}>
           <Typography
             variant="h5"
@@ -153,11 +209,11 @@ function NavBar({ userData }: { userData?: UserData | null }) {
           >
             LabHub
             </Typography>
-            </Link>
+            </Link>*/}
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
-              size="large"
+              size="small"
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
@@ -184,32 +240,15 @@ function NavBar({ userData }: { userData?: UserData | null }) {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map(([page, link, id]) => (
+              {pagesStack.map(([page, link]) => (
                 <MenuItem key={page} onClick={() => { setAnchorElNav(null); navigate(link); }}>
-                    <Typography textAlign="center">{page}</Typography>
+                     <Typography variant="body2" textAlign="center" fontSize="0.8rem"> 
+                      {page}
+                    </Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <Link to="/" style={{ textDecoration: 'none' }}>
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'white',
-              textDecoration: 'none',
-            }}
-          >
-            MLabHub
-            </Typography>
-            </Link>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map(([page, link, id]) => (
               <Button
@@ -217,7 +256,9 @@ function NavBar({ userData }: { userData?: UserData | null }) {
                 onClick={() => { setAnchorElNav(null); navigate(link); }}
                 sx={{ my: 2, color: 'white', display: 'flex', mr: '10px', // set display to flex
                 alignItems: 'center', // vertically center the contents
-                justifyContent: 'center'}}
+                  justifyContent: 'center',
+                fontSize: '0.8rem'
+                }}
                 startIcon={id == '1' ? <SchoolIcon />:(id == '2'? <WorkIcon/>:<ScienceIcon />)}
                 
               >
@@ -225,50 +266,11 @@ function NavBar({ userData }: { userData?: UserData | null }) {
               </Button>
             ))}
           </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title={ userData?.username? userData.username: "Not Login"}>
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt={ userData?.username} src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {userData &&
-                <MenuItem key="1" onClick={handleCloseUserMenu}>
-                  <Button variant='text' onClick={ logoutFuncOidc }>Logout</Button>
-                </MenuItem>}
-              
-                {userData &&
-                <MenuItem key="2" onClick={handleCloseUserMenu}>
-                  <Button variant='text' onClick={ () => navigate('/dashboard')}>Dashboard</Button>
-                </MenuItem>}
-              
-              {!userData &&
-                <MenuItem key="3" onClick={handleCloseUserMenu}>
-                  <Button component="a" href="" rel="noopener noreferrer" onClick={ () => navigate('/oidc/authenticate/')} >Login</Button>
-                </MenuItem>
-              }
-              
-            </Menu>
-          </Box>
+          
         </Toolbar>
       </Container>
-    </AppBar>
+      </AppBar>
+
   );
 }
 
