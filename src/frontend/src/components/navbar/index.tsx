@@ -202,8 +202,8 @@ const theme = useTheme();
           
         </Toolbar>
         
-        <Toolbar disableGutters variant='dense'>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'right', justifyContent: 'flex-end' }}>
+        <Toolbar disableGutters variant='dense' sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'right', justifyContent: 'flex-end' }}>
+          
             {!userData &&
               <Button
                 key={"Login"}
@@ -235,7 +235,7 @@ const theme = useTheme();
               </Button>
             }
             
-          </Box>
+          
         </Toolbar>
       </Container>
       </AppBar>

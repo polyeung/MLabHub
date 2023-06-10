@@ -33,6 +33,18 @@
       "name": "images/umich.png",
       "path": "/usr/src/app/bundles/images/umich.png"
     },
+    "main-2a752ce2a0ad282fe45b.js": {
+      "name": "main-2a752ce2a0ad282fe45b.js",
+      "path": "/usr/src/app/bundles/main-2a752ce2a0ad282fe45b.js"
+    },
+    "main-b317b6fc543987722467.js": {
+      "name": "main-b317b6fc543987722467.js",
+      "path": "/usr/src/app/bundles/main-b317b6fc543987722467.js"
+    },
+    "main-d40704e203b8b48257ae.js": {
+      "name": "main-d40704e203b8b48257ae.js",
+      "path": "/usr/src/app/bundles/main-d40704e203b8b48257ae.js"
+    },
     "main-ebcf930e7453f5175fd7.js": {
       "name": "main-ebcf930e7453f5175fd7.js",
       "path": "/usr/src/app/bundles/main-ebcf930e7453f5175fd7.js"
@@ -40,7 +52,7 @@
   },
   "chunks": {
     "main": [
-      "main-ebcf930e7453f5175fd7.js"
+      "main-2a752ce2a0ad282fe45b.js"
     ]
   }
 }
