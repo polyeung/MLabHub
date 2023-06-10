@@ -30,14 +30,8 @@
     },
     "scripts": {
         "start": "react-scripts start",
-<<<<<<< HEAD
-        "dev": "vite",
-        "build": "export NODE_OPTIONS=--openssl-legacy-provider; npx webpack --config webpack.dev.js",
-        "build:watch": "export NODE_OPTIONS=--openssl-legacy-provider; npx webpack --watch --config webpack.dev.js"
-=======
         "build": "npx webpack --config webpack.dev.js",
         "build:watch": "npx webpack --watch --no-cache --config webpack.dev.js"
->>>>>>> django-react-yang2
     },
     "eslintConfig": {
         "extends": [
