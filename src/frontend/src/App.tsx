@@ -123,12 +123,15 @@ function App() {
           right: -40,
           height: 80,
           width: 80,
-          display: visible ? "initial" : "none"
+          display: visible ? "initial" : "none",
+          backgroundColor: "#00274C",
+          color: "white"
         }}>
         <Typography variant='h6'
           sx={{
             position: 'relative',
-            right: "25%"
+            right: "25%",
+            
           }}>
           TOP
         </Typography>
