@@ -1,0 +1,12 @@
+staticfiles/
+db.sqlite3
+
+__pycache__/
+.DS_Store
+
+.vscode
+.git*
+
+frontend/node_modules/
+frontend/bundles/
+.env
