@@ -14,5 +14,9 @@ module.exports = merge(common, {
   },
   devtool: 'inline-source-map',
     mode: 'development',
-    cache: false
+  cache: false,
+  watchOptions: {
+	  poll: true,
+	  ignored: /node_modules/
+	}
 });

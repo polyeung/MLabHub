@@ -33,26 +33,86 @@
       "name": "images/umich.png",
       "path": "/usr/src/app/bundles/images/umich.png"
     },
-    "main-1698bfb17d56fa03c128.js": {
-      "name": "main-1698bfb17d56fa03c128.js",
-      "path": "/usr/src/app/bundles/main-1698bfb17d56fa03c128.js"
+    "main-03e5f647ff311687dae7.js": {
+      "name": "main-03e5f647ff311687dae7.js",
+      "path": "/usr/src/app/bundles/main-03e5f647ff311687dae7.js"
     },
-    "main-1d58d46ff8c068d86464.js": {
-      "name": "main-1d58d46ff8c068d86464.js",
-      "path": "/usr/src/app/bundles/main-1d58d46ff8c068d86464.js"
+    "main-115976dcf252b0647f06.js": {
+      "name": "main-115976dcf252b0647f06.js",
+      "path": "/usr/src/app/bundles/main-115976dcf252b0647f06.js"
     },
-    "main-9e085bb7b784d07460ef.js": {
-      "name": "main-9e085bb7b784d07460ef.js",
-      "path": "/usr/src/app/bundles/main-9e085bb7b784d07460ef.js"
+    "main-127a10bc7b10a08dbb94.js": {
+      "name": "main-127a10bc7b10a08dbb94.js",
+      "path": "/usr/src/app/bundles/main-127a10bc7b10a08dbb94.js"
     },
-    "main-dfff0bef1e6209e87794.js": {
-      "name": "main-dfff0bef1e6209e87794.js",
-      "path": "/usr/src/app/bundles/main-dfff0bef1e6209e87794.js"
+    "main-135e118561ee028a052c.js": {
+      "name": "main-135e118561ee028a052c.js",
+      "path": "/usr/src/app/bundles/main-135e118561ee028a052c.js"
+    },
+    "main-2a65ee476a009fd53a19.js": {
+      "name": "main-2a65ee476a009fd53a19.js",
+      "path": "/usr/src/app/bundles/main-2a65ee476a009fd53a19.js"
+    },
+    "main-3d93221a323c06f19fcc.js": {
+      "name": "main-3d93221a323c06f19fcc.js",
+      "path": "/usr/src/app/bundles/main-3d93221a323c06f19fcc.js"
+    },
+    "main-49e00fef3547471a0cee.js": {
+      "name": "main-49e00fef3547471a0cee.js",
+      "path": "/usr/src/app/bundles/main-49e00fef3547471a0cee.js"
+    },
+    "main-54acf566fb7ebced9f2b.js": {
+      "name": "main-54acf566fb7ebced9f2b.js",
+      "path": "/usr/src/app/bundles/main-54acf566fb7ebced9f2b.js"
+    },
+    "main-599eb23bb2d4945dddba.js": {
+      "name": "main-599eb23bb2d4945dddba.js",
+      "path": "/usr/src/app/bundles/main-599eb23bb2d4945dddba.js"
+    },
+    "main-830eb897af3d399ad071.js": {
+      "name": "main-830eb897af3d399ad071.js",
+      "path": "/usr/src/app/bundles/main-830eb897af3d399ad071.js"
+    },
+    "main-83f716af376aded8fd0d.js": {
+      "name": "main-83f716af376aded8fd0d.js",
+      "path": "/usr/src/app/bundles/main-83f716af376aded8fd0d.js"
+    },
+    "main-8a81c51483687d4064d2.js": {
+      "name": "main-8a81c51483687d4064d2.js",
+      "path": "/usr/src/app/bundles/main-8a81c51483687d4064d2.js"
+    },
+    "main-9710a3e7ef1af07b7c53.js": {
+      "name": "main-9710a3e7ef1af07b7c53.js",
+      "path": "/usr/src/app/bundles/main-9710a3e7ef1af07b7c53.js"
+    },
+    "main-a14621513cf6aea8fba0.js": {
+      "name": "main-a14621513cf6aea8fba0.js",
+      "path": "/usr/src/app/bundles/main-a14621513cf6aea8fba0.js"
+    },
+    "main-ace00f493e0ed54d26f1.js": {
+      "name": "main-ace00f493e0ed54d26f1.js",
+      "path": "/usr/src/app/bundles/main-ace00f493e0ed54d26f1.js"
+    },
+    "main-b96baaf6fe1a08b450a4.js": {
+      "name": "main-b96baaf6fe1a08b450a4.js",
+      "path": "/usr/src/app/bundles/main-b96baaf6fe1a08b450a4.js"
+    },
+    "main-bed1ec6b8d7eb6809fe5.js": {
+      "name": "main-bed1ec6b8d7eb6809fe5.js",
+      "path": "/usr/src/app/bundles/main-bed1ec6b8d7eb6809fe5.js"
+    },
+    "main-d081fa5697324f3a911b.js": {
+      "name": "main-d081fa5697324f3a911b.js",
+      "path": "/usr/src/app/bundles/main-d081fa5697324f3a911b.js"
+    },
+    "main-de3fbc170471f60a667f.js": {
+      "name": "main-de3fbc170471f60a667f.js",
+      "path": "/usr/src/app/bundles/main-de3fbc170471f60a667f.js"
     }
   },
   "chunks": {
     "main": [
-      "main-1698bfb17d56fa03c128.js"
+      "main-bed1ec6b8d7eb6809fe5.js"
     ]
   }
 }
