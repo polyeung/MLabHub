@@ -2,16 +2,14 @@ import React, { useState } from 'react';
 import { UserData } from '@/types/interface';
 import { Box, Typography, IconButton, TextField , Button} from '@mui/material';
 import { useNotifs } from '@/context';
-import DeleteModal from '@/components/deleteModal';
 import LabCard from '@/components/labCard';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 import BiotechIcon from '@mui/icons-material/Biotech';
 import { useMediaQuery, Hidden } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-
-
+import WorkIcon from '@mui/icons-material/Work';
+import ApprovalIcon from '@mui/icons-material/Approval';
 
 const labData = [
   {
@@ -158,9 +156,9 @@ function dashboard(props: { userData: UserData |  null | undefined; }) {
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example"  variant="fullWidth">
         <Tab icon={<Hidden smDown> <BiotechIcon /></Hidden>} iconPosition="start" label="Saved Labs" {...a11yProps(0)}/>
-        <Tab icon={<Hidden smDown> <BiotechIcon /></Hidden>} iconPosition="start" label="Saved Jobs" {...a11yProps(1)}/>
-        <Tab icon={<Hidden smDown> <BiotechIcon /></Hidden>} iconPosition="start" label="Posted Labs" {...a11yProps(2)}/>
-        <Tab icon={<Hidden smDown> <BiotechIcon /></Hidden>} iconPosition="start" label="Posted Jobs" {...a11yProps(3)}/>
+        <Tab icon={<Hidden smDown> <WorkIcon /></Hidden>} iconPosition="start" label="Saved Jobs" {...a11yProps(1)}/>
+        <Tab icon={<Hidden smDown> <ApprovalIcon /></Hidden>} iconPosition="start" label="Posted Labs" {...a11yProps(2)}/>
+        <Tab icon={<Hidden smDown> <ApprovalIcon /></Hidden>} iconPosition="start" label="Posted Jobs" {...a11yProps(3)}/>
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
