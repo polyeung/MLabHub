@@ -52,7 +52,6 @@ function App() {
                   credentials: 'include',
                     }).then(res => {
                       if (res.ok) {
-                        
                         res.json().then(data => { setUserData(data); });
 
             } else { 
@@ -62,10 +61,6 @@ function App() {
         }).catch(error => console.error('Error:', error));
 
     window.addEventListener('scroll', buttonVisible);
-
-
-
-
 
   }, [location]);
   
@@ -116,14 +111,13 @@ function App() {
       <React.Fragment>
       { /* navbar begin. */}
       <Navbar userData={userData} />
-      <Fab aria-label="go to top" onClick={scrollTop}
+      {visible && <Fab aria-label="go to top" onClick={scrollTop}
         sx={{
           position: 'fixed',
           top: "80%",
           right: -40,
           height: 80,
           width: 80,
-          display: visible ? "initial" : "none",
           backgroundColor: "#00274C",
           color: "white"
         }}>
@@ -135,7 +129,7 @@ function App() {
           }}>
           TOP
         </Typography>
-      </Fab>
+      </Fab>}
       { /*navbar end */}
         <Container
 				maxWidth="lg"
