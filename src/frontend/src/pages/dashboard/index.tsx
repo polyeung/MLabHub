@@ -2,33 +2,15 @@ import React, { useState } from 'react';
 import { UserData } from '@/types/interface';
 import { Box, Typography, IconButton, TextField , Button} from '@mui/material';
 import { useNotifs } from '@/context';
-import LabCard from '@/components/labCard';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import BiotechIcon from '@mui/icons-material/Biotech';
-import { useMediaQuery, Hidden } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
+import { Hidden } from '@mui/material';
+import { ScreenContext } from '@/screenContext';
 import WorkIcon from '@mui/icons-material/Work';
 import ApprovalIcon from '@mui/icons-material/Approval';
-
-const labData = [
-  {
-    name: 'AI Lab',
-    dep: 'EECS'
-  },
-  {
-    name: 'AI Lab',
-    dep: 'EECS'
-  },
-  {
-    name: 'AI Lab',
-    dep: 'EECS'
-  },
-  {
-    name: 'AI Lab',
-    dep: 'EECS'
-  }
-];
+// panel pages start
+import LabPanel from '@/pages/labPanel';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -66,8 +48,7 @@ function dashboard(props: { userData: UserData |  null | undefined; }) {
     const [waiting, setWaiting] = useState<boolean>(false);
     const notifs = useNotifs();
     const [value, setValue] = React.useState(0);
-    const theme = useTheme();
-    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+    const { isSmallScreen, isMiddleScreen } = React.useContext(ScreenContext);
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
       setValue(newValue);
@@ -162,9 +143,7 @@ function dashboard(props: { userData: UserData |  null | undefined; }) {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-
-        {labData.map((item)=>(<LabCard/>))
-        }
+            <LabPanel/>
       </TabPanel>
       <TabPanel value={value} index={1}>
         { /*Saved Jobs Box */}

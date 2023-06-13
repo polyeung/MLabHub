@@ -33,368 +33,102 @@
       "name": "images/umich.png",
       "path": "/usr/src/app/bundles/images/umich.png"
     },
-    "main-0227c1ecedcd09f24768.js": {
-      "name": "main-0227c1ecedcd09f24768.js",
-      "path": "/usr/src/app/bundles/main-0227c1ecedcd09f24768.js"
+    "main-00f8f76b2847edf4112a.js": {
+      "name": "main-00f8f76b2847edf4112a.js",
+      "path": "/usr/src/app/bundles/main-00f8f76b2847edf4112a.js"
     },
-    "main-04e23ba1a46311855612.js": {
-      "name": "main-04e23ba1a46311855612.js",
-      "path": "/usr/src/app/bundles/main-04e23ba1a46311855612.js"
+    "main-041e437431cc8e913753.js": {
+      "name": "main-041e437431cc8e913753.js",
+      "path": "/usr/src/app/bundles/main-041e437431cc8e913753.js"
     },
-    "main-08cd90f010b0a3cc878b.js": {
-      "name": "main-08cd90f010b0a3cc878b.js",
-      "path": "/usr/src/app/bundles/main-08cd90f010b0a3cc878b.js"
+    "main-050ff6ab7d4d1286c89b.js": {
+      "name": "main-050ff6ab7d4d1286c89b.js",
+      "path": "/usr/src/app/bundles/main-050ff6ab7d4d1286c89b.js"
     },
-    "main-097c798de2be55d1ab00.js": {
-      "name": "main-097c798de2be55d1ab00.js",
-      "path": "/usr/src/app/bundles/main-097c798de2be55d1ab00.js"
+    "main-08f4a2b34d0594104eaf.js": {
+      "name": "main-08f4a2b34d0594104eaf.js",
+      "path": "/usr/src/app/bundles/main-08f4a2b34d0594104eaf.js"
     },
-    "main-0c6c594905b576fc9275.js": {
-      "name": "main-0c6c594905b576fc9275.js",
-      "path": "/usr/src/app/bundles/main-0c6c594905b576fc9275.js"
+    "main-0fab02dc9b675e7c07d1.js": {
+      "name": "main-0fab02dc9b675e7c07d1.js",
+      "path": "/usr/src/app/bundles/main-0fab02dc9b675e7c07d1.js"
     },
-    "main-0decbe0618add2b4dbfb.js": {
-      "name": "main-0decbe0618add2b4dbfb.js",
-      "path": "/usr/src/app/bundles/main-0decbe0618add2b4dbfb.js"
+    "main-2337021e7b6be4c3a4bc.js": {
+      "name": "main-2337021e7b6be4c3a4bc.js",
+      "path": "/usr/src/app/bundles/main-2337021e7b6be4c3a4bc.js"
     },
-    "main-0fab3b023a8fc27b1848.js": {
-      "name": "main-0fab3b023a8fc27b1848.js",
-      "path": "/usr/src/app/bundles/main-0fab3b023a8fc27b1848.js"
+    "main-3cd88bf42b2ae321fd8a.js": {
+      "name": "main-3cd88bf42b2ae321fd8a.js",
+      "path": "/usr/src/app/bundles/main-3cd88bf42b2ae321fd8a.js"
     },
-    "main-12e46cd60c8e19f7c3be.js": {
-      "name": "main-12e46cd60c8e19f7c3be.js",
-      "path": "/usr/src/app/bundles/main-12e46cd60c8e19f7c3be.js"
+    "main-442f9b0e9108e7ee64fc.js": {
+      "name": "main-442f9b0e9108e7ee64fc.js",
+      "path": "/usr/src/app/bundles/main-442f9b0e9108e7ee64fc.js"
     },
-    "main-155327bd28e7d8af86c8.js": {
-      "name": "main-155327bd28e7d8af86c8.js",
-      "path": "/usr/src/app/bundles/main-155327bd28e7d8af86c8.js"
+    "main-538e40f6f3e9af91b3cf.js": {
+      "name": "main-538e40f6f3e9af91b3cf.js",
+      "path": "/usr/src/app/bundles/main-538e40f6f3e9af91b3cf.js"
     },
-    "main-15ac9f1d96aaf71212c9.js": {
-      "name": "main-15ac9f1d96aaf71212c9.js",
-      "path": "/usr/src/app/bundles/main-15ac9f1d96aaf71212c9.js"
+    "main-55d1fe81fd386a167192.js": {
+      "name": "main-55d1fe81fd386a167192.js",
+      "path": "/usr/src/app/bundles/main-55d1fe81fd386a167192.js"
     },
-    "main-1c8ad89d7f037cccd4b0.js": {
-      "name": "main-1c8ad89d7f037cccd4b0.js",
-      "path": "/usr/src/app/bundles/main-1c8ad89d7f037cccd4b0.js"
+    "main-67845e8cace60d2e4ec3.js": {
+      "name": "main-67845e8cace60d2e4ec3.js",
+      "path": "/usr/src/app/bundles/main-67845e8cace60d2e4ec3.js"
     },
-    "main-1d7a482efbde0bade8dd.js": {
-      "name": "main-1d7a482efbde0bade8dd.js",
-      "path": "/usr/src/app/bundles/main-1d7a482efbde0bade8dd.js"
+    "main-70295cb4e7875a068f32.js": {
+      "name": "main-70295cb4e7875a068f32.js",
+      "path": "/usr/src/app/bundles/main-70295cb4e7875a068f32.js"
     },
-    "main-2059864d0ab11f7c08b7.js": {
-      "name": "main-2059864d0ab11f7c08b7.js",
-      "path": "/usr/src/app/bundles/main-2059864d0ab11f7c08b7.js"
-    },
-    "main-28d28042ba6b6dbd9bc7.js": {
-      "name": "main-28d28042ba6b6dbd9bc7.js",
-      "path": "/usr/src/app/bundles/main-28d28042ba6b6dbd9bc7.js"
-    },
-    "main-2ef0c633b6216fa09e51.js": {
-      "name": "main-2ef0c633b6216fa09e51.js",
-      "path": "/usr/src/app/bundles/main-2ef0c633b6216fa09e51.js"
-    },
-    "main-3135d58c23797f4fcd58.js": {
-      "name": "main-3135d58c23797f4fcd58.js",
-      "path": "/usr/src/app/bundles/main-3135d58c23797f4fcd58.js"
-    },
-    "main-3d43f9cb0c69e3d72ba6.js": {
-      "name": "main-3d43f9cb0c69e3d72ba6.js",
-      "path": "/usr/src/app/bundles/main-3d43f9cb0c69e3d72ba6.js"
-    },
-    "main-3f66885b5ff41427001c.js": {
-      "name": "main-3f66885b5ff41427001c.js",
-      "path": "/usr/src/app/bundles/main-3f66885b5ff41427001c.js"
-    },
-    "main-40175d34af3a272914fd.js": {
-      "name": "main-40175d34af3a272914fd.js",
-      "path": "/usr/src/app/bundles/main-40175d34af3a272914fd.js"
-    },
-    "main-490ee732f302ac481ecc.js": {
-      "name": "main-490ee732f302ac481ecc.js",
-      "path": "/usr/src/app/bundles/main-490ee732f302ac481ecc.js"
-    },
-    "main-492f11d32e54fd791078.js": {
-      "name": "main-492f11d32e54fd791078.js",
-      "path": "/usr/src/app/bundles/main-492f11d32e54fd791078.js"
-    },
-    "main-4a4ef31b6a1627423e15.js": {
-      "name": "main-4a4ef31b6a1627423e15.js",
-      "path": "/usr/src/app/bundles/main-4a4ef31b6a1627423e15.js"
-    },
-    "main-4c64a894722ee42343ad.js": {
-      "name": "main-4c64a894722ee42343ad.js",
-      "path": "/usr/src/app/bundles/main-4c64a894722ee42343ad.js"
-    },
-    "main-52ad9078be03f9dc5b5f.js": {
-      "name": "main-52ad9078be03f9dc5b5f.js",
-      "path": "/usr/src/app/bundles/main-52ad9078be03f9dc5b5f.js"
-    },
-    "main-54c1371a8d70b64b2e01.js": {
-      "name": "main-54c1371a8d70b64b2e01.js",
-      "path": "/usr/src/app/bundles/main-54c1371a8d70b64b2e01.js"
-    },
-    "main-5ab03ea8cf195dd9ada4.js": {
-      "name": "main-5ab03ea8cf195dd9ada4.js",
-      "path": "/usr/src/app/bundles/main-5ab03ea8cf195dd9ada4.js"
-    },
-    "main-5ede98c77296639def57.js": {
-      "name": "main-5ede98c77296639def57.js",
-      "path": "/usr/src/app/bundles/main-5ede98c77296639def57.js"
-    },
-    "main-5f00b17c704139dafa65.js": {
-      "name": "main-5f00b17c704139dafa65.js",
-      "path": "/usr/src/app/bundles/main-5f00b17c704139dafa65.js"
-    },
-    "main-5fc340e46ac424a72096.js": {
-      "name": "main-5fc340e46ac424a72096.js",
-      "path": "/usr/src/app/bundles/main-5fc340e46ac424a72096.js"
-    },
-    "main-61a99474b4b437e02d9c.js": {
-      "name": "main-61a99474b4b437e02d9c.js",
-      "path": "/usr/src/app/bundles/main-61a99474b4b437e02d9c.js"
-    },
-    "main-6826d64dae0825404502.js": {
-      "name": "main-6826d64dae0825404502.js",
-      "path": "/usr/src/app/bundles/main-6826d64dae0825404502.js"
-    },
-    "main-6f232c9657e9a20965ae.js": {
-      "name": "main-6f232c9657e9a20965ae.js",
-      "path": "/usr/src/app/bundles/main-6f232c9657e9a20965ae.js"
-    },
-    "main-75a4a8c1252e254c9398.js": {
-      "name": "main-75a4a8c1252e254c9398.js",
-      "path": "/usr/src/app/bundles/main-75a4a8c1252e254c9398.js"
-    },
-    "main-77641e055f3a02901db0.js": {
-      "name": "main-77641e055f3a02901db0.js",
-      "path": "/usr/src/app/bundles/main-77641e055f3a02901db0.js"
-    },
-    "main-796c673ad0023f1d17a1.js": {
-      "name": "main-796c673ad0023f1d17a1.js",
-      "path": "/usr/src/app/bundles/main-796c673ad0023f1d17a1.js"
-    },
-    "main-7b98f97c38a54638dafa.js": {
-      "name": "main-7b98f97c38a54638dafa.js",
-      "path": "/usr/src/app/bundles/main-7b98f97c38a54638dafa.js"
-    },
-    "main-7bf351057497a59dc438.js": {
-      "name": "main-7bf351057497a59dc438.js",
-      "path": "/usr/src/app/bundles/main-7bf351057497a59dc438.js"
-    },
-    "main-8320b469fd3308bc5216.js": {
-      "name": "main-8320b469fd3308bc5216.js",
-      "path": "/usr/src/app/bundles/main-8320b469fd3308bc5216.js"
-    },
-    "main-87025b50a9a007015403.js": {
-      "name": "main-87025b50a9a007015403.js",
-      "path": "/usr/src/app/bundles/main-87025b50a9a007015403.js"
+    "main-812315adf7ee1ca15536.js": {
+      "name": "main-812315adf7ee1ca15536.js",
+      "path": "/usr/src/app/bundles/main-812315adf7ee1ca15536.js"
     },
     "main-87442d6d4781d30328bc.js": {
       "name": "main-87442d6d4781d30328bc.js",
       "path": "/usr/src/app/bundles/main-87442d6d4781d30328bc.js"
     },
-    "main-87d145596bcf895d5194.js": {
-      "name": "main-87d145596bcf895d5194.js",
-      "path": "/usr/src/app/bundles/main-87d145596bcf895d5194.js"
+    "main-905f1bdce1f3df091915.js": {
+      "name": "main-905f1bdce1f3df091915.js",
+      "path": "/usr/src/app/bundles/main-905f1bdce1f3df091915.js"
     },
-    "main-8adb06b6106fb1796996.js": {
-      "name": "main-8adb06b6106fb1796996.js",
-      "path": "/usr/src/app/bundles/main-8adb06b6106fb1796996.js"
+    "main-958a3b22fdacd8a7d054.js": {
+      "name": "main-958a3b22fdacd8a7d054.js",
+      "path": "/usr/src/app/bundles/main-958a3b22fdacd8a7d054.js"
     },
-    "main-8cee10ad7db7371933f0.js": {
-      "name": "main-8cee10ad7db7371933f0.js",
-      "path": "/usr/src/app/bundles/main-8cee10ad7db7371933f0.js"
+    "main-9b6532f20c1d38d733f2.js": {
+      "name": "main-9b6532f20c1d38d733f2.js",
+      "path": "/usr/src/app/bundles/main-9b6532f20c1d38d733f2.js"
     },
-    "main-90f40e017d9f61ef2666.js": {
-      "name": "main-90f40e017d9f61ef2666.js",
-      "path": "/usr/src/app/bundles/main-90f40e017d9f61ef2666.js"
+    "main-9fe39d8cbc68d7c667f2.js": {
+      "name": "main-9fe39d8cbc68d7c667f2.js",
+      "path": "/usr/src/app/bundles/main-9fe39d8cbc68d7c667f2.js"
     },
-    "main-921a32cd8b61fc00cd1b.js": {
-      "name": "main-921a32cd8b61fc00cd1b.js",
-      "path": "/usr/src/app/bundles/main-921a32cd8b61fc00cd1b.js"
+    "main-ac2360c53c71ac5a15ab.js": {
+      "name": "main-ac2360c53c71ac5a15ab.js",
+      "path": "/usr/src/app/bundles/main-ac2360c53c71ac5a15ab.js"
     },
-    "main-9482f6aaf9f64bb279bd.js": {
-      "name": "main-9482f6aaf9f64bb279bd.js",
-      "path": "/usr/src/app/bundles/main-9482f6aaf9f64bb279bd.js"
+    "main-bcd9d0de1dcf8106c36a.js": {
+      "name": "main-bcd9d0de1dcf8106c36a.js",
+      "path": "/usr/src/app/bundles/main-bcd9d0de1dcf8106c36a.js"
     },
-    "main-989937f126ec3f7ee63d.js": {
-      "name": "main-989937f126ec3f7ee63d.js",
-      "path": "/usr/src/app/bundles/main-989937f126ec3f7ee63d.js"
+    "main-cbb7404586ed9bd01b27.js": {
+      "name": "main-cbb7404586ed9bd01b27.js",
+      "path": "/usr/src/app/bundles/main-cbb7404586ed9bd01b27.js"
     },
-    "main-9bf8f2e540516967b9fd.js": {
-      "name": "main-9bf8f2e540516967b9fd.js",
-      "path": "/usr/src/app/bundles/main-9bf8f2e540516967b9fd.js"
+    "main-f31cae5d194258168021.js": {
+      "name": "main-f31cae5d194258168021.js",
+      "path": "/usr/src/app/bundles/main-f31cae5d194258168021.js"
     },
-    "main-9dbcba15976859e8e423.js": {
-      "name": "main-9dbcba15976859e8e423.js",
-      "path": "/usr/src/app/bundles/main-9dbcba15976859e8e423.js"
-    },
-    "main-a18cc6a92ada48b353a6.js": {
-      "name": "main-a18cc6a92ada48b353a6.js",
-      "path": "/usr/src/app/bundles/main-a18cc6a92ada48b353a6.js"
-    },
-    "main-a2ba4686d44e8319e507.js": {
-      "name": "main-a2ba4686d44e8319e507.js",
-      "path": "/usr/src/app/bundles/main-a2ba4686d44e8319e507.js"
-    },
-    "main-a6ab1a0823eb6b95c523.js": {
-      "name": "main-a6ab1a0823eb6b95c523.js",
-      "path": "/usr/src/app/bundles/main-a6ab1a0823eb6b95c523.js"
-    },
-    "main-a773e314bc02283d48d3.js": {
-      "name": "main-a773e314bc02283d48d3.js",
-      "path": "/usr/src/app/bundles/main-a773e314bc02283d48d3.js"
-    },
-    "main-a88bb9bbb41f07a21137.js": {
-      "name": "main-a88bb9bbb41f07a21137.js",
-      "path": "/usr/src/app/bundles/main-a88bb9bbb41f07a21137.js"
-    },
-    "main-aa72e91f9666735f37a8.js": {
-      "name": "main-aa72e91f9666735f37a8.js",
-      "path": "/usr/src/app/bundles/main-aa72e91f9666735f37a8.js"
-    },
-    "main-abacdc290e275cc965f0.js": {
-      "name": "main-abacdc290e275cc965f0.js",
-      "path": "/usr/src/app/bundles/main-abacdc290e275cc965f0.js"
-    },
-    "main-ae30bf42fbe7fa37701c.js": {
-      "name": "main-ae30bf42fbe7fa37701c.js",
-      "path": "/usr/src/app/bundles/main-ae30bf42fbe7fa37701c.js"
-    },
-    "main-af92557f6542c64be063.js": {
-      "name": "main-af92557f6542c64be063.js",
-      "path": "/usr/src/app/bundles/main-af92557f6542c64be063.js"
-    },
-    "main-afa24f0b61ca4008f725.js": {
-      "name": "main-afa24f0b61ca4008f725.js",
-      "path": "/usr/src/app/bundles/main-afa24f0b61ca4008f725.js"
-    },
-    "main-b1ac932288749b72ac8d.js": {
-      "name": "main-b1ac932288749b72ac8d.js",
-      "path": "/usr/src/app/bundles/main-b1ac932288749b72ac8d.js"
-    },
-    "main-b39f8f1496cc86f84b15.js": {
-      "name": "main-b39f8f1496cc86f84b15.js",
-      "path": "/usr/src/app/bundles/main-b39f8f1496cc86f84b15.js"
-    },
-    "main-b8b3d733a47dea815360.js": {
-      "name": "main-b8b3d733a47dea815360.js",
-      "path": "/usr/src/app/bundles/main-b8b3d733a47dea815360.js"
-    },
-    "main-b9f46a9e9cec7deb03ee.js": {
-      "name": "main-b9f46a9e9cec7deb03ee.js",
-      "path": "/usr/src/app/bundles/main-b9f46a9e9cec7deb03ee.js"
-    },
-    "main-c0375b62afbbd33cebf0.js": {
-      "name": "main-c0375b62afbbd33cebf0.js",
-      "path": "/usr/src/app/bundles/main-c0375b62afbbd33cebf0.js"
-    },
-    "main-c070b86b04a3da355707.js": {
-      "name": "main-c070b86b04a3da355707.js",
-      "path": "/usr/src/app/bundles/main-c070b86b04a3da355707.js"
-    },
-    "main-c14c1ceeb1f55be0fe51.js": {
-      "name": "main-c14c1ceeb1f55be0fe51.js",
-      "path": "/usr/src/app/bundles/main-c14c1ceeb1f55be0fe51.js"
-    },
-    "main-c4f18ccc5c646eb730dc.js": {
-      "name": "main-c4f18ccc5c646eb730dc.js",
-      "path": "/usr/src/app/bundles/main-c4f18ccc5c646eb730dc.js"
-    },
-    "main-c6d305ec45ed7523c8dc.js": {
-      "name": "main-c6d305ec45ed7523c8dc.js",
-      "path": "/usr/src/app/bundles/main-c6d305ec45ed7523c8dc.js"
-    },
-    "main-c99ea8fb2219c015ac2d.js": {
-      "name": "main-c99ea8fb2219c015ac2d.js",
-      "path": "/usr/src/app/bundles/main-c99ea8fb2219c015ac2d.js"
-    },
-    "main-cd436fa6d5cdd879dc94.js": {
-      "name": "main-cd436fa6d5cdd879dc94.js",
-      "path": "/usr/src/app/bundles/main-cd436fa6d5cdd879dc94.js"
-    },
-    "main-cd45f4564ba727b242d8.js": {
-      "name": "main-cd45f4564ba727b242d8.js",
-      "path": "/usr/src/app/bundles/main-cd45f4564ba727b242d8.js"
-    },
-    "main-d17e40436bf02a1a3336.js": {
-      "name": "main-d17e40436bf02a1a3336.js",
-      "path": "/usr/src/app/bundles/main-d17e40436bf02a1a3336.js"
-    },
-    "main-d5ff4d06b8648d65fe5b.js": {
-      "name": "main-d5ff4d06b8648d65fe5b.js",
-      "path": "/usr/src/app/bundles/main-d5ff4d06b8648d65fe5b.js"
-    },
-    "main-d7e0cae34fd123160299.js": {
-      "name": "main-d7e0cae34fd123160299.js",
-      "path": "/usr/src/app/bundles/main-d7e0cae34fd123160299.js"
-    },
-    "main-d86223b6a03c4845edb4.js": {
-      "name": "main-d86223b6a03c4845edb4.js",
-      "path": "/usr/src/app/bundles/main-d86223b6a03c4845edb4.js"
-    },
-    "main-dbb892c39490493dce94.js": {
-      "name": "main-dbb892c39490493dce94.js",
-      "path": "/usr/src/app/bundles/main-dbb892c39490493dce94.js"
-    },
-    "main-e0379ceb670c1214c10b.js": {
-      "name": "main-e0379ceb670c1214c10b.js",
-      "path": "/usr/src/app/bundles/main-e0379ceb670c1214c10b.js"
-    },
-    "main-e2d7cdf27f7656432728.js": {
-      "name": "main-e2d7cdf27f7656432728.js",
-      "path": "/usr/src/app/bundles/main-e2d7cdf27f7656432728.js"
-    },
-    "main-e3cfe3f5b7ce381dd100.js": {
-      "name": "main-e3cfe3f5b7ce381dd100.js",
-      "path": "/usr/src/app/bundles/main-e3cfe3f5b7ce381dd100.js"
-    },
-    "main-e732bf2295d9da6a8794.js": {
-      "name": "main-e732bf2295d9da6a8794.js",
-      "path": "/usr/src/app/bundles/main-e732bf2295d9da6a8794.js"
-    },
-    "main-ea73d60251d4b486e397.js": {
-      "name": "main-ea73d60251d4b486e397.js",
-      "path": "/usr/src/app/bundles/main-ea73d60251d4b486e397.js"
-    },
-    "main-ec494000dafcf144c042.js": {
-      "name": "main-ec494000dafcf144c042.js",
-      "path": "/usr/src/app/bundles/main-ec494000dafcf144c042.js"
-    },
-    "main-ed38b5d1595b32983660.js": {
-      "name": "main-ed38b5d1595b32983660.js",
-      "path": "/usr/src/app/bundles/main-ed38b5d1595b32983660.js"
-    },
-    "main-f3eef3b1056cacb42c6a.js": {
-      "name": "main-f3eef3b1056cacb42c6a.js",
-      "path": "/usr/src/app/bundles/main-f3eef3b1056cacb42c6a.js"
-    },
-    "main-f659feeeac02d7a80fa9.js": {
-      "name": "main-f659feeeac02d7a80fa9.js",
-      "path": "/usr/src/app/bundles/main-f659feeeac02d7a80fa9.js"
-    },
-    "main-f84d427d40b43fe882b8.js": {
-      "name": "main-f84d427d40b43fe882b8.js",
-      "path": "/usr/src/app/bundles/main-f84d427d40b43fe882b8.js"
-    },
-    "main-f8ab95c8918c407a3227.js": {
-      "name": "main-f8ab95c8918c407a3227.js",
-      "path": "/usr/src/app/bundles/main-f8ab95c8918c407a3227.js"
-    },
-    "main-fa3317fb92b439cf48c3.js": {
-      "name": "main-fa3317fb92b439cf48c3.js",
-      "path": "/usr/src/app/bundles/main-fa3317fb92b439cf48c3.js"
-    },
-    "main-fd2febaaa637cdb2ddb1.js": {
-      "name": "main-fd2febaaa637cdb2ddb1.js",
-      "path": "/usr/src/app/bundles/main-fd2febaaa637cdb2ddb1.js"
+    "main-f60d7f6481656d9208dc.js": {
+      "name": "main-f60d7f6481656d9208dc.js",
+      "path": "/usr/src/app/bundles/main-f60d7f6481656d9208dc.js"
     }
   },
   "chunks": {
     "main": [
-      "main-87442d6d4781d30328bc.js"
+      "main-f60d7f6481656d9208dc.js"
     ]
-  },
-  "error": "ModuleBuildError",
-  "message": "Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /usr/src/app/src/pages/dashboard/index.tsx: Unexpected token, expected \",\" (130:8)\n\n  128 |       <Box sx={{\n  129 |         width: '100%'\n> 130 |         backgroundColor: 'white',\n      |         ^\n  131 |         borderRadius: '10px',\n  132 |         boxShadow: '0px 3px 10px rgba(0, 0, 0, 0.5)',\n  133 |         borderTop: '1px solid blue',\n    at instantiate (/usr/src/app/node_modules/@babel/parser/lib/index.js:653:32)\n    at constructor (/usr/src/app/node_modules/@babel/parser/lib/index.js:946:12)\n    at TypeScriptParserMixin.raise (/usr/src/app/node_modules/@babel/parser/lib/index.js:3270:19)\n    at TypeScriptParserMixin.unexpected (/usr/src/app/node_modules/@babel/parser/lib/index.js:3300:16)\n    at TypeScriptParserMixin.expect (/usr/src/app/node_modules/@babel/parser/lib/index.js:3642:28)\n    at TypeScriptParserMixin.parseObjectLike (/usr/src/app/node_modules/@babel/parser/lib/index.js:11639:14)\n    at TypeScriptParserMixin.parseExprAtom (/usr/src/app/node_modules/@babel/parser/lib/index.js:11159:23)\n    at TypeScriptParserMixin.parseExprAtom (/usr/src/app/node_modules/@babel/parser/lib/index.js:7007:20)\n    at TypeScriptParserMixin.parseExprSubscripts (/usr/src/app/node_modules/@babel/parser/lib/index.js:10872:23)\n    at TypeScriptParserMixin.parseUpdate (/usr/src/app/node_modules/@babel/parser/lib/index.js:10855:21)\n    at TypeScriptParserMixin.parseMaybeUnary (/usr/src/app/node_modules/@babel/parser/lib/index.js:10831:23)\n    at TypeScriptParserMixin.parseMaybeUnary (/usr/src/app/node_modules/@babel/parser/lib/index.js:9754:18)\n    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/usr/src/app/node_modules/@babel/parser/lib/index.js:10669:61)\n    at TypeScriptParserMixin.parseExprOps (/usr/src/app/node_modules/@babel/parser/lib/index.js:10674:23)\n    at TypeScriptParserMixin.parseMaybeConditional (/usr/src/app/node_modules/@babel/parser/lib/index.js:10651:23)\n    at TypeScriptParserMixin.parseMaybeAssign (/usr/src/app/node_modules/@babel/parser/lib/index.js:10612:21)\n    at TypeScriptParserMixin.parseMaybeAssign (/usr/src/app/node_modules/@babel/parser/lib/index.js:9701:20)\n    at TypeScriptParserMixin.parseExpressionBase (/usr/src/app/node_modules/@babel/parser/lib/index.js:10566:23)\n    at /usr/src/app/node_modules/@babel/parser/lib/index.js:10562:39\n    at TypeScriptParserMixin.allowInAnd (/usr/src/app/node_modules/@babel/parser/lib/index.js:12257:12)\n    at TypeScriptParserMixin.parseExpression (/usr/src/app/node_modules/@babel/parser/lib/index.js:10562:17)\n    at TypeScriptParserMixin.jsxParseExpressionContainer (/usr/src/app/node_modules/@babel/parser/lib/index.js:6867:31)\n    at TypeScriptParserMixin.jsxParseAttributeValue (/usr/src/app/node_modules/@babel/parser/lib/index.js:6835:21)\n    at TypeScriptParserMixin.jsxParseAttribute (/usr/src/app/node_modules/@babel/parser/lib/index.js:6888:38)\n    at TypeScriptParserMixin.jsxParseOpeningElementAfterName (/usr/src/app/node_modules/@babel/parser/lib/index.js:6902:28)\n    at TypeScriptParserMixin.jsxParseOpeningElementAfterName (/usr/src/app/node_modules/@babel/parser/lib/index.js:9961:18)\n    at TypeScriptParserMixin.jsxParseOpeningElementAt (/usr/src/app/node_modules/@babel/parser/lib/index.js:6897:17)\n    at TypeScriptParserMixin.jsxParseElementAt (/usr/src/app/node_modules/@babel/parser/lib/index.js:6921:33)\n    at TypeScriptParserMixin.jsxParseElementAt (/usr/src/app/node_modules/@babel/parser/lib/index.js:6933:32)\n    at TypeScriptParserMixin.jsxParseElement (/usr/src/app/node_modules/@babel/parser/lib/index.js:6990:17)\n    at TypeScriptParserMixin.parseExprAtom (/usr/src/app/node_modules/@babel/parser/lib/index.js:7002:19)\n    at TypeScriptParserMixin.parseExprSubscripts (/usr/src/app/node_modules/@babel/parser/lib/index.js:10872:23)\n    at TypeScriptParserMixin.parseUpdate (/usr/src/app/node_modules/@babel/parser/lib/index.js:10855:21)\n    at TypeScriptParserMixin.parseMaybeUnary (/usr/src/app/node_modules/@babel/parser/lib/index.js:10831:23)\n    at TypeScriptParserMixin.parseMaybeUnary (/usr/src/app/node_modules/@babel/parser/lib/index.js:9754:18)\n    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/usr/src/app/node_modules/@babel/parser/lib/index.js:10669:61)\n    at TypeScriptParserMixin.parseExprOps (/usr/src/app/node_modules/@babel/parser/lib/index.js:10674:23)\n    at TypeScriptParserMixin.parseMaybeConditional (/usr/src/app/node_modules/@babel/parser/lib/index.js:10651:23)\n    at TypeScriptParserMixin.parseMaybeAssign (/usr/src/app/node_modules/@babel/parser/lib/index.js:10612:21)\n    at /usr/src/app/node_modules/@babel/parser/lib/index.js:9690:39\n    at TypeScriptParserMixin.tryParse (/usr/src/app/node_modules/@babel/parser/lib/index.js:3649:20)\n    at TypeScriptParserMixin.parseMaybeAssign (/usr/src/app/node_modules/@babel/parser/lib/index.js:9690:18)\n    at /usr/src/app/node_modules/@babel/parser/lib/index.js:10582:39\n    at TypeScriptParserMixin.allowInAnd (/usr/src/app/node_modules/@babel/parser/lib/index.js:12257:12)\n    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/usr/src/app/node_modules/@babel/parser/lib/index.js:10582:17)\n    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/usr/src/app/node_modules/@babel/parser/lib/index.js:11490:28)\n    at TypeScriptParserMixin.parseExprAtom (/usr/src/app/node_modules/@babel/parser/lib/index.js:11141:23)\n    at TypeScriptParserMixin.parseExprAtom (/usr/src/app/node_modules/@babel/parser/lib/index.js:7007:20)\n    at TypeScriptParserMixin.parseExprSubscripts (/usr/src/app/node_modules/@babel/parser/lib/index.js:10872:23)\n    at TypeScriptParserMixin.parseUpdate (/usr/src/app/node_modules/@babel/parser/lib/index.js:10855:21)"
+  }
 }

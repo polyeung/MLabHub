@@ -9,8 +9,7 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import { useNotifs } from "@/context";
 import getCookie from '../../components/csrfToken';
 import CircularProgress from '@mui/material/CircularProgress';
-import { useMediaQuery } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
+import { ScreenContext } from '@/screenContext';
 
 function getRandomColor(): string { 
     const colors = ['red','#90731E', '#0277BD', 'pink', 'green', 'orange', 'purple', '#F29902', 'brown', 'gray', 'teal'];
@@ -38,9 +37,7 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
     const [isWaitingInfo, setIsWaitingInfo] = useState<boolean>(false);
     const [waiting, setWaiting] = useState<boolean>(false);
     const [deleteClicked, setDeleteClicked] = useState<boolean>(false);
-    const theme = useTheme();
-    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
-    const isMiddleScreen = useMediaQuery(theme.breakpoints.down('md'));
+    const { isSmallScreen, isMiddleScreen } = React.useContext(ScreenContext);
     // get ID from previous url
     const ID = useMemo(() => {
         const { state } = location as LocationState || { state: {pathname: "1" } };
