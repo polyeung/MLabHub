@@ -13,7 +13,7 @@ import { UserData } from './types/interface';
 import Dashboard from './pages/dashboard';
 import getCookie from './components/csrfToken';
 import Fab from '@mui/material/Fab';
-import AddIcon from '@mui/icons-material/Add';
+
 
 
 function ProtectedRoute(props: {
@@ -52,8 +52,7 @@ function App() {
                   credentials: 'include',
                     }).then(res => {
                       if (res.ok) {
-                        
-                        res.json().then(data => { setUserData(data); console.log(data) });
+                        res.json().then(data => { setUserData(data); });
 
             } else { 
               setUserData(null);
@@ -62,10 +61,6 @@ function App() {
         }).catch(error => console.error('Error:', error));
 
     window.addEventListener('scroll', buttonVisible);
-
-
-
-
 
   }, [location]);
   
@@ -116,30 +111,31 @@ function App() {
       <React.Fragment>
       { /* navbar begin. */}
       <Navbar userData={userData} />
-      <Fab aria-label="go to top" onClick={scrollTop}
+      {visible && <Fab aria-label="go to top" onClick={scrollTop}
         sx={{
           position: 'fixed',
           top: "80%",
           right: -40,
           height: 80,
           width: 80,
-          display: visible ? "initial" : "none"
+          backgroundColor: "#00274C",
+          color: "white"
         }}>
         <Typography variant='h6'
           sx={{
             position: 'relative',
-            right: "25%"
+            right: "25%",
+            
           }}>
           TOP
         </Typography>
-      </Fab>
+      </Fab>}
       { /*navbar end */}
         <Container
 				maxWidth="lg"
 				sx={{
 					flexGrow: 2,
 					display: 'flex',
-					alignItems: 'center',
           justifyContent: 'center',
           padding: '10px',
           marginTop: '10px',
