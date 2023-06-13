@@ -41,6 +41,10 @@
       "name": "main-2059864d0ab11f7c08b7.js",
       "path": "/usr/src/app/bundles/main-2059864d0ab11f7c08b7.js"
     },
+    "main-490ee732f302ac481ecc.js": {
+      "name": "main-490ee732f302ac481ecc.js",
+      "path": "/usr/src/app/bundles/main-490ee732f302ac481ecc.js"
+    },
     "main-5ab03ea8cf195dd9ada4.js": {
       "name": "main-5ab03ea8cf195dd9ada4.js",
       "path": "/usr/src/app/bundles/main-5ab03ea8cf195dd9ada4.js"
@@ -60,7 +64,7 @@
   },
   "chunks": {
     "main": [
-      "main-1d7a482efbde0bade8dd.js"
+      "main-490ee732f302ac481ecc.js"
     ]
   }
 }
