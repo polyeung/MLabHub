@@ -33,24 +33,14 @@
       "name": "images/umich.png",
       "path": "/usr/src/app/bundles/images/umich.png"
     },
-<<<<<<< HEAD
-    "main-2a752ce2a0ad282fe45b.js": {
-      "name": "main-2a752ce2a0ad282fe45b.js",
-      "path": "/usr/src/app/bundles/main-2a752ce2a0ad282fe45b.js"
-=======
-    "main-b9f46a9e9cec7deb03ee.js": {
-      "name": "main-b9f46a9e9cec7deb03ee.js",
-      "path": "/usr/src/app/bundles/main-b9f46a9e9cec7deb03ee.js"
->>>>>>> master
+    "main-d97d4113d2af9c045517.js": {
+      "name": "main-d97d4113d2af9c045517.js",
+      "path": "/usr/src/app/bundles/main-d97d4113d2af9c045517.js"
     }
   },
   "chunks": {
     "main": [
-<<<<<<< HEAD
-      "main-2a752ce2a0ad282fe45b.js"
-=======
-      "main-b9f46a9e9cec7deb03ee.js"
->>>>>>> master
+      "main-d97d4113d2af9c045517.js"
     ]
   }
 }

@@ -42,3 +42,7 @@ __pycache__
 /src/assets
 /src/frontend/bundles
 **/staticfiles
+
+# ignore webpack bundle files
+/src/frontend/webpack-stats.json
+/src/frontend/webpack.dev.js
