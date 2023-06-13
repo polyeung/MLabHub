@@ -13,6 +13,11 @@ module.exports = merge(common, {
     clean: true,
   },
   devtool: 'inline-source-map',
-    mode: 'development',
-    cache: false
-});
+  mode: 'development',
+  cache: false,
+  watchOptions: {
+    poll: true,
+    ignored: /node_modules/
+  }
+}
+);
