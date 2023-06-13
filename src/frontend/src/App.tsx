@@ -12,7 +12,8 @@ import OidcLoginPage from './pages/oidcLoginPage';
 import { UserData } from './types/interface';
 import Dashboard from './pages/dashboard';
 import getCookie from './components/csrfToken';
-
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
 
 
 function ProtectedRoute(props: {
@@ -38,7 +39,8 @@ function ProtectedRoute(props: {
 
 function App() {
   const location = useLocation();
-	const [userData, setUserData] = useState<UserData | undefined | null>(undefined);
+  const [userData, setUserData] = useState<UserData | undefined | null>(undefined);
+  const [visible, setVisible] = useState(false);
   useEffect(() => {
     // get csrf first
     fetch('/api/account/csrf_cookie')
@@ -59,7 +61,7 @@ function App() {
           });
         }).catch(error => console.error('Error:', error));
 
-
+    window.addEventListener('scroll', buttonVisible);
 
 
 
@@ -91,11 +93,46 @@ function App() {
       </Box>
     );
   };
+
+  const buttonVisible = () => {
+    const scrolled = document.documentElement.scrollTop;
+    // if a page is scrolled more than 150px, the button is visible
+    if (scrolled > 150) {
+      setVisible(true);
+    } else {
+      setVisible(false);
+    }
+  };
+
+  const scrollTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
 
       <React.Fragment>
       { /* navbar begin. */}
       <Navbar userData={userData} />
+      <Fab aria-label="go to top" onClick={scrollTop}
+        sx={{
+          position: 'fixed',
+          top: "80%",
+          right: -40,
+          height: 80,
+          width: 80,
+          display: visible ? "initial" : "none"
+        }}>
+        <Typography variant='h6'
+          sx={{
+            position: 'relative',
+            right: "25%"
+          }}>
+          TOP
+        </Typography>
+      </Fab>
       { /*navbar end */}
         <Container
 				maxWidth="lg"

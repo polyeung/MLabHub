@@ -13,6 +13,7 @@ module.exports = merge(common, {
     clean: true,
   },
   devtool: 'inline-source-map',
+<<<<<<< HEAD
   mode: 'development',
   cache: false,
   watchOptions: {
@@ -21,3 +22,12 @@ module.exports = merge(common, {
   }
 }
 );
+=======
+    mode: 'development',
+  cache: false,
+  watchOptions: {
+	  poll: true,
+	  ignored: /node_modules/
+	}
+});
+>>>>>>> master
