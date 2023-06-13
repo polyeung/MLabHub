@@ -15,8 +15,16 @@ import { ScreenContext } from '@/screenContext';
 import Modal from '@mui/material/Modal';
 
 interface jobCardProps { 
-  name: string,
-    dep: string,
+    name: string;
+    dep: string;
+    jobID: string;
+    setJobSelected: (value: string) => any;
+    handleOpen: () => any;
+};
+interface jobModalProps { 
+    open: boolean;
+    jobID: string;
+    handleClose: () => any
 };
 
 
@@ -33,14 +41,10 @@ const style = {
   p: 4,
 };
 
-function JobModal() {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+function JobModal({ open,jobID, handleClose}: jobModalProps) {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -52,7 +56,7 @@ function JobModal() {
             Text in a modal
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                      JOB ID SELECTED: { jobID}
           </Typography>
         </Box>
       </Modal>
@@ -60,35 +64,32 @@ function JobModal() {
   );
 };
 
-function JobCard({ name, dep}: jobCardProps) {
+function JobCard({ name, dep, jobID, handleOpen, setJobSelected}: jobCardProps) {
   const navigate = useNavigate();
-  const { isSmallScreen, isMiddleScreen } = React.useContext(ScreenContext);
-    function handleClick() { 
-        const options: LocationState = {
-            state: {
-                pathname: "1"
-            }
-            };
-        navigate('/labpage', options);
-        // console.log(options);
-    }
+    const { isSmallScreen, isMiddleScreen } = React.useContext(ScreenContext);
+    
 
-    const buttons = [
-      <IconButton aria-label="delete" key={"delete-button" }>
-          <DeleteIcon />
-      </IconButton>,
-      <IconButton aria-label="delete" key={"more-button"} onClick={ handleClick }>
-        < MoreHorizIcon/>
-      </IconButton>
-    ];
+    const handleModelOpen = (jobID: string) => { 
+        setJobSelected(jobID);
+        handleOpen();
+    };
+
+
+
 
   return (
       <Card sx={{ minWidth: 275, marginBottom: '10px' }}>
-      <CardHeader onClick={handleClick}
-        
+      <CardHeader
         action={
           <ButtonGroup size="small" aria-label="small button group" orientation={isSmallScreen ? "vertical" : "horizontal"}>
-            {buttons}
+            { [
+            <IconButton aria-label="delete" key={"delete-button" }>
+                <DeleteIcon />
+            </IconButton>,
+            <IconButton aria-label="delete" key={"more-button"} onClick={ () => handleModelOpen(jobID) }>
+                < MoreHorizIcon/>
+            </IconButton>
+            ]}
           </ButtonGroup>
         
         }
@@ -105,7 +106,7 @@ function JobCard({ name, dep}: jobCardProps) {
 }
 
 
-const labData = [
+const jobData = [
     {
       name: 'Machine Learning Researcher',
       dep: 'EECS'
@@ -124,10 +125,21 @@ const labData = [
     }
   ];
 export default function labPanel() { 
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => { setOpen(false); setJobSelected("-1"); };
+    const [jobSelected, setJobSelected] = React.useState<string>("-1");
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column'}}>
-            {labData.map((item, index) => (<JobCard key={ "job-card"+ String(index) } name={item.name} dep={item.dep} />))}
-            <JobModal />
+            {jobData.map((item, index) => (
+                <JobCard
+                    key={"job-card" + String(index)}
+                    name={item.name} dep={item.dep}
+                    handleOpen={handleOpen}
+                    jobID={String(index)}
+                    setJobSelected={ setJobSelected } />
+            ))}
+            <JobModal open={open} handleClose={handleClose} jobID={ jobSelected } />
         </Box>
     );
 };
