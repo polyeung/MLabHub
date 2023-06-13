@@ -43,11 +43,5 @@ __pycache__
 /src/frontend/bundles
 **/staticfiles
 
-<<<<<<< HEAD
 # ignore webpack bundle files
 /src/frontend/webpack-stats.json
-/src/frontend/webpack.dev.js
-=======
-# ignore webpack stats
-/src/frontend/webpack-stats.json
->>>>>>> django-react-yang2

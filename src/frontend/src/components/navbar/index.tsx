@@ -189,11 +189,6 @@ const theme = useTheme();
         </Toolbar>
         
         <Toolbar disableGutters variant='dense' sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'right', justifyContent: 'flex-end' }}>
-<<<<<<< HEAD
-          
-=======
-
->>>>>>> django-react-yang2
             {!userData &&
               <Button
                 key={"Login"}
@@ -225,11 +220,6 @@ const theme = useTheme();
               </Button>
             }
             
-<<<<<<< HEAD
-          
-=======
-
->>>>>>> django-react-yang2
         </Toolbar>
       </Container>
       </AppBar>
