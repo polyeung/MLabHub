@@ -13,7 +13,7 @@ import { UserData } from './types/interface';
 import Dashboard from './pages/dashboard';
 import getCookie from './components/csrfToken';
 import Fab from '@mui/material/Fab';
-import AddIcon from '@mui/icons-material/Add';
+
 
 
 function ProtectedRoute(props: {
@@ -53,7 +53,7 @@ function App() {
                     }).then(res => {
                       if (res.ok) {
                         
-                        res.json().then(data => { setUserData(data); console.log(data) });
+                        res.json().then(data => { setUserData(data); });
 
             } else { 
               setUserData(null);
