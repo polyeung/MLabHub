@@ -9,6 +9,8 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import { useNotifs } from "@/context";
 import getCookie from '../../components/csrfToken';
 import CircularProgress from '@mui/material/CircularProgress';
+import { useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 function getRandomColor(): string { 
     const colors = ['red','#90731E', '#0277BD', 'pink', 'green', 'orange', 'purple', '#F29902', 'brown', 'gray', 'teal'];
@@ -36,6 +38,9 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
     const [isWaitingInfo, setIsWaitingInfo] = useState<boolean>(false);
     const [waiting, setWaiting] = useState<boolean>(false);
     const [deleteClicked, setDeleteClicked] = useState<boolean>(false);
+    const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+    const isMiddleScreen = useMediaQuery(theme.breakpoints.down('md'));
     // get ID from previous url
     const ID = useMemo(() => {
         const { state } = location as LocationState || { state: {pathname: "1" } };
@@ -107,8 +112,8 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
     return (<Box style={boxStyles} sx={{ '@media (max-width: 600px)': smallScreenStyles }}>
         <Box padding={2}
             sx={{
-                gridColumn: 'span 8',
-                gridRow: 'span 2',
+                gridColumn: (isSmallScreen || isMiddleScreen)? 'span 12':'span 8',
+                gridRow: (isSmallScreen || isMiddleScreen)? '':'span 4',
                 backgroundColor: 'white',
                 borderRadius: '10px',
                 boxShadow: '0px 3px 10px rgba(0, 0, 0, 0.5)',
@@ -152,8 +157,8 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
         <Box
             padding={2}
             sx={{
-                gridColumn: 'span 4',
-                gridRow: 'span 2',
+                gridColumn: (isSmallScreen || isMiddleScreen)? 'span 12':'span 4',
+                gridRow: 'span 4',
                 backgroundColor: 'white',
                 display: 'flex',
                 flexDirection: 'column',

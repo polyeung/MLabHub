@@ -6,3 +6,4 @@ class User(AbstractUser):
 
     is_student = models.BooleanField(default=False)
     is_employee = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=False)
