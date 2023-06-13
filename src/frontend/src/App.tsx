@@ -136,7 +136,6 @@ function App() {
 				sx={{
 					flexGrow: 2,
 					display: 'flex',
-					alignItems: 'center',
           justifyContent: 'center',
           padding: '10px',
           marginTop: '10px',
