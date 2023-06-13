@@ -12,15 +12,55 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import IconButton from '@mui/material/IconButton';
 import { ScreenContext } from '@/screenContext';
+import Modal from '@mui/material/Modal';
 
-interface labCardProps { 
+interface jobCardProps { 
   name: string,
     dep: string,
 };
 
 
 
-function LabCard({ name, dep}: labCardProps) {
+const style = {
+  position: 'absolute' as 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
+
+function JobModal() {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  return (
+    <div>
+      <Button onClick={handleOpen}>Open modal</Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Text in a modal
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+          </Typography>
+        </Box>
+      </Modal>
+    </div>
+  );
+};
+
+function JobCard({ name, dep}: jobCardProps) {
   const navigate = useNavigate();
   const { isSmallScreen, isMiddleScreen } = React.useContext(ScreenContext);
     function handleClick() { 
@@ -34,7 +74,7 @@ function LabCard({ name, dep}: labCardProps) {
     }
 
     const buttons = [
-      <IconButton aria-label="delete" key={"delete-button"}>
+      <IconButton aria-label="delete" key={"delete-button" }>
           <DeleteIcon />
       </IconButton>,
       <IconButton aria-label="delete" key={"more-button"} onClick={ handleClick }>
@@ -43,7 +83,7 @@ function LabCard({ name, dep}: labCardProps) {
     ];
 
   return (
-      <Card sx={{ minWidth: 275, marginBottom: '10px' }} >
+      <Card sx={{ minWidth: 275, marginBottom: '10px' }}>
       <CardHeader onClick={handleClick}
         
         action={
@@ -53,7 +93,9 @@ function LabCard({ name, dep}: labCardProps) {
         
         }
         title={
-            name
+            <Typography component={'span'} variant="h6" >
+            {name}
+          </Typography>
         }
         // TODO: add department subtittle
         subheader={dep}
@@ -65,25 +107,27 @@ function LabCard({ name, dep}: labCardProps) {
 
 const labData = [
     {
-      name: 'AI Lab',
+      name: 'Machine Learning Researcher',
       dep: 'EECS'
     },
     {
-      name: 'AI Lab2',
+      name: 'Student Programmer',
       dep: 'EECS'
     },
     {
-      name: 'AI Lab3',
+      name: 'Web Designer',
       dep: 'EECS'
     },
     {
-      name: 'AI Lab4',
+      name: 'Devop Engineer',
       dep: 'EECS'
     }
   ];
 export default function labPanel() { 
     return (
-        <>{labData.map((item, index) => (<LabCard key={ "labcard-"+ String(index)} name={item.name} dep={item.dep}/>))
-    }</>
+        <Box sx={{ display: 'flex', flexDirection: 'column'}}>
+            {labData.map((item, index) => (<JobCard key={ "job-card"+ String(index) } name={item.name} dep={item.dep} />))}
+            <JobModal />
+        </Box>
     );
 };

@@ -11,6 +11,7 @@ import WorkIcon from '@mui/icons-material/Work';
 import ApprovalIcon from '@mui/icons-material/Approval';
 // panel pages start
 import LabPanel from '@/pages/labPanel';
+import JobPanel from '@/pages/jobPanel';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -31,7 +32,7 @@ function TabPanel(props: TabPanelProps) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+          <Typography component={"div"}>{children}</Typography>
         </Box>
       )}
     </div>
@@ -126,7 +127,7 @@ function dashboard(props: { userData: UserData |  null | undefined; }) {
               position: 'absolute',
               top: '-5px',
               left: '20',
-              width: '50%',
+              width: '50%', 
               height: '10px',
               backgroundColor: '#00274c',
               borderTopLeftRadius: '10px',
@@ -136,10 +137,10 @@ function dashboard(props: { userData: UserData |  null | undefined; }) {
           />
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example"  variant="fullWidth">
-        <Tab icon={<Hidden smDown> <BiotechIcon /></Hidden>} iconPosition="start" label="Saved Labs" {...a11yProps(0)}/>
-        <Tab icon={<Hidden smDown> <WorkIcon /></Hidden>} iconPosition="start" label="Saved Jobs" {...a11yProps(1)}/>
-        <Tab icon={<Hidden smDown> <ApprovalIcon /></Hidden>} iconPosition="start" label="Posted Labs" {...a11yProps(2)}/>
-        <Tab icon={<Hidden smDown> <ApprovalIcon /></Hidden>} iconPosition="start" label="Posted Jobs" {...a11yProps(3)}/>
+        <Tab icon={<Hidden smDown implementation="css"> <BiotechIcon /></Hidden>} iconPosition="start" label="Saved Labs" {...a11yProps(0)}/>
+        <Tab icon={<Hidden smDown implementation="css"> <WorkIcon /></Hidden>} iconPosition="start" label="Saved Jobs" {...a11yProps(1)}/>
+        <Tab icon={<Hidden smDown implementation="css"> <ApprovalIcon /></Hidden>} iconPosition="start" label="Posted Labs" {...a11yProps(2)}/>
+        <Tab icon={<Hidden smDown implementation="css"> <ApprovalIcon /></Hidden>} iconPosition="start" label="Posted Jobs" {...a11yProps(3)}/>
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
@@ -147,7 +148,7 @@ function dashboard(props: { userData: UserData |  null | undefined; }) {
       </TabPanel>
       <TabPanel value={value} index={1}>
         { /*Saved Jobs Box */}
-        <Typography variant="h6">Saved Jobs</Typography>
+        <JobPanel/>
       </TabPanel>
       <TabPanel value={value} index={2}>
         Posted Labs
