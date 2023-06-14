@@ -5,8 +5,8 @@ from django.contrib import auth
 from django.views.decorators.csrf import ensure_csrf_cookie, csrf_protect, csrf_exempt
 from django.utils.decorators import method_decorator
 from django.contrib.auth.models import User
-from .serializers import UserSerializer, UserProfileSerializer
-from .models import UserProfile, UserProfile
+from .serializers import UserSerializer
+from .models import SavedLabs
 import pprint
 from datetime import datetime
 from django.http import JsonResponse
@@ -34,32 +34,6 @@ class CheckAuthenticatedView(APIView):
             return Response({'error':"Something went wrong when checking authentication status"}, status = status.HTTP_400_BAD_REQUEST)
 
 
-@method_decorator(csrf_protect, name = 'dispatch')
-class SignupView(APIView):
-    # Since in the setting, I set all api request will need to be authenticated, but sign up and overview should not be authenticated
-    permission_classes = (permissions.AllowAny, )
-    
-    def post(self, request, format = None):
-        data = self.request.data
-        username = data['username']
-        password = data['password']
-        name = "NAME REQUIRED, TYPE AGAIN"
-        email = "EXAMPLE@umich.edu"
-        try:
-            if User.objects.filter(username = username).exists():
-                return Response({'error': 'Account with name already exists.'}, status = status.HTTP_409_CONFLICT)
-            else:
-                if len(password) < 8:
-                    return Response({'error': 'Password is too short'}, status = status.HTTP_400_BAD_REQUEST)
-                else:
-                    user = User.objects.create_user(username = username, password = password)
-                    user.save()
-                    user = User.objects.get(id = user.id)
-                    user_profile = UserProfile(user = user, name = name, email = email)
-                    user_profile.save()
-                    return Response({'success': "User created successfully"}, status = status.HTTP_200_OK)
-        except:
-            return Response({'error':'Something went wrong when registering account'})
 
 """
 @method_decorator(csrf_protect, name = 'dispatch')
@@ -129,31 +103,3 @@ class GetUsersView(APIView):
         return Response(users.data)
 
 
-class GetUserProfileView(APIView):
-    def get(self, request, format = None):
-        try:
-            user = self.request.user
-            username = user.username
-            user = User.objects.get(id = user.id)
-            user_profile = UserProfile.objects.get(user = user)
-            user_profile = UserProfileSerializer(user_profile)
-            return Response({'profile': user_profile.data, 'username':str(user.username)})
-        except:
-            return Response({'error':'Something went wrong when retrieving profile'})
-
-class UpdateUserProfileView(APIView):
-    def put(self, request, format = None):
-        try:
-            user = self.request.user
-            username = user.username
-            data = self.request.data
-            new_email = data['email']
-            new_name = data['name']
-
-            user = User.objects.get(id = user.id)
-            UserProfile.objects.filter(user = user).update(email = new_email, name = new_name)
-            user_profile = UserProfile.objects.get(user = user)
-            user_profile = UserProfileSerializer(user_profile)
-            return Response({'profile': user_profile.data, 'username':str(user.username)})
-        except:
-            return Response({'error':'Something went wrong when updating profile'})

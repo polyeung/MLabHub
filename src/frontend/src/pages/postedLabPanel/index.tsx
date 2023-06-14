@@ -65,7 +65,7 @@ function LabCard({ name, dep, isPending}: labCardProps) {
 
   return (
       <Card sx={{ minWidth: 275, marginBottom: '10px' }} >
-      <CardHeader onClick={handleClick}
+      <CardHeader
         action={
           <ButtonGroup size="small" aria-label="small button group" orientation={isSmallScreen ? "vertical" : "horizontal"}>
             {buttons}
