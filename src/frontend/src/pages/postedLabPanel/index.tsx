@@ -16,7 +16,7 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import PendingIcon from '@mui/icons-material/Pending';
 import { styled } from '@mui/material/styles';
 import { ButtonProps } from '@mui/material/Button';
-import { yellow } from '@mui/material/colors';
+import { yellow, green} from '@mui/material/colors';
 
 interface labCardProps { 
     name: string,
@@ -31,6 +31,14 @@ const WarningButton = styled(Button)<ButtonProps>(({ theme }) => ({
     backgroundColor: yellow[900],
     },
 }));
+
+const SuccessButton = styled(Button)<ButtonProps>(({ theme }) => ({
+    color: 'text.primary',
+    backgroundColor: green[600],
+    '&:hover': {
+      backgroundColor: green[800],
+      },
+  }));
 
 
 function LabCard({ name, dep, isPending}: labCardProps) {
@@ -74,7 +82,7 @@ function LabCard({ name, dep, isPending}: labCardProps) {
           />
           <CardActions>
               {isPending ?<WarningButton startIcon={<PendingIcon />} variant="contained" size="small">Pending</WarningButton>
-                  :<Button startIcon={<CheckBoxIcon />} variant="contained" size="small" color="success">Posted</Button>
+                  :<SuccessButton startIcon={<CheckBoxIcon />} variant="contained" size="small">Posted</SuccessButton>
               }
           </CardActions>
     </Card>

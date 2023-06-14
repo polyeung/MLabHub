@@ -333,6 +333,10 @@
       "name": "main-e0fbb63387f7b0862062.js",
       "path": "/usr/src/app/bundles/main-e0fbb63387f7b0862062.js"
     },
+    "main-e363806aa80b7f64e504.js": {
+      "name": "main-e363806aa80b7f64e504.js",
+      "path": "/usr/src/app/bundles/main-e363806aa80b7f64e504.js"
+    },
     "main-e439b5e2e619425fb2da.js": {
       "name": "main-e439b5e2e619425fb2da.js",
       "path": "/usr/src/app/bundles/main-e439b5e2e619425fb2da.js"
@@ -376,7 +380,7 @@
   },
   "chunks": {
     "main": [
-      "main-1ccee2c03ec6ce8a40cf.js"
+      "main-e363806aa80b7f64e504.js"
     ]
   },
   "error": "ModuleBuildError",
