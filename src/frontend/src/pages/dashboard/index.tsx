@@ -12,6 +12,7 @@ import ApprovalIcon from '@mui/icons-material/Approval';
 // panel pages start
 import LabPanel from '@/pages/labPanel';
 import JobPanel from '@/pages/jobPanel';
+import PostedLabPanel from '@/pages/postedLabPanel';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -151,7 +152,7 @@ function dashboard(props: { userData: UserData |  null | undefined; }) {
         <JobPanel/>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Posted Labs
+       <PostedLabPanel />
         </TabPanel>
         <TabPanel value={value} index={3}>
         Posted Jobs
