@@ -16,12 +16,11 @@ import WorkIcon from '@mui/icons-material/Work';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { Favicon,MichiganLogo } from '@/assets';
+import { MichiganLogo } from '@/assets';
 import { useNotifs } from '@/context';
 import { UserData } from '@/types/interface';
-import { useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import getCookie from '@/components/csrfToken';
+import { ScreenContext } from '@/screenContext';
 
 const pages = [['Research Opportunities', '/jobs', '1'], ['Post Jobs', '/post', '2'], ['Post Lab Info', '/create', '3']];
 const pagesStack = [['Research Opportunities', '/jobs'], ['Post Jobs', '/post'], ['Post Lab Info', '/create'], ['Dashboard', '/dashboard'],['Logout', '']]
@@ -29,9 +28,8 @@ const pagesStack = [['Research Opportunities', '/jobs'], ['Post Jobs', '/post'],
 function NavBar({ userData }: { userData?: UserData | null }) {
 
 
-const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
-  const isMiddleScreen = useMediaQuery(theme.breakpoints.down('md'));
+
+  const { isSmallScreen, isMiddleScreen } = React.useContext(ScreenContext);
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const navigate = useNavigate();
   const notifs = useNotifs();

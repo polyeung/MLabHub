@@ -5,6 +5,7 @@ import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import { NotifProvider } from './context';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ScreenProvider } from '@/screenContext';
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 
@@ -25,12 +26,14 @@ const theme = createTheme({
 
 root.render(
   <React.StrictMode>
-    <ThemeProvider theme={ theme }>
-      <BrowserRouter>
-        <NotifProvider> 
-          <App />
-        </NotifProvider > 
-      </BrowserRouter>
-    </ThemeProvider >
+    <ScreenProvider>
+      <ThemeProvider theme={ theme }>
+        <BrowserRouter>
+          <NotifProvider> 
+            <App />
+          </NotifProvider > 
+        </BrowserRouter>
+      </ThemeProvider >
+    </ScreenProvider>
   </React.StrictMode>
 );

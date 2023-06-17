@@ -2,33 +2,17 @@ import React, { useState } from 'react';
 import { UserData } from '@/types/interface';
 import { Box, Typography, IconButton, TextField , Button} from '@mui/material';
 import { useNotifs } from '@/context';
-import LabCard from '@/components/labCard';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import BiotechIcon from '@mui/icons-material/Biotech';
-import { useMediaQuery, Hidden } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
+import { Hidden } from '@mui/material';
+import { ScreenContext } from '@/screenContext';
 import WorkIcon from '@mui/icons-material/Work';
 import ApprovalIcon from '@mui/icons-material/Approval';
-
-const labData = [
-  {
-    name: 'AI Lab',
-    dep: 'EECS'
-  },
-  {
-    name: 'AI Lab',
-    dep: 'EECS'
-  },
-  {
-    name: 'AI Lab',
-    dep: 'EECS'
-  },
-  {
-    name: 'AI Lab',
-    dep: 'EECS'
-  }
-];
+// panel pages start
+import LabPanel from '@/pages/labPanel';
+import JobPanel from '@/pages/jobPanel';
+import PostedLabPanel from '@/pages/postedLabPanel';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -49,7 +33,7 @@ function TabPanel(props: TabPanelProps) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+          <Typography component={"div"}>{children}</Typography>
         </Box>
       )}
     </div>
@@ -66,8 +50,7 @@ function dashboard(props: { userData: UserData |  null | undefined; }) {
     const [waiting, setWaiting] = useState<boolean>(false);
     const notifs = useNotifs();
     const [value, setValue] = React.useState(0);
-    const theme = useTheme();
-    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+    const { isSmallScreen, isMiddleScreen } = React.useContext(ScreenContext);
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
       setValue(newValue);
@@ -145,7 +128,7 @@ function dashboard(props: { userData: UserData |  null | undefined; }) {
               position: 'absolute',
               top: '-5px',
               left: '20',
-              width: '50%',
+              width: '50%', 
               height: '10px',
               backgroundColor: '#00274c',
               borderTopLeftRadius: '10px',
@@ -155,23 +138,21 @@ function dashboard(props: { userData: UserData |  null | undefined; }) {
           />
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example"  variant="fullWidth">
-        <Tab icon={<Hidden smDown> <BiotechIcon /></Hidden>} iconPosition="start" label="Saved Labs" {...a11yProps(0)}/>
-        <Tab icon={<Hidden smDown> <WorkIcon /></Hidden>} iconPosition="start" label="Saved Jobs" {...a11yProps(1)}/>
-        <Tab icon={<Hidden smDown> <ApprovalIcon /></Hidden>} iconPosition="start" label="Posted Labs" {...a11yProps(2)}/>
-        <Tab icon={<Hidden smDown> <ApprovalIcon /></Hidden>} iconPosition="start" label="Posted Jobs" {...a11yProps(3)}/>
+        <Tab icon={<Hidden smDown implementation="css"> <BiotechIcon /></Hidden>} iconPosition="start" label="Saved Labs" {...a11yProps(0)}/>
+        <Tab icon={<Hidden smDown implementation="css"> <WorkIcon /></Hidden>} iconPosition="start" label="Saved Jobs" {...a11yProps(1)}/>
+        <Tab icon={<Hidden smDown implementation="css"> <ApprovalIcon /></Hidden>} iconPosition="start" label="Posted Labs" {...a11yProps(2)}/>
+        <Tab icon={<Hidden smDown implementation="css"> <ApprovalIcon /></Hidden>} iconPosition="start" label="Posted Jobs" {...a11yProps(3)}/>
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-
-        {labData.map((item)=>(<LabCard/>))
-        }
+            <LabPanel/>
       </TabPanel>
       <TabPanel value={value} index={1}>
         { /*Saved Jobs Box */}
-        <Typography variant="h6">Saved Jobs</Typography>
+        <JobPanel/>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Posted Labs
+       <PostedLabPanel />
         </TabPanel>
         <TabPanel value={value} index={3}>
         Posted Jobs
