@@ -15,7 +15,28 @@ class JobData(models.Model):
         (FLEXIBLE, 'Flexible'),
     )
 
-    #creator = models.ForeignKey(oidc_auth_user, on_delete=models.CASCADE, db_column='creator_id')
+    WORK_HOURS_CHOICES = (
+        ('< 10 hours', '< 10 hours'),
+        ('10-20 hours', '10-20 hours'),
+        ('20-30 hours', '20-30 hours'),
+        ('> 30 hours', '> 30 hours'),
+        ('flexible', 'Flexible'),
+    )
+
+    WORK_MODEL_CHOICES = (
+        ('Onsite', 'Onsite'),
+        ('Remote', 'Remote'),
+        ('Hybrid', 'Hybrid'),
+        ('Unsure', 'Unsure'),
+    )
+
+    CONSECUTIVE_SEMESTERS_CHOICES = (
+        ('A semester', 'A semester'),
+        ('Two semesters', 'Two semesters'),
+        ('Academic year', 'Academic year'),
+        ('Summer', 'Summer'),
+    )
+
     labid = models.ForeignKey(Lab, on_delete=models.CASCADE, db_column='labid')
     title = models.CharField(max_length=100)
     course = ArrayField(models.CharField(max_length=100))
@@ -23,11 +44,15 @@ class JobData(models.Model):
     rate = models.FloatField(null=True, blank=True)
     contact = models.EmailField()
     intro = models.TextField()
-    labname = models.CharField(max_length=100) 
+    labname = models.CharField(max_length=100)
     lablink = models.URLField()
+    workhoursselection = models.CharField(max_length=20, choices=WORK_HOURS_CHOICES)
+    workmodel = models.CharField(max_length=20, choices=WORK_MODEL_CHOICES)
+    consecutivesemestersselect = models.CharField(max_length=20, choices=CONSECUTIVE_SEMESTERS_CHOICES)
 
     def __str__(self):
         return self.title
+
 
 
 

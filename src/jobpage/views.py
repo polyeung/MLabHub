@@ -25,28 +25,30 @@ class GetJobInfo(APIView):
         except:
             return Response({'error':'Something went wrong when get Job Info'}, status=status.HTTP_400_BAD_REQUEST)
 
-@method_decorator(csrf_protect, name = 'dispatch')
-class PostNewJob(APIView):
-    def post(self,request):
-        try:
-            IsAuthenticated = User.is_authenticated
 
-            if IsAuthenticated:
-                data = self.request.data
+@method_decorator(csrf_protect, name='dispatch')
+class PostNewJob(APIView):
+    def post(self, request):
+        try:
+            is_authenticated = request.user.is_authenticated
+
+            if is_authenticated:
+                data = request.data
+                print(data)
                 try:
-                    print(data)
                     labid = data['labid']
                     title = data['title']
-                    course =  data['course']
+                    course = data['course']
                     rate_type = data['rate_type']
                     rate = data['rate']
                     contact = data['contact']
                     intro = data['intro']
                     labname = data['labname']
                     lablink = data['lablink']
-                    print('reach here 1')
-                    
-                    
+                    work_hours_selection = data['workhoursselection']
+                    work_model = data['workmodel']
+                    consecutive_semesters_select = data['consecutivesemestersselect']
+
                     JobData.objects.create(
                         labid_id=labid,
                         title=title,
@@ -56,17 +58,19 @@ class PostNewJob(APIView):
                         contact=contact,
                         intro=intro,
                         labname=labname,
-                        lablink=lablink
+                        lablink=lablink,
+                        workhoursselection=work_hours_selection,
+                        workmodel=work_model,
+                        consecutivesemestersselect=consecutive_semesters_select
                     )
-                    
 
-                    print("reach here 2")
-                    return Response({'success': True}, status = status.HTTP_200_OK)
-                except:
-                    return Response({'error':'Something went wrong when post job'}, status=status.HTTP_400_BAD_REQUEST)
+                    return Response({'success': True}, status=status.HTTP_200_OK)
+                except KeyError:
+                    return Response({'error': 'Required field(s) are missing'}, status=status.HTTP_400_BAD_REQUEST)
+                except Exception as e:
+                    return Response({'error': f'Something went wrong when posting job: {str(e)}'}, status=status.HTTP_400_BAD_REQUEST)
 
-                
             else:
-                return Response({'error': 'Please login to post your job'}, status = status.HTTP_401_UNAUTHORIZED)
-        except:
-            return Response({'error':'Something went wrong when posting a new job'}, status=status.HTTP_400_BAD_REQUEST)
+                return Response({'error': 'Please login to post your job'}, status=status.HTTP_401_UNAUTHORIZED)
+        except Exception as e:
+            return Response({'error': f'Something went wrong when posting a new job: {str(e)}'}, status=status.HTTP_400_BAD_REQUEST)
