@@ -4,4 +4,4 @@ from .models import JobData
 class JobDataSerializer(serializers.ModelSerializer):
     class Meta:
         model = JobData
-        exclude = ('id',)
+        exclude = ('id', 'oidc_auth_user')

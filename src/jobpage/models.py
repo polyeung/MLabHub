@@ -1,7 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import User
 from django.contrib.postgres.fields import ArrayField
 from lab.models import Lab
+from oidc_auth.models import User
 
 class JobData(models.Model):
     CREDIT = 'credit'
@@ -38,6 +38,7 @@ class JobData(models.Model):
     )
 
     labid = models.ForeignKey(Lab, on_delete=models.CASCADE, db_column='labid')
+    oidc_auth_user = models.ForeignKey(User, on_delete=models.CASCADE, db_column='userid')
     title = models.CharField(max_length=100)
     course = ArrayField(models.CharField(max_length=100))
     rate_type = models.CharField(max_length=10, choices=RATE_CHOICES, default=NUMBER)

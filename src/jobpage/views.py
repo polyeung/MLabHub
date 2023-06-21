@@ -31,7 +31,6 @@ class PostNewJob(APIView):
     def post(self, request):
         try:
             is_authenticated = request.user.is_authenticated
-
             if is_authenticated:
                 data = request.data
                 print(data)
@@ -61,7 +60,8 @@ class PostNewJob(APIView):
                         lablink=lablink,
                         workhoursselection=work_hours_selection,
                         workmodel=work_model,
-                        consecutivesemestersselect=consecutive_semesters_select
+                        consecutivesemestersselect=consecutive_semesters_select,
+                        oidc_auth_user=request.user
                     )
 
                     return Response({'success': True}, status=status.HTTP_200_OK)
@@ -74,3 +74,25 @@ class PostNewJob(APIView):
                 return Response({'error': 'Please login to post your job'}, status=status.HTTP_401_UNAUTHORIZED)
         except Exception as e:
             return Response({'error': f'Something went wrong when posting a new job: {str(e)}'}, status=status.HTTP_400_BAD_REQUEST)
+
+
+class GetPostedJobs(APIView):
+    def get(self, request):
+        try:
+            is_authenticated = request.user.is_authenticated
+            if is_authenticated:
+                data = request.data
+                print(data)
+                try:
+                    jobs = JobData.objects.filter(oidc_auth_user=request.user)
+                    jobs = JobDataSerializer(jobs, many=True)
+                    return Response(jobs.data, status = status.HTTP_200_OK)
+                except KeyError:
+                    return Response({'error': 'Required field(s) are missing'}, status=status.HTTP_400_BAD_REQUEST)
+                except Exception as e:
+                    return Response({'error': f'Something went wrong when posting job: {str(e)}'}, status=status.HTTP_400_BAD_REQUEST)
+
+            else:
+                return Response({'error': 'Please login to get your posted jobs'}, status=status.HTTP_401_UNAUTHORIZED)
+        except Exception as e:
+            return Response({'error': f'Something went wrong when getting posted jobs: {str(e)}'}, status=status.HTTP_400_BAD_REQUEST)
