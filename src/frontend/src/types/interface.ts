@@ -50,6 +50,7 @@ export interface commentsInt {
 };
 
 export interface jobdataInt {
+    id: number,
     labid: number,
     title: string,
     course: string[],
@@ -65,6 +66,7 @@ export interface jobdataInt {
 };
 
 export const jobdataIntTemplate: jobdataInt = {
+    id: 1,
     labid: 1,
     title: "testing job",
     course: [''],
