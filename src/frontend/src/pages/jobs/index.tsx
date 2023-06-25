@@ -42,7 +42,7 @@ function JobCard(props: jobCardProps) {
           {title}
         </Typography>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Required Course: {course.join(", ")}
+          Required Course: {course.length>0 && course.join(", ")}
         </Typography>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           Hourly Rate: {rate} USD
@@ -93,11 +93,11 @@ function jobs() {
       <>
         {isWaiting ? <CircularProgress />:
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <Typography variant="h4">Jobs page welcome!</Typography>
+            <Typography key={ 1} variant="h4">Jobs page welcome!</Typography>
         
-            {jobData.map((item) => (
-              <Box sx={{ mt: "20px" }}>
-                <JobCard title={item.title} intro={item.intro} rate={item.rate} labname={item.labname}
+            {jobData.map((item, index) => (
+              <Box key={index} sx={{ mt: "20px" }}>
+                <JobCard key={index} title={item.title} intro={item.intro} rate={item.rate} labname={item.labname}
                   course={item.course} contact={item.contact} lablink={item.lablink} workHoursSelection={item.workhoursselection}
                   workModel={item.workmodel} consecutiveSemestersSelect={ item.consecutivesemestersselect }
                 />

@@ -8,9 +8,9 @@ import { JobReviewFormProps } from '@/types/interface';
 
 
 export default function Review({ info }: JobReviewFormProps) {
-    function checkEmpty(input: string):string{ 
-        if (input.trim().length == 0) { 
-            return "Not Filled In";
+  function checkEmpty(input: string): string{ 
+        if (typeof input === 'string') {
+          return input.trim();
         }
         return input;
     }
@@ -45,7 +45,7 @@ export default function Review({ info }: JobReviewFormProps) {
       <Grid container spacing={3}>
             
         {Object.entries(info).map(([key, value]) => (
-            key !== 'addr' && key!=='rate' 
+            key !== 'addr' && key!=='rate' && key!=='id'
               && key!=='labid' &&key !== 'course' && key!=='rate_type' && (<React.Fragment key={key}>
                 <Grid item xs={5}>
                   <Typography sx={{ fontWeight: 600 }} gutterBottom>
