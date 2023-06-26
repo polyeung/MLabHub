@@ -7,19 +7,15 @@ import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
-import { LocationState } from '@/types/interface';
+import { useNotifs } from '@/context';
 import DeleteIcon from '@mui/icons-material/Delete';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import IconButton from '@mui/material/IconButton';
 import { ScreenContext } from '@/screenContext';
 import CardContent from '@mui/material/CardContent';
-import CheckBoxIcon from '@mui/icons-material/CheckBox';
-import PendingIcon from '@mui/icons-material/Pending';
-import { styled } from '@mui/material/styles';
-import { ButtonProps } from '@mui/material/Button';
-import { yellow, green} from '@mui/material/colors';
 
+import getCookie from '@/components/csrfToken';
 import {
   jobdataInt, jobdataIntTemplate,
   PersonInfoType
@@ -32,6 +28,8 @@ interface jobCardProps {
   jobID: number;
   setJobSelected: (value: number) => any;
   handleOpen: () => any;
+  handleDelete: (jobID: number) => any;
+  job: jobdataInt;
 };
 interface jobModalProps { 
   open: boolean;
@@ -145,7 +143,7 @@ function JobModal({ open,jobID, handleClose, item}: jobModalProps) {
   );
 };
 
-function JobCard({ title, labname, jobID, handleOpen, setJobSelected}: jobCardProps) {
+function JobCard({ title, labname, jobID, handleOpen, setJobSelected, job, handleDelete}: jobCardProps) {
   const navigate = useNavigate();
   const { isSmallScreen, isMiddleScreen } = React.useContext(ScreenContext);
   
@@ -155,7 +153,7 @@ function JobCard({ title, labname, jobID, handleOpen, setJobSelected}: jobCardPr
       handleOpen();
   };
 
-
+  
 
 
   return (
@@ -164,7 +162,7 @@ function JobCard({ title, labname, jobID, handleOpen, setJobSelected}: jobCardPr
         action={
           <ButtonGroup size="small" aria-label="small button group" orientation={isSmallScreen ? "vertical" : "horizontal"}>
             { [
-            <IconButton aria-label="delete" key={"delete-button" }>
+            <IconButton aria-label="delete" key={"delete-button" } onClick={handleDelete(job.id)}>
                 <DeleteIcon />
             </IconButton>,
             <IconButton aria-label="more" key={"more-button"} onClick={ () => handleModelOpen(jobID) }>
@@ -192,6 +190,7 @@ export default function PostedJobPanel() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => { setOpen(false); setJobSelected(-1); };
   const [jobSelected, setJobSelected] = React.useState<number>(-1);
+  const notifs = useNotifs();
 
   useEffect(() => {
     setIsWaiting(true);
@@ -199,6 +198,43 @@ export default function PostedJobPanel() {
           .then(response => response.json())
         .then(data => { setJobData(data); setIsWaiting(false); });
   }, []);
+
+  const handleDelete = (jobID: number) => {
+    // Perform deletion logic here
+    console.log("Delete clicked for job ID:", jobID);
+    fetch('/api/account/csrf_cookie')
+    .then(response => response.json())
+      .then(data => {
+        const csrftoken: (string | null) = getCookie('csrftoken');
+        fetch('/api/jobpages/deletejob/'+jobID, {
+          method: 'DELETE',
+          credentials: 'include',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken ? csrftoken : "random_token"
+          },
+        }).then(res => {
+          if (res.ok) {
+            notifs.addNotif({ severity: 'success', message: 'Delete Success!' });
+            setIsWaiting(true);
+            fetch(`/api/jobpages/getPostedJobs`)
+              .then(response => response.json())
+                .then(data => { setJobData(data); setIsWaiting(false); });
+          } else { 
+            res.json().then(data =>
+              notifs.addNotif({
+                severity: 'error',
+                message: `Delete error: ${data.error}`,
+              }),
+            );
+          }
+        }).catch(console.warn);
+      })
+    .catch(error => {
+      // Handle any errors
+      console.error(error);
+    });
+  };
 
   return (
     <>
@@ -209,7 +245,10 @@ export default function PostedJobPanel() {
                   title={item.title} labname={item.labname}
                   handleOpen={handleOpen}
                   jobID={index}
-                  setJobSelected={ setJobSelected } />
+                  job={item}
+                  setJobSelected={setJobSelected}
+                  handleDelete={handleDelete}
+            />
           ))}
         <JobModal open={open} handleClose={handleClose} jobID={jobSelected} item={ jobSelected ==-1 ?jobdataIntTemplate :jobData[jobSelected]} />
     </Box>

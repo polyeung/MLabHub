@@ -96,3 +96,23 @@ class GetPostedJobs(APIView):
                 return Response({'error': 'Please login to get your posted jobs'}, status=status.HTTP_401_UNAUTHORIZED)
         except Exception as e:
             return Response({'error': f'Something went wrong when getting posted jobs: {str(e)}'}, status=status.HTTP_400_BAD_REQUEST)
+
+
+@method_decorator(csrf_protect, name='dispatch')
+class delete_job(APIView):
+    def delete(self, request, job_id):
+        try:
+            is_authenticated = request.user.is_authenticated
+            if is_authenticated:
+                try:
+                    job = JobData.objects.get(id=job_id, oidc_auth_user=request.user)
+                    job.delete()
+                    return Response({'success': 'Job deleted successfully'}, status=status.HTTP_200_OK)
+                except JobData.DoesNotExist:
+                    return Response({'error': 'Job not found'}, status=status.HTTP_404_NOT_FOUND)
+                except Exception as e:
+                    return Response({'error': f'Something went wrong when deleting the job: {str(e)}'}, status=status.HTTP_400_BAD_REQUEST)
+            else:
+                return Response({'error': 'Please login to delete the job'}, status=status.HTTP_401_UNAUTHORIZED)
+        except Exception as e:
+            return Response({'error': f'Something went wrong when deleting the job: {str(e)}'}, status=status.HTTP_400_BAD_REQUEST)

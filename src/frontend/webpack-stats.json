@@ -33,42 +33,14 @@
       "name": "images/umich.png",
       "path": "/usr/src/app/bundles/images/umich.png"
     },
-    "main-0fc66b138bbd5df21cc0.js": {
-      "name": "main-0fc66b138bbd5df21cc0.js",
-      "path": "/usr/src/app/bundles/main-0fc66b138bbd5df21cc0.js"
-    },
-    "main-1ef21db62c2d56e157fb.js": {
-      "name": "main-1ef21db62c2d56e157fb.js",
-      "path": "/usr/src/app/bundles/main-1ef21db62c2d56e157fb.js"
-    },
-    "main-3015123bfb0deccedc1d.js": {
-      "name": "main-3015123bfb0deccedc1d.js",
-      "path": "/usr/src/app/bundles/main-3015123bfb0deccedc1d.js"
-    },
-    "main-56e55c96d9014d61f482.js": {
-      "name": "main-56e55c96d9014d61f482.js",
-      "path": "/usr/src/app/bundles/main-56e55c96d9014d61f482.js"
-    },
-    "main-5ca92d8f418575ce4c4d.js": {
-      "name": "main-5ca92d8f418575ce4c4d.js",
-      "path": "/usr/src/app/bundles/main-5ca92d8f418575ce4c4d.js"
-    },
-    "main-ada5e73298b9a3129304.js": {
-      "name": "main-ada5e73298b9a3129304.js",
-      "path": "/usr/src/app/bundles/main-ada5e73298b9a3129304.js"
-    },
-    "main-e0b28b6dad8f15b6407b.js": {
-      "name": "main-e0b28b6dad8f15b6407b.js",
-      "path": "/usr/src/app/bundles/main-e0b28b6dad8f15b6407b.js"
-    },
-    "main-e166e1766967dcf9504d.js": {
-      "name": "main-e166e1766967dcf9504d.js",
-      "path": "/usr/src/app/bundles/main-e166e1766967dcf9504d.js"
+    "main-069370cb8aec200b3ac7.js": {
+      "name": "main-069370cb8aec200b3ac7.js",
+      "path": "/usr/src/app/bundles/main-069370cb8aec200b3ac7.js"
     }
   },
   "chunks": {
     "main": [
-      "main-0fc66b138bbd5df21cc0.js"
+      "main-069370cb8aec200b3ac7.js"
     ]
   }
 }
