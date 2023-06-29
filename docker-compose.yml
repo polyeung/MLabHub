@@ -6,7 +6,7 @@ services:
       context: ./src
       args:
         ENVIRONMENT: DEVELOPMENT
-    env_file: ./src/.env
+
     ports:
       - 127.0.0.1:${APP_PORT:-8000}:8000
     volumes:
