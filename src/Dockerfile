@@ -33,7 +33,7 @@ WORKDIR /usr/src/app
 COPY requirements.txt /tmp/
 RUN pip install -r /tmp/requirements.txt
 RUN pip install django-filter
-COPY . /usr/src/app
+COPY . /usr/src/app/
 
 EXPOSE 8000
 
