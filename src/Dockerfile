@@ -8,6 +8,7 @@ RUN npm install
 
 COPY frontend /usr/src/app/
 CMD npm run build:watch
+RUN npm install -g webpack-cli 
 
 
 # Stage 2 - Application
