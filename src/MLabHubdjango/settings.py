@@ -19,7 +19,7 @@ SECRET_KEY = 'django-insecure-eprn14c)=14xlj(@0l)+3^^1ut2&8=56f=3bpqusf_f*z6uxn2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['http://mlabhub-eb-docker-env.eba-izc7hz4g.us-east-2.elasticbeanstalk.com/']
 
 
 
