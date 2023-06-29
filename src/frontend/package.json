@@ -25,7 +25,7 @@
         "react-start": "^1.1.2",
         "styled-components": "^6.0.0-rc.1",
         "web-vitals": "^2.1.4",
-        "webpack": "4.46.0",
+        "webpack": "5.39.1",
         "webpack-cli": "3.3.12",
         "webpack-merge": "^4.2.2"
     },
