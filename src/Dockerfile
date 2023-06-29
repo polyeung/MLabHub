@@ -4,11 +4,12 @@ FROM node:16.13.2 AS webpack-builder
 WORKDIR /usr/src/app
 
 COPY frontend/package.json /usr/src/app/
+RUN npm install npm@latest -g
 RUN npm install
 
 COPY frontend /usr/src/app/
-CMD npm run build:watch
-RUN npm install -g webpack-cli 
+CMD npm run build
+
 
 
 # Stage 2 - Application
