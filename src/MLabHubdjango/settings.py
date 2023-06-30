@@ -67,9 +67,12 @@ AUTHENTICATION_BACKENDS = [
 
 AUTH_USER_MODEL = 'oidc_auth.User'
 
-IDP_ROOT_URL = config('IDP_ROOT_URL', default='shib.url')
-OIDC_RP_CLIENT_ID = config('OIDC_RP_CLIENT_ID', default='fake_id')
-OIDC_RP_CLIENT_SECRET = config('OIDC_RP_CLIENT_SECRET', default='fake_secret')
+#IDP_ROOT_URL = config('IDP_ROOT_URL', default='shib.url')
+#OIDC_RP_CLIENT_ID = config('OIDC_RP_CLIENT_ID', default='fake_id')
+#OIDC_RP_CLIENT_SECRET = config('OIDC_RP_CLIENT_SECRET', default='fake_secret')
+IDP_ROOT_URL = os.environ['IDP_ROOT_URL']
+OIDC_RP_CLIENT_ID=os.environ['OIDC_RP_CLIENT_ID']
+OIDC_RP_CLIENT_SECRET=os.environ['OIDC_RP_CLIENT_SECRET']
 OIDC_RP_SIGN_ALGO = 'RS256'
 OIDC_OP_AUTHORIZATION_ENDPOINT = IDP_ROOT_URL + '/idp/profile/oidc/authorize'
 OIDC_OP_TOKEN_ENDPOINT = IDP_ROOT_URL + '/idp/profile/oidc/token'
