@@ -9,6 +9,7 @@ function BottomBanner() {
     const { isSmallScreen, isMiddleScreen } = React.useContext(ScreenContext);
 
     // have to change numbers
+    // TODO: make the bottom banner responsive
     const getImgStyle = () => { 
         if (isSmallScreen) {
           return ['50px', '5%'];
@@ -22,9 +23,6 @@ function BottomBanner() {
 
     return (
         <Grid container rowSpacing={2}
-        // direction="column"
-        // alignItems="center"
-        // justifyContent="center"
             style={{
             backgroundColor: '#01305c',
             padding: '10px',
