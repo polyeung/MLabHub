@@ -37,56 +37,30 @@
       "name": "images/umich.png",
       "path": "/usr/src/app/bundles/images/umich.png"
     },
-    "main-03996f70909028ba262e.js": {
-      "name": "main-03996f70909028ba262e.js",
-      "path": "/usr/src/app/bundles/main-03996f70909028ba262e.js"
+    "main-81805fe7982a6a729bc0.js": {
+      "name": "main-81805fe7982a6a729bc0.js",
+      "path": "/usr/src/app/bundles/main-81805fe7982a6a729bc0.js"
     },
-    "main-05dc5a44e6b3ba0e2195.js": {
-      "name": "main-05dc5a44e6b3ba0e2195.js",
-      "path": "/usr/src/app/bundles/main-05dc5a44e6b3ba0e2195.js"
+    "main-a97448c7a8d7696d34e4.js": {
+      "name": "main-a97448c7a8d7696d34e4.js",
+      "path": "/usr/src/app/bundles/main-a97448c7a8d7696d34e4.js"
     },
-    "main-167e7e75f439972df7bc.js": {
-      "name": "main-167e7e75f439972df7bc.js",
-      "path": "/usr/src/app/bundles/main-167e7e75f439972df7bc.js"
+    "main-abd32054aba3e7effd04.js": {
+      "name": "main-abd32054aba3e7effd04.js",
+      "path": "/usr/src/app/bundles/main-abd32054aba3e7effd04.js"
     },
-    "main-1c3e8165f06d69f9eada.js": {
-      "name": "main-1c3e8165f06d69f9eada.js",
-      "path": "/usr/src/app/bundles/main-1c3e8165f06d69f9eada.js"
+    "main-c67c370c5c8cd7ea33dd.js": {
+      "name": "main-c67c370c5c8cd7ea33dd.js",
+      "path": "/usr/src/app/bundles/main-c67c370c5c8cd7ea33dd.js"
     },
-    "main-4793583f51b0a7dea2d9.js": {
-      "name": "main-4793583f51b0a7dea2d9.js",
-      "path": "/usr/src/app/bundles/main-4793583f51b0a7dea2d9.js"
-    },
-    "main-5563bc87eddc3aed54c3.js": {
-      "name": "main-5563bc87eddc3aed54c3.js",
-      "path": "/usr/src/app/bundles/main-5563bc87eddc3aed54c3.js"
-    },
-    "main-61f3cda2b96bda03fe16.js": {
-      "name": "main-61f3cda2b96bda03fe16.js",
-      "path": "/usr/src/app/bundles/main-61f3cda2b96bda03fe16.js"
-    },
-    "main-747d5f94e55a15e7a9eb.js": {
-      "name": "main-747d5f94e55a15e7a9eb.js",
-      "path": "/usr/src/app/bundles/main-747d5f94e55a15e7a9eb.js"
-    },
-    "main-ae7db7f070c07ae157dc.js": {
-      "name": "main-ae7db7f070c07ae157dc.js",
-      "path": "/usr/src/app/bundles/main-ae7db7f070c07ae157dc.js"
-    },
-    "main-d3d9d897a0d35768fabd.js": {
-      "name": "main-d3d9d897a0d35768fabd.js",
-      "path": "/usr/src/app/bundles/main-d3d9d897a0d35768fabd.js"
-    },
-    "main-fbad19fc37931470f574.js": {
-      "name": "main-fbad19fc37931470f574.js",
-      "path": "/usr/src/app/bundles/main-fbad19fc37931470f574.js"
+    "main-c69d4ec35dda5b4c5ab5.js": {
+      "name": "main-c69d4ec35dda5b4c5ab5.js",
+      "path": "/usr/src/app/bundles/main-c69d4ec35dda5b4c5ab5.js"
     }
   },
   "chunks": {
     "main": [
-      "main-61f3cda2b96bda03fe16.js"
+      "main-c67c370c5c8cd7ea33dd.js"
     ]
-  },
-  "error": "ModuleBuildError",
-  "message": "Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /usr/src/app/src/components/bottombanner/index.tsx: Invalid shorthand property initializer. (29:25)\n\n  27 |             padding: '10px',\n  28 |                 display: 'flex',\n> 29 |                 direction=\"column\",\n     |                          ^\n  30 |             alignItems: 'center',\n  31 |             justifyContent: 'center',\n  32 |             marginTop: '10px',\n    at instantiate (/usr/src/app/node_modules/@babel/parser/lib/index.js:653:32)\n    at constructor (/usr/src/app/node_modules/@babel/parser/lib/index.js:946:12)\n    at TypeScriptParserMixin.raise (/usr/src/app/node_modules/@babel/parser/lib/index.js:3270:19)\n    at TypeScriptParserMixin.checkExpressionErrors (/usr/src/app/node_modules/@babel/parser/lib/index.js:3709:12)\n    at TypeScriptParserMixin.parseMaybeAssign (/usr/src/app/node_modules/@babel/parser/lib/index.js:10644:12)\n    at TypeScriptParserMixin.parseMaybeAssign (/usr/src/app/node_modules/@babel/parser/lib/index.js:9701:20)\n    at TypeScriptParserMixin.parseExpressionBase (/usr/src/app/node_modules/@babel/parser/lib/index.js:10566:23)\n    at /usr/src/app/node_modules/@babel/parser/lib/index.js:10562:39\n    at TypeScriptParserMixin.allowInAnd (/usr/src/app/node_modules/@babel/parser/lib/index.js:12257:12)\n    at TypeScriptParserMixin.parseExpression (/usr/src/app/node_modules/@babel/parser/lib/index.js:10562:17)\n    at TypeScriptParserMixin.jsxParseExpressionContainer (/usr/src/app/node_modules/@babel/parser/lib/index.js:6867:31)\n    at TypeScriptParserMixin.jsxParseAttributeValue (/usr/src/app/node_modules/@babel/parser/lib/index.js:6835:21)\n    at TypeScriptParserMixin.jsxParseAttribute (/usr/src/app/node_modules/@babel/parser/lib/index.js:6888:38)\n    at TypeScriptParserMixin.jsxParseOpeningElementAfterName (/usr/src/app/node_modules/@babel/parser/lib/index.js:6902:28)\n    at TypeScriptParserMixin.jsxParseOpeningElementAfterName (/usr/src/app/node_modules/@babel/parser/lib/index.js:9961:18)\n    at TypeScriptParserMixin.jsxParseOpeningElementAt (/usr/src/app/node_modules/@babel/parser/lib/index.js:6897:17)\n    at TypeScriptParserMixin.jsxParseElementAt (/usr/src/app/node_modules/@babel/parser/lib/index.js:6921:33)\n    at TypeScriptParserMixin.jsxParseElement (/usr/src/app/node_modules/@babel/parser/lib/index.js:6990:17)\n    at TypeScriptParserMixin.parseExprAtom (/usr/src/app/node_modules/@babel/parser/lib/index.js:7002:19)\n    at TypeScriptParserMixin.parseExprSubscripts (/usr/src/app/node_modules/@babel/parser/lib/index.js:10872:23)\n    at TypeScriptParserMixin.parseUpdate (/usr/src/app/node_modules/@babel/parser/lib/index.js:10855:21)\n    at TypeScriptParserMixin.parseMaybeUnary (/usr/src/app/node_modules/@babel/parser/lib/index.js:10831:23)\n    at TypeScriptParserMixin.parseMaybeUnary (/usr/src/app/node_modules/@babel/parser/lib/index.js:9754:18)\n    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/usr/src/app/node_modules/@babel/parser/lib/index.js:10669:61)\n    at TypeScriptParserMixin.parseExprOps (/usr/src/app/node_modules/@babel/parser/lib/index.js:10674:23)\n    at TypeScriptParserMixin.parseMaybeConditional (/usr/src/app/node_modules/@babel/parser/lib/index.js:10651:23)\n    at TypeScriptParserMixin.parseMaybeAssign (/usr/src/app/node_modules/@babel/parser/lib/index.js:10612:21)\n    at /usr/src/app/node_modules/@babel/parser/lib/index.js:9690:39\n    at TypeScriptParserMixin.tryParse (/usr/src/app/node_modules/@babel/parser/lib/index.js:3649:20)\n    at TypeScriptParserMixin.parseMaybeAssign (/usr/src/app/node_modules/@babel/parser/lib/index.js:9690:18)\n    at /usr/src/app/node_modules/@babel/parser/lib/index.js:10582:39\n    at TypeScriptParserMixin.allowInAnd (/usr/src/app/node_modules/@babel/parser/lib/index.js:12257:12)\n    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/usr/src/app/node_modules/@babel/parser/lib/index.js:10582:17)\n    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/usr/src/app/node_modules/@babel/parser/lib/index.js:11490:28)\n    at TypeScriptParserMixin.parseExprAtom (/usr/src/app/node_modules/@babel/parser/lib/index.js:11141:23)\n    at TypeScriptParserMixin.parseExprAtom (/usr/src/app/node_modules/@babel/parser/lib/index.js:7007:20)\n    at TypeScriptParserMixin.parseExprSubscripts (/usr/src/app/node_modules/@babel/parser/lib/index.js:10872:23)\n    at TypeScriptParserMixin.parseUpdate (/usr/src/app/node_modules/@babel/parser/lib/index.js:10855:21)\n    at TypeScriptParserMixin.parseMaybeUnary (/usr/src/app/node_modules/@babel/parser/lib/index.js:10831:23)\n    at TypeScriptParserMixin.parseMaybeUnary (/usr/src/app/node_modules/@babel/parser/lib/index.js:9754:18)\n    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/usr/src/app/node_modules/@babel/parser/lib/index.js:10669:61)\n    at TypeScriptParserMixin.parseExprOps (/usr/src/app/node_modules/@babel/parser/lib/index.js:10674:23)\n    at TypeScriptParserMixin.parseMaybeConditional (/usr/src/app/node_modules/@babel/parser/lib/index.js:10651:23)\n    at TypeScriptParserMixin.parseMaybeAssign (/usr/src/app/node_modules/@babel/parser/lib/index.js:10612:21)\n    at TypeScriptParserMixin.parseMaybeAssign (/usr/src/app/node_modules/@babel/parser/lib/index.js:9701:20)\n    at TypeScriptParserMixin.parseExpressionBase (/usr/src/app/node_modules/@babel/parser/lib/index.js:10566:23)\n    at /usr/src/app/node_modules/@babel/parser/lib/index.js:10562:39\n    at TypeScriptParserMixin.allowInAnd (/usr/src/app/node_modules/@babel/parser/lib/index.js:12252:16)\n    at TypeScriptParserMixin.parseExpression (/usr/src/app/node_modules/@babel/parser/lib/index.js:10562:17)\n    at TypeScriptParserMixin.parseReturnStatement (/usr/src/app/node_modules/@babel/parser/lib/index.js:12935:28)"
+  }
 }
