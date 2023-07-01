@@ -13,6 +13,7 @@ import { UserData } from './types/interface';
 import Dashboard from './pages/dashboard';
 import getCookie from './components/csrfToken';
 import Fab from '@mui/material/Fab';
+import BottomBanner from './components/bottombanner'
 
 
 
@@ -63,31 +64,6 @@ function App() {
     window.addEventListener('scroll', buttonVisible);
 
   }, [location]);
-  
-  const BottomBanner = () => {
-    return (
-      <Box
-        style={{
-          backgroundColor: '#01305c',
-          padding: '10px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          marginTop: '10px',
-          height: '10vh',
-          borderTop: '4px solid #FFCB02',
-          color: 'white',
-
-          left: 0,
-          bottom: 0,
-          width: '100%',
-        }}
-      >
-        {/* Banner content starts.. */}
-        <Typography>© 2023 mlabhub.com. All Rights Reserved.</Typography>
-      </Box>
-    );
-  };
 
   const buttonVisible = () => {
     const scrolled = document.documentElement.scrollTop;
@@ -119,7 +95,8 @@ function App() {
           height: 80,
           width: 80,
           backgroundColor: "#00274C",
-          color: "white"
+          color: "white",
+          border:  "1px solid #FFCB05"
         }}>
         <Typography variant='h6'
           sx={{

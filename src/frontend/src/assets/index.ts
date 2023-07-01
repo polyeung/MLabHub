@@ -5,6 +5,7 @@ import logo from './logo.png';
 import formalLogo from './mlabhub_icon512.png';
 import formalLogo192 from './mlabhub_icon192.png';
 import favicon from './favicon.png';
+import footer_log from './footer-logo.svg'
 
 import michiganLogo from './michigan-logo.png';
 export const MichiganLogo = michiganLogo;
@@ -16,6 +17,7 @@ export const logoImg = myLogo;
 export const corgiImg = corgi;
 export const umichImg = umich;
 export const appLogo = logo;
+export const footerLog = footer_log;
 
 
 // some static files 
