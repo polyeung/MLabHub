@@ -10,3 +10,4 @@ __pycache__/
 frontend/node_modules/
 frontend/bundles/
 .env
+package-lock.json

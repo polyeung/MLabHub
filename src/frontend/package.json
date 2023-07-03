@@ -2,6 +2,7 @@
     "name": "my-app",
     "version": "0.1.0",
     "author": "MLabHub Dev Team (Yang Li, Elijah Qi, Shun Akiyama)",
+    "description": "Web for collection of lab info in Umich",
     "private": true,
     "dependencies": {
         "@emotion/react": "^11.10.4",
@@ -21,14 +22,12 @@
         "react-anchor-link-smooth-scroll": "^1.0.12",
         "react-dom": "^18.2.0",
         "react-router-dom": "^6.10.0",
-        "react-scripts": "5.0.1",
         "styled-components": "^6.0.0-rc.1",
-        "web-vitals": "^2.1.4",
-        "webpack": "5.39.1",
-        "webpack-merge": "^4.2.2"
+        "webpack": "^5.72.0",
+        "webpack-cli": "^4.9.2"
     },
     "scripts": {
-        "build": "npx webpack --config webpack.dev.js",
+        "prod": "webpack --config webpack.prod.js --mode production",
         "build:watch": "npx webpack --watch --no-cache --config webpack.dev.js"
     },
     "eslintConfig": {
@@ -49,7 +48,23 @@
             "last 1 safari version"
         ]
     },
-   
+    "devDependencies": {
+        "@types/lodash": "^4.14.182",
+        "@types/node": "^16.11.27",
+        "@types/react": "^18.0.6",
+        "@types/react-anchor-link-smooth-scroll": "^1.0.2",
+        "@types/react-dom": "^18.0.2",
+        "@typescript-eslint/eslint-plugin": "^5.20.0",
+        "@typescript-eslint/parser": "^5.20.0",
+        "@vitejs/plugin-react-swc": "^3.0.0",
+        "babel-loader": "^8.2.4",
+        "css-loader": "^5.2.7",
+        "file-loader": "^6.2.0",
+        "prettier": "^2.6.2",
+        "style-loader": "^3.3.3",
+        "typescript": "^5.0.4",
+        "webpack-bundle-tracker": "^2.0.0"
+    },
     "overrides": {
         "react-scripts": {
             "typescript": "^5"

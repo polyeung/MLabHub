@@ -33,14 +33,14 @@
       "name": "images/umich.png",
       "path": "/usr/src/app/bundles/images/umich.png"
     },
-    "main-8895dbe5119c1cf26136.js": {
-      "name": "main-8895dbe5119c1cf26136.js",
-      "path": "/usr/src/app/bundles/main-8895dbe5119c1cf26136.js"
+    "main-d3b55205985c5e730183.js": {
+      "name": "main-d3b55205985c5e730183.js",
+      "path": "/usr/src/app/bundles/main-d3b55205985c5e730183.js"
     }
   },
   "chunks": {
     "main": [
-      "main-8895dbe5119c1cf26136.js"
+      "main-d3b55205985c5e730183.js"
     ]
   }
 }
