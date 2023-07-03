@@ -1,5 +1,5 @@
 {
-  "status": "compile",
+  "status": "done",
   "assets": {
     "images/corgi.png": {
       "name": "images/corgi.png",
@@ -32,14 +32,6 @@
     "images/umich.png": {
       "name": "images/umich.png",
       "path": "/usr/src/app/bundles/images/umich.png"
-    },
-    "main-16206b1a065ea3bdaeba.js": {
-      "name": "main-16206b1a065ea3bdaeba.js",
-      "path": "/usr/src/app/bundles/main-16206b1a065ea3bdaeba.js"
-    },
-    "main-bb0ef578df99f4d38596.js": {
-      "name": "main-bb0ef578df99f4d38596.js",
-      "path": "/usr/src/app/bundles/main-bb0ef578df99f4d38596.js"
     },
     "main-d02d2081d7a386b529a0.js": {
       "name": "main-d02d2081d7a386b529a0.js",
