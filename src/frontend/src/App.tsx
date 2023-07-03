@@ -15,7 +15,6 @@ import getCookie from './components/csrfToken';
 import Fab from '@mui/material/Fab';
 
 
-
 function ProtectedRoute(props: {
 	userData: UserData | undefined | null;
 	page: JSX.Element;

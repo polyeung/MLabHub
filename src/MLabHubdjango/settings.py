@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from decouple import config
 
 # load credentials:
-#load_dotenv()
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -70,9 +70,9 @@ AUTH_USER_MODEL = 'oidc_auth.User'
 #IDP_ROOT_URL = config('IDP_ROOT_URL', default='shib.url')
 #OIDC_RP_CLIENT_ID = config('OIDC_RP_CLIENT_ID', default='fake_id')
 #OIDC_RP_CLIENT_SECRET = config('OIDC_RP_CLIENT_SECRET', default='fake_secret')
-IDP_ROOT_URL = os.environ['IDP_ROOT_URL']
-OIDC_RP_CLIENT_ID=os.environ['OIDC_RP_CLIENT_ID']
-OIDC_RP_CLIENT_SECRET=os.environ['OIDC_RP_CLIENT_SECRET']
+IDP_ROOT_URL =os.environ.get('IDP_ROOT_URL')
+OIDC_RP_CLIENT_ID= os.environ.get('OIDC_RP_CLIENT_ID')
+OIDC_RP_CLIENT_SECRET= os.environ.get('OIDC_RP_CLIENT_SECRET')
 OIDC_RP_SIGN_ALGO = 'RS256'
 OIDC_OP_AUTHORIZATION_ENDPOINT = IDP_ROOT_URL + '/idp/profile/oidc/authorize'
 OIDC_OP_TOKEN_ENDPOINT = IDP_ROOT_URL + '/idp/profile/oidc/token'
@@ -115,12 +115,12 @@ This configuration is for postgresql
 """
 DATABASES = {
     'default': {
-        'ENGINE': os.getenv('DB_ENGINE'),
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASS'),
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT'),
+        'ENGINE': os.environ.get('DB_ENGINE'),
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASS'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT'),
     }
 }
 
