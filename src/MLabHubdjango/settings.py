@@ -17,7 +17,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-eprn14c)=14xlj(@0l)+3^^1ut2&8=56f=3bpqusf_f*z6uxn2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(os.environ.get('DEBUG', '1'))
 
 ALLOWED_HOSTS = []
 
@@ -79,7 +79,7 @@ OIDC_OP_TOKEN_ENDPOINT = IDP_ROOT_URL + '/idp/profile/oidc/token'
 OIDC_OP_USER_ENDPOINT = IDP_ROOT_URL + '/idp/profile/oidc/userinfo'
 OIDC_OP_JWKS_ENDPOINT = IDP_ROOT_URL + '/oidc/keyset.jwk'
 OIDC_RP_SCOPES = 'openid email profile eduperson_affiliation'
-LOGIN_REDIRECT_URL = '/'
+#LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = '/oidc/authenticate/'
 OIDC_OP_LOGOUT_REDIRECT_URL = '/'
