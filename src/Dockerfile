@@ -1,12 +1,15 @@
 # Stage 1 - Frontend
 FROM node:16.13.2 AS webpack-builder
 
+ENV NODE_ENV=production
+
 WORKDIR /usr/src/app
 
 COPY frontend/package.json /usr/src/app/
-RUN npm install
+RUN npm install --production
+
 COPY frontend /usr/src/app/
-CMD npm run build:watch
+CMD npm run prod
 
 
 
@@ -14,7 +17,7 @@ CMD npm run build:watch
 
 FROM python:3.10
 
-ARG ENVIRONMENT=DEVELOPMENT
+ARG ENVIRONMENT=PRODUCTION
 
 ENV GUNICORN_WORKERS=2 \
     GUNICORN_THREADS=4 \

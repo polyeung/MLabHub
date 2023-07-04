@@ -1,11 +1,12 @@
 version: "3"
+# production mode => deploy on elastic beanstalk
 
 services:
   api:
     build:
       context: ./src
       args:
-        ENVIRONMENT: DEVELOPMENT
+        ENVIRONMENT: PRODUCTION
     env_file: .env
     ports:
       - "${APP_PORT:-80}:8000"
