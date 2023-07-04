@@ -23,7 +23,7 @@ yarn-debug.log*
 yarn-error.log*
 # credentials files
 .env
-/src/.env
+#/src/.env
 
 # env
 /env
