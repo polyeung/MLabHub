@@ -6,7 +6,7 @@ services:
       context: ./src
       args:
         ENVIRONMENT: DEVELOPMENT
-    env_file: ./src/.env
+    env_file: .env
     ports:
       - "${APP_PORT:-80}:8000"
     volumes:
