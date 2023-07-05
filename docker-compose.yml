@@ -17,7 +17,6 @@ services:
     restart: on-failure
   frontend:
     build:
-      dockerfile: Dockerfile.dev
       context: ./src
       target: webpack-builder
     volumes:
