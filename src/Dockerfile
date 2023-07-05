@@ -1,12 +1,14 @@
 # Stage 1 - Frontend
 FROM node:16.13.2 AS webpack-builder
 
+
 WORKDIR /usr/src/app
 
 COPY frontend/package.json /usr/src/app/
-RUN npm install
+RUN npm install --production
+
 COPY frontend /usr/src/app/
-CMD npm run build:watch
+RUN npm run prod
 
 
 
@@ -14,7 +16,7 @@ CMD npm run build:watch
 
 FROM python:3.10
 
-ARG ENVIRONMENT=DEVELOPMENT
+ARG ENVIRONMENT=PRODUCTION
 
 ENV GUNICORN_WORKERS=2 \
     GUNICORN_THREADS=4 \
@@ -34,6 +36,13 @@ COPY requirements.txt /tmp/
 RUN pip install -r /tmp/requirements.txt
 RUN pip install django-filter
 COPY . /usr/src/app/
+
+RUN rm -rf frontend && rm -rf /tmp
+
+
+COPY --from=webpack-builder /usr/src/app/bundles frontend/bundles
+#COPY --from=webpack-builder /usr/src/app/bundles bundles
+COPY --from=webpack-builder /usr/src/app/webpack-stats.json frontend
 
 EXPOSE 8000
 
