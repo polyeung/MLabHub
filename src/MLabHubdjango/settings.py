@@ -19,7 +19,7 @@ SECRET_KEY = 'django-insecure-eprn14c)=14xlj(@0l)+3^^1ut2&8=56f=3bpqusf_f*z6uxn2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.environ.get('DEBUG', '1'))
 # the first host is aws -eb 
-ALLOWED_HOSTS = ['mlabhub-prod-env.eba-fst6wyjh.us-east-2.elasticbeanstalk.com/', 'localhost']
+ALLOWED_HOSTS = ['mlabhub-prod-env.eba-fst6wyjh.us-east-2.elasticbeanstalk.com', 'localhost']
 
 
 
