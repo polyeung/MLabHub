@@ -21,7 +21,7 @@ DEBUG = bool(int(os.environ.get('DEBUG', '1')))
 
 # the first host is aws -eb 
 ALLOWED_HOSTS = ['localhost', 'mlabhub-prod-env.eba-fst6wyjh.us-east-2.elasticbeanstalk.com', 'mlabhub.com']
-if(!DEBUG):
+if not DEBUG:
     ALLOWED_HOSTS = ['mlabhub.com']
     
 
