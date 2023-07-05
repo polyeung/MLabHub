@@ -15,7 +15,6 @@ import getCookie from './components/csrfToken';
 import Fab from '@mui/material/Fab';
 
 
-
 function ProtectedRoute(props: {
 	userData: UserData | undefined | null;
 	page: JSX.Element;
@@ -50,9 +49,13 @@ function App() {
           fetch('/api/account/is_login',{
                   method: 'GET',
                   credentials: 'include',
+                  headers: { 
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrftoken ? csrftoken : "random_token"
+                  },
                     }).then(res => {
                       if (res.ok) {
-                        res.json().then(data => { setUserData(data); });
+                        res.json().then(data => { setUserData(data); console.log(data); });
 
             } else { 
               setUserData(null);

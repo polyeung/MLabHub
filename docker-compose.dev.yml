@@ -1,0 +1,27 @@
+version: "3"
+# development mode
+
+services:
+  api:
+    build:
+      context: ./src
+      dockerfile: Dockerfile.dev
+      args:
+        ENVIRONMENT: DEVELOPMENT
+    env_file: ./src/.env
+    ports:
+      - "${APP_PORT:-8000}:8000"
+    volumes:
+      - ./src:/usr/src/app
+    entrypoint: ./docker-entrypoint.sh
+    command: "uvicorn MLabHubdjango.asgi:application --reload --host 0.0.0.0 --port ${APP_PORT:-8000}"
+    restart: on-failure
+
+  frontend:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./src
+      target: webpack-builder
+    volumes:
+      - ./src/frontend:/usr/src/app
+      - /usr/src/app/node_modules/
