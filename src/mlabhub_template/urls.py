@@ -3,5 +3,5 @@ from .views import IndexView, TemplateView
 
 app_name = 'mlabhub_template'
 urlpatterns = [
-    path('', IndexView.as_view(), name='home'),
+    re_path(r'^.*$', TemplateView.as_view(template_name='index.html')),
 ]
