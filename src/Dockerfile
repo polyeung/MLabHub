@@ -1,7 +1,6 @@
 # Stage 1 - Frontend
 FROM node:16.13.2 AS webpack-builder
 
-ENV NODE_ENV=production
 
 WORKDIR /usr/src/app
 
@@ -9,7 +8,7 @@ COPY frontend/package.json /usr/src/app/
 RUN npm install --production
 
 COPY frontend /usr/src/app/
-CMD npm run build:watch
+RUN npm run prod
 
 
 
@@ -41,9 +40,9 @@ COPY . /usr/src/app/
 RUN rm -rf frontend && rm -rf /tmp
 
 
-#COPY --from=webpack-builder /usr/src/app/bundles /frontend/bundles
+COPY --from=webpack-builder /usr/src/app/bundles frontend/bundles
 #COPY --from=webpack-builder /usr/src/app/bundles bundles
-#COPY --from=webpack-builder /usr/src/app/webpack-stats.json /usr/src/app/frontend/webpack-stats.json
+COPY --from=webpack-builder /usr/src/app/webpack-stats.json frontend
 
 EXPOSE 8000
 

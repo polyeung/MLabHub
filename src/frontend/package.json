@@ -23,7 +23,7 @@
         "style-loader": "^3.3.3"
     },
     "scripts": {
-        "prod": "npx webpack --config webpack.prod.js --mode production",
+        "prod": "webpack --config webpack.prod.js --mode production",
         "build:watch": "npx webpack --watch --no-cache --config webpack.dev.js"
     },
     "eslintConfig": {
