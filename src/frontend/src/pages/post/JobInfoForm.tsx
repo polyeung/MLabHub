@@ -49,8 +49,13 @@ export default function JobInfoForm({ info, handleSetInfo, handleSetInfoid, hand
       
       handleSetInfo('rate_type', "Credit");
       handleSetInfoid('rate', 0);
-    }else{
+    } else if (event.target.value === "Number") {
       handleSetInfo('rate_type', "Number");
+    } else if (event.target.value === "Volunteer") {
+      handleSetInfo('rate_type', "Volunteer");
+      handleSetInfoid('rate', 0);
+    } else if (event.target.value === "Flexible") {
+      handleSetInfo('rate_type', "Flexible");
     }
   };
 
@@ -170,15 +175,15 @@ export default function JobInfoForm({ info, handleSetInfo, handleSetInfoid, hand
               required
               labelId="work-hours-label"
               id="work-hours-select"
-              value={workHoursRequirement}
+              value={info.workhoursselection}
               label="Weekly Work Hours Requirement"
-              onChange={(e) => setWorkHoursRequirement(e.target.value as string)}
+              onChange={(e) => { handleSetInfo('workhoursselection', e.target.value)}}
             >
-              <MenuItem value="< 10 hours">&lt; 10 hours</MenuItem>
-              <MenuItem value="10-20 hours">10-20 hours</MenuItem>
-              <MenuItem value="20-30 hours">20-30 hours</MenuItem>
-              <MenuItem value="> 30 hours">&gt; 30 hours</MenuItem>
-              <MenuItem value="flexible">Flexible</MenuItem>
+              <MenuItem value={"< 10 hours"}>&lt; 10 hours</MenuItem>
+              <MenuItem value={"10-20 hours"}>10-20 hours</MenuItem>
+              <MenuItem value={"20-30 hours"}>20-30 hours</MenuItem>
+              <MenuItem value={"> 30 hours"}>&gt; 30 hours</MenuItem>
+              <MenuItem value={"flexible"}>Flexible</MenuItem>
             </Select>
           </FormControl>
         </Grid>
@@ -189,14 +194,14 @@ export default function JobInfoForm({ info, handleSetInfo, handleSetInfoid, hand
               required
               labelId="work-model-label"
               id="work-model-select"
-              value={workModel}
+              value={info.workmodel}
               label="Work Model"
-              onChange={(e) => setWorkModel(e.target.value as string)}
+              onChange={(e) => { handleSetInfo('workmodel', e.target.value)}}
             >
-              <MenuItem value="Onsite">Onsite</MenuItem>
-              <MenuItem value="Remote">Remote</MenuItem>
-              <MenuItem value="Hybrid">Hybrid</MenuItem>
-              <MenuItem value="Unsure">Unsure</MenuItem>
+              <MenuItem value={"Onsite"}>Onsite</MenuItem>
+              <MenuItem value={"Remote"}>Remote</MenuItem>
+              <MenuItem value={"Hybrid"}>Hybrid</MenuItem>
+              <MenuItem value={"Unsure"}>Unsure</MenuItem>
             </Select>
           </FormControl>
         </Grid>
@@ -207,14 +212,14 @@ export default function JobInfoForm({ info, handleSetInfo, handleSetInfoid, hand
               required
               labelId="consecutive-semesters-label"
               id="consecutive-semesters-select"
-              value={consecutiveSemesters}
+              value={info.consecutivesemestersselect}
               label="Required Consecutive Working Semesters"
-              onChange={(e) => setConsecutiveSemesters(e.target.value as string)}
+              onChange={(e) => { handleSetInfo('consecutivesemestersselect', e.target.value)}}
             >
-              <MenuItem value="A semester">A semester</MenuItem>
-              <MenuItem value="Two semesters">Two semesters</MenuItem>
-              <MenuItem value="Academic year">Academic year</MenuItem>
-              <MenuItem value="Summer">Summer</MenuItem>
+              <MenuItem value={"A semester"}>A semester</MenuItem>
+              <MenuItem value={"Two semesters"}>Two semesters</MenuItem>
+              <MenuItem value={"Academic year"}>Academic year</MenuItem>
+              <MenuItem value={"Summer"}>Summer</MenuItem>
             </Select>
           </FormControl>
         </Grid>

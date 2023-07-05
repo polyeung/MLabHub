@@ -55,7 +55,7 @@ module.exports = {
     }),
   ],
   devtool: 'inline-source-map',
-    mode: 'development',
+  mode: 'development',
   cache: false,
   watchOptions: {
 	  poll: true,
