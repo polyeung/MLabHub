@@ -9,7 +9,7 @@ COPY frontend/package.json /usr/src/app/
 RUN npm install --production
 
 COPY frontend /usr/src/app/
-CMD npm run prod
+CMD npm run build:watch
 
 
 
