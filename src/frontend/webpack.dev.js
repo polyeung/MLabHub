@@ -8,6 +8,12 @@ const BundleTracker = require('webpack-bundle-tracker');
 
 module.exports = {
   entry: './src/main.tsx',
+  output: {
+    filename: 'main.js',
+    path: path.join(__dirname, 'bundles'),
+    filename: "[name]-[contenthash].js",
+    clean: true,
+  },
   module: {
     rules: [
       {
@@ -48,12 +54,6 @@ module.exports = {
       filename: "webpack-stats.json"
     }),
   ],
-  output: {
-    filename: 'main.js',
-    path: path.join(__dirname, 'bundles'),
-    filename: "[name]-[contenthash].js",
-    clean: true,
-  },
   devtool: 'inline-source-map',
     mode: 'development',
   cache: false,

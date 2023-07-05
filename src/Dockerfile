@@ -38,6 +38,13 @@ RUN pip install -r /tmp/requirements.txt
 RUN pip install django-filter
 COPY . /usr/src/app/
 
+RUN rm -rf frontend && rm -rf /tmp
+
+
+#COPY --from=webpack-builder /usr/src/app/bundles /frontend/bundles
+#COPY --from=webpack-builder /usr/src/app/bundles bundles
+#COPY --from=webpack-builder /usr/src/app/webpack-stats.json /usr/src/app/frontend/webpack-stats.json
+
 EXPOSE 8000
 
 ENTRYPOINT ["/usr/src/app/docker-entrypoint.sh"]

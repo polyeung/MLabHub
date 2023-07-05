@@ -15,9 +15,9 @@ services:
     entrypoint: ./docker-entrypoint.sh
     command: "uvicorn MLabHubdjango.asgi:application --reload --host 0.0.0.0 --port ${APP_PORT:-8000}"
     restart: on-failure
-
   frontend:
     build:
+      dockerfile: Dockerfile.dev
       context: ./src
       target: webpack-builder
     volumes:
