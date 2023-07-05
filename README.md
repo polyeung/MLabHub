@@ -4,6 +4,7 @@
 
 Uses a React frontend and Django server.
 
+### Development build
 ### Setup1
 
 Docker setup (please download Docker desktop)
@@ -12,25 +13,25 @@ Docker setup (please download Docker desktop)
 2. Build docker image
 
 ```
-docker-compose build
+docker-compose -f docker-compose.dev.yml build
 ```
 
 3. Run docker image
 
 ```
-docker-compose up
+docker-compose -f docker-compose.dev.yml up
 ```
 
 4. Stop without removing containers
 
 ```
-docker-compose stop
+docker-compose -f docker-compose.dev.yml stop
 ```
 
 5. Stop and remove containers
 
 ```
-docker-compose down
+docker-compose -f docker-compose.dev.yml down
 ```
 
 ### Setup2
@@ -65,6 +66,35 @@ cd MLabHubdjango
 python3 manage.py runserver
 ```
 
+### Production build
+
+
+Docker setup (please download Docker desktop)
+
+1. Get credentials for env file and rename .env.example to .env and put credentials in
+2. Build docker image
+
+```
+docker-compose  build
+```
+
+3. Run docker image
+
+```
+docker-compose  up
+```
+
+4. Stop without removing containers
+
+```
+docker-compose  stop
+```
+
+5. Stop and remove containers
+
+```
+docker-compose  down
+```
 # Project Structure
 
 ## frontend development guideline
