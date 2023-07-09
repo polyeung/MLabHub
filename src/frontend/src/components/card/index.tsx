@@ -17,6 +17,7 @@ import StarIcon from '@mui/icons-material/Star';
 import { LocationState } from '@/types/interface';
 import { UserData } from '@/types/interface';
 import { useNotifs } from '@/context';
+import ExpandableText from '@/components/expandableText';
 
 interface labinfoInt { 
     name: string,
@@ -31,7 +32,16 @@ interface labinfoInt {
 export default function RecipeReviewCard({ name, link, people, intro, id, userData, dep}: labinfoInt) {
   const navigate = useNavigate();
   const notifs = useNotifs();
-    
+
+  const titleTypographyProps = {
+    style: {
+      fontWeight: 'bold',
+      fontSize: '16px',
+      overflow: 'hidden',
+      whiteSpace: 'nowrap',
+      textOverflow: 'ellipsis',
+    },
+  };
     
   function handleStarClick() {
     if (!userData) {
@@ -39,65 +49,69 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
     } else {
       notifs.addNotif({ severity: 'success', message: 'Successfully saved!' });
     }
-    
   };
-    function handleClick() { 
-        const options: LocationState = {
-            state: {
-                pathname: String(id)
-            }
-            };
-        navigate('/labpage', options);
-        // console.log(options);
-    }
+
+  function handleClick() { 
+    const options: LocationState = {
+        state: {
+            pathname: String(id)
+        }
+        };
+    navigate('/labpage', options);
+    // console.log(options);
+  }
+
   return (
-    <Card sx={{ maxWidth: 345 , height: 450, position: 'relative'}}>
-      <CardHeader onClick={ handleClick }
+    <Card sx={{
+      width: 350,
+      height: 450,
+      position: 'relative',
+      border: "1px solid black"
+    }}>
+      <CardHeader
+        sx={{
+          "& .MuiCardHeader-content": {
+            overflow: "hidden"
+          }
+        }}
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
             AD
           </Avatar>
         }
         action={
-          <IconButton
-            sx={{ padding: 0 }}
-            onClick={handleClick}>
-            <MoreVertIcon sx={{ fontSize: 'inherit' }} />
+          <IconButton>
+            <MoreVertIcon/>
           </IconButton>
         }
-        title={
-          <Typography variant="h6" >
-            {name}
-          </Typography>
-        }
+        title={name}
+        titleTypographyProps={titleTypographyProps}
         // TODO: add department subtittle
         subheader={ dep }
       />
       <CardMedia
         component="img"
-        height="194"
+        height="200"
         image={umichImg}
         alt="Lab Image"
-        onClick={ handleClick }
+        onClick={handleClick}
+        sx={{cursor: 'pointer'}}
       />
-      <CardContent onClick={ handleClick }>
-        <Typography variant="body2" color="text.secondary">
-                  { intro}
-        </Typography>
-              
+      <CardContent onClick={handleClick} sx={{cursor: 'pointer'}}>
+        <ExpandableText dialogTitle={name} text={intro} maxLines={3} ></ExpandableText>
       </CardContent>
+
       <CardActions disableSpacing sx={{ position: 'absolute', bottom: 0 }}>
-              <IconButton aria-label="star to save" onClick={ handleStarClick }>
+        <IconButton aria-label="star to save" onClick={ handleStarClick }>
           <StarIcon />
         </IconButton>
         <a href={ link }>
-            <IconButton aria-label="link to web page page">
-                <LinkIcon/>
-            </IconButton>
+          <IconButton aria-label="link to web page page">
+            <LinkIcon/>
+          </IconButton>
         </a>
-        
       </CardActions>
       
     </Card>
   );
-}
+};
