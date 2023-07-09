@@ -40,8 +40,8 @@ __pycache__
 # ignore assests folder from webpack bunddle
 /static
 /src/assets
-/src/frontend/bundles
+src/frontend/bundles
 **/staticfiles
 
-# ignore webpack stats
+# ignore webpack bundle files
 /src/frontend/webpack-stats.json

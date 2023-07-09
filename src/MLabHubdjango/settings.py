@@ -17,10 +17,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-eprn14c)=14xlj(@0l)+3^^1ut2&8=56f=3bpqusf_f*z6uxn2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(int(os.environ.get('DEBUG', '1')))
 
-ALLOWED_HOSTS = []
-
+# the first host is aws -eb 
+ALLOWED_HOSTS = ['localhost', 'mlabhub-prod-env.eba-fst6wyjh.us-east-2.elasticbeanstalk.com', 'mlabhub.com']
+if not DEBUG:
+    ALLOWED_HOSTS = ['mlabhub.com']
+    
 
 
 # Application definition
@@ -67,9 +70,12 @@ AUTHENTICATION_BACKENDS = [
 
 AUTH_USER_MODEL = 'oidc_auth.User'
 
-IDP_ROOT_URL = config('IDP_ROOT_URL', default='shib.url')
-OIDC_RP_CLIENT_ID = config('OIDC_RP_CLIENT_ID', default='fake_id')
-OIDC_RP_CLIENT_SECRET = config('OIDC_RP_CLIENT_SECRET', default='fake_secret')
+#IDP_ROOT_URL = config('IDP_ROOT_URL', default='shib.url')
+#OIDC_RP_CLIENT_ID = config('OIDC_RP_CLIENT_ID', default='fake_id')
+#OIDC_RP_CLIENT_SECRET = config('OIDC_RP_CLIENT_SECRET', default='fake_secret')
+IDP_ROOT_URL =os.environ.get('IDP_ROOT_URL')
+OIDC_RP_CLIENT_ID= os.environ.get('OIDC_RP_CLIENT_ID')
+OIDC_RP_CLIENT_SECRET= os.environ.get('OIDC_RP_CLIENT_SECRET')
 OIDC_RP_SIGN_ALGO = 'RS256'
 OIDC_OP_AUTHORIZATION_ENDPOINT = IDP_ROOT_URL + '/idp/profile/oidc/authorize'
 OIDC_OP_TOKEN_ENDPOINT = IDP_ROOT_URL + '/idp/profile/oidc/token'
@@ -112,12 +118,12 @@ This configuration is for postgresql
 """
 DATABASES = {
     'default': {
-        'ENGINE': os.getenv('DB_ENGINE'),
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASS'),
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT'),
+        'ENGINE': os.environ.get('DB_ENGINE'),
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASS'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT'),
     }
 }
 

@@ -187,7 +187,6 @@ function NavBar({ userData }: { userData?: UserData | null }) {
         </Toolbar>
         
         <Toolbar disableGutters variant='dense' sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'right', justifyContent: 'flex-end' }}>
-
             {!userData &&
               <Button
                 key={"Login"}
@@ -219,7 +218,6 @@ function NavBar({ userData }: { userData?: UserData | null }) {
               </Button>
             }
             
-
         </Toolbar>
       </Container>
       </AppBar>
