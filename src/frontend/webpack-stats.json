@@ -9,6 +9,10 @@
       "name": "images/favicon.png",
       "path": "/usr/src/app/bundles/images/favicon.png"
     },
+    "images/footer-logo.svg": {
+      "name": "images/footer-logo.svg",
+      "path": "/usr/src/app/bundles/images/footer-logo.svg"
+    },
     "images/logo.png": {
       "name": "images/logo.png",
       "path": "/usr/src/app/bundles/images/logo.png"
@@ -33,14 +37,34 @@
       "name": "images/umich.png",
       "path": "/usr/src/app/bundles/images/umich.png"
     },
-    "main-39c5e01ab404d61e1fc3.js": {
-      "name": "main-39c5e01ab404d61e1fc3.js",
-      "path": "/usr/src/app/bundles/main-39c5e01ab404d61e1fc3.js"
+    "main-1d8dd6b9c91f3177f939.js": {
+      "name": "main-1d8dd6b9c91f3177f939.js",
+      "path": "/usr/src/app/bundles/main-1d8dd6b9c91f3177f939.js"
+    },
+    "main-3d2f3347ecb80bafae8e.js": {
+      "name": "main-3d2f3347ecb80bafae8e.js",
+      "path": "/usr/src/app/bundles/main-3d2f3347ecb80bafae8e.js"
+    },
+    "main-bd560d59c23e73a9c619.js": {
+      "name": "main-bd560d59c23e73a9c619.js",
+      "path": "/usr/src/app/bundles/main-bd560d59c23e73a9c619.js"
+    },
+    "main-d16eb96ef2dfba0a91dd.js": {
+      "name": "main-d16eb96ef2dfba0a91dd.js",
+      "path": "/usr/src/app/bundles/main-d16eb96ef2dfba0a91dd.js"
+    },
+    "main-dbfac76d4d14161635af.js": {
+      "name": "main-dbfac76d4d14161635af.js",
+      "path": "/usr/src/app/bundles/main-dbfac76d4d14161635af.js"
+    },
+    "main-f33f91db952dd6889b0c.js": {
+      "name": "main-f33f91db952dd6889b0c.js",
+      "path": "/usr/src/app/bundles/main-f33f91db952dd6889b0c.js"
     }
   },
   "chunks": {
     "main": [
-      "main-39c5e01ab404d61e1fc3.js"
+      "main-bd560d59c23e73a9c619.js"
     ]
   }
 }
