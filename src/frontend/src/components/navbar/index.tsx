@@ -106,7 +106,7 @@ function NavBar({ userData }: { userData?: UserData | null }) {
         style={{ backgroundColor: '#00274c', height: '100px', width: '100%', display: 'flex', flexDirection: 'row' }}
         component={Link}
         to="/">
-        <img src={MichiganLogo} alt='logo' style={{ maxWidth: '100%', height: imgHeight, marginLeft: imgLeftMargin, marginTop: '1rem', marginBottom: '0.5rem'}} />
+        <img src={MichiganLogo} alt='logo' style={{ maxWidth: '90%', height: imgHeight, marginLeft: imgLeftMargin, marginTop: '1rem', marginBottom: '0.5rem'}} />
       </Box>
       <Container maxWidth="xl" >
       {/*First Tool Bar */ }
