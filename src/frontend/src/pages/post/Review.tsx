@@ -8,9 +8,9 @@ import { JobReviewFormProps } from '@/types/interface';
 
 
 export default function Review({ info }: JobReviewFormProps) {
-    function checkEmpty(input: string):string{ 
-        if (input.trim().length == 0) { 
-            return "Not Filled In";
+  function checkEmpty(input: string): string{ 
+        if (typeof input === 'string') {
+          return input.trim();
         }
         return input;
     }
@@ -31,37 +31,57 @@ export default function Review({ info }: JobReviewFormProps) {
         Review Information
       </Typography>
       
-      <Grid container spacing={2}>
+      <Grid container spacing={3}>
         
-              <Grid item container direction="column" xs={12} sm={6}>
+        <Grid item container direction="column" xs={12} sm={6}>
           <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
             Basic Info
           </Typography>
           
-          <Grid container>
-            
-            {Object.entries(info).map(([key, value]) => (
-                key !== 'addr' && key!=='rate' 
-                 && key!=='labid' &&key !== 'course' && key!=='rate_type' && (<React.Fragment key={key}>
-                    <Grid item xs={5}>
-                        <Typography sx={{ fontWeight: 600 }} gutterBottom>{trans_key(key)}</Typography>
-                    </Grid>
-                    <Grid item xs={7}>
-                        <Typography gutterBottom>{checkEmpty(value)}</Typography>
-                    </Grid>
-                </React.Fragment>)
-            ))}
-            
-          </Grid>
+          
+          
         </Grid>
-          </Grid>
-          <Grid container spacing={2}>
-            <Grid item container direction="column" xs={12} sm={6}>
-            <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
+      </Grid>
+      <Grid container spacing={3}>
+            
+        {Object.entries(info).map(([key, value]) => (
+            key !== 'addr' && key!=='rate' && key!=='id'
+              && key!=='labid' &&key !== 'course' && key!=='rate_type' && (<React.Fragment key={key}>
+                <Grid item xs={5}>
+                  <Typography sx={{ fontWeight: 600 }} gutterBottom>
+                  {key === "title"
+                  ? "Job Title"
+                  : key === "contact"
+                  ? "Contact Email"
+                  : key === "intro"
+                  ? "Lab Introduction"
+                  : key === "labname"
+                  ? "Lab Name"
+                  : key === "lablink"
+                  ? "Lab Website"
+                  : key === "workhoursselection"
+                  ? "Weekly Work Hours Requirement"
+                  : key === "workmodel"
+                  ? "Work Model"
+                  : key === "consecutivesemestersselect"
+                  ? "Consecutive Semesters Requirement"
+                  : key}
+                  </Typography>
+                </Grid>
+                <Grid item xs={7}>
+                    <Typography gutterBottom>{checkEmpty(value)}</Typography>
+                </Grid>
+            </React.Fragment>)
+        ))}
+        
+      </Grid>
+      <Grid container spacing={2}>
+        <Grid item container direction="column" xs={12} sm={6}>
+          <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
             Required Courses:
-            </Typography>
-              </Grid>
-              </Grid>
+          </Typography>
+        </Grid>
+      </Grid>
       <List disablePadding>
         {info.course.map((item, idx) => (
           <ListItem key={idx} sx={{ py: 1, px: 0 }}>
@@ -90,7 +110,13 @@ export default function Review({ info }: JobReviewFormProps) {
                   <Typography sx={{ fontWeight: 600 }} gutterBottom>{'Rate Type'}</Typography>
               </Grid>
               <Grid item xs={7}>
-                  <Typography gutterBottom>{info.rate_type == 'Number'? 'Hourly Rate' : 'Course Credit'}</Typography>
+              <Typography gutterBottom>
+                {info.rate_type === 'Number' ? 'Hourly Rate' :
+                info.rate_type === 'Credit' ? 'Course Credit' :
+                info.rate_type === 'Volunteer' ? 'Volunteer' :
+                info.rate_type === 'Flexible' ? 'Flexible' :
+                ''}
+              </Typography>
               </Grid>
               {info.rate_type == 'Number' && (<React.Fragment key='rate'>
                 <Grid item xs={5}>

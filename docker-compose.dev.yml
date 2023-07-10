@@ -1,14 +1,16 @@
 version: "3"
+# development mode
 
 services:
   api:
     build:
       context: ./src
+      dockerfile: Dockerfile.dev
       args:
-        ENVIRONMENT: PRODUCTION
+        ENVIRONMENT: DEVELOPMENT
     env_file: ./src/.env
     ports:
-      - "${APP_PORT:-5000}:8000"
+      - "${APP_PORT:-8000}:8000"
     volumes:
       - ./src:/usr/src/app
     entrypoint: ./docker-entrypoint.sh
@@ -17,6 +19,7 @@ services:
 
   frontend:
     build:
+      dockerfile: Dockerfile.dev
       context: ./src
       target: webpack-builder
     volumes:

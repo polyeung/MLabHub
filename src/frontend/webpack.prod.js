@@ -1,17 +1,15 @@
-// Webpack production configuration
-//
-// Webpack Docs:
-// https://webpack.js.org/guides/production/
+//webpack production mode
 
-
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const path = require('path');
 const BundleTracker = require('webpack-bundle-tracker');
 
 module.exports = {
   entry: './src/main.tsx',
   output: {
+    filename: 'main.js',
     path: path.join(__dirname, 'bundles'),
+    filename: "[name]-[contenthash].js",
+    clean: true,
   },
   module: {
     rules: [
@@ -51,14 +49,6 @@ module.exports = {
     new BundleTracker({
       path: path.resolve(__dirname),
       filename: "webpack-stats.json"
-    }),
-  ],
-  output: {
-    filename: 'bundle.min.js',
-  },
-  plugins: [
-    new UglifyJSPlugin({
-      sourceMap: true,
     }),
   ],
   mode: 'production',

@@ -50,6 +50,7 @@ export interface commentsInt {
 };
 
 export interface jobdataInt {
+    id: number,
     labid: number,
     title: string,
     course: string[],
@@ -58,10 +59,14 @@ export interface jobdataInt {
     intro: string,
     labname: string,
     lablink: string,
-    rate_type: string
+    rate_type: string,
+    workhoursselection: string,
+    workmodel: string,
+    consecutivesemestersselect: string
 };
 
 export const jobdataIntTemplate: jobdataInt = {
+    id: 1,
     labid: 1,
     title: "testing job",
     course: [''],
@@ -70,7 +75,10 @@ export const jobdataIntTemplate: jobdataInt = {
     intro: "This is a template example",
     labname: "Example labname",
     lablink: "https://umich.edu",
-    rate_type: "Number"
+    rate_type: "Number",
+    workhoursselection: "< 10 hours",
+    workmodel: "Onsite",
+    consecutivesemestersselect: "A semester"
 };
 
 export interface UserData {
