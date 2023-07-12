@@ -6,11 +6,13 @@ from django.views.decorators.csrf import ensure_csrf_cookie, csrf_protect, csrf_
 from django.utils.decorators import method_decorator
 from django.contrib.auth.models import User
 from .serializers import UserSerializer
-from .models import SavedLabs
+from .models import UserProfile
 import pprint
 from datetime import datetime
-from django.http import JsonResponse
 from django.urls import reverse
+from django.http import HttpResponse, JsonResponse
+from django.core.serializers import serialize
+import json
 
 @method_decorator(csrf_exempt, name = 'dispatch')
 class CheckAuthenticatedView(APIView):
@@ -102,4 +104,15 @@ class GetUsersView(APIView):
         users = UserSerializer(users, many=True)
         return Response(users.data)
 
+# below are user profile settings
+# get what labs that user saved
+class GetSavedLabsView(APIView):
+    permission_classes = (permissions.AllowAny, )
 
+    def get(self, request, format=None):
+        data = serialize('json',UserProfile.objects.filter(uid=request.user.id))
+        parsed_data = json.loads(data)
+        ret_data = []
+        if len(parsed_data) > 0:
+            ret_data = parsed_data[0]['fields']['data']['savedLabs']
+        return JsonResponse(ret_data, safe=False)

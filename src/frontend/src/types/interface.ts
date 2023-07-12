@@ -7,9 +7,19 @@ export interface LabInfoType {
     link: string,
     people: string,
     intro: string,
-    dep: string
+    dep: string,
+    isSaved: boolean
 };
 
+export interface ResponseAllLabs {
+    total_page: number,
+    labs: LabInfoType[]
+};
+
+export const ResponseAllLabsTemp: ResponseAllLabs = {
+    total_page: 0,
+    labs: [] as LabInfoType[]
+};
 export interface LocationState extends NavigateOptions {
     state: {
       pathname: string;
