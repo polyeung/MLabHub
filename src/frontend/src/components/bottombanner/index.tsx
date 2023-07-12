@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ScreenContext } from '@/screenContext';
 import { Box, Typography } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2'; 
-import { MLabHubLogo192, footerLogo } from '@/assets';
+import { footerLogo } from '@/assets';
 
 function BottomBanner() {
     // when the window is small and big
@@ -70,19 +70,6 @@ function BottomBanner() {
                             display: 'flex', justifyContent: 'center', alignItems: 'center'
                         })
                     }}>
-                        {/* mlabhub log */}
-                        {/* this should redirect you to our default page */}
-                        <a href=''>
-                            <img src={MLabHubLogo192} alt="MLabHub Logo"
-                                style={{
-                                    position: "relative",
-                                    left: "25%",
-                                    maxWidth: '100%',
-                                    ...(isMiddleScreen && {
-                                        position: 'static'
-                                    })}}
-                        />
-                        </a>
                     </div>
                 </Grid>
                 <Grid xs={12} md={4} order={{ xs: 4, md: 4 }}>

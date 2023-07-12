@@ -69,7 +69,7 @@ export default function JobInfoForm({ info, handleSetInfo, handleSetInfoid, hand
   useEffect(() => {
     fetch(`/api/lab/getLabInfo`)
         .then(response => response.json())
-        .then(data =>  setLabinfo(data));
+        .then(data =>  setLabinfo(data.labs));
   }, []);
 
   return (
