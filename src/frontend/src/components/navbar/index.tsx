@@ -103,10 +103,10 @@ function NavBar({ userData }: { userData?: UserData | null }) {
 
       <AppBar position="static" style={{ backgroundColor: '#001E3E' }}>
       <Box className="banner"
-        style={{ backgroundColor: '#00274c', height: '100px', width: '100vw', display: 'flex', flexDirection: 'row' }}
+        style={{ backgroundColor: '#00274c', height: '100px', width: '100%', display: 'flex', flexDirection: 'row' }}
         component={Link}
         to="/">
-        <img src={MichiganLogo} alt='logo' style={{ height: imgHeight, marginLeft: imgLeftMargin, marginTop: '1rem', marginBottom: '0.5rem' }} />
+        <img src={MichiganLogo} alt='logo' style={{ maxWidth: '90%', height: imgHeight, marginLeft: imgLeftMargin, marginTop: '1rem', marginBottom: '0.5rem'}} />
       </Box>
       <Container maxWidth="xl" >
       {/*First Tool Bar */ }
