@@ -26,10 +26,11 @@ interface labinfoInt {
     intro: string,
     id: number,
     dep: string,
+    isSaved: boolean,
     userData: UserData | null | undefined;
 };
 
-export default function RecipeReviewCard({ name, link, people, intro, id, userData, dep}: labinfoInt) {
+export default function RecipeReviewCard({ name, link, people, intro, id, userData, dep, isSaved}: labinfoInt) {
   const navigate = useNavigate();
   const notifs = useNotifs();
 
@@ -103,7 +104,7 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
 
       <CardActions disableSpacing sx={{ position: 'absolute', bottom: 0 }}>
         <IconButton aria-label="star to save" onClick={ handleStarClick }>
-          <StarIcon />
+          {isSaved? <StarIcon style={{ color: '#eb9834' }}/> : <StarIcon/>}
         </IconButton>
         <a href={ link }>
           <IconButton aria-label="link to web page page">

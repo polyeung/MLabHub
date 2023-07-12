@@ -12,9 +12,10 @@ import json
 from lab.models import Lab
 from .serializers import LabSerializer
 from django.db.models import Q
-
+from account.models import UserProfile
 from .serializers import CreateLabSerializer
 from django.contrib.auth.models import User
+from django.core.serializers import serialize
 
 class GetLabInfo(APIView):
     permission_classes = (permissions.AllowAny, )
@@ -22,8 +23,26 @@ class GetLabInfo(APIView):
         # only retrieve lab info that has been approved
         labs = Lab.objects.filter(~Q(approved=False))
         labs = LabSerializer(labs, many = True)
+        # get saved labs info
+        saved_labs = self.get_saved_labs(request.user.id)
+        # make saved_labs as a set for quick search
+        saved_labs_set = set(saved_labs)
+        # interage throuth labs.data
+        # mark isSaved to true when user saved it
+        for item in labs.data:
+            item['isSaved'] = (int(item['id']) in saved_labs_set)
         return Response(labs.data)
     
+    def get_saved_labs(self, uid):
+        print("user id: ", uid)
+        if uid is None:
+            return []
+        data = serialize('json',UserProfile.objects.filter(uid=uid))
+        parsed_data = json.loads(data)
+        ret_data = []
+        if len(parsed_data) > 0:
+            ret_data = parsed_data[0]['fields']['data']['savedLabs']
+        return ret_data
 
 class GetDetailedLabInfo(generics.GenericAPIView):
     permission_classes = (permissions.AllowAny, )

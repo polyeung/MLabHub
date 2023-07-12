@@ -37,7 +37,7 @@ export default function overview(props: {
                         link={item.link}
                         intro={item.intro}
                         id={ item.id }
-            />*/}
+                            />*/}
                             <Cards
                                 name={item.name}
                                 people={item.people}
@@ -45,7 +45,8 @@ export default function overview(props: {
                                 intro={item.intro}
                                 id={item.id}
                                 dep={ item.dep }
-                                userData={props.userData} />
+                                userData={props.userData}
+                                isSaved={item.isSaved}/>
                         </Grid>
                     ))}
                 </Grid>}

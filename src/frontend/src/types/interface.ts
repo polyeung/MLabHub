@@ -7,7 +7,8 @@ export interface LabInfoType {
     link: string,
     people: string,
     intro: string,
-    dep: string
+    dep: string,
+    isSaved: boolean
 };
 
 export interface LocationState extends NavigateOptions {
