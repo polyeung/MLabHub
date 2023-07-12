@@ -16,22 +16,31 @@ from account.models import UserProfile
 from .serializers import CreateLabSerializer
 from django.contrib.auth.models import User
 from django.core.serializers import serialize
+from django.core.paginator import Paginator
 
 class GetLabInfo(APIView):
     permission_classes = (permissions.AllowAny, )
     def get(self, request):
+        # get page for pagination
+        page = int(request.GET.get('page', 1))
         # only retrieve lab info that has been approved
         labs = Lab.objects.filter(~Q(approved=False))
-        labs = LabSerializer(labs, many = True)
+        p = Paginator(labs, 9)
+        labs_serialized = LabSerializer(p.page(page), many=True).data
         # get saved labs info
         saved_labs = self.get_saved_labs(request.user.id)
         # make saved_labs as a set for quick search
         saved_labs_set = set(saved_labs)
         # interage throuth labs.data
         # mark isSaved to true when user saved it
-        for item in labs.data:
+        for item in labs_serialized:
             item['isSaved'] = (int(item['id']) in saved_labs_set)
-        return Response(labs.data)
+        
+        response_data = {
+            'total_page': p.num_pages,
+            'labs': labs_serialized
+        }
+        return Response(response_data)
     
     def get_saved_labs(self, uid):
         print("user id: ", uid)

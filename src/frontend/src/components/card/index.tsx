@@ -67,7 +67,7 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
       width: 350,
       height: 450,
       position: 'relative',
-      border: "1px solid black"
+      boxShadow: 4,
     }}>
       <CardHeader
         sx={{
