@@ -10,3 +10,8 @@ class CreateLabSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lab
         fields = ['name', 'link', 'intro', 'people', 'funding', 'dep', 'emails', 'creator_id']
+
+class SimpleLabSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Lab
+        fields = ['id', 'name', 'link', 'dep']

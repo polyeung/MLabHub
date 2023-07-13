@@ -9,6 +9,10 @@
       "name": "images/favicon.png",
       "path": "/usr/src/app/bundles/images/favicon.png"
     },
+    "images/footer-logo.svg": {
+      "name": "images/footer-logo.svg",
+      "path": "/usr/src/app/bundles/images/footer-logo.svg"
+    },
     "images/logo.png": {
       "name": "images/logo.png",
       "path": "/usr/src/app/bundles/images/logo.png"
@@ -33,14 +37,240 @@
       "name": "images/umich.png",
       "path": "/usr/src/app/bundles/images/umich.png"
     },
-    "main-39c5e01ab404d61e1fc3.js": {
-      "name": "main-39c5e01ab404d61e1fc3.js",
-      "path": "/usr/src/app/bundles/main-39c5e01ab404d61e1fc3.js"
+    "main-044e327c0aa492a48fae.js": {
+      "name": "main-044e327c0aa492a48fae.js",
+      "path": "/usr/src/app/bundles/main-044e327c0aa492a48fae.js"
+    },
+    "main-0a45183d2476f5bce9e9.js": {
+      "name": "main-0a45183d2476f5bce9e9.js",
+      "path": "/usr/src/app/bundles/main-0a45183d2476f5bce9e9.js"
+    },
+    "main-0a64c375e1e99859f13d.js": {
+      "name": "main-0a64c375e1e99859f13d.js",
+      "path": "/usr/src/app/bundles/main-0a64c375e1e99859f13d.js"
+    },
+    "main-0d10c6b02e64cf6682de.js": {
+      "name": "main-0d10c6b02e64cf6682de.js",
+      "path": "/usr/src/app/bundles/main-0d10c6b02e64cf6682de.js"
+    },
+    "main-0ecbd04ff0fe634c1e84.js": {
+      "name": "main-0ecbd04ff0fe634c1e84.js",
+      "path": "/usr/src/app/bundles/main-0ecbd04ff0fe634c1e84.js"
+    },
+    "main-0fcb5684bded33c398cf.js": {
+      "name": "main-0fcb5684bded33c398cf.js",
+      "path": "/usr/src/app/bundles/main-0fcb5684bded33c398cf.js"
+    },
+    "main-15b4e7de40e4b47b7ccf.js": {
+      "name": "main-15b4e7de40e4b47b7ccf.js",
+      "path": "/usr/src/app/bundles/main-15b4e7de40e4b47b7ccf.js"
+    },
+    "main-15d0608e9cecefcecd9d.js": {
+      "name": "main-15d0608e9cecefcecd9d.js",
+      "path": "/usr/src/app/bundles/main-15d0608e9cecefcecd9d.js"
+    },
+    "main-17f38a09fe9f757805fb.js": {
+      "name": "main-17f38a09fe9f757805fb.js",
+      "path": "/usr/src/app/bundles/main-17f38a09fe9f757805fb.js"
+    },
+    "main-236fd09c35e715049ec2.js": {
+      "name": "main-236fd09c35e715049ec2.js",
+      "path": "/usr/src/app/bundles/main-236fd09c35e715049ec2.js"
+    },
+    "main-2adaec68ce238f24488f.js": {
+      "name": "main-2adaec68ce238f24488f.js",
+      "path": "/usr/src/app/bundles/main-2adaec68ce238f24488f.js"
+    },
+    "main-2d6b2e214173a3bea4f9.js": {
+      "name": "main-2d6b2e214173a3bea4f9.js",
+      "path": "/usr/src/app/bundles/main-2d6b2e214173a3bea4f9.js"
+    },
+    "main-3e3983190a337da0f609.js": {
+      "name": "main-3e3983190a337da0f609.js",
+      "path": "/usr/src/app/bundles/main-3e3983190a337da0f609.js"
+    },
+    "main-40e4e0ee4c2b53972e1e.js": {
+      "name": "main-40e4e0ee4c2b53972e1e.js",
+      "path": "/usr/src/app/bundles/main-40e4e0ee4c2b53972e1e.js"
+    },
+    "main-4286386b219cce11affb.js": {
+      "name": "main-4286386b219cce11affb.js",
+      "path": "/usr/src/app/bundles/main-4286386b219cce11affb.js"
+    },
+    "main-439b3a1dad694e1ce6ba.js": {
+      "name": "main-439b3a1dad694e1ce6ba.js",
+      "path": "/usr/src/app/bundles/main-439b3a1dad694e1ce6ba.js"
+    },
+    "main-4ac63ba79632760a40e5.js": {
+      "name": "main-4ac63ba79632760a40e5.js",
+      "path": "/usr/src/app/bundles/main-4ac63ba79632760a40e5.js"
+    },
+    "main-4c31a5d4904e09720987.js": {
+      "name": "main-4c31a5d4904e09720987.js",
+      "path": "/usr/src/app/bundles/main-4c31a5d4904e09720987.js"
+    },
+    "main-5667542e9965256181f9.js": {
+      "name": "main-5667542e9965256181f9.js",
+      "path": "/usr/src/app/bundles/main-5667542e9965256181f9.js"
+    },
+    "main-579de9d89918ee8767bb.js": {
+      "name": "main-579de9d89918ee8767bb.js",
+      "path": "/usr/src/app/bundles/main-579de9d89918ee8767bb.js"
+    },
+    "main-5ad4f3f30f74bb1f732a.js": {
+      "name": "main-5ad4f3f30f74bb1f732a.js",
+      "path": "/usr/src/app/bundles/main-5ad4f3f30f74bb1f732a.js"
+    },
+    "main-693659e162a068c88168.js": {
+      "name": "main-693659e162a068c88168.js",
+      "path": "/usr/src/app/bundles/main-693659e162a068c88168.js"
+    },
+    "main-71b1c1889ef71db90c03.js": {
+      "name": "main-71b1c1889ef71db90c03.js",
+      "path": "/usr/src/app/bundles/main-71b1c1889ef71db90c03.js"
+    },
+    "main-7208a9934afdbf8bc0ad.js": {
+      "name": "main-7208a9934afdbf8bc0ad.js",
+      "path": "/usr/src/app/bundles/main-7208a9934afdbf8bc0ad.js"
+    },
+    "main-720d89c4e8ea4b519d70.js": {
+      "name": "main-720d89c4e8ea4b519d70.js",
+      "path": "/usr/src/app/bundles/main-720d89c4e8ea4b519d70.js"
+    },
+    "main-771182a34731a52e6b86.js": {
+      "name": "main-771182a34731a52e6b86.js",
+      "path": "/usr/src/app/bundles/main-771182a34731a52e6b86.js"
+    },
+    "main-7909bb2e289d79a12183.js": {
+      "name": "main-7909bb2e289d79a12183.js",
+      "path": "/usr/src/app/bundles/main-7909bb2e289d79a12183.js"
+    },
+    "main-835e29b733a008fce7a9.js": {
+      "name": "main-835e29b733a008fce7a9.js",
+      "path": "/usr/src/app/bundles/main-835e29b733a008fce7a9.js"
+    },
+    "main-87dc2c5082cfc4b539f3.js": {
+      "name": "main-87dc2c5082cfc4b539f3.js",
+      "path": "/usr/src/app/bundles/main-87dc2c5082cfc4b539f3.js"
+    },
+    "main-8b6ae747c8be8701de10.js": {
+      "name": "main-8b6ae747c8be8701de10.js",
+      "path": "/usr/src/app/bundles/main-8b6ae747c8be8701de10.js"
+    },
+    "main-95b705e1c86b0c5c08c3.js": {
+      "name": "main-95b705e1c86b0c5c08c3.js",
+      "path": "/usr/src/app/bundles/main-95b705e1c86b0c5c08c3.js"
+    },
+    "main-9610f483e4e55b248947.js": {
+      "name": "main-9610f483e4e55b248947.js",
+      "path": "/usr/src/app/bundles/main-9610f483e4e55b248947.js"
+    },
+    "main-99a9f5be80aa55bad743.js": {
+      "name": "main-99a9f5be80aa55bad743.js",
+      "path": "/usr/src/app/bundles/main-99a9f5be80aa55bad743.js"
+    },
+    "main-99d0922aea56bee5ea33.js": {
+      "name": "main-99d0922aea56bee5ea33.js",
+      "path": "/usr/src/app/bundles/main-99d0922aea56bee5ea33.js"
+    },
+    "main-9c75655fe36192ab106d.js": {
+      "name": "main-9c75655fe36192ab106d.js",
+      "path": "/usr/src/app/bundles/main-9c75655fe36192ab106d.js"
+    },
+    "main-9e4a15031a1a8fb1bd0c.js": {
+      "name": "main-9e4a15031a1a8fb1bd0c.js",
+      "path": "/usr/src/app/bundles/main-9e4a15031a1a8fb1bd0c.js"
+    },
+    "main-a6860cbcb274016422f6.js": {
+      "name": "main-a6860cbcb274016422f6.js",
+      "path": "/usr/src/app/bundles/main-a6860cbcb274016422f6.js"
+    },
+    "main-a7754ace4a6b69d801c2.js": {
+      "name": "main-a7754ace4a6b69d801c2.js",
+      "path": "/usr/src/app/bundles/main-a7754ace4a6b69d801c2.js"
+    },
+    "main-b4707a5ac61e5aac0df1.js": {
+      "name": "main-b4707a5ac61e5aac0df1.js",
+      "path": "/usr/src/app/bundles/main-b4707a5ac61e5aac0df1.js"
+    },
+    "main-b7bc9684f66f56581e94.js": {
+      "name": "main-b7bc9684f66f56581e94.js",
+      "path": "/usr/src/app/bundles/main-b7bc9684f66f56581e94.js"
+    },
+    "main-bf52fc5691c50b061c5e.js": {
+      "name": "main-bf52fc5691c50b061c5e.js",
+      "path": "/usr/src/app/bundles/main-bf52fc5691c50b061c5e.js"
+    },
+    "main-c0955b8ddca5a6fdad13.js": {
+      "name": "main-c0955b8ddca5a6fdad13.js",
+      "path": "/usr/src/app/bundles/main-c0955b8ddca5a6fdad13.js"
+    },
+    "main-c0965c53889829d086a9.js": {
+      "name": "main-c0965c53889829d086a9.js",
+      "path": "/usr/src/app/bundles/main-c0965c53889829d086a9.js"
+    },
+    "main-c26bd8f027093ec0f530.js": {
+      "name": "main-c26bd8f027093ec0f530.js",
+      "path": "/usr/src/app/bundles/main-c26bd8f027093ec0f530.js"
+    },
+    "main-d2e61c501e6afcc78f56.js": {
+      "name": "main-d2e61c501e6afcc78f56.js",
+      "path": "/usr/src/app/bundles/main-d2e61c501e6afcc78f56.js"
+    },
+    "main-db075cadf4c2e34ba3c6.js": {
+      "name": "main-db075cadf4c2e34ba3c6.js",
+      "path": "/usr/src/app/bundles/main-db075cadf4c2e34ba3c6.js"
+    },
+    "main-dc60a92d5cacc97ceac7.js": {
+      "name": "main-dc60a92d5cacc97ceac7.js",
+      "path": "/usr/src/app/bundles/main-dc60a92d5cacc97ceac7.js"
+    },
+    "main-de669bc375f778cb6c5e.js": {
+      "name": "main-de669bc375f778cb6c5e.js",
+      "path": "/usr/src/app/bundles/main-de669bc375f778cb6c5e.js"
+    },
+    "main-df16d58cb1d131001c35.js": {
+      "name": "main-df16d58cb1d131001c35.js",
+      "path": "/usr/src/app/bundles/main-df16d58cb1d131001c35.js"
+    },
+    "main-dfae9c27feaf024a1e62.js": {
+      "name": "main-dfae9c27feaf024a1e62.js",
+      "path": "/usr/src/app/bundles/main-dfae9c27feaf024a1e62.js"
+    },
+    "main-e0bf4634ff605e74f2b9.js": {
+      "name": "main-e0bf4634ff605e74f2b9.js",
+      "path": "/usr/src/app/bundles/main-e0bf4634ff605e74f2b9.js"
+    },
+    "main-ed100b677cb6b74491b4.js": {
+      "name": "main-ed100b677cb6b74491b4.js",
+      "path": "/usr/src/app/bundles/main-ed100b677cb6b74491b4.js"
+    },
+    "main-ee65ab90ea129e9102d5.js": {
+      "name": "main-ee65ab90ea129e9102d5.js",
+      "path": "/usr/src/app/bundles/main-ee65ab90ea129e9102d5.js"
+    },
+    "main-f00f673ae9c50f0c8018.js": {
+      "name": "main-f00f673ae9c50f0c8018.js",
+      "path": "/usr/src/app/bundles/main-f00f673ae9c50f0c8018.js"
+    },
+    "main-fe40286abc892c73ebae.js": {
+      "name": "main-fe40286abc892c73ebae.js",
+      "path": "/usr/src/app/bundles/main-fe40286abc892c73ebae.js"
+    },
+    "main-fe6b55fbe69064511ccb.js": {
+      "name": "main-fe6b55fbe69064511ccb.js",
+      "path": "/usr/src/app/bundles/main-fe6b55fbe69064511ccb.js"
+    },
+    "main-ff937fb9c2a2b0cf23d7.js": {
+      "name": "main-ff937fb9c2a2b0cf23d7.js",
+      "path": "/usr/src/app/bundles/main-ff937fb9c2a2b0cf23d7.js"
     }
   },
   "chunks": {
     "main": [
-      "main-39c5e01ab404d61e1fc3.js"
+      "main-0a64c375e1e99859f13d.js"
     ]
-  }
+  },
+  "error": "ModuleNotFoundError",
+  "message": "Module not found: Error: Can't resolve './components/csrfToken' in '/usr/src/app/src/components/card'"
 }

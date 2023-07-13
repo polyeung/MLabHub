@@ -17,6 +17,8 @@ import StarIcon from '@mui/icons-material/Star';
 import { LocationState } from '@/types/interface';
 import { UserData } from '@/types/interface';
 import { useNotifs } from '@/context';
+import ExpandableText from '@/components/expandableText';
+import getCookie from '@/components/csrfToken';
 
 interface labinfoInt { 
     name: string,
@@ -25,79 +27,115 @@ interface labinfoInt {
     intro: string,
     id: number,
     dep: string,
+    isSaved: boolean,
     userData: UserData | null | undefined;
 };
 
-export default function RecipeReviewCard({ name, link, people, intro, id, userData, dep}: labinfoInt) {
+export default function RecipeReviewCard({ name, link, people, intro, id, userData, dep, isSaved}: labinfoInt) {
   const navigate = useNavigate();
   const notifs = useNotifs();
-    
-    
-  function handleStarClick() {
+  const [saved, setSaved] = useState<boolean>(isSaved);
+  const titleTypographyProps = {
+    style: {
+      fontWeight: 'bold',
+      fontSize: '16px',
+      overflow: 'hidden',
+      whiteSpace: 'nowrap',
+      textOverflow: 'ellipsis',
+    },
+  };
+
+  const handleClick = () => { 
+    const options: LocationState = {
+        state: {
+            pathname: String(id)
+        }
+        };
+    navigate('/labpage', options);
+    // console.log(options);
+  }
+
+  const handleSavedClick = () => { 
+    // implement submit logic code
     if (!userData) {
       notifs.addNotif({ severity: 'error', message: 'Please login to save!' });
-    } else {
-      notifs.addNotif({ severity: 'success', message: 'Successfully saved!' });
+      return;
     }
-    
+    fetch('/api/account/csrf_cookie')
+    .then(response => response.json())
+      .then(data => {
+        const csrftoken: (string | null) = getCookie('csrftoken');
+        fetch('/api/account/update_saved_labs',{
+                method: 'POST',
+                credentials: 'include',
+                headers: { 
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken ? csrftoken : "random_token"
+              },
+                body: JSON.stringify({
+                  'lab_id': id,
+                }),
+                  }).then(res => {
+                    if (res.ok) {
+                      notifs.addNotif({ severity: 'success', message: 'Successfully Saved!' });
+                      setSaved(!saved);
+                    } else { 
+                      notifs.addNotif({ severity: 'error', message: 'Something went wrong!' });
+                    }
+        });
+      }).catch(error => console.error('Error:', error));
   };
-    function handleClick() { 
-        const options: LocationState = {
-            state: {
-                pathname: String(id)
-            }
-            };
-        navigate('/labpage', options);
-        // console.log(options);
-    }
   return (
-    <Card sx={{ maxWidth: 345 , height: 450, position: 'relative'}}>
-      <CardHeader onClick={ handleClick }
+    <Card sx={{
+      width: 350,
+      height: 450,
+      position: 'relative',
+      boxShadow: 4,
+    }}>
+      <CardHeader
+        sx={{
+          "& .MuiCardHeader-content": {
+            overflow: "hidden"
+          }
+        }}
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
             AD
           </Avatar>
         }
         action={
-          <IconButton
-            sx={{ padding: 0 }}
-            onClick={handleClick}>
-            <MoreVertIcon sx={{ fontSize: 'inherit' }} />
+          <IconButton onClick={handleClick}>
+            <MoreVertIcon/>
           </IconButton>
         }
-        title={
-          <Typography variant="h6" >
-            {name}
-          </Typography>
-        }
+        title={name}
+        titleTypographyProps={titleTypographyProps}
         // TODO: add department subtittle
         subheader={ dep }
       />
       <CardMedia
         component="img"
-        height="194"
+        height="200"
         image={umichImg}
         alt="Lab Image"
-        onClick={ handleClick }
+        onClick={handleClick}
+        sx={{cursor: 'pointer'}}
       />
-      <CardContent onClick={ handleClick }>
-        <Typography variant="body2" color="text.secondary">
-                  { intro}
-        </Typography>
-              
+      <CardContent onClick={handleClick} sx={{cursor: 'pointer'}}>
+        <ExpandableText dialogTitle={name} text={intro} maxLines={3} ></ExpandableText>
       </CardContent>
+
       <CardActions disableSpacing sx={{ position: 'absolute', bottom: 0 }}>
-              <IconButton aria-label="star to save" onClick={ handleStarClick }>
-          <StarIcon />
+        <IconButton aria-label="star to save" onClick={ handleSavedClick }>
+          {saved? <StarIcon style={{ color: '#eb9834' }}/> : <StarIcon/>}
         </IconButton>
         <a href={ link }>
-            <IconButton aria-label="link to web page page">
-                <LinkIcon/>
-            </IconButton>
+          <IconButton aria-label="link to web page page">
+            <LinkIcon/>
+          </IconButton>
         </a>
-        
       </CardActions>
       
     </Card>
   );
-}
+};
