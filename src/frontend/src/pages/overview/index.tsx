@@ -14,6 +14,8 @@ export default function overview(props: {
     const [isWaiting, setIsWaiting] = useState<boolean>(false);
     useEffect(() => {
         setIsWaiting(true);
+        // this fetch needs to be more specific and response is paginated
+        // so the following wont be changed much
         fetch('/api/lab/getLabInfo')
             .then(response => response.json())
             .then(data => {
