@@ -18,6 +18,7 @@ import { LocationState } from '@/types/interface';
 import { UserData } from '@/types/interface';
 import { useNotifs } from '@/context';
 import ExpandableText from '@/components/expandableText';
+import getCookie from '@/components/csrfToken';
 
 interface labinfoInt { 
     name: string,
@@ -33,7 +34,7 @@ interface labinfoInt {
 export default function RecipeReviewCard({ name, link, people, intro, id, userData, dep, isSaved}: labinfoInt) {
   const navigate = useNavigate();
   const notifs = useNotifs();
-
+  const [saved, setSaved] = useState<boolean>(isSaved);
   const titleTypographyProps = {
     style: {
       fontWeight: 'bold',
@@ -43,16 +44,8 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
       textOverflow: 'ellipsis',
     },
   };
-    
-  function handleStarClick() {
-    if (!userData) {
-      notifs.addNotif({ severity: 'error', message: 'Please login to save!' });
-    } else {
-      notifs.addNotif({ severity: 'success', message: 'Successfully saved!' });
-    }
-  };
 
-  function handleClick() { 
+  const handleClick = () => { 
     const options: LocationState = {
         state: {
             pathname: String(id)
@@ -62,6 +55,36 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
     // console.log(options);
   }
 
+  const handleSavedClick = () => { 
+    // implement submit logic code
+    if (!userData) {
+      notifs.addNotif({ severity: 'error', message: 'Please login to save!' });
+      return;
+    }
+    fetch('/api/account/csrf_cookie')
+    .then(response => response.json())
+      .then(data => {
+        const csrftoken: (string | null) = getCookie('csrftoken');
+        fetch('/api/account/update_saved_labs',{
+                method: 'POST',
+                credentials: 'include',
+                headers: { 
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken ? csrftoken : "random_token"
+              },
+                body: JSON.stringify({
+                  'lab_id': id,
+                }),
+                  }).then(res => {
+                    if (res.ok) {
+                      notifs.addNotif({ severity: 'success', message: 'Successfully Saved!' });
+                      setSaved(!saved);
+                    } else { 
+                      notifs.addNotif({ severity: 'error', message: 'Something went wrong!' });
+                    }
+        });
+      }).catch(error => console.error('Error:', error));
+  };
   return (
     <Card sx={{
       width: 350,
@@ -81,7 +104,7 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
           </Avatar>
         }
         action={
-          <IconButton>
+          <IconButton onClick={handleClick}>
             <MoreVertIcon/>
           </IconButton>
         }
@@ -103,8 +126,8 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
       </CardContent>
 
       <CardActions disableSpacing sx={{ position: 'absolute', bottom: 0 }}>
-        <IconButton aria-label="star to save" onClick={ handleStarClick }>
-          {isSaved? <StarIcon style={{ color: '#eb9834' }}/> : <StarIcon/>}
+        <IconButton aria-label="star to save" onClick={ handleSavedClick }>
+          {saved? <StarIcon style={{ color: '#eb9834' }}/> : <StarIcon/>}
         </IconButton>
         <a href={ link }>
           <IconButton aria-label="link to web page page">

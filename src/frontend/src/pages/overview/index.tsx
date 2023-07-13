@@ -29,6 +29,14 @@ export default function overview(props: {
             });
       }, [page]);
     
+    const getMdSize = (length: number) => {
+        if(length == 1){
+            return 12;
+        }else if(length == 2){
+            return 6;
+        }
+        return 4;
+    }
     return (
         <Box style={{display:'flex', flexDirection: 'column'}}> 
             {isWaiting ?
@@ -36,7 +44,7 @@ export default function overview(props: {
                 
                 <Grid container spacing={2}>
                     {data.labs.map((item) => (
-                        <Grid item xs={12} sm={6} md={data.labs.length <= 2 ? 6 : 4} key={item.id} 
+                        <Grid item xs={12} sm={6} md={getMdSize(data.labs.length)} key={item.id} 
                         sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                             <Cards
                                 name={item.name}
