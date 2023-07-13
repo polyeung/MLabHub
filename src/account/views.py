@@ -14,6 +14,9 @@ from django.http import HttpResponse, JsonResponse, HttpResponseForbidden, HttpR
 from django.core.serializers import serialize
 import json
 from django.shortcuts import get_object_or_404
+from lab.models import Lab
+from lab.serializers import SimpleLabSerializer
+from django.db.models import Q
 
 @method_decorator(csrf_exempt, name = 'dispatch')
 class CheckAuthenticatedView(APIView):
@@ -116,7 +119,9 @@ class GetSavedLabsView(APIView):
         ret_data = []
         if len(parsed_data) > 0:
             ret_data = parsed_data[0]['fields']['data']['savedLabs']
-        return JsonResponse(ret_data, safe=False)
+        labs = Lab.objects.filter(Q(approved=True) & Q(id__in=ret_data))
+        serialized_labs = SimpleLabSerializer(labs, many=True).data
+        return JsonResponse(serialized_labs, safe=False)
 
 
 @method_decorator(csrf_protect, name = 'dispatch')
