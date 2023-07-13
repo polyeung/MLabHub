@@ -157,7 +157,7 @@ function JobCard({ title, labname, jobID, handleOpen, setJobSelected, job, handl
 
 
   return (
-      <Card sx={{ minWidth: 275, marginBottom: '10px' }}>
+      <Card sx={{ minWidth: 275, marginBottom: '10px', boxShadow: 4, }}>
       <CardHeader
         action={
           <ButtonGroup size="small" aria-label="small button group" orientation={isSmallScreen ? "vertical" : "horizontal"}>
