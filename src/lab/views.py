@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import JsonResponse, Http404
+from django.http import JsonResponse, Http404, HttpResponseBadRequest
 from django.views import View
 from django.contrib.auth.models import User
 from rest_framework.views import APIView
@@ -53,6 +53,8 @@ class GetLabInfo(APIView):
             ret_data = parsed_data[0]['fields']['data']['savedLabs']
         return ret_data
 
+
+
 class GetDetailedLabInfo(generics.GenericAPIView):
     permission_classes = (permissions.AllowAny, )
     def get(self, request, id):
@@ -93,4 +95,5 @@ class CreateLabInfo(APIView):
                 )
                 return Response({'success': True}, status = status.HTTP_200_OK)
         except:
-            return Response({'error':"Something went wrong when checking authentication status"})
+            return HttpResponseBadRequest({'error':"Something went wrong when checking authentication status"})
+
