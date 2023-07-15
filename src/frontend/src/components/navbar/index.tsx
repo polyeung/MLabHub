@@ -23,7 +23,7 @@ import getCookie from '@/components/csrfToken';
 import { ScreenContext } from '@/screenContext';
 
 const pages = [['Research Opportunities', '/jobs', '1'], ['Post Jobs', '/post', '2'], ['Post Lab Info', '/create', '3']];
-const pagesStack = [['Research Opportunities', '/jobs'], ['Post Jobs', '/post'], ['Post Lab Info', '/create'], ['Dashboard', '/dashboard'],['Logout', '']]
+const pagesStack = [['Research Opportunities', '/jobs'], ['Post Jobs', '/post'], ['Post Lab Info', '/create'], ['Dashboard', '/dashboard']]
 
 function NavBar({ userData }: { userData?: UserData | null }) {
 
@@ -147,8 +147,13 @@ function NavBar({ userData }: { userData?: UserData | null }) {
                       {page}
                     </Typography>
                 </MenuItem>
-              
               ))}
+              {userData&&
+                <MenuItem key="logout-stack" onClick={logoutFuncOidc}>
+                  <Typography variant="body2" textAlign="center" fontSize="0.8rem"> 
+                    Logout
+                  </Typography>
+                </MenuItem>}
             </Menu>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', alignItems: 'right', justifyContent: 'flex-end' } }}>

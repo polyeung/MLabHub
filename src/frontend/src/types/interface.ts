@@ -1,6 +1,12 @@
 import { extend } from 'lodash';
 import { NavigateOptions,  } from 'react-router-dom';
 
+export interface SimpleLabInfoType {
+    id: number,
+    name: string,
+    link: string,
+    dep: string
+};
 export interface LabInfoType { 
     id: number,
     name: string,
