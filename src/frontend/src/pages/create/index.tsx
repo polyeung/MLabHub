@@ -188,7 +188,6 @@ export default function CreateLabForm() {
       .then(response => response.json())
         .then(data => {
           const csrftoken: (string | null) = getCookie('csrftoken');
-
           fetch('/api/lab/create',{
                   method: 'POST',
                   credentials: 'include',
