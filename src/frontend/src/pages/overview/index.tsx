@@ -16,6 +16,7 @@ export default function overview(props: {
 
     const handleChangePage = (event: React.ChangeEvent<unknown>, value: number
       ) => {
+        event.preventDefault();
         setPage(value);
       };
 

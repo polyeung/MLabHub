@@ -1,25 +1,20 @@
 import myLogo from './myLogo.png'; 
-import corgi from './corgi.png';
 import umich from './umich.png';
-import logo from './logo.png';
-import formalLogo from './mlabhub_icon512.png';
-import formalLogo192 from './mlabhub_icon192.png';
 import favicon from './favicon.png';
 import footer_logo from './footer-logo.svg'
-
 import michiganLogo from './michigan-logo.png';
+import bbb from './bbb.png';
+import stadium from './umich_stadium.png';
+//logo.
 export const MichiganLogo = michiganLogo;
 export const Favicon = favicon;
-
-export const MLabHubLogo512 = formalLogo;
-export const MLabHubLogo192 = formalLogo192;
 export const logoImg = myLogo;
-export const corgiImg = corgi;
-export const umichImg = umich;
-export const appLogo = logo;
 export const footerLogo = footer_logo;
 
-
+// pic
+export const umichImg = umich;
+export const bbbImg = bbb;
+export const stadiumImg = stadium;
 // some static files 
 export const depList = [
     ['AAS', 'LSA:Afroamerican & African Studies'],

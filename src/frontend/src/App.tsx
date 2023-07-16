@@ -6,7 +6,6 @@ import Labpage from './pages/labpage';
 import Jobs from './pages/jobs';
 import Post from './pages/post';
 import Create from './pages/create';
-import SignupPage from './pages/signupPage';
 import Navbar from './components/navbar';
 import OidcLoginPage from './pages/oidcLoginPage';
 import { UserData } from './types/interface';
@@ -63,8 +62,8 @@ function App() {
             }
           });
         }).catch(error => console.error('Error:', error));
-
-    window.addEventListener('scroll', buttonVisible);
+        
+        window.addEventListener('scroll', buttonVisible);
 
   }, [location]);
 
@@ -84,6 +83,7 @@ function App() {
       behavior: 'smooth'
     });
   };
+
 
   return (
 
@@ -134,7 +134,6 @@ function App() {
           <Route path="/dashboard" element={<ProtectedRoute userData={userData} page={<Dashboard userData={userData}/>} />} />
           { /* Account routes */}
           <Route path="/login" element={<OidcLoginPage />} />
-          <Route path="/signup" element={<SignupPage />} />
         </Routes>
         
       </Container>
