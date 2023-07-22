@@ -63,7 +63,7 @@ def print_res():
     print(potential_peopleinfo)
     #print(*(name for name in potential_peopleinfo()), sep="\n")
 
-def download_html_main(url):
+def download_txt_main(url):
     # Send a GET request to the URL 
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
@@ -78,16 +78,26 @@ def download_html_main(url):
         # find labname
         find_labname(soup)
 
-        # Remove all script tags
+         # Remove all script tags
+
         for script in soup.find_all('script'):
             script.extract()
         
         # remove all style tag
         for style in soup.find_all('style'):
             style.extract()
+        
+          # Remove all meta tags
+        for meta in soup.find_all('meta'):
+            meta.extract()
+
+        # Remove all link tags
+        for link in soup.find_all('link'):
+            link.extract()
 
         # Get the modified HTML content
-        modified_html = str(soup)
+        modified_html = str(soup.get_text())
+
 
 
 
@@ -109,7 +119,7 @@ def find_people(soup):
             potential_peopleinfo.append(h_tag.get_text())
 
 
-def download_html_people(url):
+def download_txt_people(url):
     # Send a GET request to the URL 
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
@@ -125,21 +135,15 @@ def download_html_people(url):
         find_people(soup)
         # Remove all script tags
 
-        #for script in soup.find_all('script'):
-        #    script.extract()
-        
-        # remove all style tag
-        #for style in soup.find_all('style'):
-        #    style.extract()
-        
+
         # Get the modified HTML content
-        modified_html = str(soup)
+        modified_html = str(soup.get_text())
 
         return modified_html
     else:
         print(f"Failed to download HTML. Status code: {response.status_code}")
         return None
-
+"""
 if __name__ == '__main__':
     # Check if URL is provided as a command-line argument
     if len(sys.argv) < 2:
@@ -147,17 +151,17 @@ if __name__ == '__main__':
         sys.exit(1)
 
     url = sys.argv[1]  # Get the URL from the command-line argument
-    html = download_html_main(url)
+    html = download_txt_main(url)
     if html:
-        with open('downloaded_page_main.html', 'w', encoding='utf-8') as file:
+        with open('downloaded_page_main.txt', 'w', encoding='utf-8') as file:
             file.write(html)
-        print("Page downloaded and saved as 'downloaded_page_main.html'")
+        print("Page downloaded and saved as 'downloaded_page_main.txt'")
     
     # download page for people page
-    html_people = download_html_people(url + "/people/")
+    html_people = download_txt_people(url + "/people/")
     if html_people:
-        with open('downloaded_page_people.html', 'w', encoding='utf-8') as file:
+        with open('downloaded_page_people.txt', 'w', encoding='utf-8') as file:
             file.write(html_people)
-        print("Page downloaded and saved as 'downloaded_page_people.html'")
+        print("Page downloaded and saved as 'downloaded_page_people.txt'")
     print_res()
-#https://ce.engin.umich.edu/
+#https://ce.engin.umich.edu/"""
