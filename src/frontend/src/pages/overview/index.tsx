@@ -16,6 +16,7 @@ export default function overview(props: {
 
     const handleChangePage = (event: React.ChangeEvent<unknown>, value: number
       ) => {
+        event.preventDefault();
         setPage(value);
       };
 
@@ -58,11 +59,13 @@ export default function overview(props: {
                         </Grid>
                     ))}
                 </Grid>}
+                {!isWaiting && 
                 <Pagination
                  count={data.total_page} 
                  shape="rounded" 
                  style={{marginTop: 20}}
                  page={page}
                  onChange={handleChangePage}/>
+                }
     </Box>);
 };

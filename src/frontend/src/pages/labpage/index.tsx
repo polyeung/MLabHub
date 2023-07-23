@@ -10,6 +10,7 @@ import { useNotifs } from "@/context";
 import getCookie from '../../components/csrfToken';
 import CircularProgress from '@mui/material/CircularProgress';
 import { ScreenContext } from '@/screenContext';
+import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 
 function getRandomColor(): string { 
     const colors = ['red','#90731E', '#0277BD', 'pink', 'green', 'orange', 'purple', '#F29902', 'brown', 'gray', 'teal'];
@@ -139,6 +140,7 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
             {isWaitingInfo ? <Typography variant='h5'>Loading Lab content ...<CircularProgress /> </Typography>:
             <Box>
             <Typography variant="h5">{labinfo.name}</Typography>
+            
             <Box sx={{display: 'flex', flexDirection: 'row', mt: '10px'}}>
                 {parseName(labinfo.people).map((item) => (
                     <Tooltip title={ item.name }>
@@ -146,8 +148,13 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
                     </Tooltip>
                 ))}
             </Box>
-
+            <a href={ labinfo.link }>
+            <Button variant="outlined" endIcon={<ArrowOutwardIcon />} sx={{ mt: '20px', mb: '15px'}}>
+                Go to website
+            </Button>
+            </a>
             <Typography sx={{ mt: '10px' }}>{ labinfo.intro }</Typography>
+            
             </Box>
             }
         </Box>
