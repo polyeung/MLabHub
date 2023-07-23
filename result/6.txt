@@ -1,0 +1,15 @@
+Michigan Integrated Circuits Laboratory (MICL) at the University of Michigan is a research facility focused on circuit and system design. The lab brings together researchers with expertise in various areas, including very-large-scale integrated (VLSI) digital circuits, analog and mixed-signal circuits, wireless/radio-frequency (RF) circuits, and sensing systems. MICL faculty participate in major research centers, allowing them to collaborate with application researchers and experts in other engineering domains. The lab's research areas include implantable medical devices and energy harvesting systems. One notable achievement from the lab is the development of millimeter-sized computing devices capable of performing various functions, such as wireless communication and sensor data processing. MICL is also involved in the advancement of the Internet of Things (IoT) technology, aiming to make everyday objects smarter and more connected.
+Member1: Dennis Sylvester
+Member2: David Blaauw
+Member3: David Wentzloff
+Member4: Kyumin Kwon
+Member5: Michael Flynn
+Member6: Elaheh Ahmadi
+Member7: Hun-Seok Kim
+Member8: Hessam Mahdavifar
+Member9: Zhengya Zhang
+Member10: Mehdi Saligane
+Member11: Euisik Yoon
+Member12: Sungjin Oh
+Member13: Jesse Codling
+Member14: Wei Lu
