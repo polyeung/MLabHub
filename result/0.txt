@@ -1,3 +1,4 @@
+CSE
 https://ai.engin.umich.edu/
 Labname: Michigan AI Laboratory
 Brief intro: The Michigan AI Laboratory is a vibrant research group consisting of faculty, research scientists, graduate students, and postdoctoral fellows working in the field of Artificial Intelligence. With a collaborative environment and diverse perspectives, the lab fosters valuable interchange of ideas within and across research groups. The lab conducts various activities and events such as Friday Night AI and AI Seminars and Events. They also offer opportunities for prospective graduate students to join their collaborative environment. The lab is located in the Bob and Betty Beyster Building at the University of Michigan.

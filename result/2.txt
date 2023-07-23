@@ -1,4 +1,7 @@
+CSE
 https://hcc.engin.umich.edu/
 Lab Name: Human Centered Computing Lab
 Brief Intro: The Human Centered Computing (HCC) group at the University of Michigan investigates Human-Computer Interaction (HCI), Educational Technology, Multimedia, and Social Computing. The lab focuses on the scientific fundamentals of HCI, including human perception and cognition, human factors, social activity, and learning. They also explore various applications such as user interface design methods, computational sound and music systems, collaborative systems, access technology, and educational computing in K-12 settings, with a special emphasis on mobile and ubiquitous computing. The lab aims to support the next generation of HCI researchers through applied skills training and lectures.
 Dhruv Jain
+Ackerman Mark S
+Adar Eytan

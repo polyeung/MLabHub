@@ -1,3 +1,4 @@
+CSE
 https://ce.engin.umich.edu/
 Lab Name: Computer Engineering Laboratory
 Brief Intro: The Computer Engineering Lab at the University of Michigan is a leading institution in the US for research in top-tier architecture, circuit, and computer-aided design conferences. The lab is comprised of a multidisciplinary group of faculty and graduate students who conduct research related to hardware design, computer architecture, computer-aided design, and embedded systems. They explore theoretical, experimental, and applied aspects of computer design, covering a broad range of hardware topics. The lab also focuses on energy efficiency in self-driving cars and conducts research on sonic cyber attacks on MEMS accelerometers.

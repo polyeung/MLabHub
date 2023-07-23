@@ -27,6 +27,6 @@ def find_email(name):
         email = span_element.text.strip()
         return email
     else:
-        return "Email not found."
+        return ""
 
 

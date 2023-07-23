@@ -24,7 +24,16 @@ else
     echo "The 'prompt' folder does not exist or is not a directory."
 fi
 
+folder_path3="final_result"
 
+# Check if the folder exists and is a directory
+if [ -d "$folder_path3" ]; then
+    # Remove all files in the folder
+    rm -f "$folder_path3"/*
+    echo "Files removed from the 'final_result' folder."
+else
+    echo "The 'final_result' folder does not exist or is not a directory."
+fi
 # reset store/round.txt
 file_path="./store/round.txt"
 

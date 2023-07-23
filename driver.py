@@ -6,11 +6,12 @@ from util import get_round, inc_round
 if __name__ == '__main__':
     # Check if URL is provided as a command-line argument
 
-    if len(sys.argv) < 2:
-        print("Please provide the onlyPrompt boolean as a command-line argument.")
+    if len(sys.argv) < 3:
+        print("Please provide the onlyPrompt boolean as a command-line argument. and dep, python driver.py 1/0 dep_name")
         sys.exit(1)
 
     onlyPrompt = bool(int(sys.argv[1])) # Get lab url
+    dep = sys.argv[2]
 
     if onlyPrompt:
         print("Mode: non gpt output")
@@ -21,5 +22,5 @@ if __name__ == '__main__':
         for line in file:
             url = line.strip()
             round = get_round()
-            ai_entry(url, round, onlyPrompt)
+            ai_entry(url, round, onlyPrompt, dep)
             inc_round()

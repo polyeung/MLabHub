@@ -71,11 +71,11 @@ def ai_exec(url, onlyPrompt):
     }
 
 # execute and write to file
-def ai_entry(url, round, onlyPrompt):
+def ai_entry(url, round, onlyPrompt, dep):
     res = ai_exec(url, onlyPrompt)
     if not onlyPrompt:
         with open(f'./result/{round}.txt' ,'w', encoding='utf-8') as file:
-            file.write(url + "\n" + res["main_response"] + "\n" + "[Paste below prompt to gpt]\n" + res["people_prompt"])
+            file.write(dep + "\n" + url + "\n" + res["main_response"] + "\n" + "[Paste below prompt to gpt]\n" + res["people_prompt"])
     with open(f'./prompt/{round}.txt' ,'w', encoding='utf-8') as file:
         json.dump(res, file, indent=2)
         if onlyPrompt:
