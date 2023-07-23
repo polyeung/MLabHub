@@ -1,0 +1,7 @@
+https://systems.engin.umich.edu/
+Lab Name: Michigan Systems Laboratory
+Brief Intro: The Michigan Systems Laboratory at the University of Michigan's Computer Science & Engineering Division is a multidisciplinary group of researchers focused on the experimental design, implementation, and evaluation of systems software technologies. Their work spans distributed systems, operating systems, security, cyber-physical systems, networking, databases, and software engineering. The lab is hiring and covers enabling technologies such as biological databases, collaborative computing, compiler and language design, embedded and real-time computing, fault-tolerant computing, and more.
+Kang G. Shin
+Cyrus Omar
+David Moon
+Manos Kapritsos

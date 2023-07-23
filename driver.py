@@ -5,12 +5,21 @@ from util import get_round, inc_round
 
 if __name__ == '__main__':
     # Check if URL is provided as a command-line argument
+
     if len(sys.argv) < 2:
-        print("Please provide the URL as a command-line argument.")
+        print("Please provide the onlyPrompt boolean as a command-line argument.")
         sys.exit(1)
 
-    url = sys.argv[1]  # Get lab url
-    
-    round = get_round()
-    ai_entry(url, round)
-    inc_round()
+    onlyPrompt = bool(int(sys.argv[1])) # Get lab url
+
+    if onlyPrompt:
+        print("Mode: non gpt output")
+    else:
+        print("Mode: GPT output")
+
+    with open(f'./source/cse_urls.txt' ,'r', encoding='utf-8') as file:
+        for line in file:
+            url = line.strip()
+            round = get_round()
+            ai_entry(url, round, onlyPrompt)
+            inc_round()
