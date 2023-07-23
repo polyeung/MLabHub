@@ -5,10 +5,6 @@
       "name": "images/bbb.png",
       "path": "/usr/src/app/bundles/images/bbb.png"
     },
-    "images/corgi.png": {
-      "name": "images/corgi.png",
-      "path": "/usr/src/app/bundles/images/corgi.png"
-    },
     "images/favicon.png": {
       "name": "images/favicon.png",
       "path": "/usr/src/app/bundles/images/favicon.png"
@@ -17,21 +13,9 @@
       "name": "images/footer-logo.svg",
       "path": "/usr/src/app/bundles/images/footer-logo.svg"
     },
-    "images/logo.png": {
-      "name": "images/logo.png",
-      "path": "/usr/src/app/bundles/images/logo.png"
-    },
     "images/michigan-logo.png": {
       "name": "images/michigan-logo.png",
       "path": "/usr/src/app/bundles/images/michigan-logo.png"
-    },
-    "images/mlabhub_icon192.png": {
-      "name": "images/mlabhub_icon192.png",
-      "path": "/usr/src/app/bundles/images/mlabhub_icon192.png"
-    },
-    "images/mlabhub_icon512.png": {
-      "name": "images/mlabhub_icon512.png",
-      "path": "/usr/src/app/bundles/images/mlabhub_icon512.png"
     },
     "images/myLogo.png": {
       "name": "images/myLogo.png",
@@ -45,100 +29,14 @@
       "name": "images/umich.png",
       "path": "/usr/src/app/bundles/images/umich.png"
     },
-    "main-11b056f54748f73ab2c2.js": {
-      "name": "main-11b056f54748f73ab2c2.js",
-      "path": "/usr/src/app/bundles/main-11b056f54748f73ab2c2.js"
-    },
-    "main-1d208fcbd168d5c9eca3.js": {
-      "name": "main-1d208fcbd168d5c9eca3.js",
-      "path": "/usr/src/app/bundles/main-1d208fcbd168d5c9eca3.js"
-    },
-    "main-20e119934a5f974f00b7.js": {
-      "name": "main-20e119934a5f974f00b7.js",
-      "path": "/usr/src/app/bundles/main-20e119934a5f974f00b7.js"
-    },
-    "main-27d6427cb42d4794de25.js": {
-      "name": "main-27d6427cb42d4794de25.js",
-      "path": "/usr/src/app/bundles/main-27d6427cb42d4794de25.js"
-    },
-    "main-3268eedcc7155514509b.js": {
-      "name": "main-3268eedcc7155514509b.js",
-      "path": "/usr/src/app/bundles/main-3268eedcc7155514509b.js"
-    },
-    "main-3b5c73faaaaf41d96c3b.js": {
-      "name": "main-3b5c73faaaaf41d96c3b.js",
-      "path": "/usr/src/app/bundles/main-3b5c73faaaaf41d96c3b.js"
-    },
-    "main-4e433b11c7f241edb846.js": {
-      "name": "main-4e433b11c7f241edb846.js",
-      "path": "/usr/src/app/bundles/main-4e433b11c7f241edb846.js"
-    },
-    "main-4e72f8d4786ec066b87c.js": {
-      "name": "main-4e72f8d4786ec066b87c.js",
-      "path": "/usr/src/app/bundles/main-4e72f8d4786ec066b87c.js"
-    },
-    "main-5c4faa35dbd964c53df4.js": {
-      "name": "main-5c4faa35dbd964c53df4.js",
-      "path": "/usr/src/app/bundles/main-5c4faa35dbd964c53df4.js"
-    },
-    "main-5f56b34e4e15ac6e6db8.js": {
-      "name": "main-5f56b34e4e15ac6e6db8.js",
-      "path": "/usr/src/app/bundles/main-5f56b34e4e15ac6e6db8.js"
-    },
-    "main-60fa4a0cf32527f6c4f7.js": {
-      "name": "main-60fa4a0cf32527f6c4f7.js",
-      "path": "/usr/src/app/bundles/main-60fa4a0cf32527f6c4f7.js"
-    },
-    "main-74ae261b20ff6410e64d.js": {
-      "name": "main-74ae261b20ff6410e64d.js",
-      "path": "/usr/src/app/bundles/main-74ae261b20ff6410e64d.js"
-    },
-    "main-760e610e839cbc2690a9.js": {
-      "name": "main-760e610e839cbc2690a9.js",
-      "path": "/usr/src/app/bundles/main-760e610e839cbc2690a9.js"
-    },
-    "main-785ac0e589b8fb1e8f07.js": {
-      "name": "main-785ac0e589b8fb1e8f07.js",
-      "path": "/usr/src/app/bundles/main-785ac0e589b8fb1e8f07.js"
-    },
-    "main-866156b9c13fda749104.js": {
-      "name": "main-866156b9c13fda749104.js",
-      "path": "/usr/src/app/bundles/main-866156b9c13fda749104.js"
-    },
-    "main-878ffd7019d504a64720.js": {
-      "name": "main-878ffd7019d504a64720.js",
-      "path": "/usr/src/app/bundles/main-878ffd7019d504a64720.js"
-    },
-    "main-b0f7badd978beb73e5ca.js": {
-      "name": "main-b0f7badd978beb73e5ca.js",
-      "path": "/usr/src/app/bundles/main-b0f7badd978beb73e5ca.js"
-    },
-    "main-bfac405eee967cb6456d.js": {
-      "name": "main-bfac405eee967cb6456d.js",
-      "path": "/usr/src/app/bundles/main-bfac405eee967cb6456d.js"
-    },
-    "main-e9277a581dfeb92ecf8c.js": {
-      "name": "main-e9277a581dfeb92ecf8c.js",
-      "path": "/usr/src/app/bundles/main-e9277a581dfeb92ecf8c.js"
-    },
-    "main-f8c12cac32c4df9ae2b3.js": {
-      "name": "main-f8c12cac32c4df9ae2b3.js",
-      "path": "/usr/src/app/bundles/main-f8c12cac32c4df9ae2b3.js"
-    },
-    "main-f8d1bed99fef57edaf2c.js": {
-      "name": "main-f8d1bed99fef57edaf2c.js",
-      "path": "/usr/src/app/bundles/main-f8d1bed99fef57edaf2c.js"
-    },
-    "main-f9fc74e0169b411bae00.js": {
-      "name": "main-f9fc74e0169b411bae00.js",
-      "path": "/usr/src/app/bundles/main-f9fc74e0169b411bae00.js"
+    "main-08cc89cfb76ad2bfaa5c.js": {
+      "name": "main-08cc89cfb76ad2bfaa5c.js",
+      "path": "/usr/src/app/bundles/main-08cc89cfb76ad2bfaa5c.js"
     }
   },
   "chunks": {
     "main": [
-      "main-866156b9c13fda749104.js"
+      "main-08cc89cfb76ad2bfaa5c.js"
     ]
-  },
-  "error": "ModuleNotFoundError",
-  "message": "Module not found: Error: Can't resolve './pages/signupPage' in '/usr/src/app/src'"
+  }
 }

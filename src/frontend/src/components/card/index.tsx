@@ -120,7 +120,7 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
         }
         title={name}
         titleTypographyProps={titleTypographyProps}
-        // TODO: add department subtittle
+
         subheader={ dep }
       />
       <CardMedia
