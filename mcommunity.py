@@ -16,7 +16,7 @@ def find_email(name):
     # Find the search button and click it
     search_button = driver.find_element(By.XPATH,'//button[@type="submit" and @aria-label="Search" and contains(@class, "btn-tertiary")]') # Replace 'search_button_id' with the actual ID of the search button
     search_button.click()
-    time.sleep(2)
+    time.sleep(1.5)
 
     page_source = driver.page_source
     driver.close()
@@ -30,6 +30,3 @@ def find_email(name):
         return "Email not found."
 
 
-name = "Kevin Fu"
-email = find_email(name)
-print(email)
