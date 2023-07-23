@@ -23,3 +23,16 @@ if [ -d "$folder_path2" ]; then
 else
     echo "The 'prompt' folder does not exist or is not a directory."
 fi
+
+
+# reset store/round.txt
+file_path="./store/round.txt"
+
+# Check if the file exists
+if [ -f "$file_path" ]; then
+    # Overwrite the content of the file with new content
+    echo "0" > "$file_path"
+    echo "File content has been overwritten."
+else
+    echo "The file 'round.txt' does not exist."
+fi
