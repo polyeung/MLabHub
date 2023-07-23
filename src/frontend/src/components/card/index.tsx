@@ -17,7 +17,6 @@ import StarIcon from '@mui/icons-material/Star';
 import { LocationState } from '@/types/interface';
 import { UserData } from '@/types/interface';
 import { useNotifs } from '@/context';
-import ExpandableText from '@/components/expandableText';
 import getCookie from '@/components/csrfToken';
 
 interface labinfoInt { 
@@ -131,8 +130,9 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
         onClick={handleClick}
         sx={{cursor: 'pointer'}}
       />
-      <CardContent onClick={handleClick} sx={{cursor: 'pointer'}}>
-        <ExpandableText dialogTitle={name} text={intro} maxLines={3} ></ExpandableText>
+      <CardContent sx={{cursor: 'pointer'}} onClick={handleClick}>
+      {intro.length < 130 ? <Typography variant="body2" color="text.secondary">{intro}</Typography>:
+        <Typography variant="body2" color="text.secondary">{intro.substring(0,130) + "  ..."}</Typography>}
       </CardContent>
 
       <CardActions disableSpacing sx={{ position: 'absolute', bottom: 0 }}>
