@@ -11,13 +11,12 @@ import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import LinkIcon from '@mui/icons-material/Link';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { umichImg } from '@/assets';
+import { umichImg, stadiumImg, bbbImg } from '@/assets';
 import { useNavigate } from 'react-router-dom';
 import StarIcon from '@mui/icons-material/Star';
 import { LocationState } from '@/types/interface';
 import { UserData } from '@/types/interface';
 import { useNotifs } from '@/context';
-import ExpandableText from '@/components/expandableText';
 import getCookie from '@/components/csrfToken';
 
 interface labinfoInt { 
@@ -55,6 +54,16 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
     // console.log(options);
   }
 
+
+  const selectPic = (dep: string) => {
+    const picList = [umichImg, stadiumImg, bbbImg ];
+    if(dep == "NA"){
+      return umichImg;
+    }else if(dep == "EECS"){
+      return bbbImg;
+    }
+    return stadiumImg;
+  };
   const handleSavedClick = () => { 
     // implement submit logic code
     if (!userData) {
@@ -110,19 +119,20 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
         }
         title={name}
         titleTypographyProps={titleTypographyProps}
-        // TODO: add department subtittle
+
         subheader={ dep }
       />
       <CardMedia
         component="img"
         height="200"
-        image={umichImg}
+        image={selectPic(dep)}
         alt="Lab Image"
         onClick={handleClick}
         sx={{cursor: 'pointer'}}
       />
-      <CardContent onClick={handleClick} sx={{cursor: 'pointer'}}>
-        <ExpandableText dialogTitle={name} text={intro} maxLines={3} ></ExpandableText>
+      <CardContent sx={{cursor: 'pointer'}} onClick={handleClick}>
+      {intro.length < 130 ? <Typography variant="body2" color="text.secondary">{intro}</Typography>:
+        <Typography variant="body2" color="text.secondary">{intro.substring(0,130) + "  ..."}</Typography>}
       </CardContent>
 
       <CardActions disableSpacing sx={{ position: 'absolute', bottom: 0 }}>

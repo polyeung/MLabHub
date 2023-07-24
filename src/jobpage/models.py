@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.postgres.fields import ArrayField
 from lab.models import Lab
 from oidc_auth.models import User
+from django.utils import timezone
 
 class JobData(models.Model):
     CREDIT = 'credit'
@@ -50,6 +51,7 @@ class JobData(models.Model):
     workhoursselection = models.CharField(max_length=20, choices=WORK_HOURS_CHOICES)
     workmodel = models.CharField(max_length=20, choices=WORK_MODEL_CHOICES)
     consecutivesemestersselect = models.CharField(max_length=20, choices=CONSECUTIVE_SEMESTERS_CHOICES)
+    # create_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.title
