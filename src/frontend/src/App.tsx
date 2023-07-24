@@ -8,6 +8,7 @@ import Post from './pages/post';
 import Create from './pages/create';
 import Navbar from './components/navbar';
 import OidcLoginPage from './pages/oidcLoginPage';
+import NotFoundPage from './pages/notFoundPage';
 import { UserData } from './types/interface';
 import Dashboard from './pages/dashboard';
 import getCookie from './components/csrfToken';
@@ -55,7 +56,7 @@ function App() {
                   },
                     }).then(res => {
                       if (res.ok) {
-                        res.json().then(data => { setUserData(data); console.log(data); });
+                        res.json().then(data => { setUserData(data); });
 
             } else { 
               setUserData(null);
@@ -135,6 +136,8 @@ function App() {
           <Route path="/dashboard" element={<ProtectedRoute userData={userData} page={<Dashboard userData={userData}/>} />} />
           { /* Account routes */}
           <Route path="/login" element={<OidcLoginPage />} />
+          {/* 404 route */}
+           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         
       </Container>
