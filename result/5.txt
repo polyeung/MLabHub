@@ -1,7 +1,0 @@
-CSE
-https://theory.engin.umich.edu/
-Lab Name: Theory of Computation Laboratory
-Brief Intro: The Theory of Computation Laboratory at the University of Michigan's Computer Science & Engineering Division conducts research in various areas of theoretical computer science, including combinatorial optimization, data structures, cryptography, quantum computation, parallel and distributed computation, algorithmic game theory, graph theory, geometry, and combinatorics. The lab investigates the tradeoffs among fundamental resources such as running time, storage space, randomness, communication, and energy in both classical and quantum senses. The lab collaborates with faculty and students from other divisions and departments within the university.
-Prof. Chris Peikert
-Wei Hu
-Thatchaphol Saranurak

@@ -1,8 +1,0 @@
-CSE
-https://cse-teaching.engin.umich.edu/
-Lab Name: CSETeachingLab
-Brief Intro: The CSETeachingLab aims to build a community culture of shared education strategies for faculty and staff. It seeks to create a faculty community around the teaching mission, reflecting the department's values of supporting students through a world-class education. Over 20 teaching faculty are committed to best practices and student success at CSE.
-Almomani Raed
-Arthur William
-Beaumont Jonathan
-Brehob Mark

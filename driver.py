@@ -18,7 +18,7 @@ if __name__ == '__main__':
     else:
         print("Mode: GPT output")
 
-    with open(f'./source/cse_urls.txt' ,'r', encoding='utf-8') as file:
+    with open(f'./source/ece_urls.txt' ,'r', encoding='utf-8') as file:
         for line in file:
             url = line.strip()
             round = get_round()

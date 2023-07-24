@@ -118,14 +118,31 @@ def find_people(soup):
             print("get person: ", h_tag.get_text())
             potential_peopleinfo.append(h_tag.get_text())
 
+def find_potential_people_page(url):
+    url_1 = url + "/people"
+    url_2 = url + "/faculty"
+    url_3 = url + "/about"
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+    }
+    response = requests.get(url_1,headers=headers)
+    if response.status_code == 200:
+        return url_1
+    response = requests.get(url_2,headers=headers)
+    if response.status_code == 200:
+        return url_2
+    response = requests.get(url_3,headers=headers)
+    if response.status_code == 200:
+        return url_3
+    return url
 
 def download_txt_people(url):
     # Send a GET request to the URL 
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
     }
-
-    response = requests.get(url, headers=headers)
+    url_people = find_potential_people_page(url)
+    response = requests.get(url_people, headers=headers)
 
     # Check if the request was successful
     if response.status_code == 200:
