@@ -19,7 +19,7 @@ from django.core.serializers import serialize
 from django.core.paginator import Paginator
 from rest_framework import viewsets
 from rest_framework.pagination import PageNumberPagination
-
+from django.db.models import Q
 
 class CustomPagination(PageNumberPagination):
     def get_paginated_response(self, data):
@@ -73,7 +73,16 @@ class LabViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = LabSerializer
 
     def get_queryset(self):
-        queryset = Lab.objects.all()
+        queryset = None
+        search = self.request.query_params.get('search')
+        if search:
+            queryset = Lab.objects.filter(
+                Q(name__icontains=search) |
+                Q(dep__icontains=search) |
+                Q(people__icontains=search)
+            )
+        else:
+            queryset = Lab.objects.filter(approved=True)
         return queryset
 
     def get_serializer_context(self):
