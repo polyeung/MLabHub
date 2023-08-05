@@ -26,10 +26,11 @@ export default function overview(props: {
 
     useEffect(() => {
         setIsWaiting(true);
-        fetch('/api/lab/getLabInfo?page=' + String(page))
+        fetch('/api/lab/getLabInfo2/?page=' + String(page))
             .then(response => response.json())
             .then(data => {
                 setData(data);
+                console.log(data);
                 setIsWaiting(false);
             });
       }, [page]);
