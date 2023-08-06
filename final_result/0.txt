@@ -1,0 +1,6 @@
+ME
+https://mc2.engin.umich.edu/
+Lab Name: Michigan Center for Materials Characterization (MC)2
+Brief Intro: The Michigan Center for Materials Characterization (MC)2 is the University of Michigan's facility dedicated to the micron and nanoscale imaging and analysis of materials. Located in Building 22 of the North Campus Research Complex, (MC)2 provides state-of-the-art instruments, professional training, and in-depth education for students, researchers, academic institutions, and local industry. With a diverse user base of over 450 users, (MC)2 supports a wide range of disciplines and research groups. The center has recently acquired advanced instruments such as the ThermoFisher Spectra300 Probe Cs-corrected S/TEM, ThermoFisher Helios G4 PFIB UXe, and ThermoFisher Talos F200XG2, enhancing its capabilities in imaging and analysis. (MC)2 also collaborates with the Michigan Ion Beam Lab (MIBL) to provide unique opportunities for in-situ irradiation studies.
+Amit Misra,Bobby Kerns,Allen Hunter
+amitmis@umich.edu,kernsr@umich.edu,ahhunter@umich.edu
