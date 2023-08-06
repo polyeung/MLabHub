@@ -154,6 +154,7 @@ dev/
 **/node_modules/
 webpack-stats.json
 src/assets/bundles/
+src/frontend/bundles/
 
 # Log files
 npm-debug.log*
