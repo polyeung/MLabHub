@@ -69,8 +69,8 @@ export default function overview(props: {
                 sx={{
                     display: 'flex',
                     justifyContent: isSmallScreen ? 'center' : 'flex-start',
-                    width: isSmallScreen ? '100%' : '80%', // full width on small screens
-                    position: 'fixed',
+                    width: isSmallScreen ? '800px' : '600px', // full width on small screens
+                    position: 'flex',
                     top: 180,
                     left: isSmallScreen ? 0 : '10%', // centered on large screens
                     right: isSmallScreen ? 0 : '10%', // centered on large screens
@@ -102,7 +102,7 @@ export default function overview(props: {
         <Typography variant='h5' sx={{mt:20}}>Loading Lab contents...<CircularProgress /></Typography> :
 
         <Grid container spacing={2} sx={{ justifyContent: 'center', marginTop: 10}}>
-            {data.labs.map((item) => (
+            {(data.labs && data.labs.length > 0)? data.labs.map((item) => (
                 <Grid item xs={12} sm={6} md={getMdSize(data.labs.length)} key={item.id} 
                 sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <Cards
@@ -115,7 +115,7 @@ export default function overview(props: {
                         userData={props.userData}
                         isSaved={item.isSaved}/>
                 </Grid>
-            ))}
+            )): <div>Oops! Not result found.</div>}
         </Grid>}
         {!isWaiting && 
         <Pagination

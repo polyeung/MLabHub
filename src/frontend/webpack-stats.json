@@ -29,9 +29,17 @@
       "name": "images/umich.png",
       "path": "/usr/src/app/bundles/images/umich.png"
     },
+    "main-00a205937ed0da49b1b7.js": {
+      "name": "main-00a205937ed0da49b1b7.js",
+      "path": "/usr/src/app/bundles/main-00a205937ed0da49b1b7.js"
+    },
     "main-0380ef51d84083bedc16.js": {
       "name": "main-0380ef51d84083bedc16.js",
       "path": "/usr/src/app/bundles/main-0380ef51d84083bedc16.js"
+    },
+    "main-0a244ec64c6e030a36e3.js": {
+      "name": "main-0a244ec64c6e030a36e3.js",
+      "path": "/usr/src/app/bundles/main-0a244ec64c6e030a36e3.js"
     },
     "main-13666336e7c98464193c.js": {
       "name": "main-13666336e7c98464193c.js",
@@ -117,6 +125,14 @@
       "name": "main-6bc80ef9c7841657b249.js",
       "path": "/usr/src/app/bundles/main-6bc80ef9c7841657b249.js"
     },
+    "main-75de7d16ef0624eb61d9.js": {
+      "name": "main-75de7d16ef0624eb61d9.js",
+      "path": "/usr/src/app/bundles/main-75de7d16ef0624eb61d9.js"
+    },
+    "main-7dd2d87502b9cc48fac0.js": {
+      "name": "main-7dd2d87502b9cc48fac0.js",
+      "path": "/usr/src/app/bundles/main-7dd2d87502b9cc48fac0.js"
+    },
     "main-8390436373b3253fefc4.js": {
       "name": "main-8390436373b3253fefc4.js",
       "path": "/usr/src/app/bundles/main-8390436373b3253fefc4.js"
@@ -133,6 +149,10 @@
       "name": "main-90312cc565bc858ae33d.js",
       "path": "/usr/src/app/bundles/main-90312cc565bc858ae33d.js"
     },
+    "main-9935d9cda52a9192877a.js": {
+      "name": "main-9935d9cda52a9192877a.js",
+      "path": "/usr/src/app/bundles/main-9935d9cda52a9192877a.js"
+    },
     "main-a36a90a2059f9019cba1.js": {
       "name": "main-a36a90a2059f9019cba1.js",
       "path": "/usr/src/app/bundles/main-a36a90a2059f9019cba1.js"
@@ -144,6 +164,10 @@
     "main-b666b662bdb3cb557e1e.js": {
       "name": "main-b666b662bdb3cb557e1e.js",
       "path": "/usr/src/app/bundles/main-b666b662bdb3cb557e1e.js"
+    },
+    "main-bf661ce315e74539063a.js": {
+      "name": "main-bf661ce315e74539063a.js",
+      "path": "/usr/src/app/bundles/main-bf661ce315e74539063a.js"
     },
     "main-bf87e74e7d8633f29472.js": {
       "name": "main-bf87e74e7d8633f29472.js",
@@ -180,7 +204,9 @@
   },
   "chunks": {
     "main": [
-      "main-3e50519e178bac54257f.js"
+      "main-9935d9cda52a9192877a.js"
     ]
-  }
+  },
+  "error": "ModuleBuildError",
+  "message": "Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /usr/src/app/src/components/card/index.tsx: JSX attributes must only be assigned a non-empty expression. (110:15)\n\n  108 |           }\n  109 |         }}\n> 110 |         avatar={\n      |                ^\n  111 |           /*\n  112 |           <Avatar sx={{ bgcolor: red[500] }} aria-label=\"recipe\">\n  113 |             AD\n    at instantiate (/usr/src/app/node_modules/@babel/parser/lib/index.js:63:32)\n    at constructor (/usr/src/app/node_modules/@babel/parser/lib/index.js:358:12)\n    at TypeScriptParserMixin.raise (/usr/src/app/node_modules/@babel/parser/lib/index.js:3255:19)\n    at TypeScriptParserMixin.jsxParseAttributeValue (/usr/src/app/node_modules/@babel/parser/lib/index.js:6804:16)\n    at TypeScriptParserMixin.jsxParseAttribute (/usr/src/app/node_modules/@babel/parser/lib/index.js:6855:38)\n    at TypeScriptParserMixin.jsxParseOpeningElementAfterName (/usr/src/app/node_modules/@babel/parser/lib/index.js:6869:28)\n    at TypeScriptParserMixin.jsxParseOpeningElementAfterName (/usr/src/app/node_modules/@babel/parser/lib/index.js:9945:18)\n    at TypeScriptParserMixin.jsxParseOpeningElementAt (/usr/src/app/node_modules/@babel/parser/lib/index.js:6864:17)\n    at TypeScriptParserMixin.jsxParseElementAt (/usr/src/app/node_modules/@babel/parser/lib/index.js:6888:33)\n    at TypeScriptParserMixin.jsxParseElementAt (/usr/src/app/node_modules/@babel/parser/lib/index.js:6900:32)\n    at TypeScriptParserMixin.jsxParseElement (/usr/src/app/node_modules/@babel/parser/lib/index.js:6957:17)\n    at TypeScriptParserMixin.parseExprAtom (/usr/src/app/node_modules/@babel/parser/lib/index.js:6969:19)\n    at TypeScriptParserMixin.parseExprSubscripts (/usr/src/app/node_modules/@babel/parser/lib/index.js:10890:23)\n    at TypeScriptParserMixin.parseUpdate (/usr/src/app/node_modules/@babel/parser/lib/index.js:10873:21)\n    at TypeScriptParserMixin.parseMaybeUnary (/usr/src/app/node_modules/@babel/parser/lib/index.js:10849:23)\n    at TypeScriptParserMixin.parseMaybeUnary (/usr/src/app/node_modules/@babel/parser/lib/index.js:9738:18)\n    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/usr/src/app/node_modules/@babel/parser/lib/index.js:10687:61)\n    at TypeScriptParserMixin.parseExprOps (/usr/src/app/node_modules/@babel/parser/lib/index.js:10692:23)\n    at TypeScriptParserMixin.parseMaybeConditional (/usr/src/app/node_modules/@babel/parser/lib/index.js:10669:23)\n    at TypeScriptParserMixin.parseMaybeAssign (/usr/src/app/node_modules/@babel/parser/lib/index.js:10630:21)\n    at /usr/src/app/node_modules/@babel/parser/lib/index.js:9674:39\n    at TypeScriptParserMixin.tryParse (/usr/src/app/node_modules/@babel/parser/lib/index.js:3634:20)\n    at TypeScriptParserMixin.parseMaybeAssign (/usr/src/app/node_modules/@babel/parser/lib/index.js:9674:18)\n    at /usr/src/app/node_modules/@babel/parser/lib/index.js:10600:39\n    at TypeScriptParserMixin.allowInAnd (/usr/src/app/node_modules/@babel/parser/lib/index.js:12280:12)\n    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/usr/src/app/node_modules/@babel/parser/lib/index.js:10600:17)\n    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/usr/src/app/node_modules/@babel/parser/lib/index.js:11513:28)\n    at TypeScriptParserMixin.parseExprAtom (/usr/src/app/node_modules/@babel/parser/lib/index.js:11164:23)\n    at TypeScriptParserMixin.parseExprAtom (/usr/src/app/node_modules/@babel/parser/lib/index.js:6974:20)\n    at TypeScriptParserMixin.parseExprSubscripts (/usr/src/app/node_modules/@babel/parser/lib/index.js:10890:23)\n    at TypeScriptParserMixin.parseUpdate (/usr/src/app/node_modules/@babel/parser/lib/index.js:10873:21)\n    at TypeScriptParserMixin.parseMaybeUnary (/usr/src/app/node_modules/@babel/parser/lib/index.js:10849:23)\n    at TypeScriptParserMixin.parseMaybeUnary (/usr/src/app/node_modules/@babel/parser/lib/index.js:9738:18)\n    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/usr/src/app/node_modules/@babel/parser/lib/index.js:10687:61)\n    at TypeScriptParserMixin.parseExprOps (/usr/src/app/node_modules/@babel/parser/lib/index.js:10692:23)\n    at TypeScriptParserMixin.parseMaybeConditional (/usr/src/app/node_modules/@babel/parser/lib/index.js:10669:23)\n    at TypeScriptParserMixin.parseMaybeAssign (/usr/src/app/node_modules/@babel/parser/lib/index.js:10630:21)\n    at TypeScriptParserMixin.parseMaybeAssign (/usr/src/app/node_modules/@babel/parser/lib/index.js:9685:20)\n    at TypeScriptParserMixin.parseExpressionBase (/usr/src/app/node_modules/@babel/parser/lib/index.js:10584:23)\n    at /usr/src/app/node_modules/@babel/parser/lib/index.js:10580:39\n    at TypeScriptParserMixin.allowInAnd (/usr/src/app/node_modules/@babel/parser/lib/index.js:12275:16)\n    at TypeScriptParserMixin.parseExpression (/usr/src/app/node_modules/@babel/parser/lib/index.js:10580:17)\n    at TypeScriptParserMixin.parseReturnStatement (/usr/src/app/node_modules/@babel/parser/lib/index.js:12999:28)\n    at TypeScriptParserMixin.parseStatementContent (/usr/src/app/node_modules/@babel/parser/lib/index.js:12617:21)\n    at TypeScriptParserMixin.parseStatementContent (/usr/src/app/node_modules/@babel/parser/lib/index.js:9382:18)\n    at TypeScriptParserMixin.parseStatementLike (/usr/src/app/node_modules/@babel/parser/lib/index.js:12584:17)\n    at TypeScriptParserMixin.parseStatementListItem (/usr/src/app/node_modules/@babel/parser/lib/index.js:12564:17)\n    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/usr/src/app/node_modules/@babel/parser/lib/index.js:13185:61)\n    at TypeScriptParserMixin.parseBlockBody (/usr/src/app/node_modules/@babel/parser/lib/index.js:13178:10)\n    at TypeScriptParserMixin.parseBlock (/usr/src/app/node_modules/@babel/parser/lib/index.js:13166:10)"
 }

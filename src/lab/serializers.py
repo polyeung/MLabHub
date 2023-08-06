@@ -10,11 +10,10 @@ class LabSerializer(serializers.ModelSerializer):
     def get_isSaved(self, obj):
         user_id = self.context['request'].user.id
         saved_labs = self.context.get('saved_labs', set())
-        if not saved_labs:
-            # Fetch saved labs once and store them in the context to avoid repeated database queries
-            saved_labs = get_saved_labs(user_id)
-            self.context['saved_labs'] = set(saved_labs)
-        return int(obj.id) in saved_labs
+        if user_id:
+            return int(obj.id) in saved_labs
+        else:
+            return False
 
 class CreateLabSerializer(serializers.ModelSerializer):
     class Meta:
