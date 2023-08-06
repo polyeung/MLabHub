@@ -108,6 +108,7 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
           }
         }}
         avatar={
+          
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
             AD
           </Avatar>
