@@ -18,9 +18,11 @@ if __name__ == '__main__':
     else:
         print("Mode: GPT output")
 
-    with open(f'./source/ece_urls.txt' ,'r', encoding='utf-8') as file:
+    with open(f'./source/me_urls.txt' ,'r', encoding='utf-8') as file:
         for line in file:
             url = line.strip()
+            if url[0] == "#":
+                continue
             round = get_round()
             ai_entry(url, round, onlyPrompt, dep)
             inc_round()

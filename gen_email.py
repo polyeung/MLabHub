@@ -11,6 +11,8 @@ def clean_name(name):
         cleaned_name = name.replace("Prof", "")
     elif "prof" in name:
         cleaned_name = name.replace("prof", "")
+    elif "Dr." in name:
+        cleaned_name = name.replace("Dr.", "")
     if "," in name:
         cleaned_name = cleaned_name.replace(",", " ")
     if "." in name:

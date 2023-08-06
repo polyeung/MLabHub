@@ -12,7 +12,7 @@ pip install -r requirements.txt
 ### usage
 1. put urls for one department collected in source folder
 2. reset everything by running ```./script/clear.sh```
-3. ```python3 driver.py```
+3. ```python3 driver.py dep_name``` (dep_name need to follow google doc convention, see:  )
 4. go to every result file and manually prompting to gpt and paste the member name back (remove prof.)
 5. ```python3 gen_email.py```
 6.  examine every result file.txt in result folder and insert into database

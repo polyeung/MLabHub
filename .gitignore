@@ -172,3 +172,7 @@ pnpm-debug.log*
 
 config/
 
+# ignore result:
+result/
+final_result/
+prompt/

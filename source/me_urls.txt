@@ -1,0 +1,20 @@
+#Automotive & Future Transportation
+#https://arc.engin.umich.edu/
+#https://jwo.engin.umich.edu/
+#https://brg.engin.umich.edu/
+#https://avm.engin.umich.edu/
+#https://sms.engin.umich.edu/
+#http://www-personal.umich.edu/~annastef/PCL_Lab.html
+# https://autolab.engin.umich.edu/
+# #Biomechanics & Biosystems Engineering
+# https://bme.umich.edu/research-area/bio-micro-nanotechnology-and-molecular-engineering/bio-mems-and-microfluidics/
+# https://brl.engin.umich.edu/
+# https://www.kines.umich.edu/research/labs-centers/michigan-performance-research-laboratory
+# https://me-web.engin.umich.edu/ibbl/
+# https://me.engin.umich.edu/people/faculty/noel-perkins/
+# https://stml.engin.umich.edu/
+# https://www-personal.umich.edu/~epureanu/
+# Mechanics & Materials
+# https://mc2.engin.umich.edu/
+# https://imtl.engin.umich.edu/
+# https://sms.engin.umich.edu/
