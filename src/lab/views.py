@@ -17,6 +17,20 @@ from .serializers import CreateLabSerializer
 from django.contrib.auth.models import User
 from django.core.serializers import serialize
 from django.core.paginator import Paginator
+from rest_framework import viewsets
+from rest_framework.pagination import PageNumberPagination
+from django.db.models import Q
+
+class CustomPagination(PageNumberPagination):
+    def get_paginated_response(self, data):
+        return Response({
+            'count': self.page.paginator.count,
+            'total_page': self.page.paginator.num_pages,
+            'previous': self.get_previous_link(),
+            'next': self.get_next_link(),
+            'labs': data,
+        })
+
 
 class GetLabInfo(APIView):
     permission_classes = (permissions.AllowAny, )
@@ -53,7 +67,39 @@ class GetLabInfo(APIView):
             ret_data = parsed_data[0]['fields']['data']['savedLabs']
         return ret_data
 
+# using restframework pagination
+class LabViewSet(viewsets.ReadOnlyModelViewSet):
+    pagination_class = CustomPagination
+    serializer_class = LabSerializer
 
+    def get_queryset(self):
+        queryset = None
+        search = self.request.query_params.get('search')
+        if search:
+            queryset = Lab.objects.filter(
+                Q(name__icontains=search) |
+                Q(dep__icontains=search) |
+                Q(people__icontains=search)
+            )
+        else:
+            queryset = Lab.objects.filter(approved=True)
+        return queryset
+
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context['saved_labs'] = self.get_saved_labs(self.request.user.id)
+        return context
+
+    def get_saved_labs(self, uid):
+        print("user id: ", uid)
+        if uid is None:
+            return []
+        data = serialize('json',UserProfile.objects.filter(uid=uid))
+        parsed_data = json.loads(data)
+        ret_data = []
+        if len(parsed_data) > 0:
+            ret_data = parsed_data[0]['fields']['data']['savedLabs']
+        return ret_data
 
 class GetDetailedLabInfo(generics.GenericAPIView):
     permission_classes = (permissions.AllowAny, )
