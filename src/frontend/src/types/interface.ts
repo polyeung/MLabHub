@@ -13,6 +13,7 @@ export interface LabInfoType {
     link: string,
     people: string,
     intro: string,
+    emails: string,
     dep: string,
     isSaved: boolean
 };

@@ -64,7 +64,7 @@ export default function overview(props: {
     }
     return (
         <Box style={{display:'flex', flexDirection: 'column', alignItems: 'center'}}> 
-            
+            {/*
             <Box
                 sx={{
                     display: 'flex',
@@ -98,10 +98,11 @@ export default function overview(props: {
                 </IconButton>
             </Paper>
             </Box>
+            */}
     {isWaiting ?
         <Typography variant='h5' sx={{mt:20}}>Loading Lab contents...<CircularProgress /></Typography> :
 
-        <Grid container spacing={2} sx={{ justifyContent: 'center', marginTop: 10}}>
+        <Grid container spacing={2} sx={{ justifyContent: 'center'}}>
             {(data.labs && data.labs.length > 0)? data.labs.map((item) => (
                 <Grid item xs={12} sm={6} md={getMdSize(data.labs.length)} key={item.id} 
                 sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -113,6 +114,7 @@ export default function overview(props: {
                         id={item.id}
                         dep={ item.dep }
                         userData={props.userData}
+                        emails={item.emails}
                         isSaved={item.isSaved}/>
                 </Grid>
             )): <div>Oops! Not result found.</div>}

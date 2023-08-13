@@ -29,184 +29,120 @@
       "name": "images/umich.png",
       "path": "/usr/src/app/bundles/images/umich.png"
     },
-    "main-00a205937ed0da49b1b7.js": {
-      "name": "main-00a205937ed0da49b1b7.js",
-      "path": "/usr/src/app/bundles/main-00a205937ed0da49b1b7.js"
+    "main-3f01c2db864c4c969723.js": {
+      "name": "main-3f01c2db864c4c969723.js",
+      "path": "/usr/src/app/bundles/main-3f01c2db864c4c969723.js"
     },
-    "main-0380ef51d84083bedc16.js": {
-      "name": "main-0380ef51d84083bedc16.js",
-      "path": "/usr/src/app/bundles/main-0380ef51d84083bedc16.js"
+    "main-3ffc85957674c18e0ee9.js": {
+      "name": "main-3ffc85957674c18e0ee9.js",
+      "path": "/usr/src/app/bundles/main-3ffc85957674c18e0ee9.js"
     },
-    "main-0a244ec64c6e030a36e3.js": {
-      "name": "main-0a244ec64c6e030a36e3.js",
-      "path": "/usr/src/app/bundles/main-0a244ec64c6e030a36e3.js"
+    "main-57852ed0d521a1e45c54.js": {
+      "name": "main-57852ed0d521a1e45c54.js",
+      "path": "/usr/src/app/bundles/main-57852ed0d521a1e45c54.js"
     },
-    "main-13666336e7c98464193c.js": {
-      "name": "main-13666336e7c98464193c.js",
-      "path": "/usr/src/app/bundles/main-13666336e7c98464193c.js"
+    "main-592f3f05cb8c9eacebf6.js": {
+      "name": "main-592f3f05cb8c9eacebf6.js",
+      "path": "/usr/src/app/bundles/main-592f3f05cb8c9eacebf6.js"
     },
-    "main-172295087699a405db5b.js": {
-      "name": "main-172295087699a405db5b.js",
-      "path": "/usr/src/app/bundles/main-172295087699a405db5b.js"
+    "main-5b8003ce7c3868e3697d.js": {
+      "name": "main-5b8003ce7c3868e3697d.js",
+      "path": "/usr/src/app/bundles/main-5b8003ce7c3868e3697d.js"
     },
-    "main-19dc3e20a73720af5a9b.js": {
-      "name": "main-19dc3e20a73720af5a9b.js",
-      "path": "/usr/src/app/bundles/main-19dc3e20a73720af5a9b.js"
+    "main-72ce1e66a9d23cd36833.js": {
+      "name": "main-72ce1e66a9d23cd36833.js",
+      "path": "/usr/src/app/bundles/main-72ce1e66a9d23cd36833.js"
     },
-    "main-1c3f6a84916a345d741f.js": {
-      "name": "main-1c3f6a84916a345d741f.js",
-      "path": "/usr/src/app/bundles/main-1c3f6a84916a345d741f.js"
+    "main-75152d59a7e07f4217e0.js": {
+      "name": "main-75152d59a7e07f4217e0.js",
+      "path": "/usr/src/app/bundles/main-75152d59a7e07f4217e0.js"
     },
-    "main-1e3640b37f6e7fd64d14.js": {
-      "name": "main-1e3640b37f6e7fd64d14.js",
-      "path": "/usr/src/app/bundles/main-1e3640b37f6e7fd64d14.js"
+    "main-80f14877593ae7d7711f.js": {
+      "name": "main-80f14877593ae7d7711f.js",
+      "path": "/usr/src/app/bundles/main-80f14877593ae7d7711f.js"
     },
-    "main-2082abce3fde9bf24fab.js": {
-      "name": "main-2082abce3fde9bf24fab.js",
-      "path": "/usr/src/app/bundles/main-2082abce3fde9bf24fab.js"
+    "main-8b21a63c615aaeef028f.js": {
+      "name": "main-8b21a63c615aaeef028f.js",
+      "path": "/usr/src/app/bundles/main-8b21a63c615aaeef028f.js"
     },
-    "main-2b2d526d722067c9e995.js": {
-      "name": "main-2b2d526d722067c9e995.js",
-      "path": "/usr/src/app/bundles/main-2b2d526d722067c9e995.js"
+    "main-90daebb1e2e5481bd6fb.js": {
+      "name": "main-90daebb1e2e5481bd6fb.js",
+      "path": "/usr/src/app/bundles/main-90daebb1e2e5481bd6fb.js"
     },
-    "main-335d87e92925e169b4f0.js": {
-      "name": "main-335d87e92925e169b4f0.js",
-      "path": "/usr/src/app/bundles/main-335d87e92925e169b4f0.js"
-    },
-    "main-3410cae9044edf5f0f56.js": {
-      "name": "main-3410cae9044edf5f0f56.js",
-      "path": "/usr/src/app/bundles/main-3410cae9044edf5f0f56.js"
-    },
-    "main-3d2a5f917551b467b52c.js": {
-      "name": "main-3d2a5f917551b467b52c.js",
-      "path": "/usr/src/app/bundles/main-3d2a5f917551b467b52c.js"
-    },
-    "main-3e50519e178bac54257f.js": {
-      "name": "main-3e50519e178bac54257f.js",
-      "path": "/usr/src/app/bundles/main-3e50519e178bac54257f.js"
-    },
-    "main-41b15fe8ed3ce1897356.js": {
-      "name": "main-41b15fe8ed3ce1897356.js",
-      "path": "/usr/src/app/bundles/main-41b15fe8ed3ce1897356.js"
-    },
-    "main-5282154a56666e3d31ef.js": {
-      "name": "main-5282154a56666e3d31ef.js",
-      "path": "/usr/src/app/bundles/main-5282154a56666e3d31ef.js"
-    },
-    "main-538fa48162377c57534d.js": {
-      "name": "main-538fa48162377c57534d.js",
-      "path": "/usr/src/app/bundles/main-538fa48162377c57534d.js"
-    },
-    "main-554fa86a8091e52ad1b2.js": {
-      "name": "main-554fa86a8091e52ad1b2.js",
-      "path": "/usr/src/app/bundles/main-554fa86a8091e52ad1b2.js"
-    },
-    "main-564fb1fd7507c386ac15.js": {
-      "name": "main-564fb1fd7507c386ac15.js",
-      "path": "/usr/src/app/bundles/main-564fb1fd7507c386ac15.js"
-    },
-    "main-591d41f57cd18e3ff5f8.js": {
-      "name": "main-591d41f57cd18e3ff5f8.js",
-      "path": "/usr/src/app/bundles/main-591d41f57cd18e3ff5f8.js"
-    },
-    "main-5dd1ccfb0437b418b2be.js": {
-      "name": "main-5dd1ccfb0437b418b2be.js",
-      "path": "/usr/src/app/bundles/main-5dd1ccfb0437b418b2be.js"
-    },
-    "main-65f80aa693a4a1a4177e.js": {
-      "name": "main-65f80aa693a4a1a4177e.js",
-      "path": "/usr/src/app/bundles/main-65f80aa693a4a1a4177e.js"
-    },
-    "main-66a924f714db8f27592c.js": {
-      "name": "main-66a924f714db8f27592c.js",
-      "path": "/usr/src/app/bundles/main-66a924f714db8f27592c.js"
-    },
-    "main-6bc80ef9c7841657b249.js": {
-      "name": "main-6bc80ef9c7841657b249.js",
-      "path": "/usr/src/app/bundles/main-6bc80ef9c7841657b249.js"
-    },
-    "main-75de7d16ef0624eb61d9.js": {
-      "name": "main-75de7d16ef0624eb61d9.js",
-      "path": "/usr/src/app/bundles/main-75de7d16ef0624eb61d9.js"
-    },
-    "main-7dd2d87502b9cc48fac0.js": {
-      "name": "main-7dd2d87502b9cc48fac0.js",
-      "path": "/usr/src/app/bundles/main-7dd2d87502b9cc48fac0.js"
-    },
-    "main-8390436373b3253fefc4.js": {
-      "name": "main-8390436373b3253fefc4.js",
-      "path": "/usr/src/app/bundles/main-8390436373b3253fefc4.js"
-    },
-    "main-880238cbb11b35d8edd6.js": {
-      "name": "main-880238cbb11b35d8edd6.js",
-      "path": "/usr/src/app/bundles/main-880238cbb11b35d8edd6.js"
-    },
-    "main-8f3e921ab7c503dbcf48.js": {
-      "name": "main-8f3e921ab7c503dbcf48.js",
-      "path": "/usr/src/app/bundles/main-8f3e921ab7c503dbcf48.js"
-    },
-    "main-90312cc565bc858ae33d.js": {
-      "name": "main-90312cc565bc858ae33d.js",
-      "path": "/usr/src/app/bundles/main-90312cc565bc858ae33d.js"
+    "main-94f38dc8498d38142b0e.js": {
+      "name": "main-94f38dc8498d38142b0e.js",
+      "path": "/usr/src/app/bundles/main-94f38dc8498d38142b0e.js"
     },
     "main-9935d9cda52a9192877a.js": {
       "name": "main-9935d9cda52a9192877a.js",
       "path": "/usr/src/app/bundles/main-9935d9cda52a9192877a.js"
     },
-    "main-a36a90a2059f9019cba1.js": {
-      "name": "main-a36a90a2059f9019cba1.js",
-      "path": "/usr/src/app/bundles/main-a36a90a2059f9019cba1.js"
+    "main-9abc57ff752f0ba9a35a.js": {
+      "name": "main-9abc57ff752f0ba9a35a.js",
+      "path": "/usr/src/app/bundles/main-9abc57ff752f0ba9a35a.js"
     },
-    "main-acd30a1159de517e7433.js": {
-      "name": "main-acd30a1159de517e7433.js",
-      "path": "/usr/src/app/bundles/main-acd30a1159de517e7433.js"
+    "main-a869fea11170d71baa77.js": {
+      "name": "main-a869fea11170d71baa77.js",
+      "path": "/usr/src/app/bundles/main-a869fea11170d71baa77.js"
     },
-    "main-b666b662bdb3cb557e1e.js": {
-      "name": "main-b666b662bdb3cb557e1e.js",
-      "path": "/usr/src/app/bundles/main-b666b662bdb3cb557e1e.js"
+    "main-af822357d0d85a5937fa.js": {
+      "name": "main-af822357d0d85a5937fa.js",
+      "path": "/usr/src/app/bundles/main-af822357d0d85a5937fa.js"
     },
-    "main-bf661ce315e74539063a.js": {
-      "name": "main-bf661ce315e74539063a.js",
-      "path": "/usr/src/app/bundles/main-bf661ce315e74539063a.js"
+    "main-ba6d0e9b44400e8f5bc5.js": {
+      "name": "main-ba6d0e9b44400e8f5bc5.js",
+      "path": "/usr/src/app/bundles/main-ba6d0e9b44400e8f5bc5.js"
     },
-    "main-bf87e74e7d8633f29472.js": {
-      "name": "main-bf87e74e7d8633f29472.js",
-      "path": "/usr/src/app/bundles/main-bf87e74e7d8633f29472.js"
+    "main-bd7bdc0cfbb16fa84822.js": {
+      "name": "main-bd7bdc0cfbb16fa84822.js",
+      "path": "/usr/src/app/bundles/main-bd7bdc0cfbb16fa84822.js"
     },
-    "main-c0bef750638df95237d1.js": {
-      "name": "main-c0bef750638df95237d1.js",
-      "path": "/usr/src/app/bundles/main-c0bef750638df95237d1.js"
+    "main-c8d55c71d6986c1869f1.js": {
+      "name": "main-c8d55c71d6986c1869f1.js",
+      "path": "/usr/src/app/bundles/main-c8d55c71d6986c1869f1.js"
     },
-    "main-d390a714ec720776e02b.js": {
-      "name": "main-d390a714ec720776e02b.js",
-      "path": "/usr/src/app/bundles/main-d390a714ec720776e02b.js"
+    "main-d3d4b185e1e678a992d6.js": {
+      "name": "main-d3d4b185e1e678a992d6.js",
+      "path": "/usr/src/app/bundles/main-d3d4b185e1e678a992d6.js"
     },
-    "main-d39178f4054fd1ce66f3.js": {
-      "name": "main-d39178f4054fd1ce66f3.js",
-      "path": "/usr/src/app/bundles/main-d39178f4054fd1ce66f3.js"
+    "main-d64bce4b5f2bc33f189b.js": {
+      "name": "main-d64bce4b5f2bc33f189b.js",
+      "path": "/usr/src/app/bundles/main-d64bce4b5f2bc33f189b.js"
     },
-    "main-e11c2c531dc1a265cbe0.js": {
-      "name": "main-e11c2c531dc1a265cbe0.js",
-      "path": "/usr/src/app/bundles/main-e11c2c531dc1a265cbe0.js"
+    "main-e40d3937e5fd291e4d0d.js": {
+      "name": "main-e40d3937e5fd291e4d0d.js",
+      "path": "/usr/src/app/bundles/main-e40d3937e5fd291e4d0d.js"
     },
-    "main-ebb37a1842d7ae51ec37.js": {
-      "name": "main-ebb37a1842d7ae51ec37.js",
-      "path": "/usr/src/app/bundles/main-ebb37a1842d7ae51ec37.js"
+    "main-e8f3866605f1a80c2267.js": {
+      "name": "main-e8f3866605f1a80c2267.js",
+      "path": "/usr/src/app/bundles/main-e8f3866605f1a80c2267.js"
     },
-    "main-f5053ac5eccc637f6231.js": {
-      "name": "main-f5053ac5eccc637f6231.js",
-      "path": "/usr/src/app/bundles/main-f5053ac5eccc637f6231.js"
+    "main-ea070dce3595935c1e1e.js": {
+      "name": "main-ea070dce3595935c1e1e.js",
+      "path": "/usr/src/app/bundles/main-ea070dce3595935c1e1e.js"
     },
-    "main-ffb82df341f63a9d178e.js": {
-      "name": "main-ffb82df341f63a9d178e.js",
-      "path": "/usr/src/app/bundles/main-ffb82df341f63a9d178e.js"
+    "main-f4d8bb900126853a934f.js": {
+      "name": "main-f4d8bb900126853a934f.js",
+      "path": "/usr/src/app/bundles/main-f4d8bb900126853a934f.js"
+    },
+    "main-f5082aea6a3f98144a20.js": {
+      "name": "main-f5082aea6a3f98144a20.js",
+      "path": "/usr/src/app/bundles/main-f5082aea6a3f98144a20.js"
+    },
+    "main-fbd96cacb299d2c6c00b.js": {
+      "name": "main-fbd96cacb299d2c6c00b.js",
+      "path": "/usr/src/app/bundles/main-fbd96cacb299d2c6c00b.js"
+    },
+    "main-fd1dfd9f53140e3e0e5b.js": {
+      "name": "main-fd1dfd9f53140e3e0e5b.js",
+      "path": "/usr/src/app/bundles/main-fd1dfd9f53140e3e0e5b.js"
     }
   },
   "chunks": {
     "main": [
-      "main-9935d9cda52a9192877a.js"
+      "main-f5082aea6a3f98144a20.js"
     ]
   },
   "error": "ModuleBuildError",
-  "message": "Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /usr/src/app/src/components/card/index.tsx: JSX attributes must only be assigned a non-empty expression. (110:15)\n\n  108 |           }\n  109 |         }}\n> 110 |         avatar={\n      |                ^\n  111 |           /*\n  112 |           <Avatar sx={{ bgcolor: red[500] }} aria-label=\"recipe\">\n  113 |             AD\n    at instantiate (/usr/src/app/node_modules/@babel/parser/lib/index.js:63:32)\n    at constructor (/usr/src/app/node_modules/@babel/parser/lib/index.js:358:12)\n    at TypeScriptParserMixin.raise (/usr/src/app/node_modules/@babel/parser/lib/index.js:3255:19)\n    at TypeScriptParserMixin.jsxParseAttributeValue (/usr/src/app/node_modules/@babel/parser/lib/index.js:6804:16)\n    at TypeScriptParserMixin.jsxParseAttribute (/usr/src/app/node_modules/@babel/parser/lib/index.js:6855:38)\n    at TypeScriptParserMixin.jsxParseOpeningElementAfterName (/usr/src/app/node_modules/@babel/parser/lib/index.js:6869:28)\n    at TypeScriptParserMixin.jsxParseOpeningElementAfterName (/usr/src/app/node_modules/@babel/parser/lib/index.js:9945:18)\n    at TypeScriptParserMixin.jsxParseOpeningElementAt (/usr/src/app/node_modules/@babel/parser/lib/index.js:6864:17)\n    at TypeScriptParserMixin.jsxParseElementAt (/usr/src/app/node_modules/@babel/parser/lib/index.js:6888:33)\n    at TypeScriptParserMixin.jsxParseElementAt (/usr/src/app/node_modules/@babel/parser/lib/index.js:6900:32)\n    at TypeScriptParserMixin.jsxParseElement (/usr/src/app/node_modules/@babel/parser/lib/index.js:6957:17)\n    at TypeScriptParserMixin.parseExprAtom (/usr/src/app/node_modules/@babel/parser/lib/index.js:6969:19)\n    at TypeScriptParserMixin.parseExprSubscripts (/usr/src/app/node_modules/@babel/parser/lib/index.js:10890:23)\n    at TypeScriptParserMixin.parseUpdate (/usr/src/app/node_modules/@babel/parser/lib/index.js:10873:21)\n    at TypeScriptParserMixin.parseMaybeUnary (/usr/src/app/node_modules/@babel/parser/lib/index.js:10849:23)\n    at TypeScriptParserMixin.parseMaybeUnary (/usr/src/app/node_modules/@babel/parser/lib/index.js:9738:18)\n    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/usr/src/app/node_modules/@babel/parser/lib/index.js:10687:61)\n    at TypeScriptParserMixin.parseExprOps (/usr/src/app/node_modules/@babel/parser/lib/index.js:10692:23)\n    at TypeScriptParserMixin.parseMaybeConditional (/usr/src/app/node_modules/@babel/parser/lib/index.js:10669:23)\n    at TypeScriptParserMixin.parseMaybeAssign (/usr/src/app/node_modules/@babel/parser/lib/index.js:10630:21)\n    at /usr/src/app/node_modules/@babel/parser/lib/index.js:9674:39\n    at TypeScriptParserMixin.tryParse (/usr/src/app/node_modules/@babel/parser/lib/index.js:3634:20)\n    at TypeScriptParserMixin.parseMaybeAssign (/usr/src/app/node_modules/@babel/parser/lib/index.js:9674:18)\n    at /usr/src/app/node_modules/@babel/parser/lib/index.js:10600:39\n    at TypeScriptParserMixin.allowInAnd (/usr/src/app/node_modules/@babel/parser/lib/index.js:12280:12)\n    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/usr/src/app/node_modules/@babel/parser/lib/index.js:10600:17)\n    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/usr/src/app/node_modules/@babel/parser/lib/index.js:11513:28)\n    at TypeScriptParserMixin.parseExprAtom (/usr/src/app/node_modules/@babel/parser/lib/index.js:11164:23)\n    at TypeScriptParserMixin.parseExprAtom (/usr/src/app/node_modules/@babel/parser/lib/index.js:6974:20)\n    at TypeScriptParserMixin.parseExprSubscripts (/usr/src/app/node_modules/@babel/parser/lib/index.js:10890:23)\n    at TypeScriptParserMixin.parseUpdate (/usr/src/app/node_modules/@babel/parser/lib/index.js:10873:21)\n    at TypeScriptParserMixin.parseMaybeUnary (/usr/src/app/node_modules/@babel/parser/lib/index.js:10849:23)\n    at TypeScriptParserMixin.parseMaybeUnary (/usr/src/app/node_modules/@babel/parser/lib/index.js:9738:18)\n    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/usr/src/app/node_modules/@babel/parser/lib/index.js:10687:61)\n    at TypeScriptParserMixin.parseExprOps (/usr/src/app/node_modules/@babel/parser/lib/index.js:10692:23)\n    at TypeScriptParserMixin.parseMaybeConditional (/usr/src/app/node_modules/@babel/parser/lib/index.js:10669:23)\n    at TypeScriptParserMixin.parseMaybeAssign (/usr/src/app/node_modules/@babel/parser/lib/index.js:10630:21)\n    at TypeScriptParserMixin.parseMaybeAssign (/usr/src/app/node_modules/@babel/parser/lib/index.js:9685:20)\n    at TypeScriptParserMixin.parseExpressionBase (/usr/src/app/node_modules/@babel/parser/lib/index.js:10584:23)\n    at /usr/src/app/node_modules/@babel/parser/lib/index.js:10580:39\n    at TypeScriptParserMixin.allowInAnd (/usr/src/app/node_modules/@babel/parser/lib/index.js:12275:16)\n    at TypeScriptParserMixin.parseExpression (/usr/src/app/node_modules/@babel/parser/lib/index.js:10580:17)\n    at TypeScriptParserMixin.parseReturnStatement (/usr/src/app/node_modules/@babel/parser/lib/index.js:12999:28)\n    at TypeScriptParserMixin.parseStatementContent (/usr/src/app/node_modules/@babel/parser/lib/index.js:12617:21)\n    at TypeScriptParserMixin.parseStatementContent (/usr/src/app/node_modules/@babel/parser/lib/index.js:9382:18)\n    at TypeScriptParserMixin.parseStatementLike (/usr/src/app/node_modules/@babel/parser/lib/index.js:12584:17)\n    at TypeScriptParserMixin.parseStatementListItem (/usr/src/app/node_modules/@babel/parser/lib/index.js:12564:17)\n    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/usr/src/app/node_modules/@babel/parser/lib/index.js:13185:61)\n    at TypeScriptParserMixin.parseBlockBody (/usr/src/app/node_modules/@babel/parser/lib/index.js:13178:10)\n    at TypeScriptParserMixin.parseBlock (/usr/src/app/node_modules/@babel/parser/lib/index.js:13166:10)"
+  "message": "Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /usr/src/app/src/components/card/index.tsx: Unexpected token, expected \",\" (122:28)\n\n  120 |         avatar={\n  121 |           \n> 122 |           {parseName(labinfo.people).map((item) => (\n      |                             ^\n  123 |             <Tooltip title={ item.name }>\n  124 |             <Avatar sx={{ bgcolor: getRandomColor(), mr: '5px', width: 40, height: 40}}>{ item.initial }</Avatar>\n  125 |             </Tooltip>\n    at instantiate (/usr/src/app/node_modules/@babel/parser/lib/index.js:63:32)\n    at constructor (/usr/src/app/node_modules/@babel/parser/lib/index.js:358:12)\n    at TypeScriptParserMixin.raise (/usr/src/app/node_modules/@babel/parser/lib/index.js:3255:19)\n    at TypeScriptParserMixin.unexpected (/usr/src/app/node_modules/@babel/parser/lib/index.js:3285:16)\n    at TypeScriptParserMixin.expect (/usr/src/app/node_modules/@babel/parser/lib/index.js:3627:28)\n    at TypeScriptParserMixin.parseBindingList (/usr/src/app/node_modules/@babel/parser/lib/index.js:7344:14)\n    at TypeScriptParserMixin.parseFunctionParams (/usr/src/app/node_modules/@babel/parser/lib/index.js:13330:24)\n    at TypeScriptParserMixin.parseFunctionParams (/usr/src/app/node_modules/@babel/parser/lib/index.js:9648:11)\n    at TypeScriptParserMixin.parseMethod (/usr/src/app/node_modules/@babel/parser/lib/index.js:11890:10)\n    at TypeScriptParserMixin.parseMethod (/usr/src/app/node_modules/@babel/parser/lib/index.js:9998:26)\n    at TypeScriptParserMixin.parseObjectMethod (/usr/src/app/node_modules/@babel/parser/lib/index.js:11790:19)\n    at TypeScriptParserMixin.parseObjPropValue (/usr/src/app/node_modules/@babel/parser/lib/index.js:11823:23)\n    at TypeScriptParserMixin.parseObjPropValue (/usr/src/app/node_modules/@babel/parser/lib/index.js:9643:18)\n    at TypeScriptParserMixin.parsePropertyDefinition (/usr/src/app/node_modules/@babel/parser/lib/index.js:11757:17)\n    at TypeScriptParserMixin.parseObjectLike (/usr/src/app/node_modules/@babel/parser/lib/index.js:11672:21)\n    at TypeScriptParserMixin.parseExprAtom (/usr/src/app/node_modules/@babel/parser/lib/index.js:11182:23)\n    at TypeScriptParserMixin.parseExprAtom (/usr/src/app/node_modules/@babel/parser/lib/index.js:6974:20)\n    at TypeScriptParserMixin.parseExprSubscripts (/usr/src/app/node_modules/@babel/parser/lib/index.js:10890:23)\n    at TypeScriptParserMixin.parseUpdate (/usr/src/app/node_modules/@babel/parser/lib/index.js:10873:21)\n    at TypeScriptParserMixin.parseMaybeUnary (/usr/src/app/node_modules/@babel/parser/lib/index.js:10849:23)\n    at TypeScriptParserMixin.parseMaybeUnary (/usr/src/app/node_modules/@babel/parser/lib/index.js:9738:18)\n    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/usr/src/app/node_modules/@babel/parser/lib/index.js:10687:61)\n    at TypeScriptParserMixin.parseExprOps (/usr/src/app/node_modules/@babel/parser/lib/index.js:10692:23)\n    at TypeScriptParserMixin.parseMaybeConditional (/usr/src/app/node_modules/@babel/parser/lib/index.js:10669:23)\n    at TypeScriptParserMixin.parseMaybeAssign (/usr/src/app/node_modules/@babel/parser/lib/index.js:10630:21)\n    at TypeScriptParserMixin.parseMaybeAssign (/usr/src/app/node_modules/@babel/parser/lib/index.js:9685:20)\n    at TypeScriptParserMixin.parseExpressionBase (/usr/src/app/node_modules/@babel/parser/lib/index.js:10584:23)\n    at /usr/src/app/node_modules/@babel/parser/lib/index.js:10580:39\n    at TypeScriptParserMixin.allowInAnd (/usr/src/app/node_modules/@babel/parser/lib/index.js:12280:12)\n    at TypeScriptParserMixin.parseExpression (/usr/src/app/node_modules/@babel/parser/lib/index.js:10580:17)\n    at TypeScriptParserMixin.jsxParseExpressionContainer (/usr/src/app/node_modules/@babel/parser/lib/index.js:6834:31)\n    at TypeScriptParserMixin.jsxParseAttributeValue (/usr/src/app/node_modules/@babel/parser/lib/index.js:6802:21)\n    at TypeScriptParserMixin.jsxParseAttribute (/usr/src/app/node_modules/@babel/parser/lib/index.js:6855:38)\n    at TypeScriptParserMixin.jsxParseOpeningElementAfterName (/usr/src/app/node_modules/@babel/parser/lib/index.js:6869:28)\n    at TypeScriptParserMixin.jsxParseOpeningElementAfterName (/usr/src/app/node_modules/@babel/parser/lib/index.js:9945:18)\n    at TypeScriptParserMixin.jsxParseOpeningElementAt (/usr/src/app/node_modules/@babel/parser/lib/index.js:6864:17)\n    at TypeScriptParserMixin.jsxParseElementAt (/usr/src/app/node_modules/@babel/parser/lib/index.js:6888:33)\n    at TypeScriptParserMixin.jsxParseElementAt (/usr/src/app/node_modules/@babel/parser/lib/index.js:6900:32)\n    at TypeScriptParserMixin.jsxParseElement (/usr/src/app/node_modules/@babel/parser/lib/index.js:6957:17)\n    at TypeScriptParserMixin.parseExprAtom (/usr/src/app/node_modules/@babel/parser/lib/index.js:6969:19)\n    at TypeScriptParserMixin.parseExprSubscripts (/usr/src/app/node_modules/@babel/parser/lib/index.js:10890:23)\n    at TypeScriptParserMixin.parseUpdate (/usr/src/app/node_modules/@babel/parser/lib/index.js:10873:21)\n    at TypeScriptParserMixin.parseMaybeUnary (/usr/src/app/node_modules/@babel/parser/lib/index.js:10849:23)\n    at TypeScriptParserMixin.parseMaybeUnary (/usr/src/app/node_modules/@babel/parser/lib/index.js:9738:18)\n    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/usr/src/app/node_modules/@babel/parser/lib/index.js:10687:61)\n    at TypeScriptParserMixin.parseExprOps (/usr/src/app/node_modules/@babel/parser/lib/index.js:10692:23)\n    at TypeScriptParserMixin.parseMaybeConditional (/usr/src/app/node_modules/@babel/parser/lib/index.js:10669:23)\n    at TypeScriptParserMixin.parseMaybeAssign (/usr/src/app/node_modules/@babel/parser/lib/index.js:10630:21)\n    at /usr/src/app/node_modules/@babel/parser/lib/index.js:9674:39\n    at TypeScriptParserMixin.tryParse (/usr/src/app/node_modules/@babel/parser/lib/index.js:3634:20)"
 }

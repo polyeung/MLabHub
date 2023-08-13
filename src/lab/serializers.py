@@ -5,7 +5,7 @@ class LabSerializer(serializers.ModelSerializer):
     isSaved = serializers.SerializerMethodField()
     class Meta:
         model = Lab
-        fields = ['id', 'name', 'link', 'intro', 'people', 'funding', 'dep', 'approved', 'isSaved']
+        fields = ['id', 'name', 'link', 'intro', 'people', 'funding', 'dep', 'approved', 'isSaved', 'emails']
 
     def get_isSaved(self, obj):
         user_id = self.context['request'].user.id
