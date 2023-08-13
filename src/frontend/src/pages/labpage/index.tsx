@@ -14,6 +14,7 @@ import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
 import IntroPlaceHolder from './infoLoading';
+import ComPlaceHolder from './comPlaceHolder';
 
 function getRandomColor(): string { 
     const colors = ['red','#90731E', '#0277BD', 'pink', 'green', 'orange', 'purple', '#F29902', 'brown', 'gray', 'teal'];
@@ -196,21 +197,18 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
             { /* Real content begin */}
             <Typography variant="h6">Reviews</Typography>
             {isWaitingCom? 
-            <Stack spacing={1} sx={{marginBottom: '20px'}}>
-                <Skeleton variant="rounded" sx={{ width: '100%', height: 90 }} />
-                <Skeleton variant="rounded" sx={{ width: '100%', height: 90 }} />
-                <Skeleton variant="rounded" sx={{ width: '100%', height: 90 }} />
-                <Skeleton variant="rounded" sx={{ width: '100%', height: 90 }} />
-                <Skeleton variant="rounded" sx={{ width: '100%', height: 90 }} />
-                </Stack>:
+            <ComPlaceHolder/>:
                 <Box
+                    
                     sx={{
                         // maxHeight: '70vh',
                         // overflowY: 'auto',
                         flexGrow: 1, // Make this Box grow to fill available space
                         flexShrink: 0, // Prevent this Box from shrinking
                         overflowY: 'auto',
+                        spacing: 2
                     }}
+                    
                 >
                     {comments.length == 0 && <Typography>
                         🥺 Oops! No comments found</Typography>}
@@ -225,8 +223,6 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
                                 overflow: 'auto',
                                 boxShadow: '0px 2px 3px rgba(0, 0, 0, 0.5)',
                                 position: 'relative',
-                                marginTop: '10px'
-                        
                             }}
                         >  <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                                 <Typography sx={{ mr: 2 }}>{item.name}</Typography>
