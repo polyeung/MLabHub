@@ -67,7 +67,7 @@ export default function overview(props: {
         <Box style={{display:'flex', flexDirection: 'column', alignItems: 'center'}}> 
     {isWaiting ?
         <PlaceHolder/> :
-        <Grid container spacing={2} sx={{ justifyContent: 'center'}}>
+        <Grid container spacing={2} sx={{ justifyContent: 'left'}}>
             {(data.labs.length > 0) && data.labs.map((item) => (
                 <Grid item xs={12} sm={6} md={getMdSize(data.labs.length)} key={item.id} 
                 sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>

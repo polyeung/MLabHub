@@ -123,6 +123,9 @@ export default function labPanel() {
                                             link={item.link}
                                             setIsUpdating={setIsUpdating}
                                             isUpdating={isUpdateing}/>))
-    }</>
+    }
+    {(!isWaiting && data.length == 0) && <Typography sx={{mt: 1}}>
+                        🥺 Oops! No labs found</Typography>}
+    </>
     );
 };
