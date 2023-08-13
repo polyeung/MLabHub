@@ -13,9 +13,9 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import IconButton from '@mui/material/IconButton';
 import { ScreenContext } from '@/screenContext';
 import {SimpleLabInfoType} from '@/types/interface';
-import CircularProgress from '@mui/material/CircularProgress';
 import getCookie from '@/components/csrfToken';
 import { useNotifs } from '@/context';
+import PlaceHolder from './placeHolder';
 
 interface labCardProps { 
   name: string,
@@ -115,13 +115,7 @@ export default function labPanel() {
 
     return (
         <>{isWaiting ?
-          <Stack spacing={1} sx={{marginBottom: '20px'}}>
-          <Skeleton variant="rounded" sx={{ width: '100%', height: 90 }} />
-          <Skeleton variant="rounded" sx={{ width: '100%', height: 90 }} />
-          <Skeleton variant="rounded" sx={{ width: '100%', height: 90 }} />
-          <Skeleton variant="rounded" sx={{ width: '100%', height: 90 }} />
-          <Skeleton variant="rounded" sx={{ width: '100%', height: 90 }} />
-          </Stack>:
+          <PlaceHolder/>:
         data.map((item, index) => (<LabCard key={ "labcard-"+ String(index)}
                                             name={item.name}
                                             dep={item.dep}
