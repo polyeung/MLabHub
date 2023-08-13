@@ -118,7 +118,7 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
         borderRadius: '10px',
        
         boxShadow: '0px 3px 10px rgba(0, 0, 0, 0.5)',
-        borderTop: '1px solid blue',
+
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between', // Added this to make content distribute evenly
