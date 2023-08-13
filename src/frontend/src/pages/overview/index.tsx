@@ -11,6 +11,7 @@ import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import ClearIcon from '@mui/icons-material/Clear';
+import PlaceHolder from './placeHolder';
 export default function overview(props: {
     userData: UserData | undefined | null;
 }) { 
@@ -64,44 +65,8 @@ export default function overview(props: {
     }
     return (
         <Box style={{display:'flex', flexDirection: 'column', alignItems: 'center'}}> 
-            {/*
-            <Box
-                sx={{
-                    display: 'flex',
-                    justifyContent: isSmallScreen ? 'center' : 'flex-start',
-                    width: isSmallScreen ? '800px' : '600px', // full width on small screens
-                    position: 'flex',
-                    top: 180,
-                    left: isSmallScreen ? 0 : '10%', // centered on large screens
-                    right: isSmallScreen ? 0 : '10%', // centered on large screens
-                    zIndex: 100
-                }}
-                >
-  
-
-            <Paper
-                component="form"
-                sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: '100%', mb:5}}
-                >
-                <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
-                    <SearchIcon />
-                </IconButton>
-                <InputBase
-                    sx={{ ml: 1, flex: 1 }}
-                    value={searchValue}
-                    onChange={handleSearchChange}
-                    placeholder="Search for lab, department, professor and more..."
-                    inputProps={{ 'aria-label': 'search google maps' }}
-                />
-                <IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={handleClearSearch}>
-                    <ClearIcon />
-                </IconButton>
-            </Paper>
-            </Box>
-            */}
     {isWaiting ?
-        <Typography variant='h5' sx={{mt:20}}>Loading Lab contents...<CircularProgress /></Typography> :
-
+        <PlaceHolder/> :
         <Grid container spacing={2} sx={{ justifyContent: 'center'}}>
             {(data.labs && data.labs.length > 0)? data.labs.map((item) => (
                 <Grid item xs={12} sm={6} md={getMdSize(data.labs.length)} key={item.id} 
