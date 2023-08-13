@@ -11,6 +11,9 @@ import getCookie from '../../components/csrfToken';
 import CircularProgress from '@mui/material/CircularProgress';
 import { ScreenContext } from '@/screenContext';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
+import Skeleton from "@mui/material/Skeleton";
+import Stack from "@mui/material/Stack";
+import IntroPlaceHolder from './infoLoading';
 
 function getRandomColor(): string { 
     const colors = ['red','#90731E', '#0277BD', 'pink', 'green', 'orange', 'purple', '#F29902', 'brown', 'gray', 'teal'];
@@ -139,7 +142,8 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
                 }}
             />*/}
             { /* Real content begin */}
-            {isWaitingInfo ? <Typography variant='h5'>Loading Lab content ...<CircularProgress /> </Typography>:
+            {isWaitingInfo ? 
+            <IntroPlaceHolder/>:
             <Box sx={{ flexGrow: 1, overflow: 'auto' }}>
             <Typography variant="h5">{labinfo.name}</Typography>
             
@@ -191,14 +195,25 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
             />*/}
             { /* Real content begin */}
             <Typography variant="h6">Reviews</Typography>
-            {isWaitingCom?  <Typography variant='h5'>Loading Lab comments...<CircularProgress /></Typography>:
+            {isWaitingCom? 
+            <Stack spacing={1} sx={{marginBottom: '20px'}}>
+                <Skeleton variant="rounded" sx={{ width: '100%', height: 90 }} />
+                <Skeleton variant="rounded" sx={{ width: '100%', height: 90 }} />
+                <Skeleton variant="rounded" sx={{ width: '100%', height: 90 }} />
+                <Skeleton variant="rounded" sx={{ width: '100%', height: 90 }} />
+                <Skeleton variant="rounded" sx={{ width: '100%', height: 90 }} />
+                </Stack>:
                 <Box
                     sx={{
-                        maxHeight: '50vh',
+                        // maxHeight: '70vh',
+                        // overflowY: 'auto',
+                        flexGrow: 1, // Make this Box grow to fill available space
+                        flexShrink: 0, // Prevent this Box from shrinking
                         overflowY: 'auto',
                     }}
                 >
-            
+                    {comments.length == 0 && <Typography>
+                        🥺 Oops! No comments found</Typography>}
                     {comments.map((item) => (
                         <Box
                             padding={2}

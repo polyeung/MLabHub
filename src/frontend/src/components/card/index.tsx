@@ -48,7 +48,6 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
   function parseSingleName(): parsedNameInt {
     const strList = people.split(',');
     const emailList = emails? emails.split(','): ["N/A"];
-    console.log("email List: ", emailList);
     let full_name = "N/A";
     let initial = "N/A"
     if (strList.length > 0){

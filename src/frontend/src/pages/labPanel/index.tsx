@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import { CardHeader } from '@mui/material';
+import { CardHeader, Stack, Skeleton } from '@mui/material';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
@@ -115,7 +115,13 @@ export default function labPanel() {
 
     return (
         <>{isWaiting ?
-        <Typography variant='h5'>Loading Lab contents...<CircularProgress /></Typography>:
+          <Stack spacing={1} sx={{marginBottom: '20px'}}>
+          <Skeleton variant="rounded" sx={{ width: '100%', height: 90 }} />
+          <Skeleton variant="rounded" sx={{ width: '100%', height: 90 }} />
+          <Skeleton variant="rounded" sx={{ width: '100%', height: 90 }} />
+          <Skeleton variant="rounded" sx={{ width: '100%', height: 90 }} />
+          <Skeleton variant="rounded" sx={{ width: '100%', height: 90 }} />
+          </Stack>:
         data.map((item, index) => (<LabCard key={ "labcard-"+ String(index)}
                                             name={item.name}
                                             dep={item.dep}

@@ -119,7 +119,7 @@ function dashboard(props: { userData: UserData |  null | undefined; }) {
         backgroundColor: 'white',
         borderRadius: '10px',
         boxShadow: '0px 3px 10px rgba(0, 0, 0, 0.5)',
-        borderTop: '1px solid blue',
+        
         position: 'relative',
         display: 'flex',
         flexDirection: 'column',
