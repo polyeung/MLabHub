@@ -16,7 +16,7 @@ export default function overview(props: {
     userData: UserData | undefined | null;
 }) { 
     const [data, setData] = useState<ResponseAllLabs>(ResponseAllLabsTemp);
-    const [isWaiting, setIsWaiting] = useState<boolean>(false);
+    const [isWaiting, setIsWaiting] = useState<boolean>(true);
     const [page, setPage] = useState(1);
 
     const { isSmallScreen, isMiddleScreen } = React.useContext(ScreenContext);
@@ -68,7 +68,7 @@ export default function overview(props: {
     {isWaiting ?
         <PlaceHolder/> :
         <Grid container spacing={2} sx={{ justifyContent: 'center'}}>
-            {(data.labs && data.labs.length > 0)? data.labs.map((item) => (
+            {(data.labs.length > 0) && data.labs.map((item) => (
                 <Grid item xs={12} sm={6} md={getMdSize(data.labs.length)} key={item.id} 
                 sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <Cards
@@ -82,7 +82,8 @@ export default function overview(props: {
                         emails={item.emails}
                         isSaved={item.isSaved}/>
                 </Grid>
-            )): <div>Oops! Not result found.</div>}
+            ))}
+             {(data.labs.length === 0 && !isWaiting) && <div>Oops! Not result found.</div>}
         </Grid>}
         {!isWaiting && 
         <Pagination
