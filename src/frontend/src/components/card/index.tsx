@@ -15,9 +15,10 @@ import { umichImg, stadiumImg, bbbImg } from '@/assets';
 import { useNavigate } from 'react-router-dom';
 import StarIcon from '@mui/icons-material/Star';
 import { LocationState } from '@/types/interface';
-import { UserData } from '@/types/interface';
+import { UserData, parsedNameInt } from '@/types/interface';
 import { useNotifs } from '@/context';
 import getCookie from '@/components/csrfToken';
+import Tooltip from '@mui/material/Tooltip';
 
 interface labinfoInt { 
     name: string,
@@ -27,10 +28,11 @@ interface labinfoInt {
     id: number,
     dep: string,
     isSaved: boolean,
+    emails: string,
     userData: UserData | null | undefined;
 };
 
-export default function RecipeReviewCard({ name, link, people, intro, id, userData, dep, isSaved}: labinfoInt) {
+export default function RecipeReviewCard({ name, link, people, intro, id, userData, dep, emails, isSaved}: labinfoInt) {
   const navigate = useNavigate();
   const notifs = useNotifs();
   const [saved, setSaved] = useState<boolean>(isSaved);
@@ -43,7 +45,18 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
       textOverflow: 'ellipsis',
     },
   };
-
+  function parseSingleName(): parsedNameInt {
+    const strList = people.split(',');
+    const emailList = emails? emails.split(','): ["N/A"];
+    let full_name = "N/A";
+    let initial = "N/A"
+    if (strList.length > 0){
+      let nameSep = strList[0].trim().split(' ');
+      full_name = (emailList[0] == 'N/A' || emailList[0] == 'NA') ? strList[0]:strList[0] + " / " + emailList[0];
+      initial = nameSep.length == 1 ? String(nameSep[0][0]) : String(nameSep[0][0] + nameSep[1][0]);
+    }
+    return { name: full_name, initial: initial };
+  }
   const handleClick = () => { 
     const options: LocationState = {
         state: {
@@ -108,9 +121,9 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
           }
         }}
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            AD
-          </Avatar>
+          <Tooltip title={parseSingleName().name}>
+            <Avatar sx={{ width: 40, height: 40, bgcolor: '#F44336' }}>{parseSingleName().initial}</Avatar>
+          </Tooltip>
         }
         action={
           <IconButton onClick={handleClick}>

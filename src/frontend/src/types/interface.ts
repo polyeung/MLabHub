@@ -13,17 +13,24 @@ export interface LabInfoType {
     link: string,
     people: string,
     intro: string,
+    emails: string,
     dep: string,
     isSaved: boolean
 };
 
 export interface ResponseAllLabs {
     total_page: number,
+    count: number,
+    previous: string | null,
+    next: string | null,
     labs: LabInfoType[]
 };
 
 export const ResponseAllLabsTemp: ResponseAllLabs = {
     total_page: 0,
+    count: 0,
+    previous: null,
+    next: null,
     labs: [] as LabInfoType[]
 };
 export interface LocationState extends NavigateOptions {
