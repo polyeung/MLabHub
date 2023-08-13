@@ -18,13 +18,6 @@ function getRandomColor(): string {
     return colors[randomIndex];
 }
 
-const boxStyles = {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(12, 1fr)',
-    gridAutoRows: '400px',
-    gap: '20px',
-    width: '100vw',
-  };
   
 const smallScreenStyles = {
     gridTemplateColumns: 'repeat(6, 1fr)',
@@ -107,21 +100,30 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
                     .catch(console.warn);
         })
     };
-    return (<Box style={boxStyles} sx={{ '@media (max-width: 600px)': smallScreenStyles }}>
-        <Box padding={2}
-            sx={{
-                gridColumn: (isSmallScreen || isMiddleScreen)? 'span 12':'span 8',
-                gridRow: (isSmallScreen || isMiddleScreen)? '':'span 4',
-                backgroundColor: 'white',
-                borderRadius: '10px',
-                boxShadow: '0px 3px 10px rgba(0, 0, 0, 0.5)',
-                borderTop: '1px solid blue',
-                maxHeight: '60vh',
-                position: 'relative',
-                display: 'flex',
-                flexDirection: 'column',
-            }}
-        >
+    const boxStyles = {
+        display: 'grid',
+        gridTemplateColumns: 'repeat(12, 1fr)',
+        //gridAutoRows: '200px',
+        gridAutoRows: 'minmax(100px, auto)',
+        gap: '20px',
+        width: '100vw',
+      };
+    return (<Box style={boxStyles} >
+    <Box
+      padding={2}
+      sx={{
+        gridColumn: isSmallScreen || isMiddleScreen ? 'span 12' : 'span 8',
+        gridRow: isSmallScreen || isMiddleScreen ? '' : 'span 4',
+        backgroundColor: 'white',
+        borderRadius: '10px',
+       
+        boxShadow: '0px 3px 10px rgba(0, 0, 0, 0.5)',
+        borderTop: '1px solid blue',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between', // Added this to make content distribute evenly
+      }}
+    >{/* 
             <Box
                 sx={{
                     position: 'absolute',
@@ -135,10 +137,10 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
                     borderTopRightRadius: '10px',
                     borderBottom: '1px solid #00274c',
                 }}
-            />
+            />*/}
             { /* Real content begin */}
             {isWaitingInfo ? <Typography variant='h5'>Loading Lab content ...<CircularProgress /> </Typography>:
-            <Box>
+            <Box sx={{ flexGrow: 1, overflow: 'auto' }}>
             <Typography variant="h5">{labinfo.name}</Typography>
             
             <Box sx={{display: 'flex', flexDirection: 'row', mt: '10px'}}>
@@ -153,7 +155,9 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
                 Go to website
             </Button>
             </a>
-            <Typography sx={{ mt: '10px' }}>{ labinfo.intro }</Typography>
+            <Box sx={{flexGrow: 1, overflow: 'auto'}}>
+            <Typography sx={{ mt: '10px' }}>{labinfo.intro}</Typography>
+            </Box>
             
             </Box>
             }
@@ -161,19 +165,17 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
         <Box
             padding={2}
             sx={{
-                gridColumn: (isSmallScreen || isMiddleScreen)? 'span 12':'span 4',
+                gridColumn: isSmallScreen || isMiddleScreen ? 'span 12' : 'span 4',
                 gridRow: 'span 4',
                 backgroundColor: 'white',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'left',
-                overflow: 'auto',
-                maxHeight: '60vh',
                 borderRadius: '10px',
                 boxShadow: '0px 3px 10px rgba(0, 0, 0, 0.5)',
-                position: 'relative'
+                display: 'flex',
+                flexDirection: 'column',
+
             }}
-        >
+            >
+                {/* 
             <Box
                 sx={{
                     position: 'absolute',
@@ -186,7 +188,7 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
                     borderTopRightRadius: '10px',
                     borderBottom: '1px solid #FFCB02',
                 }}
-            />
+            />*/}
             { /* Real content begin */}
             <Typography variant="h6">Reviews</Typography>
             {isWaitingCom?  <Typography variant='h5'>Loading Lab comments...<CircularProgress /></Typography>:
@@ -232,13 +234,13 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
                     ))}
                 </Box>
             }
-            <Box sx={{
-                    position: "absolute",
-                    bottom: 10,
-                    width: "90%",
+              <Box
+                    sx={{
                     display: 'flex',
-                    flexDirection: 'row'
-                }}>
+                    flexDirection: 'row',
+                    alignItems: 'center', // Align items to the center
+                    }}
+                >
                 <ComPopper
                     userData={props.userData}
                     labid={ID}

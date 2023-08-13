@@ -53,9 +53,7 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
     let initial = "N/A"
     if (strList.length > 0){
       let nameSep = strList[0].trim().split(' ');
-      // console.log(nameSep);
-      full_name = emailList[0] == 'N/A' ? strList[0]:strList[0] + " / " + emailList[0];
-      
+      full_name = (emailList[0] == 'N/A' || emailList[0] == 'NA') ? strList[0]:strList[0] + " / " + emailList[0];
       initial = nameSep.length == 1 ? String(nameSep[0][0]) : String(nameSep[0][0] + nameSep[1][0]);
     }
     return { name: full_name, initial: initial };
@@ -125,8 +123,7 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
         }}
         avatar={
           <Tooltip title={parseSingleName().name}>
-            
-            <Avatar sx={{ width: 40, height: 40 }}>{parseSingleName().initial}</Avatar>
+            <Avatar sx={{ width: 40, height: 40, bgcolor: '#F44336' }}>{parseSingleName().initial}</Avatar>
           </Tooltip>
         }
         action={
