@@ -3,16 +3,10 @@ import Grid from '@mui/material/Grid';
 import { ResponseAllLabs, ResponseAllLabsTemp} from '@/types/interface';
 import Cards from '@/components/card';
 import { UserData } from '@/types/interface';
-import CircularProgress from '@mui/material/CircularProgress';
 import { Typography, Pagination, Box, TextField } from '@mui/material';
 import { ScreenContext } from '@/screenContext';
-import Paper from '@mui/material/Paper';
-import InputBase from '@mui/material/InputBase';
-import IconButton from '@mui/material/IconButton';
-import SearchIcon from '@mui/icons-material/Search';
-import ClearIcon from '@mui/icons-material/Clear';
 import PlaceHolder from './placeHolder';
-import SideBar from '@/components/sidebar';
+import FilterBar from '@/components/filterbar';
 
 /*SideBar */
 
@@ -73,7 +67,7 @@ export default function overview(props: {
     {isWaiting ?
         <PlaceHolder/> :
         <Box sx={{ display: 'flex' , flexDirection: 'column'}}>
-        
+        <FilterBar />
         <Grid container spacing={2} sx={{ justifyContent: 'left' }}>
             {(data.labs.length > 0) && data.labs.map((item) => (
                 <Grid item xs={12} sm={6} md={getMdSize(data.labs.length)} key={item.id} 
