@@ -16,6 +16,7 @@ import Fab from '@mui/material/Fab';
 import BottomBanner from './components/bottombanner'
 
 
+
 function ProtectedRoute(props: {
 	userData: UserData | undefined | null;
 	page: JSX.Element;
@@ -86,11 +87,14 @@ function App() {
   };
 
 
+
+
   return (
 
       <React.Fragment>
       { /* navbar begin. */}
       <Navbar userData={userData} />
+      
       {visible && <Fab aria-label="go to top" onClick={scrollTop}
         sx={{
           position: 'fixed',
@@ -113,6 +117,7 @@ function App() {
         </Typography>
       </Fab>}
       { /*navbar end */}
+
         <Container
 				maxWidth="lg"
 				sx={{
@@ -141,6 +146,7 @@ function App() {
         </Routes>
         
       </Container>
+
       <BottomBanner/>
       </React.Fragment>
 

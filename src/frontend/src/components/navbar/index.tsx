@@ -23,6 +23,7 @@ import getCookie from '@/components/csrfToken';
 import { ScreenContext } from '@/screenContext';
 import HomeIcon from '@mui/icons-material/Home';
 
+
 const pages = [['Home', '/', '0'], ['Research Opportunities', '/jobs', '1'], ['Post Jobs', '/post', '2'], ['Post Lab Info', '/create', '3']];
 const pagesStack = [['Home', '/'], ['Research Opportunities', '/jobs'], ['Post Jobs', '/post'], ['Post Lab Info', '/create'], ['Dashboard', '/dashboard']]
 
@@ -113,6 +114,7 @@ function NavBar({ userData }: { userData?: UserData | null }) {
   }
   const [imgHeight, imgLeftMargin] = getImgStyle();
 
+
   return (
 
       <AppBar position="static" style={{ backgroundColor: '#001E3E' }}>
@@ -126,6 +128,7 @@ function NavBar({ userData }: { userData?: UserData | null }) {
       {/*First Tool Bar */ }
         <Toolbar disableGutters variant='dense'>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none', }  }}>
+         
             <IconButton
               size="small"
               aria-label="account of current user"

@@ -16,6 +16,7 @@ import Stack from "@mui/material/Stack";
 import IntroPlaceHolder from './infoLoading';
 import ComPlaceHolder from './comPlaceHolder';
 
+
 function getRandomColor(): string { 
     const colors = ['red','#90731E', '#0277BD', 'pink', 'green', 'orange', 'purple', '#F29902', 'brown', 'gray', 'teal'];
     const randomIndex = Math.floor(Math.random() * colors.length);
@@ -113,6 +114,7 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
         width: '100vw',
       };
     return (<Box style={boxStyles} >
+        
     <Box
       padding={2}
       sx={{
@@ -260,7 +262,7 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
             </Box>
         </Box>
 
-       
+        
     </Box>
 );
 };
