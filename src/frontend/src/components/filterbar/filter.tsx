@@ -3,11 +3,28 @@ import Box from '@mui/material/Box';
 import Popper from '@mui/material/Popper';
 import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
+import { ClickAwayListener, Paper} from '@mui/material';
 
 interface props {
   name: string
 };
-export default function TransitionsPopper({name}: props) {
+
+interface PopperProps {
+  isOpen: boolean;
+  anchorEl: null | HTMLElement;
+  clickAwayHandler: () => void; // Now just a simple function that doesn't accept any parameters
+}
+
+const MyPopper = ({isOpen,anchorEl, clickAwayHandler}: PopperProps) => (
+  <ClickAwayListener onClickAway={clickAwayHandler}>
+      <Popper open={isOpen} anchorEl={anchorEl}>
+              <Box sx={{ border: 1, p: 1, bgcolor: 'background.paper' }}>
+                The content of the Popper.
+              </Box>
+      </Popper>
+  </ClickAwayListener> 
+);
+export default function TransitionsPopper({ name }: props) {
   const [open, setOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
@@ -21,18 +38,10 @@ export default function TransitionsPopper({name}: props) {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClick}>
-        {name}
-      </Button>
-      <Popper id={id} open={open} anchorEl={anchorEl} transition>
-        {({ TransitionProps }) => (
-          <Fade {...TransitionProps} timeout={350}>
-            <Box sx={{ border: 1, p: 1, bgcolor: 'background.paper' }}>
-              The content of the Popper.
-            </Box>
-          </Fade>
-        )}
-      </Popper>
+      <Button onClick={handleClick}>Toggle pop-up</Button>
+      {
+        open && <MyPopper isOpen={open} anchorEl={anchorEl} clickAwayHandler={() => setOpen(false)}/> 
+      }
     </div>
   );
 }
