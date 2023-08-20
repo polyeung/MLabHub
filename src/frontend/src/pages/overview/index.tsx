@@ -1,25 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import Grid from '@mui/material/Grid';
-import { ResponseAllLabs, ResponseAllLabsTemp} from '@/types/interface';
+import { ResponseAllLabs, ResponseAllLabsTemp,  overviewProps} from '@/types/interface';
 import Cards from '@/components/card';
 import { UserData } from '@/types/interface';
 import { Typography, Pagination, Box, TextField } from '@mui/material';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { ScreenContext } from '@/screenContext';
 import PlaceHolder from './placeHolder';
-import FilterBar from '@/components/filterbar';
+
 
 /*SideBar */
 
 /*Sidebar end */
-export default function overview(props: {
-    userData: UserData | undefined | null;
-}) { 
+export default function overview({userData, searchCriteria, setDict}: overviewProps) { 
     const [data, setData] = useState<ResponseAllLabs>(ResponseAllLabsTemp);
     const [isWaiting, setIsWaiting] = useState<boolean>(true);
-    const [page, setPage] = useState(1);
-
     const { isSmallScreen, isMiddleScreen } = React.useContext(ScreenContext);
     const [searchValue, setSearchValue] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+    // get current url
+    const searchParams = new URLSearchParams(location.search);
+    // get param from current url
+    const initialPage = searchParams.get('page') ? parseInt(searchParams.get('page') as string) : 1;
+
+    const [page, setPage] = useState(initialPage);
+
+    // search criteria starts
 
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchValue(event.target.value);
@@ -36,14 +43,37 @@ export default function overview(props: {
 
     useEffect(() => {
         setIsWaiting(true);
-        fetch('/api/lab/getLabInfo2/?page=' + String(page) + '&search=' + searchValue)
+        fetch('/api/lab/getLabInfo2/?page=' + String(page) + '&school=' + searchCriteria["school"])
             .then(response => response.json())
             .then(data => {
                 setData(data);
                 console.log(data);
                 setIsWaiting(false);
             });
-      }, [page, searchValue]);
+        const newUrl = new URL(window.location.toString());
+        newUrl.searchParams.set('page', page.toString());
+        navigate(newUrl.pathname + newUrl.search);
+        console.log("search criteria: ", searchCriteria);
+      }, [page]);
+
+      useEffect(() => {
+        setIsWaiting(true);
+        const newUrl = new URL(window.location.toString());
+        fetch('/api/lab/getLabInfo2/?' + 'school=' + searchCriteria["school"])
+            .then(response => response.json())
+            .then(data => {
+                setData(data);
+                console.log(data);
+                const newUrl = new URL(window.location.toString()); // Create a fresh instance here
+                newUrl.searchParams.set('page',parseInt(data.total_page) < page ? "1":page.toString());
+                if (searchCriteria["school"].length > 0){
+                    newUrl.searchParams.set('school', searchCriteria["school"]);
+                }
+                // You may move the navigation logic here, after all conditions have been checked.
+                setIsWaiting(false);
+                navigate(newUrl.pathname + newUrl.search);
+            });
+      }, [searchCriteria]);
     
     const getMdSize = (length: number) => {
         if(length == 1){
@@ -67,7 +97,6 @@ export default function overview(props: {
     {isWaiting ?
         <PlaceHolder/> :
         <Box sx={{ display: 'flex' , flexDirection: 'column'}}>
-        <FilterBar />
         <Grid container spacing={2} sx={{ justifyContent: 'left' }}>
             {(data.labs.length > 0) && data.labs.map((item) => (
                 <Grid item xs={12} sm={6} md={getMdSize(data.labs.length)} key={item.id} 
@@ -79,7 +108,7 @@ export default function overview(props: {
                         intro={item.intro}
                         id={item.id}
                         dep={item.dep}
-                        userData={props.userData}
+                        userData={userData}
                         emails={item.emails}
                         isSaved={item.isSaved}
                     />

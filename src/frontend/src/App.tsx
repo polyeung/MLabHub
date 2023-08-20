@@ -14,8 +14,8 @@ import Dashboard from './pages/dashboard';
 import getCookie from './components/csrfToken';
 import Fab from '@mui/material/Fab';
 import BottomBanner from './components/bottombanner'
-
-
+import {SearchCriteriaProps} from '@/types/interface';
+import FilterBar from '@/components/filterbar';
 
 function ProtectedRoute(props: {
 	userData: UserData | undefined | null;
@@ -86,6 +86,25 @@ function App() {
     });
   };
 
+  // For Search Criteria
+  const searchParams = new URLSearchParams(location.search);
+  // get param from current url
+  const initialSchool = searchParams.get('school') ? searchParams.get('school') as string : "";
+  const initialDep = searchParams.get('dep') ? searchParams.get('dep') as string : "";
+  const initialLabel = searchParams.get('label') ? searchParams.get('label') as string : "";
+
+  const setSearchKey = React.useCallback((key:string, value:string) => {
+    setSearchCriteria(prevCriteria => ({
+      ...prevCriteria,
+      [key]: value
+    }));
+  }, []);
+
+  const [searchCriteria, setSearchCriteria] = useState<SearchCriteriaProps>({
+    school: initialSchool,
+    dep: initialDep,
+    label: initialLabel
+  });
 
 
 
@@ -131,7 +150,13 @@ function App() {
 			>
         <Routes>
           { /*Non protected Routes */}
-          <Route path="/" element={<Overview userData={userData}/>} />
+          <Route path="/" element={
+            <Box style={{display:'flex', flexDirection: 'column', alignItems: 'center'}}>
+              <FilterBar searchCriteria={searchCriteria} setDict={setSearchKey}/>
+              <Overview userData={userData} searchCriteria={searchCriteria} setDict={setSearchKey}/>
+            </Box>
+          } />
+          
           <Route path="/labpage" element={<Labpage userData={userData}/>} />
           <Route path="/jobs" element={<Jobs />} />
 

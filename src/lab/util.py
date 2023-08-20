@@ -2,15 +2,18 @@
 
 
 def school_to_dep(school):
-    school = school.strip()
     if not school:
         return []
+    school_list = school.strip().split(",")
     mydict = {
-        "Literature, Sci, and the Arts": ["MATH"],
-        "Engineering": ["CSE", "ME", "BME"],
-        "Information": ["SI"],
+        "lsa": ["MATH"],
+        "eng": ["CSE", "ME", "BME"],
+        "si": ["SI"],
     }
-    if school in mydict.keys():
-        return mydict[school]
-    else:
-        return []
+    res_list = []
+    print(school_list)
+    for school_key in school_list:
+        if school_key in mydict:
+            res_list += mydict[school_key]
+
+    return res_list
