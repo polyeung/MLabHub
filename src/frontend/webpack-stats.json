@@ -285,6 +285,10 @@
       "name": "main-d0a8f5dcbdc10ae2ecb2.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-d0a8f5dcbdc10ae2ecb2.js"
     },
+    "main-d1d3facdf8693a5e143c.js": {
+      "name": "main-d1d3facdf8693a5e143c.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-d1d3facdf8693a5e143c.js"
+    },
     "main-d36ec5b0e096e7e339d0.js": {
       "name": "main-d36ec5b0e096e7e339d0.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-d36ec5b0e096e7e339d0.js"
@@ -360,7 +364,7 @@
   },
   "chunks": {
     "main": [
-      "main-14c26b805cf9c6c34730.js"
+      "main-d1d3facdf8693a5e143c.js"
     ]
   },
   "error": "ModuleNotFoundError",

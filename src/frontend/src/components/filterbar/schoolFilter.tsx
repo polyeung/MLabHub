@@ -41,7 +41,6 @@ export default function TransitionsPopper({searchCriteria, setDict, state, setSt
   const canBeOpen = open && Boolean(anchorEl);
   const id = canBeOpen ? 'transition-popper' : undefined;
 
-  const [count, setCount] = React.useState(0);
   // for eg. select lsa, eng but not si => lsa,eng
   const getSchoolStr = () => {
     return Object.entries(state)
@@ -58,8 +57,7 @@ export default function TransitionsPopper({searchCriteria, setDict, state, setSt
     console.log("value: ",  event.target.checked);
     setState(newState);
 
-    const newCount = event.target.checked ? count + 1 : count - 1;
-    setCount(newCount);
+    
 
     const newSchoolStr = Object.entries(newState)
           .filter(([, value]) => value)
@@ -76,7 +74,7 @@ export default function TransitionsPopper({searchCriteria, setDict, state, setSt
 
   const { si, lsa, eng } = state;
   const error = [si, lsa, eng].filter((v) => v).length !== 2;
-
+  const count = Object.values(state).filter(Boolean).length;
   const MyPopper = ({isOpen,anchorEl, clickAwayHandler}: PopperProps) => (
     <ClickAwayListener onClickAway={clickAwayHandler}>
         <Popper open={isOpen} anchorEl={anchorEl}>
