@@ -17,7 +17,7 @@ interface PopperProps {
 
 const MyPopper = ({isOpen,anchorEl, clickAwayHandler}: PopperProps) => (
   <ClickAwayListener onClickAway={clickAwayHandler}>
-      <Popper open={isOpen} anchorEl={anchorEl}>
+      <Popper open={isOpen} anchorEl={anchorEl} style={{ zIndex: 1 }}>
               <Box sx={{ border: 1,mt:1, p: 1, bgcolor: 'background.paper' }}>
                 The content of the Popper.
               </Box>
@@ -40,7 +40,7 @@ export default function TransitionsPopper({ name }: props) {
     <div>
       <Button onClick={handleClick} variant="outlined" 
       sx={{ // Adjust as needed
-        fontSize: {sx:'0.5rem', md:'0.9rem'} ,
+        fontSize: {sx:'0.2rem', md:'0.9rem'} ,
         }}>{name}</Button>
       {
         open && <MyPopper isOpen={open} anchorEl={anchorEl} clickAwayHandler={() => setOpen(false)}/> 

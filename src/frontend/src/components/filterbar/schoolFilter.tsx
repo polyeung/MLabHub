@@ -77,7 +77,7 @@ export default function TransitionsPopper({searchCriteria, setDict, state, setSt
   const count = Object.values(state).filter(Boolean).length;
   const MyPopper = ({isOpen,anchorEl, clickAwayHandler}: PopperProps) => (
     <ClickAwayListener onClickAway={clickAwayHandler}>
-        <Popper open={isOpen} anchorEl={anchorEl}>
+        <Popper open={isOpen} anchorEl={anchorEl} style={{ zIndex: 1 }}>
                 <Box sx={{ mt:1, p: 1, bgcolor: 'background.paper',
                             boxShadow: '0px 3px 10px rgba(0, 0, 0, 0.5)',
                             display:'flex',
@@ -121,8 +121,8 @@ export default function TransitionsPopper({searchCriteria, setDict, state, setSt
     <div>
       <Button onClick={handleClick} variant={count > 0 ? "contained":"outlined" }
       sx={{
-        fontSize: {sx:'0.5rem', md:'0.9rem'},
-      }}>School</Button>
+        fontSize: {sx:'0.2rem', md:'0.9rem'},
+      }}>{count > 0? "(" + count+") ":""}School</Button>
       {
         open && <MyPopper isOpen={open} anchorEl={anchorEl} clickAwayHandler={() => setOpen(false)}/> 
       }

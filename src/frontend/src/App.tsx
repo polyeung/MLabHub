@@ -155,7 +155,6 @@ function App() {
             sx={{ 
                 display: 'flex', 
                 flexDirection: 'column', 
-                alignItems: { xs: 'center', sm:'initial', md: 'initial' } // 'center' on small screens, default alignment on medium and up
             }}
         >
               <FilterBar searchCriteria={searchCriteria} setDict={setSearchKey}/>
