@@ -154,7 +154,8 @@ function App() {
             <Box 
             sx={{ 
                 display: 'flex', 
-                flexDirection: 'column', 
+                flexDirection: 'column',
+                width: '100%'
             }}
         >
               <FilterBar searchCriteria={searchCriteria} setDict={setSearchKey}/>

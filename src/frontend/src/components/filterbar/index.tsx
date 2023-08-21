@@ -9,15 +9,17 @@ import Button from '@mui/material/Button';
 const filters = [ "Department", "Label"]
 
 const FilterBarComponent: React.FC<FilterProps> = ({ searchCriteria, setDict }) => {
-    const [state, setState] = React.useState(() => ({
+    const [schoolState, setSchoolState] = React.useState(() => ({
         "lsa": searchCriteria["school"].includes("lsa"),
         "eng": searchCriteria["school"].includes("eng"),
         "si": searchCriteria["school"].includes("si"),
     }));
+
+    
     const handleResetClick = () => {
         console.log("Reset!");
     };
-    const count = Object.values(state).filter(Boolean).length;
+    const count = Object.values(schoolState).filter(Boolean).length;
     return (
         <Box sx={{ 
             display: 'flex', 
@@ -34,8 +36,8 @@ const FilterBarComponent: React.FC<FilterProps> = ({ searchCriteria, setDict }) 
             <SchoolFilter 
                 searchCriteria={searchCriteria}
                 setDict={setDict}
-                state={state}
-                setState={setState}
+                state={schoolState}
+                setState={setSchoolState}
             />
             { 
                 filters.map((item, index) => 

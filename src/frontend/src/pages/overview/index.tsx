@@ -116,7 +116,7 @@ export default function overview({userData, searchCriteria, setDict}: overviewPr
                     />
                 </Grid>
             ))}
-            {(data.labs.length === 0 && !isWaiting) && <div>Oops! No result found.</div>}
+            {(data.labs.length === 0 && !isWaiting) && <div style={{marginTop: '50px'}}>Oops! No result found.</div>}
         </Grid>
     </Box>
 }
