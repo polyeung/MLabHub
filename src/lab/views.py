@@ -20,6 +20,8 @@ from django.core.paginator import Paginator
 from rest_framework import viewsets
 from rest_framework.pagination import PageNumberPagination
 from django.db.models import Q
+from lab.util import school_to_dep
+
 
 class CustomPagination(PageNumberPagination):
     def get_paginated_response(self, data):
@@ -76,13 +78,12 @@ class LabViewSet(viewsets.ReadOnlyModelViewSet):
 
     def get_queryset(self):
         queryset = None
-        search = self.request.query_params.get('search')
-        if search:
-            queryset = Lab.objects.filter(
-                Q(name__icontains=search) |
-                Q(dep__icontains=search) |
-                Q(people__icontains=search)
-            )
+        school = self.request.query_params.get('school')
+        school_list = school_to_dep(school)
+        print(school)
+        print("school_list: ", school_list)
+        if school and school_list:
+            queryset =  Lab.objects.filter(approved=True, dep__in=school_list)
         else:
             queryset = Lab.objects.filter(approved=True)
         return queryset

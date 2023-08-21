@@ -7,7 +7,7 @@ const data = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 export default function Loading() {
 
     return (
-        <Grid container spacing={2} sx={{ justifyContent: 'center' }}>
+        <Grid container spacing={2} sx={{ justifyContent: 'left' }}>
             {data.map((item, index) => (
                 <Grid item xs={12} sm={6} md={4} key={index}
                     sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>

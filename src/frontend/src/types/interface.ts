@@ -161,3 +161,31 @@ export interface ReviewFormProps {
 export interface JobReviewFormProps { 
     info: jobdataInt
 };
+
+
+export interface SearchCriteriaProps {
+    school: string,
+    dep: string,
+    label: string
+};
+
+export interface FilterProps {
+    searchCriteria: SearchCriteriaProps,
+    setDict: (key: string, value:string) => any
+};
+
+export interface overviewProps {
+    userData: UserData | undefined | null,
+    searchCriteria: SearchCriteriaProps,
+    setDict: (key: string, value:string) => any
+}
+
+type StringDictType = {
+    [key: string]: boolean;
+};
+export interface SchoolFilterProps{
+    searchCriteria: SearchCriteriaProps,
+    setDict: (key: string, value:string) => any,
+    state: StringDictType,
+    setState: React.Dispatch<React.SetStateAction<StringDictType>>
+}
