@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import SchoolFilter from './schoolFilter';
 import { FilterProps } from '@/types/interface';
 
-const filters = ["Research Focus", "Professor", "Rating"]
+const filters = [ "Department", "key word", "Label"]
 
 const FilterBarComponent: React.FC<FilterProps> = ({ searchCriteria, setDict }) => {
     const [state, setState] = React.useState(() => ({
@@ -17,8 +17,10 @@ const FilterBarComponent: React.FC<FilterProps> = ({ searchCriteria, setDict }) 
         <Box sx={{ 
             display: 'flex', 
             m: 1,
-            flexDirection: { xs: 'column', md: 'row' },
-            '& > *': { p: 1 }
+            flexDirection: 'row',
+            justifyContent: 'flex-start',
+            alignItems: 'left',
+            gap: {xs: 0.5, md: 3}
         }}>
             <SchoolFilter 
                 searchCriteria={searchCriteria}

@@ -78,7 +78,11 @@ export default function TransitionsPopper({searchCriteria, setDict, state, setSt
   const MyPopper = ({isOpen,anchorEl, clickAwayHandler}: PopperProps) => (
     <ClickAwayListener onClickAway={clickAwayHandler}>
         <Popper open={isOpen} anchorEl={anchorEl}>
-                <Box sx={{ mt:1, p: 1, bgcolor: 'background.paper',boxShadow: '0px 3px 10px rgba(0, 0, 0, 0.5)', }}>
+                <Box sx={{ mt:1, p: 1, bgcolor: 'background.paper',
+                            boxShadow: '0px 3px 10px rgba(0, 0, 0, 0.5)',
+                            display:'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'center'}}>
                   <Typography variant="h6">Filter by School</Typography>
                   <Box sx={{ display: 'flex' }}>
                     <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
@@ -115,7 +119,10 @@ export default function TransitionsPopper({searchCriteria, setDict, state, setSt
  
   return (
     <div>
-      <Button onClick={handleClick} variant="outlined">Department</Button>
+      <Button onClick={handleClick} variant="outlined" 
+      sx={{
+        fontSize: {sx:'0.5rem', md:'0.9rem'},
+      }}>School</Button>
       {
         open && <MyPopper isOpen={open} anchorEl={anchorEl} clickAwayHandler={() => setOpen(false)}/> 
       }

@@ -151,7 +151,13 @@ function App() {
         <Routes>
           { /*Non protected Routes */}
           <Route path="/" element={
-            <Box style={{display:'flex', flexDirection: 'column', alignItems: 'center'}}>
+            <Box 
+            sx={{ 
+                display: 'flex', 
+                flexDirection: 'column', 
+                alignItems: { xs: 'center', sm:'initial', md: 'initial' } // 'center' on small screens, default alignment on medium and up
+            }}
+        >
               <FilterBar searchCriteria={searchCriteria} setDict={setSearchKey}/>
               <Overview userData={userData} searchCriteria={searchCriteria} setDict={setSearchKey}/>
             </Box>

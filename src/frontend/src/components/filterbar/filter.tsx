@@ -38,7 +38,10 @@ export default function TransitionsPopper({ name }: props) {
 
   return (
     <div>
-      <Button onClick={handleClick} variant="outlined">{name}</Button>
+      <Button onClick={handleClick} variant="outlined" 
+      sx={{ // Adjust as needed
+        fontSize: {sx:'0.5rem', md:'0.9rem'} ,
+        }}>{name}</Button>
       {
         open && <MyPopper isOpen={open} anchorEl={anchorEl} clickAwayHandler={() => setOpen(false)}/> 
       }
