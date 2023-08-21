@@ -68,6 +68,8 @@ export default function overview({userData, searchCriteria, setDict}: overviewPr
                 newUrl.searchParams.set('page',parseInt(data.total_page) < page ? "1":page.toString());
                 if (searchCriteria["school"].length > 0){
                     newUrl.searchParams.set('school', searchCriteria["school"]);
+                } else {
+                    newUrl.searchParams.delete('school');
                 }
                 // You may move the navigation logic here, after all conditions have been checked.
                 setIsWaiting(false);

@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import SchoolFilter from './schoolFilter';
 import { FilterProps } from '@/types/interface';
 
-const filters = [ "Department", "key word", "Label"]
+const filters = [ "Department", "Label"]
 
 const FilterBarComponent: React.FC<FilterProps> = ({ searchCriteria, setDict }) => {
     const [state, setState] = React.useState(() => ({

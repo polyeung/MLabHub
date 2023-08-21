@@ -119,7 +119,7 @@ export default function TransitionsPopper({searchCriteria, setDict, state, setSt
  
   return (
     <div>
-      <Button onClick={handleClick} variant="outlined" 
+      <Button onClick={handleClick} variant={count > 0 ? "contained":"outlined" }
       sx={{
         fontSize: {sx:'0.5rem', md:'0.9rem'},
       }}>School</Button>
