@@ -171,7 +171,8 @@ export interface SearchCriteriaProps {
 
 export interface FilterProps {
     searchCriteria: SearchCriteriaProps,
-    setDict: (key: string, value:string) => any
+    setDict: (key: string, value:string) => any,
+    setSearchCriteria: React.Dispatch<React.SetStateAction<SearchCriteriaProps>>
 };
 
 export interface overviewProps {

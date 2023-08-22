@@ -5,19 +5,35 @@ import SchoolFilter from './schoolFilter';
 import { FilterProps } from '@/types/interface';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const filters = [ "Department", "Label"]
 
-const FilterBarComponent: React.FC<FilterProps> = ({ searchCriteria, setDict }) => {
+
+const FilterBarComponent: React.FC<FilterProps> = ({ searchCriteria, setDict, setSearchCriteria }) => {
     const [schoolState, setSchoolState] = React.useState(() => ({
         "lsa": searchCriteria["school"].includes("lsa"),
         "eng": searchCriteria["school"].includes("eng"),
         "si": searchCriteria["school"].includes("si"),
     }));
 
-    
+    const navigate = useNavigate();
     const handleResetClick = () => {
-        console.log("Reset!");
+        
+        const initSchoolState = {
+            "lsa": false,
+            "eng": false,
+            "si": false,
+        };
+        setSchoolState(initSchoolState);
+
+        const initSearchCriteriaState = {
+            "dep": "",
+            "school": "",
+            "label": ""
+        };
+        setSearchCriteria(initSearchCriteriaState);
+        navigate("/");
     };
     const count = Object.values(schoolState).filter(Boolean).length;
     return (

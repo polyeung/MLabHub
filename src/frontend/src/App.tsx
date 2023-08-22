@@ -158,7 +158,7 @@ function App() {
                 width: '100%'
             }}
         >
-              <FilterBar searchCriteria={searchCriteria} setDict={setSearchKey}/>
+              <FilterBar searchCriteria={searchCriteria} setDict={setSearchKey} setSearchCriteria={setSearchCriteria}/>
               <Overview userData={userData} searchCriteria={searchCriteria} setDict={setSearchKey}/>
             </Box>
           } />
