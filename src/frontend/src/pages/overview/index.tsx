@@ -30,6 +30,7 @@ export default function overview({userData, searchCriteria, setDict}: overviewPr
     const searchCriRef = React.useRef<SearchCriteriaProps>(SearchRefProps); 
     // track whether it is first time render
     const isFirstRender = React.useRef(true);
+    const isFromCriChanged = React.useRef(false);
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchValue(event.target.value);
     };
@@ -42,52 +43,46 @@ export default function overview({userData, searchCriteria, setDict}: overviewPr
         event.preventDefault();
         setPage(value);
       };
+    
 
-    useEffect(() => {
-        if(searchCriRef.current != searchCriteria || isFirstRender.current){
-            // this is triggered by searchCriteria, it will reset page state
-            // no need to api call
-            return;
-        }
-        setIsWaiting(true);
+    const getUpdatedUrl = (isForPage:boolean):URL =>{
         const newUrl = new URL(window.location.toString());
-        newUrl.searchParams.set('page', page.toString());
-        fetch('/api/lab/getLabInfo2/?'+ newUrl.search)
-            .then(response => response.json())
-            .then(data => {
-                setData(data);
-                console.log(data);
-                console.log("api call from page....");
-                setIsWaiting(false);
-                const history = window.history;
-                //navigate(newUrl.pathname + newUrl.search);
-                history.pushState({}, '', newUrl.pathname + newUrl.search);
-            });
-        
-      }, [page]);
+        if(!isForPage){
+            if (searchCriteria["school"].length > 0){
+                newUrl.searchParams.set('school', searchCriteria["school"]);
+            } else {
+                newUrl.searchParams.delete('school');
+            };
+            if (searchCriteria["search"].length > 0){
+                newUrl.searchParams.set('search', searchCriteria["search"]);
+            } else {
+                newUrl.searchParams.delete('search');
+            };
+            newUrl.searchParams.set('page', "1");
+            setPage(1);
+            isFromCriChanged.current=true;
+        }else{
+            newUrl.searchParams.set('page', page.toString());
+        }
+        return newUrl;
+    };
 
       useEffect(() => {
-        
+        // if this is triggered by criChanged
+        if(isFromCriChanged.current){
+            isFromCriChanged.current = false;
+            return;
+        };
         setIsWaiting(true);
-        const newUrl = new URL(window.location.toString());
-        if (searchCriteria["school"].length > 0){
-            newUrl.searchParams.set('school', searchCriteria["school"]);
-        } else {
-            newUrl.searchParams.delete('school');
-        };
-        if (searchCriteria["search"].length > 0){
-            newUrl.searchParams.set('search', searchCriteria["search"]);
-        } else {
-            newUrl.searchParams.delete('search');
-        };
-        newUrl.searchParams.set('page', "1");
-        setPage(1);
+        // check whether this useEffect comse from page variable changed
+        const isForPage = (searchCriRef.current == searchCriteria);
+        const newUrl = getUpdatedUrl(isForPage);
         fetch('/api/lab/getLabInfo2/' + newUrl.search)
             .then(response => response.json())
             .then(data => {
                 setData(data);
                 console.log(data);
-                console.log("api call from searchCriteria....");
+                console.log("api call....");
                 setIsWaiting(false);
                 const history = window.history;
                 //navigate(newUrl.pathname + newUrl.search);
@@ -96,7 +91,7 @@ export default function overview({userData, searchCriteria, setDict}: overviewPr
                 searchCriRef.current = searchCriteria;
                 isFirstRender.current = false;
             });
-      }, [searchCriteria]);
+      }, [searchCriteria, page]);
     
     const getMdSize = (length: number) => {
         if(length == 1){

@@ -1,5 +1,5 @@
 {
-  "status": "compile",
+  "status": "done",
   "assets": {
     "images/bbb.png": {
       "name": "images/bbb.png",
@@ -53,13 +53,25 @@
       "name": "main-3041b4f1d969b514f2c4.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-3041b4f1d969b514f2c4.js"
     },
+    "main-3d5cc893d9efecb6b8a9.js": {
+      "name": "main-3d5cc893d9efecb6b8a9.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-3d5cc893d9efecb6b8a9.js"
+    },
     "main-4c9b6a836334d9902dd3.js": {
       "name": "main-4c9b6a836334d9902dd3.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-4c9b6a836334d9902dd3.js"
     },
+    "main-4f72d4ec427f67ce5593.js": {
+      "name": "main-4f72d4ec427f67ce5593.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-4f72d4ec427f67ce5593.js"
+    },
     "main-54fa5731f4bb2e1f8433.js": {
       "name": "main-54fa5731f4bb2e1f8433.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-54fa5731f4bb2e1f8433.js"
+    },
+    "main-6a3d5048ece4e0ff7ce4.js": {
+      "name": "main-6a3d5048ece4e0ff7ce4.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-6a3d5048ece4e0ff7ce4.js"
     },
     "main-85094f5b29a99ba11e03.js": {
       "name": "main-85094f5b29a99ba11e03.js",
@@ -72,6 +84,10 @@
     "main-a54af94cf23f4b3cf104.js": {
       "name": "main-a54af94cf23f4b3cf104.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-a54af94cf23f4b3cf104.js"
+    },
+    "main-b3c5394cc022e950657b.js": {
+      "name": "main-b3c5394cc022e950657b.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-b3c5394cc022e950657b.js"
     },
     "main-bacd12e2550ee36a3a30.js": {
       "name": "main-bacd12e2550ee36a3a30.js",
@@ -88,7 +104,7 @@
   },
   "chunks": {
     "main": [
-      "main-bacd12e2550ee36a3a30.js"
+      "main-6a3d5048ece4e0ff7ce4.js"
     ]
   }
 }
