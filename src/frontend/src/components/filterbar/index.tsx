@@ -16,7 +16,7 @@ const FilterBarComponent: React.FC<FilterProps> = ({ searchCriteria, setDict, se
         "eng": searchCriteria["school"].includes("eng"),
         "si": searchCriteria["school"].includes("si"),
     }));
-
+    const [searchVal, setSearchVal] = React.useState("");
     const navigate = useNavigate();
     const handleResetClick = () => {
         
@@ -30,12 +30,19 @@ const FilterBarComponent: React.FC<FilterProps> = ({ searchCriteria, setDict, se
         const initSearchCriteriaState = {
             "dep": "",
             "school": "",
-            "label": ""
+            "label": "",
+            "search": ""
         };
         setSearchCriteria(initSearchCriteriaState);
         navigate("/");
     };
     const count = Object.values(schoolState).filter(Boolean).length;
+
+    const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchVal(event.target.value);
+        setDict("search", event.target.value as string);
+        console.log(searchCriteria);
+    };
     return (
         <Box sx={{ 
             display: 'flex', 
@@ -72,6 +79,8 @@ const FilterBarComponent: React.FC<FilterProps> = ({ searchCriteria, setDict, se
             flexDirection: 'row',}}>
             <TextField id="outlined-basic" label="Filter any field..." 
                 variant="outlined" size="small"
+                value={searchVal}
+                onChange={ handleSearchChange}
                 sx={{ width: '66%', marginBottom: { xs: 1, sm: 0 } }}/>
             </Box>
         </Box>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Grid from '@mui/material/Grid';
-import { ResponseAllLabs, ResponseAllLabsTemp,  overviewProps} from '@/types/interface';
+import { ResponseAllLabs, ResponseAllLabsTemp,  overviewProps,
+            SearchCriteriaProps, SearchRefProps} from '@/types/interface';
 import Cards from '@/components/card';
 import { UserData } from '@/types/interface';
 import { Typography, Pagination, Box, TextField } from '@mui/material';
@@ -23,11 +24,12 @@ export default function overview({userData, searchCriteria, setDict}: overviewPr
     const searchParams = new URLSearchParams(location.search);
     // get param from current url
     const initialPage = searchParams.get('page') ? parseInt(searchParams.get('page') as string) : 1;
-
     const [page, setPage] = useState(initialPage);
 
-    // search criteria starts
-
+    // to compare search Criteria
+    const searchCriRef = React.useRef<SearchCriteriaProps>(SearchRefProps); 
+    // track whether it is first time render
+    const isFirstRender = React.useRef(true);
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchValue(event.target.value);
     };
@@ -42,38 +44,57 @@ export default function overview({userData, searchCriteria, setDict}: overviewPr
       };
 
     useEffect(() => {
+        if(searchCriRef.current != searchCriteria || isFirstRender.current){
+            // this is triggered by searchCriteria, it will reset page state
+            // no need to api call
+            return;
+        }
         setIsWaiting(true);
-        fetch('/api/lab/getLabInfo2/?page=' + String(page) + '&school=' + searchCriteria["school"])
+        const newUrl = new URL(window.location.toString());
+        newUrl.searchParams.set('page', page.toString());
+        fetch('/api/lab/getLabInfo2/?'+ newUrl.search)
             .then(response => response.json())
             .then(data => {
                 setData(data);
                 console.log(data);
+                console.log("api call from page....");
                 setIsWaiting(false);
+                const history = window.history;
+                //navigate(newUrl.pathname + newUrl.search);
+                history.pushState({}, '', newUrl.pathname + newUrl.search);
             });
-        const newUrl = new URL(window.location.toString());
-        newUrl.searchParams.set('page', page.toString());
-        navigate(newUrl.pathname + newUrl.search);
-        console.log("search criteria: ", searchCriteria);
+        
       }, [page]);
 
       useEffect(() => {
+        
         setIsWaiting(true);
         const newUrl = new URL(window.location.toString());
-        fetch('/api/lab/getLabInfo2/?' + 'school=' + searchCriteria["school"])
+        if (searchCriteria["school"].length > 0){
+            newUrl.searchParams.set('school', searchCriteria["school"]);
+        } else {
+            newUrl.searchParams.delete('school');
+        };
+        if (searchCriteria["search"].length > 0){
+            newUrl.searchParams.set('search', searchCriteria["search"]);
+        } else {
+            newUrl.searchParams.delete('search');
+        };
+        newUrl.searchParams.set('page', "1");
+        setPage(1);
+        fetch('/api/lab/getLabInfo2/' + newUrl.search)
             .then(response => response.json())
             .then(data => {
                 setData(data);
                 console.log(data);
-                const newUrl = new URL(window.location.toString()); // Create a fresh instance here
-                newUrl.searchParams.set('page',parseInt(data.total_page) < page ? "1":page.toString());
-                if (searchCriteria["school"].length > 0){
-                    newUrl.searchParams.set('school', searchCriteria["school"]);
-                } else {
-                    newUrl.searchParams.delete('school');
-                }
-                // You may move the navigation logic here, after all conditions have been checked.
+                console.log("api call from searchCriteria....");
                 setIsWaiting(false);
-                navigate(newUrl.pathname + newUrl.search);
+                const history = window.history;
+                //navigate(newUrl.pathname + newUrl.search);
+                history.pushState({}, '', newUrl.pathname + newUrl.search);
+                // update searchCriRef
+                searchCriRef.current = searchCriteria;
+                isFirstRender.current = false;
             });
       }, [searchCriteria]);
     

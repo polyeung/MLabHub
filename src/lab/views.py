@@ -79,9 +79,8 @@ class LabViewSet(viewsets.ReadOnlyModelViewSet):
     def get_queryset(self):
         queryset = None
         school = self.request.query_params.get('school')
+        search = self.request.query_params.get('search')
         school_list = school_to_dep(school)
-        print(school)
-        print("school_list: ", school_list)
         if school and school_list:
             queryset =  Lab.objects.filter(approved=True, dep__in=school_list)
         else:

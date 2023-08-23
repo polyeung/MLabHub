@@ -166,7 +166,8 @@ export interface JobReviewFormProps {
 export interface SearchCriteriaProps {
     school: string,
     dep: string,
-    label: string
+    label: string,
+    search: string
 };
 
 export interface FilterProps {

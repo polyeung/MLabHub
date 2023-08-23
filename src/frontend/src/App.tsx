@@ -92,7 +92,7 @@ function App() {
   const initialSchool = searchParams.get('school') ? searchParams.get('school') as string : "";
   const initialDep = searchParams.get('dep') ? searchParams.get('dep') as string : "";
   const initialLabel = searchParams.get('label') ? searchParams.get('label') as string : "";
-
+  const initialSearch = searchParams.get('search') ? searchParams.get('search') as string: "";
   const setSearchKey = React.useCallback((key:string, value:string) => {
     setSearchCriteria(prevCriteria => ({
       ...prevCriteria,
@@ -103,7 +103,8 @@ function App() {
   const [searchCriteria, setSearchCriteria] = useState<SearchCriteriaProps>({
     school: initialSchool,
     dep: initialDep,
-    label: initialLabel
+    label: initialLabel,
+    search:initialSearch
   });
 
 
