@@ -33,8 +33,11 @@ const FilterBarComponent: React.FC<FilterProps> = ({ searchCriteria, setDict, se
             "label": "",
             "search": ""
         };
+        setSearchVal("");
         setSearchCriteria(initSearchCriteriaState);
-        navigate("/");
+        const newUrl = new URL(window.location.toString());
+        const history = window.history;
+        history.pushState({}, '', newUrl.pathname);
     };
     const count = Object.values(schoolState).filter(Boolean).length;
 
@@ -71,7 +74,7 @@ const FilterBarComponent: React.FC<FilterProps> = ({ searchCriteria, setDict, se
                 sx={{
                     fontSize: '0.7rem',
                 }}
-                disabled={count == 0}>Reset filter</Button>
+                disabled={count == 0 && searchVal.length == 0}>Reset filter</Button>
             </Box>
             <Box sx={{ 
             display: 'flex', 

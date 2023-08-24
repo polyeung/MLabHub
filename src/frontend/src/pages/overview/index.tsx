@@ -5,7 +5,7 @@ import { ResponseAllLabs, ResponseAllLabsTemp,  overviewProps,
 import Cards from '@/components/card';
 import { UserData } from '@/types/interface';
 import { Typography, Pagination, Box, TextField } from '@mui/material';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { ScreenContext } from '@/screenContext';
 import PlaceHolder from './placeHolder';
 
@@ -18,7 +18,6 @@ export default function overview({userData, searchCriteria, setDict}: overviewPr
     const [isWaiting, setIsWaiting] = useState<boolean>(true);
     const { isSmallScreen, isMiddleScreen } = React.useContext(ScreenContext);
     const [searchValue, setSearchValue] = useState('');
-    const navigate = useNavigate();
     const location = useLocation();
     // get current url
     const searchParams = new URLSearchParams(location.search);
@@ -27,10 +26,11 @@ export default function overview({userData, searchCriteria, setDict}: overviewPr
     const [page, setPage] = useState(initialPage);
 
     // to compare search Criteria
-    const searchCriRef = React.useRef<SearchCriteriaProps>(SearchRefProps); 
-    // track whether it is first time render
-    const isFirstRender = React.useRef(true);
+    const searchCriRef = React.useRef<SearchCriteriaProps>(searchCriteria); 
+    const pageRef = React.useRef(1);
     const isFromCriChanged = React.useRef(false);
+    const pageResetRef = React.useRef(true);
+
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchValue(event.target.value);
     };
@@ -45,38 +45,36 @@ export default function overview({userData, searchCriteria, setDict}: overviewPr
       };
     
 
-    const getUpdatedUrl = (isForPage:boolean):URL =>{
+    const getUpdatedUrl = ():URL =>{
         const newUrl = new URL(window.location.toString());
-        if(!isForPage){
-            if (searchCriteria["school"].length > 0){
-                newUrl.searchParams.set('school', searchCriteria["school"]);
-            } else {
-                newUrl.searchParams.delete('school');
-            };
-            if (searchCriteria["search"].length > 0){
-                newUrl.searchParams.set('search', searchCriteria["search"]);
-            } else {
-                newUrl.searchParams.delete('search');
-            };
-            newUrl.searchParams.set('page', "1");
-            setPage(1);
-            isFromCriChanged.current=true;
-        }else{
-            newUrl.searchParams.set('page', page.toString());
-        }
+        if (searchCriteria["school"].length > 0){
+            newUrl.searchParams.set('school', searchCriteria["school"]);
+        } else {
+            newUrl.searchParams.delete('school');
+        };
+        if (searchCriteria["search"].length > 0){
+            newUrl.searchParams.set('search', searchCriteria["search"]);
+        } else {
+            newUrl.searchParams.delete('search');
+        };
+        newUrl.searchParams.set('page', page.toString());
         return newUrl;
     };
 
       useEffect(() => {
-        // if this is triggered by criChanged
-        if(isFromCriChanged.current){
-            isFromCriChanged.current = false;
+        if(pageResetRef.current){
+            pageResetRef.current = false;
             return;
-        };
+        }
+        // if this is triggered by criChanged
         setIsWaiting(true);
         // check whether this useEffect comse from page variable changed
-        const isForPage = (searchCriRef.current == searchCriteria);
-        const newUrl = getUpdatedUrl(isForPage);
+        const newUrl = getUpdatedUrl();
+        if(searchCriRef.current != searchCriteria){
+            newUrl.searchParams.set('page', "1");
+            pageResetRef.current = true;
+            setPage(1);
+        }
         fetch('/api/lab/getLabInfo2/' + newUrl.search)
             .then(response => response.json())
             .then(data => {
@@ -85,11 +83,12 @@ export default function overview({userData, searchCriteria, setDict}: overviewPr
                 console.log("api call....");
                 setIsWaiting(false);
                 const history = window.history;
-                //navigate(newUrl.pathname + newUrl.search);
-                history.pushState({}, '', newUrl.pathname + newUrl.search);
-                // update searchCriRef
+                // check whether the page exceed
+                console.log("total_page: ", data.total_page);
+                console.log("now Page: ", page);
+                pageRef.current = page;
                 searchCriRef.current = searchCriteria;
-                isFirstRender.current = false;
+                history.pushState({}, '', newUrl.pathname + newUrl.search);
             });
       }, [searchCriteria, page]);
     

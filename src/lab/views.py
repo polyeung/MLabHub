@@ -81,10 +81,13 @@ class LabViewSet(viewsets.ReadOnlyModelViewSet):
         school = self.request.query_params.get('school')
         search = self.request.query_params.get('search')
         school_list = school_to_dep(school)
+        queryset = Lab.objects.filter(approved=True)
         if school and school_list:
-            queryset =  Lab.objects.filter(approved=True, dep__in=school_list)
-        else:
-            queryset = Lab.objects.filter(approved=True)
+            queryset = queryset.filter(dep__in=school_list)
+        if search:
+            queryset = queryset.filter(Q(name__icontains=search) | 
+                                       Q(people__icontains=search) |
+                                       Q(dep__icontains=search))
         return queryset
 
     def get_serializer_context(self):
