@@ -41,9 +41,11 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
       fontWeight: 'bold',
       fontSize: '16px',
       overflow: 'hidden',
-      whiteSpace: 'nowrap',
+      whiteSpace: 'normal',  
       textOverflow: 'ellipsis',
-    },
+      maxHeight: '40px',     
+      lineHeight: '20px',    
+  },
   };
   function parseSingleName(): parsedNameInt {
     const strList = people.split(',');
