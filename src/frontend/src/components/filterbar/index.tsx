@@ -52,10 +52,12 @@ const FilterBarComponent: React.FC<FilterProps> = ({ searchCriteria, setDict, se
             flexDirection: 'column',
             justifyContent: 'flex-start',
             alignItems: 'left',
+            paddingLeft: '0'
         }}>
             <Box 
-            sx={{display: 'flex', m:1,
+            sx={{display: 'flex', 
             flexDirection: 'row',
+            marginBottom: '5px',
             gap: {xs: 0.5, md: 2}}}
             >
             <SchoolFilter 
