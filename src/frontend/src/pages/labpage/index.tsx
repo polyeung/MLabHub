@@ -15,7 +15,7 @@ import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
 import IntroPlaceHolder from './infoLoading';
 import ComPlaceHolder from './comPlaceHolder';
-
+import EmailBadge from '@/components/emailBadge';
 
 function getRandomColor(): string { 
     const colors = ['red','#90731E', '#0277BD', 'pink', 'green', 'orange', 'purple', '#F29902', 'brown', 'gray', 'teal'];
@@ -50,19 +50,32 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
         let ret: parsedNameInt[] = [];
         for (let i = 0; i < strList.length; i++) {
             let nameSep = strList[i].trim().split(' ');
-            // console.log(nameSep);
             let initial = nameSep.length == 1 ? String(nameSep[0][0]) : String(nameSep[0][0] + nameSep[1][0]);
             ret.push({ name: strList[i], initial: initial });
         }
         return ret;
-      }
+      };
+
+      function getNameList(): String[] {
+        if(!labinfo.people){
+            return [];
+        };
+        return labinfo.people.split(",");
+      };
+
+      function getEmailList(): String[] {
+        if(!labinfo.emails){
+            return [];
+        }
+        return labinfo.emails.split(",");
+      };
 
     // fetch content through api
     useEffect(() => {
         setIsWaitingInfo(true);
-        fetch(`/api/lab/getLabInfo/${ID}`)
+        fetch(`/api/lab/getLabInfoRich/?id=${ID}`)
             .then(response => response.json())
-            .then(data => { setLabinfo(data); setIsWaitingInfo(false)});
+            .then(data => { setLabinfo(data[0]);setIsWaitingInfo(false)});
     }, []);
 
     // fetch comments
@@ -113,6 +126,9 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
         gap: '20px',
         width: '100vw',
       };
+    
+    const emailList = getEmailList();
+    const peopleList = getNameList();
     return (<Box style={boxStyles} >
         
     <Box
@@ -157,11 +173,12 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
                     </Tooltip>
                 ))}
             </Box>
-            <a href={ labinfo.link }>
+            <a href={ labinfo.link } target="_blank" rel="noopener noreferrer">
             <Button variant="outlined" endIcon={<ArrowOutwardIcon />} sx={{ mt: '20px', mb: '15px'}}>
                 Go to website
             </Button>
             </a>
+            <EmailBadge emails={emailList} people={peopleList}/>
             <Box sx={{flexGrow: 1, overflow: 'auto'}}>
             <Typography sx={{ mt: '10px' }}>{labinfo.intro}</Typography>
             </Box>

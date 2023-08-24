@@ -44,7 +44,9 @@ export interface RichLabInfoType {
     name: string,
     link: string,
     people: string,
+    emails:string,
     intro: string
+
 };
 
 export const RichLabInfoTemplate:RichLabInfoType = { 
@@ -53,6 +55,7 @@ export const RichLabInfoTemplate:RichLabInfoType = {
     link: "",
     people: "",
     intro: "",
+    emails:""
 };
 
 export interface ReviewsType {
@@ -170,6 +173,12 @@ export interface SearchCriteriaProps {
     search: string
 };
 
+export const SearchRefProps:SearchCriteriaProps = {
+    school: "/",
+    dep: "/",
+    label: "/",
+    search: "/"
+};
 export interface FilterProps {
     searchCriteria: SearchCriteriaProps,
     setDict: (key: string, value:string) => any,
@@ -185,9 +194,15 @@ export interface overviewProps {
 type StringDictType = {
     [key: string]: boolean;
 };
+
 export interface SchoolFilterProps{
     searchCriteria: SearchCriteriaProps,
     setDict: (key: string, value:string) => any,
     state: StringDictType,
     setState: React.Dispatch<React.SetStateAction<StringDictType>>
-}
+};
+
+export interface EmailBadgeProps{
+    emails: String[],
+    people: String[]
+};

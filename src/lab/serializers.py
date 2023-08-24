@@ -24,3 +24,8 @@ class SimpleLabSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lab
         fields = ['id', 'name', 'link', 'dep']
+
+class LabSerializerLabPage(serializers.ModelSerializer):
+    class Meta:
+        model = Lab
+        fields= ['id', 'name', 'link', 'people', 'intro', 'emails', 'dep']

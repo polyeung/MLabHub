@@ -10,7 +10,7 @@ from rest_framework import generics, permissions, status
 import pprint
 import json
 from lab.models import Lab
-from .serializers import LabSerializer
+from .serializers import LabSerializer, LabSerializerLabPage
 from django.db.models import Q
 from account.models import UserProfile
 from .serializers import CreateLabSerializer
@@ -109,23 +109,14 @@ class LabViewSet(viewsets.ReadOnlyModelViewSet):
             ret_data = parsed_data[0]['fields']['data']['savedLabs']
         return ret_data
 
-class GetDetailedLabInfo(generics.GenericAPIView):
-    permission_classes = (permissions.AllowAny, )
-    def get(self, request, id):
-        try:
-            lab = Lab.objects.get(pk=id)
-        except Lab.DoesNotExist:
-            return JsonResponse({"error": "Lab not found"}, status=404)
-        lab_data = {
-            "id": lab.id,
-            "name": lab.name,
-            "link": lab.link,
-            "intro": lab.intro,
-            "people": lab.people,
-        }
-        
-        return JsonResponse(lab_data, safe = False)
 
+class GetDetailedLabInfo(viewsets.ReadOnlyModelViewSet):
+    permission_classes = (permissions.AllowAny, )
+    serializer_class = LabSerializerLabPage
+    pagination_class = None
+    def get_queryset(self):
+        id = self.request.query_params.get('id')
+        return Lab.objects.filter(pk=id)
 
 @method_decorator(csrf_exempt, name = 'dispatch')
 class CreateLabInfo(APIView):
