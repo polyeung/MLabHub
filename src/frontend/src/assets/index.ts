@@ -73,3 +73,43 @@ export const depList = [
     ['EAS', 'NRE:Environment and Sustainability'],
     ['ECON', 'LSA:Economics'],
     ['EDCURINS', 'EDU:Education D Curriculum & Instr'], ['EDUC', 'EDU:Education'], ['EEB', 'LSA:Ecology & Evolutionary Biology'],  ['ECE', 'ENG:Electrical & Computer Engineering'], ['CSE', 'ENG:Computer Science & Engineering'], ['ELI', 'LSA:English Language Institute'], ['ENGLISH', 'LSA:English Lang & Literature'], ['ENGR', 'ENG:Engineering'], ['ENS', 'MUS:Ensemble'], ['ENSCEN', 'ENG:Environmental Sciences & Engin'], ['ENVIRON', 'EAS:Environment'], ['ES', 'BA:Entrepreneurial Studies'], ['ESENG', 'ENG:Energy Systems Engineering'], ['FRENCH', 'LSA:French'], ['FTVM', 'LSA:Film'], ['', 'Television'], ['', 'and Media'], ['GEOG', 'LSA:Geography'], ['GERMAN', 'LSA:German'], ['GREEK', 'LSA:Greek'], ['GREEKMOD', 'LSA:Modern Greek'], ['GTBOOKS', 'LSA:Great Books'], ['HEBREW', 'LSA:Hebrew Language'], ['HISTART', 'LSA:History of Art'], ['HISTORY', 'LSA:History'], ['HONORS', 'LSA:College Honors'], ['HS', 'NUR:Health Sciences'], ['HUMGEN', 'MED:Human Genetics'], ['INSTHUM', 'LSA:Institute For The Humanities'], ['INTLSTD', 'LSA:International Studies'], ['INTMED', 'MED:Internal Medicine'], ['IOE', 'ENG:Industrial & Operations Engin'], ['ISD', 'ENG:Integrative Systems & Design'], ['ISLAM', 'LSA:Islamic Studies'], ['ITALIAN', 'LSA:Italian'], ['JAZZ', 'MUS:Jazz & Improvisational Studies'], ['JUDAIC', 'LSA:Judaic Studies'], ['KINESLGY', 'KIN:Kinesiology'], ['KRSTD', 'LSA:Korean Studies'], ['LACS', 'LSA:Latin Amer & Caribbean Stu'], ['LADINO', 'LSA:Ladino'], ['LATIN', 'LSA:Latin'], ['LATINOAM', 'LSA:Latina/o American Studies'], ['LING', 'LSA:Linguistics'], ['LSWA', 'LSA:Lloyd Hall Scholars for Writing and the Arts'], ['MACROMOL', 'LSA:Macromolecular Science'], ['MATH', 'LSA:Mathematics'], ['MATSCIE', 'ENG:Materials Science Engineering'], ['MCDB', 'LSA:Molec'], ['', 'Cell & Develop Biology'], ['ME', 'ENG:Mechanical Engineering'], ['MEDCHEM', 'PHR:Medicinal Chemistry'], ['MELANG', 'LSA:Middle East Languages'], ['MEMS', 'LSA:Medieval & Early Modern Std'], ['MENAS', 'LSA:Middle Eastern & N African Stu'], ['MFG', 'ENG:Manufacturing'], ['MICRBIOL', 'MED:Microbiology'], ['MIDEAST', 'LSA:Middle East Studies'], ['MILSCI', 'OEP:Military Science'], ['MKT', 'BA:Marketing'], ['MOVESCI', 'KIN:Movement Science'], ['MUSEUMS', 'LSA:Museums'], ['MUSIC', 'MUS:Music'], ['MUSICOL', 'MUS:Musicology'], ['MUSMETH', 'LSA:Museum Methods'], ['MUSTHTRE', 'MUS:Musical Theatre'], ['NATIVEAM', 'LSA:Native American Studies'], ['NAVARCH', 'ENG:Naval Arch & Marine Engin'], ['NAVSCI', 'OEP:Naval Science'], ['NERS', 'ENG:Nuclear Engin & Radiolog Sci'], ['NEURO', 'LSA:Undergraduate Program in Neuroscience'], ['NEUROL', 'MED:Neurology'], ['NURS', 'NUR:Nursing'], ['ORGSTUDY', 'LSA:Organizational Studies'], ['PAT', 'MUS:Performing Arts & Technology'], ['PATH', 'MED:Pathology'], ['PERSIAN', 'LSA:Persian Language'], ['PHARMACY', 'PHR:Pharmacy'], ['PHARMSCI', 'PHR:Pharmaceutical Sciences'], ['PHIL', 'LSA:Philosophy'], ['PHRMACOL', 'MED:Pharmacology'], ['PHYSICS', 'LSA:Physics'], ['PHYSIOL', 'MED:Physiology'], ['PIBS', 'MED:Biomedical Sciences'], ['POLISH', 'LSA:Polish'], ['POLSCI', 'LSA:Political Science'], ['PORTUG', 'LSA:Portuguese'], ['PPE', 'LSA:Philos'], ['', 'Politics & Economics'], ['PSYCH', 'LSA:Psychology'], ['PUBHLTH', 'PH:Public Health'], ['PUBPOL', 'IPP:Public Policy'], ['QMSS', 'LSA:Quantitative Methods in the Social Sciences'], ['RCARTS', 'LSA:RC Fine Arts'], ['RCASL', 'LSA:RC American Sign Language'], ['RCCORE', 'LSA:RC Core Courses'], ['RCHUMS', 'LSA:RC Humanities'], ['RCIDIV', 'LSA:RC Interdivisional'], ['RCLANG', 'LSA:RC Languages'], ['RCMUSIC', 'LSA:Residential College Music Program'], ['RCNSCI', 'LSA:RC Natural Sciences'], ['RCSSCI', 'LSA:RC Social Sciences'], ['REEES', 'LSA:Russian'], ['', 'E Europe & Euras Stu'], ['RELIGION', 'LSA:Religion'], ['ROB', 'ENG:Robotics'], ['ROMLANG', 'LSA:Romance Languages&Literatures'], ['ROMLING', 'LSA:Romance Linguistics'], ['RUSSIAN', 'LSA:Russian'], ['SCAND', 'LSA:Scandinavian'], ['SEAS', 'LSA:Southeast Asian Studies'], ['SI', 'INF:Information'], ['SLAVIC', 'LSA:Slavic'], ['SM', 'KIN:Sport Management'], ['SOC', 'LSA:Sociology'], ['SPACE', 'ENG:Space Science & Engineering'], ['SPANISH', 'LSA:Spanish'], ['STATS', 'LSA:Statistics'], ['STDABRD', 'LSA:Study Abroad'], ['STRATEGY', 'BA:Strategy'], ['STS', 'LSA:Science'], ['', 'Tech'], ['', 'and Society'], ['SW', 'SW:Social Work'], ['TCHNCLCM', 'ENG:Technical Communication'], ['THEORY', 'MUS:Theory'], ['THTREMUS', 'MUS:Theatre & Drama'], ['TO', 'BA:Technology & Operations'], ['TURKISH', 'LSA:Turkish Language'], ['UARTS', 'ENG:University Arts'], ['UC', 'LSA:University Courses'], ['UKR', 'LSA:Ukrainian'], ['URP', 'AUP:Urban and Regional Planning'], ['WGS', "LSA:Women's and Gender Studies"], ['WRITING', 'LSA:Sweetland Center for Writing'], ['YIDDISH', 'LSA:Yiddish']];
+
+export const labelsKey = [
+    "UI/UX",
+    "Robotics",
+    "WebDev",
+    "HW",
+    "AI",
+    "ML",
+    "CompVis",
+    "NLP",
+    "Cybersec",
+    "Quantum",
+    "AR",
+    "VR",
+    "Blockchain",
+    "Bioinfo",
+    "HCI",
+    "SoftEng",
+    "Embedded",
+    "NetCom",
+    "Cloud",
+    "IoT",
+    "DataSci",
+    "Graphics",
+    "Gaming",
+    "MobileApp",
+    "DSP",
+    "Crypto",
+    "EnergyComp",
+    "E-Health",
+    "CompBio",
+    "Systems",
+    "AutoSys",
+    "GreenComp",
+    "HPC",
+    "DistSys",
+];
+
+
+

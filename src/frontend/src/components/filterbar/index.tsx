@@ -17,7 +17,6 @@ const FilterBarComponent: React.FC<FilterProps> = ({ searchCriteria, setDict, se
         "si": searchCriteria["school"].includes("si"),
     }));
     const [searchVal, setSearchVal] = React.useState("");
-    const navigate = useNavigate();
     const handleResetClick = () => {
         
         const initSchoolState = {

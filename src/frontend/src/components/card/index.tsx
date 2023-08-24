@@ -19,6 +19,8 @@ import { UserData, parsedNameInt } from '@/types/interface';
 import { useNotifs } from '@/context';
 import getCookie from '@/components/csrfToken';
 import Tooltip from '@mui/material/Tooltip';
+import {labelsKey} from '@/assets/index';
+import Chip from '@mui/material/Chip';
 
 interface labinfoInt { 
     name: string,
@@ -43,8 +45,8 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
       overflow: 'hidden',
       whiteSpace: 'normal',  
       textOverflow: 'ellipsis',
-      maxHeight: '40px',     
-      lineHeight: '20px',    
+      maxHeight: '36px',     
+      lineHeight: '18px',    
   },
   };
   function parseSingleName(): parsedNameInt {
@@ -69,6 +71,7 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
     // console.log(options);
   }
 
+  
 
   const selectPic = (dep: string) => {
     const picList = [umichImg, stadiumImg, bbbImg ];
@@ -109,6 +112,18 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
         });
       }).catch(error => console.error('Error:', error));
   };
+  function chooseRandomThree( ) {
+    let chosenLabels = [];
+    let clonedLabels = [...labelsKey]; // Clone the original array to avoid modifying it
+
+    for (let i = 0; i < 3; i++) {
+        const randomIndex = Math.floor(Math.random() * clonedLabels.length);
+        chosenLabels.push(clonedLabels[randomIndex]);
+        clonedLabels.splice(randomIndex, 1); // Remove the chosen label to avoid duplicates
+    }
+
+    return chosenLabels;
+  };
   return (
     <Card sx={{
       width: 350,
@@ -119,7 +134,7 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
       <CardHeader
         sx={{
           "& .MuiCardHeader-content": {
-            overflow: "hidden"
+            overflow: "hidden",
           }
         }}
         avatar={
@@ -134,7 +149,6 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
         }
         title={name}
         titleTypographyProps={titleTypographyProps}
-
         subheader={ dep }
       />
       <CardMedia
@@ -146,8 +160,12 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
         sx={{cursor: 'pointer'}}
       />
       <CardContent sx={{cursor: 'pointer'}} onClick={handleClick}>
-      {intro.length < 130 ? <Typography variant="body2" color="text.secondary">{intro}</Typography>:
-        <Typography variant="body2" color="text.secondary">{intro.substring(0,130) + "  ..."}</Typography>}
+      {chooseRandomThree().map((item)=>(
+        <Chip label={item} size="small" />
+      ))}
+      <Typography style={{fontSize: '11px', marginTop: '10px'}}>
+      Lab excels in architecture, circuits, and design research, spanning hardware innovations to sonic attacks on MEMS accelerometers.
+      </Typography>
       </CardContent>
 
       <CardActions disableSpacing sx={{ position: 'absolute', bottom: 0 }}>

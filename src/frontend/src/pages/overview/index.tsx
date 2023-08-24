@@ -88,8 +88,9 @@ export default function overview({userData, searchCriteria, setDict}: overviewPr
                 console.log("now Page: ", page);
                 pageRef.current = page;
                 searchCriRef.current = searchCriteria;
-                history.pushState({}, '', newUrl.pathname + newUrl.search);
+                
             });
+            history.pushState({}, '', newUrl.pathname + newUrl.search);
       }, [searchCriteria, page]);
     
     const getMdSize = (length: number) => {
