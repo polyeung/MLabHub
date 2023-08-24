@@ -16,6 +16,7 @@ import Fab from '@mui/material/Fab';
 import BottomBanner from './components/bottombanner'
 import {SearchCriteriaProps} from '@/types/interface';
 import FilterBar from '@/components/filterbar';
+import HomePage from './pages/homePage';
 
 function ProtectedRoute(props: {
 	userData: UserData | undefined | null;
@@ -151,7 +152,8 @@ function App() {
 			>
         <Routes>
           { /*Non protected Routes */}
-          <Route path="/" element={
+          <Route path="/" element={<HomePage/>}></Route>
+          <Route path="/labs" element={
             <Box 
             sx={{ 
                 display: 'flex', 

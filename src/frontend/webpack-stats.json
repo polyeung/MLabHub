@@ -5,6 +5,10 @@
       "name": "images/bbb.png",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/images/bbb.png"
     },
+    "images/dashboard.png": {
+      "name": "images/dashboard.png",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/images/dashboard.png"
+    },
     "images/favicon.png": {
       "name": "images/favicon.png",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/images/favicon.png"
@@ -12,6 +16,14 @@
     "images/footer-logo.svg": {
       "name": "images/footer-logo.svg",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/images/footer-logo.svg"
+    },
+    "images/jobs.png": {
+      "name": "images/jobs.png",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/images/jobs.png"
+    },
+    "images/labs_img.png": {
+      "name": "images/labs_img.png",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/images/labs_img.png"
     },
     "images/michigan-logo.png": {
       "name": "images/michigan-logo.png",
@@ -33,9 +45,17 @@
       "name": "main-001980920d636e56dd3a.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-001980920d636e56dd3a.js"
     },
+    "main-03b5806c10e4f4ed2419.js": {
+      "name": "main-03b5806c10e4f4ed2419.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-03b5806c10e4f4ed2419.js"
+    },
     "main-04c3d9a49c611d667473.js": {
       "name": "main-04c3d9a49c611d667473.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-04c3d9a49c611d667473.js"
+    },
+    "main-061f4192ec6f82f6eed5.js": {
+      "name": "main-061f4192ec6f82f6eed5.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-061f4192ec6f82f6eed5.js"
     },
     "main-07f1c828c40b64e4110d.js": {
       "name": "main-07f1c828c40b64e4110d.js",
@@ -56,6 +76,10 @@
     "main-0dd22e536e855cf20b64.js": {
       "name": "main-0dd22e536e855cf20b64.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-0dd22e536e855cf20b64.js"
+    },
+    "main-0e1d8f1072012c397fe0.js": {
+      "name": "main-0e1d8f1072012c397fe0.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-0e1d8f1072012c397fe0.js"
     },
     "main-0f73230bb2325048e1c3.js": {
       "name": "main-0f73230bb2325048e1c3.js",
@@ -113,6 +137,10 @@
       "name": "main-1d0c42515367a1c80256.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-1d0c42515367a1c80256.js"
     },
+    "main-1e5df2979ac3883c980a.js": {
+      "name": "main-1e5df2979ac3883c980a.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-1e5df2979ac3883c980a.js"
+    },
     "main-20a4b3d6284c49429b65.js": {
       "name": "main-20a4b3d6284c49429b65.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-20a4b3d6284c49429b65.js"
@@ -129,17 +157,33 @@
       "name": "main-280e297729fdeba6b5c2.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-280e297729fdeba6b5c2.js"
     },
+    "main-29fe46ad55bcd1e82787.js": {
+      "name": "main-29fe46ad55bcd1e82787.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-29fe46ad55bcd1e82787.js"
+    },
     "main-2b95668e2576c565e0be.js": {
       "name": "main-2b95668e2576c565e0be.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-2b95668e2576c565e0be.js"
+    },
+    "main-301a933d96eaf4ba29cf.js": {
+      "name": "main-301a933d96eaf4ba29cf.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-301a933d96eaf4ba29cf.js"
     },
     "main-3041b4f1d969b514f2c4.js": {
       "name": "main-3041b4f1d969b514f2c4.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-3041b4f1d969b514f2c4.js"
     },
+    "main-308835556a5f6fe3d24e.js": {
+      "name": "main-308835556a5f6fe3d24e.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-308835556a5f6fe3d24e.js"
+    },
     "main-3441b4908fd8dbf289c1.js": {
       "name": "main-3441b4908fd8dbf289c1.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-3441b4908fd8dbf289c1.js"
+    },
+    "main-36c1683f86b74b782b06.js": {
+      "name": "main-36c1683f86b74b782b06.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-36c1683f86b74b782b06.js"
     },
     "main-37680864e41fa048e99a.js": {
       "name": "main-37680864e41fa048e99a.js",
@@ -149,6 +193,10 @@
       "name": "main-3a1c6edf9ec261e947e2.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-3a1c6edf9ec261e947e2.js"
     },
+    "main-3a642406442a2f089917.js": {
+      "name": "main-3a642406442a2f089917.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-3a642406442a2f089917.js"
+    },
     "main-3aeca851c54195aa3dbc.js": {
       "name": "main-3aeca851c54195aa3dbc.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-3aeca851c54195aa3dbc.js"
@@ -156,6 +204,14 @@
     "main-3b79507ccbdf3e29f378.js": {
       "name": "main-3b79507ccbdf3e29f378.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-3b79507ccbdf3e29f378.js"
+    },
+    "main-3bdd75d32e45ae71a379.js": {
+      "name": "main-3bdd75d32e45ae71a379.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-3bdd75d32e45ae71a379.js"
+    },
+    "main-3c7da4cab8a731e3d74f.js": {
+      "name": "main-3c7da4cab8a731e3d74f.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-3c7da4cab8a731e3d74f.js"
     },
     "main-3d06296378b97e845be2.js": {
       "name": "main-3d06296378b97e845be2.js",
@@ -165,6 +221,14 @@
       "name": "main-3d5cc893d9efecb6b8a9.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-3d5cc893d9efecb6b8a9.js"
     },
+    "main-3fe23489c64e5c1d0cc0.js": {
+      "name": "main-3fe23489c64e5c1d0cc0.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-3fe23489c64e5c1d0cc0.js"
+    },
+    "main-40c96512649bc1287acb.js": {
+      "name": "main-40c96512649bc1287acb.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-40c96512649bc1287acb.js"
+    },
     "main-45c9c889cfd932bbba1d.js": {
       "name": "main-45c9c889cfd932bbba1d.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-45c9c889cfd932bbba1d.js"
@@ -172,6 +236,10 @@
     "main-466ebc27c9fa785aee77.js": {
       "name": "main-466ebc27c9fa785aee77.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-466ebc27c9fa785aee77.js"
+    },
+    "main-46af2ecfd375a31fe157.js": {
+      "name": "main-46af2ecfd375a31fe157.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-46af2ecfd375a31fe157.js"
     },
     "main-46f47b74a37d2b5c36eb.js": {
       "name": "main-46f47b74a37d2b5c36eb.js",
@@ -201,13 +269,25 @@
       "name": "main-4f72d4ec427f67ce5593.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-4f72d4ec427f67ce5593.js"
     },
+    "main-4fec3698d3f2238c3222.js": {
+      "name": "main-4fec3698d3f2238c3222.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-4fec3698d3f2238c3222.js"
+    },
     "main-50dee3f6bd4c469c1a02.js": {
       "name": "main-50dee3f6bd4c469c1a02.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-50dee3f6bd4c469c1a02.js"
     },
+    "main-513b18e219e3e75bbe40.js": {
+      "name": "main-513b18e219e3e75bbe40.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-513b18e219e3e75bbe40.js"
+    },
     "main-516970456873319966f0.js": {
       "name": "main-516970456873319966f0.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-516970456873319966f0.js"
+    },
+    "main-52e0affe7aff34fe6572.js": {
+      "name": "main-52e0affe7aff34fe6572.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-52e0affe7aff34fe6572.js"
     },
     "main-52f4d3bf6fad05613160.js": {
       "name": "main-52f4d3bf6fad05613160.js",
@@ -241,9 +321,21 @@
       "name": "main-5e687d20587293a1a4fc.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-5e687d20587293a1a4fc.js"
     },
+    "main-5e97c1c85f6b08f0ab09.js": {
+      "name": "main-5e97c1c85f6b08f0ab09.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-5e97c1c85f6b08f0ab09.js"
+    },
+    "main-5f8f1493ca739861b4ff.js": {
+      "name": "main-5f8f1493ca739861b4ff.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-5f8f1493ca739861b4ff.js"
+    },
     "main-653e32e1a2ff7d6447c0.js": {
       "name": "main-653e32e1a2ff7d6447c0.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-653e32e1a2ff7d6447c0.js"
+    },
+    "main-668a9d233623bc871ed4.js": {
+      "name": "main-668a9d233623bc871ed4.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-668a9d233623bc871ed4.js"
     },
     "main-6a3d5048ece4e0ff7ce4.js": {
       "name": "main-6a3d5048ece4e0ff7ce4.js",
@@ -252,6 +344,14 @@
     "main-6aabe6e375be105eb562.js": {
       "name": "main-6aabe6e375be105eb562.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-6aabe6e375be105eb562.js"
+    },
+    "main-6e074c01a899a08084a3.js": {
+      "name": "main-6e074c01a899a08084a3.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-6e074c01a899a08084a3.js"
+    },
+    "main-7068d6128214d054ab47.js": {
+      "name": "main-7068d6128214d054ab47.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-7068d6128214d054ab47.js"
     },
     "main-73a9f969f7413220fa94.js": {
       "name": "main-73a9f969f7413220fa94.js",
@@ -269,6 +369,10 @@
       "name": "main-7651862046cf3e68efa8.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-7651862046cf3e68efa8.js"
     },
+    "main-77c94f843c67f6903858.js": {
+      "name": "main-77c94f843c67f6903858.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-77c94f843c67f6903858.js"
+    },
     "main-77d8aea44b3cc5840a38.js": {
       "name": "main-77d8aea44b3cc5840a38.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-77d8aea44b3cc5840a38.js"
@@ -277,9 +381,21 @@
       "name": "main-797d8aa3fb9f3eef8582.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-797d8aa3fb9f3eef8582.js"
     },
+    "main-7a8115c02f7c17b6cba0.js": {
+      "name": "main-7a8115c02f7c17b6cba0.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-7a8115c02f7c17b6cba0.js"
+    },
     "main-7f4342e38d52711059c4.js": {
       "name": "main-7f4342e38d52711059c4.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-7f4342e38d52711059c4.js"
+    },
+    "main-80fcda45abce335a5d0e.js": {
+      "name": "main-80fcda45abce335a5d0e.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-80fcda45abce335a5d0e.js"
+    },
+    "main-83e15e2cbb54a89e2c12.js": {
+      "name": "main-83e15e2cbb54a89e2c12.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-83e15e2cbb54a89e2c12.js"
     },
     "main-84c7cdb3e4e3a8dd4126.js": {
       "name": "main-84c7cdb3e4e3a8dd4126.js",
@@ -289,9 +405,17 @@
       "name": "main-85094f5b29a99ba11e03.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-85094f5b29a99ba11e03.js"
     },
+    "main-87b276bbfdae76813342.js": {
+      "name": "main-87b276bbfdae76813342.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-87b276bbfdae76813342.js"
+    },
     "main-896167b982245e19208b.js": {
       "name": "main-896167b982245e19208b.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-896167b982245e19208b.js"
+    },
+    "main-89a6733f20bad69d3d31.js": {
+      "name": "main-89a6733f20bad69d3d31.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-89a6733f20bad69d3d31.js"
     },
     "main-8d576d31f03809708e6e.js": {
       "name": "main-8d576d31f03809708e6e.js",
@@ -333,6 +457,14 @@
       "name": "main-99d81ce15ee9198d7f9a.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-99d81ce15ee9198d7f9a.js"
     },
+    "main-9a57cdcf6eabc96e65a6.js": {
+      "name": "main-9a57cdcf6eabc96e65a6.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-9a57cdcf6eabc96e65a6.js"
+    },
+    "main-9b966ae92878111e271b.js": {
+      "name": "main-9b966ae92878111e271b.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-9b966ae92878111e271b.js"
+    },
     "main-9ef88f46905a72494efa.js": {
       "name": "main-9ef88f46905a72494efa.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-9ef88f46905a72494efa.js"
@@ -341,9 +473,17 @@
       "name": "main-a4ce193f944aa137cbfe.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-a4ce193f944aa137cbfe.js"
     },
+    "main-a50dd53c4b0dcfdb2665.js": {
+      "name": "main-a50dd53c4b0dcfdb2665.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-a50dd53c4b0dcfdb2665.js"
+    },
     "main-a54af94cf23f4b3cf104.js": {
       "name": "main-a54af94cf23f4b3cf104.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-a54af94cf23f4b3cf104.js"
+    },
+    "main-a981ae27c6ed70f269d2.js": {
+      "name": "main-a981ae27c6ed70f269d2.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-a981ae27c6ed70f269d2.js"
     },
     "main-ae49e57a2b6ff569b1ab.js": {
       "name": "main-ae49e57a2b6ff569b1ab.js",
@@ -356,6 +496,10 @@
     "main-b0eca796ba02788e7557.js": {
       "name": "main-b0eca796ba02788e7557.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-b0eca796ba02788e7557.js"
+    },
+    "main-b31406f2e7d6bdae68fb.js": {
+      "name": "main-b31406f2e7d6bdae68fb.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-b31406f2e7d6bdae68fb.js"
     },
     "main-b3c5394cc022e950657b.js": {
       "name": "main-b3c5394cc022e950657b.js",
@@ -373,6 +517,10 @@
       "name": "main-b6a27e84972636ed679d.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-b6a27e84972636ed679d.js"
     },
+    "main-b8905573b2c2fbd0b84c.js": {
+      "name": "main-b8905573b2c2fbd0b84c.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-b8905573b2c2fbd0b84c.js"
+    },
     "main-bacd12e2550ee36a3a30.js": {
       "name": "main-bacd12e2550ee36a3a30.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-bacd12e2550ee36a3a30.js"
@@ -380,6 +528,10 @@
     "main-bbe1f722c9ddbde8d9a7.js": {
       "name": "main-bbe1f722c9ddbde8d9a7.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-bbe1f722c9ddbde8d9a7.js"
+    },
+    "main-bd119f4f033b418bba5c.js": {
+      "name": "main-bd119f4f033b418bba5c.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-bd119f4f033b418bba5c.js"
     },
     "main-bd9f04a65e533c4bd5f5.js": {
       "name": "main-bd9f04a65e533c4bd5f5.js",
@@ -392,6 +544,10 @@
     "main-bec518fc87c8241e5b9d.js": {
       "name": "main-bec518fc87c8241e5b9d.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-bec518fc87c8241e5b9d.js"
+    },
+    "main-bf900e2ab193085f5d3a.js": {
+      "name": "main-bf900e2ab193085f5d3a.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-bf900e2ab193085f5d3a.js"
     },
     "main-c1f8dd09addefdfbc4c7.js": {
       "name": "main-c1f8dd09addefdfbc4c7.js",
@@ -417,6 +573,10 @@
       "name": "main-ca0995deadd87bb8dd95.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-ca0995deadd87bb8dd95.js"
     },
+    "main-ca0cb35fb20a47ec0ee5.js": {
+      "name": "main-ca0cb35fb20a47ec0ee5.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-ca0cb35fb20a47ec0ee5.js"
+    },
     "main-ca541f3ba8e4cee8fe45.js": {
       "name": "main-ca541f3ba8e4cee8fe45.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-ca541f3ba8e4cee8fe45.js"
@@ -429,6 +589,10 @@
       "name": "main-d12d897797cff1e8b3e9.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-d12d897797cff1e8b3e9.js"
     },
+    "main-d2118d960d76ec5040b6.js": {
+      "name": "main-d2118d960d76ec5040b6.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-d2118d960d76ec5040b6.js"
+    },
     "main-d37cc98f7a87bf8cf211.js": {
       "name": "main-d37cc98f7a87bf8cf211.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-d37cc98f7a87bf8cf211.js"
@@ -436,6 +600,10 @@
     "main-d4e2e965367ca930d9fe.js": {
       "name": "main-d4e2e965367ca930d9fe.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-d4e2e965367ca930d9fe.js"
+    },
+    "main-d8c118050eef2ec40caa.js": {
+      "name": "main-d8c118050eef2ec40caa.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-d8c118050eef2ec40caa.js"
     },
     "main-d93821ac580c2ff47765.js": {
       "name": "main-d93821ac580c2ff47765.js",
@@ -448,6 +616,18 @@
     "main-deb807bcf5a95b5b20b0.js": {
       "name": "main-deb807bcf5a95b5b20b0.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-deb807bcf5a95b5b20b0.js"
+    },
+    "main-e02a6abfb61d6b9af242.js": {
+      "name": "main-e02a6abfb61d6b9af242.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-e02a6abfb61d6b9af242.js"
+    },
+    "main-e1075b997161bf0a4400.js": {
+      "name": "main-e1075b997161bf0a4400.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-e1075b997161bf0a4400.js"
+    },
+    "main-e3b756902e625107c01c.js": {
+      "name": "main-e3b756902e625107c01c.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-e3b756902e625107c01c.js"
     },
     "main-e603b531d536bee84b43.js": {
       "name": "main-e603b531d536bee84b43.js",
@@ -465,6 +645,10 @@
       "name": "main-ea51fa85608927fa1bdd.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-ea51fa85608927fa1bdd.js"
     },
+    "main-ecd81ae076b912dba3e2.js": {
+      "name": "main-ecd81ae076b912dba3e2.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-ecd81ae076b912dba3e2.js"
+    },
     "main-ee87cbc6eb16d735867b.js": {
       "name": "main-ee87cbc6eb16d735867b.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-ee87cbc6eb16d735867b.js"
@@ -477,6 +661,10 @@
       "name": "main-f232c25a5e39da7ad7d1.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-f232c25a5e39da7ad7d1.js"
     },
+    "main-f8fc3680fa5ce564a20f.js": {
+      "name": "main-f8fc3680fa5ce564a20f.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-f8fc3680fa5ce564a20f.js"
+    },
     "main-f98a34617653aeb5a835.js": {
       "name": "main-f98a34617653aeb5a835.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-f98a34617653aeb5a835.js"
@@ -488,11 +676,17 @@
     "main-fa6884ce8d4267f7370d.js": {
       "name": "main-fa6884ce8d4267f7370d.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-fa6884ce8d4267f7370d.js"
+    },
+    "main-fe5a9795e79e1fc3a72e.js": {
+      "name": "main-fe5a9795e79e1fc3a72e.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-fe5a9795e79e1fc3a72e.js"
     }
   },
   "chunks": {
     "main": [
-      "main-5c079f48e37dd31ad4c9.js"
+      "main-668a9d233623bc871ed4.js"
     ]
-  }
+  },
+  "error": "ModuleBuildError",
+  "message": "Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/src/pages/homePage/index.tsx: Unterminated JSX contents. (14:10)\n\n  12 |         </Typography>\n  13 |         <Paper/>\n> 14 |     </Box>);\n     |           ^\n  15 | };\n    at instantiate (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:63:32)\n    at constructor (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:358:12)\n    at TypeScriptParserMixin.raise (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:3255:19)\n    at TypeScriptParserMixin.jsxReadToken (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:6642:20)\n    at TypeScriptParserMixin.getTokenFromCode (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:6984:12)\n    at TypeScriptParserMixin.getTokenFromCode (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:9889:11)\n    at TypeScriptParserMixin.nextToken (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:2379:10)\n    at TypeScriptParserMixin.next (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:2290:10)\n    at TypeScriptParserMixin.eat (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:2294:12)\n    at TypeScriptParserMixin.expect (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:3627:10)\n    at TypeScriptParserMixin.jsxParseClosingElementAt (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:6882:10)\n    at TypeScriptParserMixin.jsxParseElementAt (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:6897:37)\n    at TypeScriptParserMixin.jsxParseElementAt (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:6900:32)\n    at TypeScriptParserMixin.jsxParseElement (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:6957:17)\n    at TypeScriptParserMixin.parseExprAtom (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:6969:19)\n    at TypeScriptParserMixin.parseExprSubscripts (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10890:23)\n    at TypeScriptParserMixin.parseUpdate (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10873:21)\n    at TypeScriptParserMixin.parseMaybeUnary (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10849:23)\n    at TypeScriptParserMixin.parseMaybeUnary (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:9738:18)\n    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10687:61)\n    at TypeScriptParserMixin.parseExprOps (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10692:23)\n    at TypeScriptParserMixin.parseMaybeConditional (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10669:23)\n    at TypeScriptParserMixin.parseMaybeAssign (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10630:21)\n    at /Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:9674:39\n    at TypeScriptParserMixin.tryParse (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:3634:20)\n    at TypeScriptParserMixin.parseMaybeAssign (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:9674:18)\n    at /Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10600:39\n    at TypeScriptParserMixin.allowInAnd (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:12280:12)\n    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10600:17)\n    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:11513:28)\n    at TypeScriptParserMixin.parseExprAtom (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:11164:23)\n    at TypeScriptParserMixin.parseExprAtom (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:6974:20)\n    at TypeScriptParserMixin.parseExprSubscripts (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10890:23)\n    at TypeScriptParserMixin.parseUpdate (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10873:21)\n    at TypeScriptParserMixin.parseMaybeUnary (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10849:23)\n    at TypeScriptParserMixin.parseMaybeUnary (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:9738:18)\n    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10687:61)\n    at TypeScriptParserMixin.parseExprOps (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10692:23)\n    at TypeScriptParserMixin.parseMaybeConditional (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10669:23)\n    at TypeScriptParserMixin.parseMaybeAssign (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10630:21)\n    at TypeScriptParserMixin.parseMaybeAssign (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:9685:20)\n    at TypeScriptParserMixin.parseExpressionBase (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10584:23)\n    at /Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10580:39\n    at TypeScriptParserMixin.allowInAnd (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:12275:16)\n    at TypeScriptParserMixin.parseExpression (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10580:17)\n    at TypeScriptParserMixin.parseReturnStatement (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:12999:28)\n    at TypeScriptParserMixin.parseStatementContent (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:12617:21)\n    at TypeScriptParserMixin.parseStatementContent (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:9382:18)\n    at TypeScriptParserMixin.parseStatementLike (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:12584:17)\n    at TypeScriptParserMixin.parseStatementListItem (/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:12564:17)"
 }

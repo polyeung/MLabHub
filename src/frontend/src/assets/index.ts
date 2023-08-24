@@ -5,6 +5,13 @@ import footer_logo from './footer-logo.svg'
 import michiganLogo from './michigan-logo.png';
 import bbb from './bbb.png';
 import stadium from './umich_stadium.png';
+import jobs_png from './jobs.png';
+import dashboard_png from './dashboard.png';
+import labs_png from './labs_img.png';
+// ad img
+export const labsPng = labs_png;
+export const jobsPng = jobs_png;
+export const dashboardPng = dashboard_png;
 //logo.
 export const MichiganLogo = michiganLogo;
 export const Favicon = favicon;
