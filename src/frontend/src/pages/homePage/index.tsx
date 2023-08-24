@@ -4,9 +4,22 @@ import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import {labsPng, jobsPng, dashboardPng} from '@/assets';
+import {  useNavigate } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 
 export default function homePage(){
+    const navigate = useNavigate();
+    const handleJobsClick = () => {
+        navigate('/jobs');
+    };
+
+    const handleLabsClick = () => {
+        navigate('/labs');
+    };
+
+    const handleDashboardClick = () => {
+        navigate('/dashboard');
+    }
     return (
     <Box style={{marginTop: '40px}'}}>
         
@@ -56,10 +69,11 @@ export default function homePage(){
             <Typography sx={{ marginTop: '30px' }}>
                 Explore an extensive directory of research labs at the University of Michigan, Ann Arbor. Dive into detailed profiles, discover cutting-edge research areas, connect with leading experts, and chart a personalized roadmap for your academic and research journey at UMich.
             </Typography>
+            <Button variant="outlined" sx={{width: '150px'}} onClick={handleLabsClick}>Browse Labs</Button>
             </Grid>
 
             <Grid item xs={12} sm={6}>
-            <img src={labsPng} style={{ width: "400px" }} />
+            <Box component="img" src={labsPng} alt="labsPng" sx={{ width: { md: '400px', xs: '300px' } }} />
             </Grid>
             </Grid> 
             </Box>
@@ -86,10 +100,11 @@ export default function homePage(){
             <Typography sx={{ marginTop: '30px' }}>
                 Explore an extensive directory of research labs at the University of Michigan, Ann Arbor. Dive into detailed profiles, discover cutting-edge research areas, connect with leading experts, and chart a personalized roadmap for your academic and research journey at UMich.
             </Typography>
+            <Button variant="outlined" sx={{width: '150px'}} onClick={handleJobsClick}>Browse Jobs</Button>
             </Grid>
 
             <Grid item xs={12} sm={6}>
-            <img src={jobsPng} style={{ width: "400px" }} />
+            <Box component="img" src={jobsPng} alt="JObsboard" sx={{ width: { md: '400px', xs: '300px' } }} />
             </Grid>
             </Grid> 
             </Box>
@@ -109,17 +124,18 @@ export default function homePage(){
                 mt:5 // Added this to make content distribute evenly
             }}
             > 
-            <Grid container spacing={2} sx={{ justifyContent: 'left' }}>
+            <Grid container spacing={1} sx={{ justifyContent: 'left' }}>
             <Grid item xs={12} sm={6}  key="browseCourses"
             sx={{ display: 'flex', flexDirection: 'column',justifyContent: 'left', alignItems: 'left' }}>
             <Typography variant="h5">Review Your Dashboard</Typography>
             <Typography sx={{ marginTop: '30px' }}>
                 Explore an extensive directory of research labs at the University of Michigan, Ann Arbor. Dive into detailed profiles, discover cutting-edge research areas, connect with leading experts, and chart a personalized roadmap for your academic and research journey at UMich.
             </Typography>
+            <Button variant="outlined" sx={{width: '150px'}} onClick={handleDashboardClick}>View My Dashboard</Button>
             </Grid>
 
             <Grid item xs={12} sm={6}>
-            <img src={dashboardPng} style={{ width: "400px" }} />
+            <Box component="img" src={dashboardPng} alt="Dashboard" sx={{ width: { md: '400px', xs: '300px' } }} />
             </Grid>
             </Grid> 
             </Box>
