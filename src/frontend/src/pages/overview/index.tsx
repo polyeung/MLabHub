@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Grid from '@mui/material/Grid';
-import { ResponseAllLabs, ResponseAllLabsTemp,  overviewProps} from '@/types/interface';
+import { ResponseAllLabs, ResponseAllLabsTemp,  overviewProps,
+            SearchCriteriaProps, SearchRefProps} from '@/types/interface';
 import Cards from '@/components/card';
 import { UserData } from '@/types/interface';
 import { Typography, Pagination, Box, TextField } from '@mui/material';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { ScreenContext } from '@/screenContext';
 import PlaceHolder from './placeHolder';
 
@@ -17,16 +18,18 @@ export default function overview({userData, searchCriteria, setDict}: overviewPr
     const [isWaiting, setIsWaiting] = useState<boolean>(true);
     const { isSmallScreen, isMiddleScreen } = React.useContext(ScreenContext);
     const [searchValue, setSearchValue] = useState('');
-    const navigate = useNavigate();
     const location = useLocation();
     // get current url
     const searchParams = new URLSearchParams(location.search);
     // get param from current url
     const initialPage = searchParams.get('page') ? parseInt(searchParams.get('page') as string) : 1;
-
     const [page, setPage] = useState(initialPage);
 
-    // search criteria starts
+    // to compare search Criteria
+    const searchCriRef = React.useRef<SearchCriteriaProps>(searchCriteria); 
+    const pageRef = React.useRef(1);
+    const isFromCriChanged = React.useRef(false);
+    const pageResetRef = React.useRef(true);
 
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchValue(event.target.value);
@@ -40,42 +43,55 @@ export default function overview({userData, searchCriteria, setDict}: overviewPr
         event.preventDefault();
         setPage(value);
       };
+    
 
-    useEffect(() => {
-        setIsWaiting(true);
-        fetch('/api/lab/getLabInfo2/?page=' + String(page) + '&school=' + searchCriteria["school"])
-            .then(response => response.json())
-            .then(data => {
-                setData(data);
-                console.log(data);
-                setIsWaiting(false);
-            });
+    const getUpdatedUrl = ():URL =>{
         const newUrl = new URL(window.location.toString());
+        if (searchCriteria["school"].length > 0){
+            newUrl.searchParams.set('school', searchCriteria["school"]);
+        } else {
+            newUrl.searchParams.delete('school');
+        };
+        if (searchCriteria["search"].length > 0){
+            newUrl.searchParams.set('search', searchCriteria["search"]);
+        } else {
+            newUrl.searchParams.delete('search');
+        };
         newUrl.searchParams.set('page', page.toString());
-        navigate(newUrl.pathname + newUrl.search);
-        console.log("search criteria: ", searchCriteria);
-      }, [page]);
+        return newUrl;
+    };
 
       useEffect(() => {
+        if(pageResetRef.current){
+            pageResetRef.current = false;
+            return;
+        }
+        // if this is triggered by criChanged
         setIsWaiting(true);
-        const newUrl = new URL(window.location.toString());
-        fetch('/api/lab/getLabInfo2/?' + 'school=' + searchCriteria["school"])
+        // check whether this useEffect comse from page variable changed
+        const newUrl = getUpdatedUrl();
+        if(searchCriRef.current != searchCriteria){
+            newUrl.searchParams.set('page', "1");
+            pageResetRef.current = true;
+            setPage(1);
+        }
+        fetch('/api/lab/getLabInfo2/' + newUrl.search)
             .then(response => response.json())
             .then(data => {
                 setData(data);
                 console.log(data);
-                const newUrl = new URL(window.location.toString()); // Create a fresh instance here
-                newUrl.searchParams.set('page',parseInt(data.total_page) < page ? "1":page.toString());
-                if (searchCriteria["school"].length > 0){
-                    newUrl.searchParams.set('school', searchCriteria["school"]);
-                } else {
-                    newUrl.searchParams.delete('school');
-                }
-                // You may move the navigation logic here, after all conditions have been checked.
+                console.log("api call....");
                 setIsWaiting(false);
-                navigate(newUrl.pathname + newUrl.search);
+                const history = window.history;
+                // check whether the page exceed
+                console.log("total_page: ", data.total_page);
+                console.log("now Page: ", page);
+                pageRef.current = page;
+                searchCriRef.current = searchCriteria;
+                
             });
-      }, [searchCriteria]);
+            history.pushState({}, '', newUrl.pathname + newUrl.search);
+      }, [searchCriteria, page]);
     
     const getMdSize = (length: number) => {
         if(length == 1){

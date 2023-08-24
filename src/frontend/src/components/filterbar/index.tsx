@@ -5,21 +5,46 @@ import SchoolFilter from './schoolFilter';
 import { FilterProps } from '@/types/interface';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const filters = [ "Department", "Label"]
 
-const FilterBarComponent: React.FC<FilterProps> = ({ searchCriteria, setDict }) => {
+
+const FilterBarComponent: React.FC<FilterProps> = ({ searchCriteria, setDict, setSearchCriteria }) => {
     const [schoolState, setSchoolState] = React.useState(() => ({
         "lsa": searchCriteria["school"].includes("lsa"),
         "eng": searchCriteria["school"].includes("eng"),
         "si": searchCriteria["school"].includes("si"),
     }));
-
-    
+    const [searchVal, setSearchVal] = React.useState("");
     const handleResetClick = () => {
-        console.log("Reset!");
+        
+        const initSchoolState = {
+            "lsa": false,
+            "eng": false,
+            "si": false,
+        };
+        setSchoolState(initSchoolState);
+
+        const initSearchCriteriaState = {
+            "dep": "",
+            "school": "",
+            "label": "",
+            "search": ""
+        };
+        setSearchVal("");
+        setSearchCriteria(initSearchCriteriaState);
+        const newUrl = new URL(window.location.toString());
+        const history = window.history;
+        history.pushState({}, '', newUrl.pathname);
     };
     const count = Object.values(schoolState).filter(Boolean).length;
+
+    const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchVal(event.target.value);
+        setDict("search", event.target.value as string);
+        console.log(searchCriteria);
+    };
     return (
         <Box sx={{ 
             display: 'flex', 
@@ -27,10 +52,12 @@ const FilterBarComponent: React.FC<FilterProps> = ({ searchCriteria, setDict }) 
             flexDirection: 'column',
             justifyContent: 'flex-start',
             alignItems: 'left',
+            paddingLeft: '0'
         }}>
             <Box 
-            sx={{display: 'flex', m:1,
+            sx={{display: 'flex', 
             flexDirection: 'row',
+            marginBottom: '5px',
             gap: {xs: 0.5, md: 2}}}
             >
             <SchoolFilter 
@@ -48,7 +75,7 @@ const FilterBarComponent: React.FC<FilterProps> = ({ searchCriteria, setDict }) 
                 sx={{
                     fontSize: '0.7rem',
                 }}
-                disabled={count == 0}>Reset filter</Button>
+                disabled={count == 0 && searchVal.length == 0}>Reset filter</Button>
             </Box>
             <Box sx={{ 
             display: 'flex', 
@@ -56,6 +83,8 @@ const FilterBarComponent: React.FC<FilterProps> = ({ searchCriteria, setDict }) 
             flexDirection: 'row',}}>
             <TextField id="outlined-basic" label="Filter any field..." 
                 variant="outlined" size="small"
+                value={searchVal}
+                onChange={ handleSearchChange}
                 sx={{ width: '66%', marginBottom: { xs: 1, sm: 0 } }}/>
             </Box>
         </Box>
