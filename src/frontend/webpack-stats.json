@@ -273,6 +273,10 @@
       "name": "main-48a0b6a5e17ed4c61777.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-48a0b6a5e17ed4c61777.js"
     },
+    "main-4945afdf6ee85ac3c5e3.js": {
+      "name": "main-4945afdf6ee85ac3c5e3.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-4945afdf6ee85ac3c5e3.js"
+    },
     "main-49fe580e072991dbd603.js": {
       "name": "main-49fe580e072991dbd603.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-49fe580e072991dbd603.js"
@@ -581,6 +585,10 @@
       "name": "main-b0eca796ba02788e7557.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-b0eca796ba02788e7557.js"
     },
+    "main-b1251ffe53d211395ed5.js": {
+      "name": "main-b1251ffe53d211395ed5.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-b1251ffe53d211395ed5.js"
+    },
     "main-b31406f2e7d6bdae68fb.js": {
       "name": "main-b31406f2e7d6bdae68fb.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-b31406f2e7d6bdae68fb.js"
@@ -824,7 +832,7 @@
   },
   "chunks": {
     "main": [
-      "main-fd3d01ff235b3cbb27f6.js"
+      "main-b1251ffe53d211395ed5.js"
     ]
   },
   "error": "ModuleBuildError",

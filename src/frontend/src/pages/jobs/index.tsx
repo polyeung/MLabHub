@@ -133,7 +133,7 @@ function jobs({userData}: jobsProps) {
     const [isWaiting, setIsWaiting] = useState<boolean>(false);
   useEffect(() => {
     setIsWaiting(true);
-      fetch(`/api/jobpages/getJobInfo`)
+      fetch(`/api/jobpages/getJobInfo/`)
           .then(response => response.json())
         .then(data => { setJobData(data); setIsWaiting(false); });
     }, []);
@@ -148,7 +148,7 @@ function jobs({userData}: jobsProps) {
               <Box key={index} sx={{ mt: "20px" }}>
                 <JobCard key={index} title={item.title} intro={item.intro} rate={item.rate} labname={item.labname}
                   course={item.course} contact={item.contact} lablink={item.lablink} workHoursSelection={item.workhoursselection}
-                  workModel={item.workmodel} consecutiveSemestersSelect={ item.consecutivesemestersselect } userData={userData} isSaved={false}
+                  workModel={item.workmodel} consecutiveSemestersSelect={ item.consecutivesemestersselect } userData={userData} isSaved={item.isSaved}
                   jobId={item.id.toString()}
                 />
               </Box>
