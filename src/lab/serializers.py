@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from lab.models import Lab
 
+
 class LabSerializer(serializers.ModelSerializer):
     isSaved = serializers.SerializerMethodField()
     class Meta:
@@ -26,6 +27,7 @@ class SimpleLabSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lab
         fields = ['id', 'name', 'link', 'dep']
+
 
 class LabSerializerLabPage(serializers.ModelSerializer):
     class Meta:

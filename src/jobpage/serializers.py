@@ -5,3 +5,8 @@ class JobDataSerializer(serializers.ModelSerializer):
     class Meta:
         model = JobData
         exclude = ('oidc_auth_user', )
+
+class SimpleJobSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = JobData
+        fields = ['id', 'title', 'labname']
