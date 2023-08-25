@@ -117,7 +117,6 @@ class GetSavedLabsView(APIView):
 
     def get(self, request, format=None):
         data = serialize('json',UserProfile.objects.filter(uid=request.user.id))
-
         parsed_data = json.loads(data)
         ret_data = []
         if len(parsed_data) > 0:
@@ -136,56 +135,41 @@ class UpdateSavedLabsView(APIView):
             return HttpResponseForbidden({"error": "Please login to saved this lab"})
         saved_labs_json = self.get_saved_labs(request.user.id)
         saved_labs = saved_labs_json["saved_labs"]
-        row_exist = saved_labs_json["is_exist"]
+
         print("saved_labs_json", saved_labs_json)
         data = self.request.data
         lab_id =  int(data.get('lab_id', -1))
         print("lab_id", lab_id)
         if lab_id == -1:
             return HttpResponseBadRequest({"error": "lab_id not provided"})
-        if not row_exist:
-            # case 1: row not exist, must be save this lab
-            try:
-                UserProfile.object.create(
-                    uid = request.user.id,
-                    data = {
-                        "savedLabs": [lab_id]
-                    }
-                )
-                return Response({'success': True}, status = status.HTTP_200_OK)
-            except:
-                return HttpResponseBadRequest({'error':"Something went wrong"})
+
+        # row is already exist
+        if lab_id in saved_labs:
+            # case 2: already exist delete that lab, unsave it
+            saved_labs.remove(lab_id)
         else:
-            # row is already exist
-            if lab_id in saved_labs:
-                # case 2: already exist delete that lab, unsave it
-                saved_labs.remove(lab_id)
-            else:
-                # case 3: add labs
-                saved_labs.append(lab_id)
-            # update the saved_labs in database
-            try:
-                user_profile = get_object_or_404(UserProfile, uid=request.user.id)
-                user_profile.data["savedLabs"] = saved_labs
-                user_profile.save()
-            except:
-                return HttpResponseBadRequest({'error':"Something went wrong "})
+            # case 3: add labs
+            saved_labs.append(lab_id)
+        # update the saved_labs in database
+        try:
+            user_profile = get_object_or_404(UserProfile, uid=request.user.id)
+            user_profile.data["savedLabs"] = saved_labs
+            user_profile.save()
+        except:
+            return HttpResponseBadRequest({'error':"Something went wrong "})
         return Response({'success':"Successfully saved lab!"})
     
     def get_saved_labs(self, uid):
         print("user id: ", uid)
         if uid is None:
             return []
-        row_not_exist = False
         data = serialize('json',UserProfile.objects.filter(uid=uid))
-        if data != "":
-            row_not_exist = True
         parsed_data = json.loads(data)
         ret_data = []
         if len(parsed_data) > 0:
             ret_data = parsed_data[0]['fields']['data']['savedLabs']
 
-        return {"saved_labs": ret_data, "is_exist": row_not_exist}
+        return {"saved_labs": ret_data}
 
 
 # # Update and get Jobs info starts from here.......
@@ -201,7 +185,7 @@ class GetSavedJobsView(APIView):
             ret_data = parsed_data[0]['fields']['data']['savedJobs']
         jobs = JobData.objects.filter(Q(approved=True) & Q(id__in=ret_data))
         serialized_jobs = SimpleJobSerializer(jobs, many=True).data
-        return JsonResponse(serialized_labs, safe=False)
+        return JsonResponse(serialized_jobs, safe=False)
 
 
 @method_decorator(csrf_protect, name = 'dispatch')
@@ -211,55 +195,39 @@ class UpdateSavedJobsView(APIView):
         # check whether login
         if not User.is_authenticated:
             return HttpResponseForbidden({"error": "Please login to saved this lab"})
-        saved_labs_json = self.get_saved_labs(request.user.id)
-        saved_labs = saved_labs_json["saved_labs"]
-        row_exist = saved_labs_json["is_exist"]
-        print("saved_labs_json", saved_labs_json)
+        saved_jobs_json = self.get_saved_jobs(request.user.id)
+        saved_jobs = saved_jobs_json["saved_jobs"]
+        print("saved_jobs_json", saved_jobs_json)
         data = self.request.data
-        lab_id =  int(data.get('lab_id', -1))
-        print("lab_id", lab_id)
-        if lab_id == -1:
-            return HttpResponseBadRequest({"error": "lab_id not provided"})
-        if not row_exist:
-            # case 1: row not exist, must be save this lab
-            try:
-                UserProfile.object.create(
-                    uid = request.user.id,
-                    data = {
-                        "savedLabs": [lab_id]
-                    }
-                )
-                return Response({'success': True}, status = status.HTTP_200_OK)
-            except:
-                return HttpResponseBadRequest({'error':"Something went wrong"})
+        job_id =  int(data.get('job_id', -1))
+        print("job_id", job_id)
+        if job_id == -1:
+            return HttpResponseBadRequest({"error": "job_id not provided"})
+        
+        # row is already exist
+        if job_id in saved_jobs:
+            # case 2: already exist delete that lab, unsave it
+            saved_jobs.remove(job_id)
         else:
-            # row is already exist
-            if lab_id in saved_labs:
-                # case 2: already exist delete that lab, unsave it
-                saved_labs.remove(lab_id)
-            else:
-                # case 3: add labs
-                saved_labs.append(lab_id)
-            # update the saved_labs in database
-            try:
-                user_profile = get_object_or_404(UserProfile, uid=request.user.id)
-                user_profile.data["savedLabs"] = saved_labs
-                user_profile.save()
-            except:
-                return HttpResponseBadRequest({'error':"Something went wrong "})
+            # case 3: add labs
+            saved_jobs.append(job_id)
+        # update the saved_labs in database
+        print("saved_jobs:", saved_jobs)
+        try:
+            user_profile = get_object_or_404(UserProfile, uid=request.user.id)
+            user_profile.data["savedJobs"] = saved_jobs
+            user_profile.save()
+        except:
+            return HttpResponseBadRequest({'error':"Something went wrong "})
         return Response({'success':"Successfully saved lab!"})
     
-    def get_saved_labs(self, uid):
+    def get_saved_jobs(self, uid):
         print("user id: ", uid)
         if uid is None:
             return []
-        row_not_exist = False
         data = serialize('json',UserProfile.objects.filter(uid=uid))
-        if data != "":
-            row_not_exist = True
         parsed_data = json.loads(data)
         ret_data = []
         if len(parsed_data) > 0:
-            ret_data = parsed_data[0]['fields']['data']['savedLabs']
-
-        return {"saved_labs": ret_data, "is_exist": row_not_exist}
+            ret_data = parsed_data[0]['fields']['data']['savedJobs']
+        return {"saved_jobs": ret_data}

@@ -4,7 +4,7 @@ from .models import JobData
 class JobDataSerializer(serializers.ModelSerializer):
     class Meta:
         model = JobData
-        exclude = ('oidc_auth_user', )
+        fields = '__all__'
 
 class SimpleJobSerializer(serializers.ModelSerializer):
     class Meta:

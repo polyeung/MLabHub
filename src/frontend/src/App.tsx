@@ -167,7 +167,7 @@ function App() {
           } />
           
           <Route path="/labpage" element={<Labpage userData={userData}/>} />
-          <Route path="/jobs" element={<Jobs />} />
+          <Route path="/jobs" element={<Jobs userData={userData}/>} />
 
             { /*Protected routes */}
           <Route path="/post" element={<ProtectedRoute userData={userData} page={<Post />}/>} />
