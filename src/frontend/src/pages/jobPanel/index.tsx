@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { SimpleJobInfoType} from '@/types/interface';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import { CardHeader } from '@mui/material';
@@ -13,6 +13,7 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import IconButton from '@mui/material/IconButton';
 import { ScreenContext } from '@/screenContext';
 import Modal from '@mui/material/Modal';
+import PlaceHolder from '@/pages/labPanel/placeHolder';
 
 interface jobCardProps { 
     name: string;
@@ -41,28 +42,7 @@ const style = {
   p: 4,
 };
 
-function JobModal({ open,jobID, handleClose}: jobModalProps) {
 
-  return (
-    <div>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                      JOB ID SELECTED: { jobID}
-          </Typography>
-        </Box>
-      </Modal>
-    </div>
-  );
-};
 
 function JobCard({ name, dep, jobID, handleOpen, setJobSelected}: jobCardProps) {
   const navigate = useNavigate();
@@ -129,17 +109,27 @@ export default function labPanel() {
     const handleOpen = () => setOpen(true);
     const handleClose = () => { setOpen(false); setJobSelected("-1"); };
     const [jobSelected, setJobSelected] = React.useState<string>("-1");
+    const [data, setData] = React.useState<SimpleJobInfoType[]>([] as SimpleJobInfoType[]);
+    const [isWaiting, setIsWaiting] = useState<boolean>(false);
+    const [isUpdateing, setIsUpdating] = useState<boolean>(false);
+
+    React.useEffect(() => {
+      setIsWaiting(true);
+      fetch(`/api/account/get_saved_jobs`)
+          .then(response => response.json())
+        .then(data => { setData(data); setIsWaiting(false); });
+    }, [isUpdateing]);
+    
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column'}}>
-            {jobData.map((item, index) => (
+        <>
+            {isWaiting? <PlaceHolder />:data.map((item, index) => (
                 <JobCard
                     key={"job-card" + String(index)}
-                    name={item.name} dep={item.dep}
+                    name={item.title} dep={item.labname}
                     handleOpen={handleOpen}
                     jobID={String(index)}
                     setJobSelected={ setJobSelected } />
             ))}
-            <JobModal open={open} handleClose={handleClose} jobID={ jobSelected } />
-        </Box>
+        </>
     );
 };
