@@ -13,18 +13,34 @@ from lab.models import Lab
 from .serializers import JobDataSerializer
 import pprint
 import json
+from rest_framework import viewsets
+from django.core.serializers import serialize
+from account.models import UserProfile
 
-@method_decorator(csrf_exempt, name = 'dispatch')
-class GetJobInfo(APIView):
-    permission_classes = (permissions.AllowAny, )
-    def get(self, request):
-        try:
-            jobs = JobData.objects.all()
-            jobs = JobDataSerializer(jobs, many=True)
-            return Response(jobs.data, status = status.HTTP_200_OK)
-        except:
-            return Response({'error':'Something went wrong when get Job Info'}, status=status.HTTP_400_BAD_REQUEST)
+class JobViewSet(viewsets.ReadOnlyModelViewSet):
+    pagination_class = None
+    serializer_class = JobDataSerializer
+    permission_classes = [permissions.AllowAny]
+    queryset = JobData.objects.all()
 
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        if self.request.user.id:
+            context['saved_jobs'] = self.get_saved_jobs(self.request.user.id)
+        else:
+            context['saved_jobs'] = []
+        return context
+
+    def get_saved_jobs(self, uid):
+        print("user id: ", uid)
+        if uid is None:
+            return []
+        data = serialize('json',UserProfile.objects.filter(uid=uid))
+        parsed_data = json.loads(data)
+        ret_data = []
+        if len(parsed_data) > 0:
+            ret_data = parsed_data[0]['fields']['data']['savedJobs']
+        return ret_data
 
 @method_decorator(csrf_protect, name='dispatch')
 class PostNewJob(APIView):
@@ -74,28 +90,6 @@ class PostNewJob(APIView):
                 return Response({'error': 'Please login to post your job'}, status=status.HTTP_401_UNAUTHORIZED)
         except Exception as e:
             return Response({'error': f'Something went wrong when posting a new job: {str(e)}'}, status=status.HTTP_400_BAD_REQUEST)
-
-
-class GetPostedJobs(APIView):
-    def get(self, request):
-        try:
-            is_authenticated = request.user.is_authenticated
-            if is_authenticated:
-                data = request.data
-                print(data)
-                try:
-                    jobs = JobData.objects.filter(oidc_auth_user=request.user)
-                    jobs = JobDataSerializer(jobs, many=True)
-                    return Response(jobs.data, status = status.HTTP_200_OK)
-                except KeyError:
-                    return Response({'error': 'Required field(s) are missing'}, status=status.HTTP_400_BAD_REQUEST)
-                except Exception as e:
-                    return Response({'error': f'Something went wrong when posting job: {str(e)}'}, status=status.HTTP_400_BAD_REQUEST)
-
-            else:
-                return Response({'error': 'Please login to get your posted jobs'}, status=status.HTTP_401_UNAUTHORIZED)
-        except Exception as e:
-            return Response({'error': f'Something went wrong when getting posted jobs: {str(e)}'}, status=status.HTTP_400_BAD_REQUEST)
 
 
 @method_decorator(csrf_protect, name='dispatch')

@@ -24,8 +24,10 @@ import { ScreenContext } from '@/screenContext';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 
 
-const pages = [['Browse Labs', '/labs', '0'], ['Research Opportunities', '/jobs', '1'], ['Post Jobs', '/post', '2'], ['Post Lab Info', '/create', '3']];
-const pagesStack = [['Browse Labs', '/labs'], ['Research Opportunities', '/jobs'], ['Post Jobs', '/post'], ['Post Lab Info', '/create'], ['Dashboard', '/dashboard']]
+const pages = [['Browse Labs', '/labs?page=1', '0'], ['Research Opportunities', '/jobs', '1'],
+               ['Post Jobs', '/post', '2'], ['Post Lab', '/create', '3']];
+const pagesStack = [['Browse Labs', '/labs?page=1'], ['Research Opportunities', '/jobs'], 
+                    ['Post Jobs', '/post'], ['Post Lab', '/create'], ['Dashboard', '/dashboard']]
 
 function NavBar({ userData }: { userData?: UserData | null }) {
 

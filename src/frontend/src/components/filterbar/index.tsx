@@ -10,7 +10,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 const filters = [ "Department", "Label"]
 
 
-const FilterBarComponent: React.FC<FilterProps> = ({ searchCriteria, setDict, setSearchCriteria }) => {
+const FilterBarComponent: React.FC<FilterProps> = ({ searchCriteria, setDict, setSearchCriteria}) => {
     const [schoolState, setSchoolState] = React.useState(() => ({
         "lsa": searchCriteria["school"].includes("lsa"),
         "eng": searchCriteria["school"].includes("eng"),
@@ -37,6 +37,7 @@ const FilterBarComponent: React.FC<FilterProps> = ({ searchCriteria, setDict, se
         const newUrl = new URL(window.location.toString());
         const history = window.history;
         history.pushState({}, '', newUrl.pathname);
+        
     };
     const count = Object.values(schoolState).filter(Boolean).length;
 

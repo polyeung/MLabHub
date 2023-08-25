@@ -161,7 +161,7 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
       />
       <CardContent sx={{cursor: 'pointer'}} onClick={handleClick}>
       {chooseRandomThree().map((item)=>(
-        <Chip label={item} size="small" />
+        <Chip label={item} size="small" key={item}/>
       ))}
       <Typography style={{fontSize: '11px', marginTop: '10px'}}>
       Lab excels in architecture, circuits, and design research, spanning hardware innovations to sonic attacks on MEMS accelerometers.
@@ -169,11 +169,11 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
       </CardContent>
 
       <CardActions disableSpacing sx={{ position: 'absolute', bottom: 0 }}>
-        <IconButton aria-label="star to save" onClick={ handleSavedClick }>
+        <IconButton aria-label="star to save" onClick={ handleSavedClick } key="star-icon">
           {saved? <StarIcon style={{ color: '#eb9834' }}/> : <StarIcon/>}
         </IconButton>
         <a href={ link }>
-          <IconButton aria-label="link to web page page">
+          <IconButton aria-label="link to web page page" key="Link-button">
             <LinkIcon/>
           </IconButton>
         </a>

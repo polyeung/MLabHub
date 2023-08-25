@@ -62,10 +62,11 @@ export default function overview({userData, searchCriteria, setDict}: overviewPr
     };
 
       useEffect(() => {
-        if(pageResetRef.current){
-            pageResetRef.current = false;
-            return;
-        }
+        // if(pageResetRef.current){
+        //     pageResetRef.current = false;
+        //     console.log("block by pageResetRef....");
+        //     return;
+        // }
         // if this is triggered by criChanged
         setIsWaiting(true);
         // check whether this useEffect comse from page variable changed
