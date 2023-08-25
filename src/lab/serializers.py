@@ -9,11 +9,13 @@ class LabSerializer(serializers.ModelSerializer):
 
     def get_isSaved(self, obj):
         user_id = self.context['request'].user.id
-        saved_labs = self.context.get('saved_labs', set())
-        if user_id:
-            return int(obj.id) in saved_labs
-        else:
+        print(self.context['request'])
+        print("user_id: ", user_id)
+        if not user_id:
             return False
+        saved_labs = self.context.get('saved_labs', set())
+        return int(obj.id) in saved_labs
+        
 
 class CreateLabSerializer(serializers.ModelSerializer):
     class Meta:

@@ -73,7 +73,6 @@ class GetLabInfo(APIView):
 class LabViewSet(viewsets.ReadOnlyModelViewSet):
     pagination_class = CustomPagination
     serializer_class = LabSerializer
-    authentication_classes = []
     permission_classes = [permissions.AllowAny]
 
     def get_queryset(self):
@@ -92,6 +91,7 @@ class LabViewSet(viewsets.ReadOnlyModelViewSet):
 
     def get_serializer_context(self):
         context = super().get_serializer_context()
+        print("user id in vie: ", self.request.user.id)
         if self.request.user.id:
             context['saved_labs'] = self.get_saved_labs(self.request.user.id)
         else:

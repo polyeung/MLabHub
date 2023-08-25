@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import {labsPng, jobsPng, dashboardPng} from '@/assets';
 import {  useNavigate } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 export default function homePage(){
     const navigate = useNavigate();
@@ -69,7 +70,8 @@ export default function homePage(){
             <Typography sx={{ marginTop: '30px' }}>
                 Explore an extensive directory of research labs at the University of Michigan, Ann Arbor. Dive into detailed profiles, discover cutting-edge research areas, connect with leading experts, and chart a personalized roadmap for your academic and research journey at UMich.
             </Typography>
-            <Button variant="outlined" sx={{width: '150px'}} onClick={handleLabsClick}>Browse Labs</Button>
+            <Button variant="outlined" sx={{width: '200px',mt:1}} onClick={handleLabsClick}
+                endIcon={<KeyboardArrowRightIcon/>}>Browse Labs</Button>
             </Grid>
 
             <Grid item xs={12} sm={6}>
@@ -100,7 +102,8 @@ export default function homePage(){
             <Typography sx={{ marginTop: '30px' }}>
                 Explore an extensive directory of research labs at the University of Michigan, Ann Arbor. Dive into detailed profiles, discover cutting-edge research areas, connect with leading experts, and chart a personalized roadmap for your academic and research journey at UMich.
             </Typography>
-            <Button variant="outlined" sx={{width: '150px'}} onClick={handleJobsClick}>Browse Jobs</Button>
+            <Button variant="outlined" sx={{width: '200px', mt:1}} onClick={handleJobsClick}
+            endIcon={<KeyboardArrowRightIcon/>}>Browse Jobs</Button>
             </Grid>
 
             <Grid item xs={12} sm={6}>
@@ -131,7 +134,8 @@ export default function homePage(){
             <Typography sx={{ marginTop: '30px' }}>
                 Explore an extensive directory of research labs at the University of Michigan, Ann Arbor. Dive into detailed profiles, discover cutting-edge research areas, connect with leading experts, and chart a personalized roadmap for your academic and research journey at UMich.
             </Typography>
-            <Button variant="outlined" sx={{width: '150px'}} onClick={handleDashboardClick}>View My Dashboard</Button>
+            <Button variant="outlined" sx={{width: '250px', mt:1}} onClick={handleDashboardClick}
+            endIcon={<KeyboardArrowRightIcon/>}>View My Dashboard</Button>
             </Grid>
 
             <Grid item xs={12} sm={6}>

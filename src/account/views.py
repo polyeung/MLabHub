@@ -115,6 +115,7 @@ class GetSavedLabsView(APIView):
 
     def get(self, request, format=None):
         data = serialize('json',UserProfile.objects.filter(uid=request.user.id))
+
         parsed_data = json.loads(data)
         ret_data = []
         if len(parsed_data) > 0:
