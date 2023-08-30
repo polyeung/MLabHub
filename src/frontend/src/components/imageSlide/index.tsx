@@ -12,6 +12,8 @@ export default function TitlebarImageList() {
     const [idx, setIdx] = React.useState(0);
     const urlList = [
         "https://theory.engin.umich.edu/wp-content/uploads/sites/9/2019/08/whiteboard.jpg",
+        "	https://guoanhong.com/paperimages/CHI23-VRGit.jpg",
+        "https://guoanhong.com/paperimages/CHI23-DIYAT.jpg",
         "https://eecsnews.engin.umich.edu/wp-content/uploads/sites/2/2023/08/new-fac-23-featured-470x312.jpg"
     ];
 
