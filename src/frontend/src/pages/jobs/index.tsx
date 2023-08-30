@@ -127,9 +127,13 @@ interface jobsProps{
   userData: UserData | null | undefined;
 };
 
+interface jobDataIntExtend extends jobdataInt{
+  isSaved: boolean;
+}
+
 function jobs({userData}: jobsProps) { 
     const navigate = useNavigate();
-    const [jobData, setJobData] = useState<jobdataInt[]>([]);
+    const [jobData, setJobData] = useState<jobDataIntExtend[]>([]);
     const [isWaiting, setIsWaiting] = useState<boolean>(false);
   useEffect(() => {
     setIsWaiting(true);

@@ -9,8 +9,8 @@ from rest_framework.response import Response
 from rest_framework import generics, permissions, status
 import pprint
 import json
-from lab.models import Lab
-from .serializers import LabSerializer, LabSerializerLabPage
+from lab.models import Lab, Pic
+from .serializers import LabSerializer, LabSerializerLabPage, PicSerializer
 from django.db.models import Q
 from account.models import UserProfile
 from .serializers import CreateLabSerializer
@@ -142,3 +142,8 @@ class CreateLabInfo(APIView):
         except:
             return HttpResponseBadRequest({'error':"Something went wrong when checking authentication status"})
 
+class PicViewSet(viewsets.ReadOnlyModelViewSet):
+    permission_classes = (permissions.AllowAny, )
+    serializer_class = PicSerializer
+    pagination_class = None
+    queryset = Pic.objects.all()
