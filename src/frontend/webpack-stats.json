@@ -73,6 +73,10 @@
       "name": "main-8b51f833db66eb99926f.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-8b51f833db66eb99926f.js"
     },
+    "main-976c92d62daa66d8fa87.js": {
+      "name": "main-976c92d62daa66d8fa87.js",
+      "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-976c92d62daa66d8fa87.js"
+    },
     "main-9ce5cdcf8ebc0ec2df90.js": {
       "name": "main-9ce5cdcf8ebc0ec2df90.js",
       "path": "/Users/polyueng/Desktop/mlabhub-yang-merge/MLabHub/src/frontend/bundles/main-9ce5cdcf8ebc0ec2df90.js"
@@ -108,7 +112,7 @@
   },
   "chunks": {
     "main": [
-      "main-e3b2d9593a21a84847eb.js"
+      "main-976c92d62daa66d8fa87.js"
     ]
   }
 }

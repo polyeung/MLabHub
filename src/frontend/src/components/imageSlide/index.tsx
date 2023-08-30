@@ -64,7 +64,7 @@ export default function TitlebarImageList({picList}:ImgProps) {
           }}
             actionIcon={
                 <>
-                {picList.length != 0 &&
+                {picList.length > 1 &&
                 <IconButton
                 sx={{
                   color: 'white',
@@ -80,7 +80,7 @@ export default function TitlebarImageList({picList}:ImgProps) {
               >
                 <KeyboardArrowLeftIcon fontSize="inherit" />
               </IconButton>}
-                {picList.length != 0 &&
+                {picList.length > 1 &&
               <IconButton
                 sx={{
                   color: 'white',
