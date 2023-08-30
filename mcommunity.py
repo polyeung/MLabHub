@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 
 def find_email(name):
     url = "https://mcommunity.umich.edu/"
-    driver = webdriver.Chrome()
+    driver = webdriver.Chrome("/mnt/c/Users/shuna/Downloads/chromedriver-win64/chromedriver-win64/chromedriver")
     driver.get(url)
 
     input_element = driver.find_element(By.ID,'searchString') 

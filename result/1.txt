@@ -1,8 +1,7 @@
-ME
-https://imtl.engin.umich.edu/
-Irradiated Materials Testing Laboratory
-The Irradiated Material Testing Laboratory (IMTL) was established to provide a facility to conduct experimental research on neutron irradiated materials in aqueous environments. The IMTL consists of five refreshed autoclaves (Inconel & 316 Stainless Steel construction) that can be mounted in constant extension rate (CERT) or crack growth rate (CGR) configurations. This unique, one-of-a-kind research facility is currently the only one in the world capable of conducting experiments on stress corrosion cracking (SCC) of neutron irradiated material in supercritical water. The lab also contains three direct current potential drop (DCPD) systems for controlling the load on the specimens while conducting crack growth rate (CGR) experiments, as well as a JOEL JSM-6480 Scanning Electron Microscope (SEM) and EDAX EDS Element Silicon Drift Detector (SDD) with a silicon nitride (Si3N4) window for timely on-site analysis of specimens.
-Gary Was
-Samara Lavine
-Donghai Do
-Justin Hesterberg
+SI
+https://umbee.github.io/
+Lab Name: BEEHome, MichiganBehavioralandExperimentalEconomics
+Brief Intro: Welcome to the University of Michigan’s BEELab! We are a group of behavioral economists from three units—the Economics Department, the Ross Business School, and the School of Information. Our research utilizes experiments in a physical laboratory, such as the Behavioral Research Lab in North Quad, or online. We also conduct field experiments in naturalistic settings to study how people make economic decisions. Our goal is to provide PhD students with an informal and collaborative environment where they can get feedback on their projects and develop their skills to succeed in the job market. We also run a weekly seminar series—the Social, Behavioral, and Experimental Economics or SBEESeminar Series.
+Alain Cohn
+Erin Krupka
+Tanya Rosenblat

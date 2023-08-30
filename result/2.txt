@@ -1,9 +1,9 @@
-ME
-https://sms.engin.umich.edu/
-Lab Name: Smart Materials and Structures
-Brief Intro: The Smart Materials and Structures lab at the University of Michigan, in collaboration with General Motors, aims to exploit the emerging capabilities of smart materials and structures to create innovative advanced device technologies for automotive applications. The lab conducts theoretical and experimental research to expand the knowledge base of smart materials, develops design methodologies and tools to support smart material technologies, and utilizes emerging smart materials to invent leap-frog device technologies. The lab fosters a collaborative environment between researchers and engineers to improve the progression from basic materials research to innovative technology development and its inclusion in successful, marketable products.
-Diann Brei
-Nancy Johnson
-John A. Shaw
-Nilesh Mankame
-Jon Luntz
+SI
+https://spilab.io/
+Lab Name: Security Privacy Interaction Lab (SPILab)
+Brief Intro: The Security Privacy Interaction Lab (SPILab) at the University of Michigan is a team of researchers dedicated to studying privacy and security issues in today's digital world. Our focus is on understanding the challenges in protecting privacy online, building and improving systems that preserve user privacy, minimizing the burdens of privacy protections for users, and increasing user awareness and knowledge around privacy and security issues.
+Florian Schaub
+Byron Lowens
+Abraham Mhaidli
+Allison McDonald
+Cami Goray
