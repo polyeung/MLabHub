@@ -94,7 +94,7 @@ function JobCard({ name, dep, jobID, isUpdating, setIsUpdating}: jobCardProps) {
             <IconButton aria-label="delete" key={"delete-button"} onClick={handleSavedClick}>
                 <DeleteIcon />
             </IconButton>,
-            <IconButton aria-label="more" key={"more-button"} onClick={ () => handleModelOpen(jobID) }>
+            <IconButton aria-label="more" key={"more-button"}>
                 < MoreHorizIcon/>
             </IconButton>
             ]}

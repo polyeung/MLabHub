@@ -21,6 +21,7 @@ import getCookie from '@/components/csrfToken';
 import Tooltip from '@mui/material/Tooltip';
 import {labelsKey} from '@/assets/index';
 import Chip from '@mui/material/Chip';
+import ImageSlide from '@/components/imageSlide';
 
 interface labinfoInt { 
     name: string,
@@ -127,7 +128,7 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
   return (
     <Card sx={{
       width: 350,
-      height: 450,
+      height: 500,
       position: 'relative',
       boxShadow: 4,
     }}>
@@ -151,14 +152,18 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
         titleTypographyProps={titleTypographyProps}
         subheader={ dep }
       />
-      <CardMedia
+      {/* <CardMedia
         component="img"
         height="200"
         image={selectPic(dep)}
         alt="Lab Image"
         onClick={handleClick}
         sx={{cursor: 'pointer'}}
-      />
+      /> */}
+      <CardMedia>
+        <ImageSlide />
+      </CardMedia>
+
       <CardContent sx={{cursor: 'pointer'}} onClick={handleClick}>
       {chooseRandomThree().map((item)=>(
         <Chip label={item} size="small" key={item}/>

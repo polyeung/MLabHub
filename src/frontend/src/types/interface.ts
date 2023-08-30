@@ -88,7 +88,7 @@ export interface jobdataInt {
     rate_type: string,
     workhoursselection: string,
     workmodel: string,
-    consecutivesemestersselect: string
+    consecutivesemestersselect: string,
 };
 
 export const jobdataIntTemplate: jobdataInt = {
@@ -104,7 +104,7 @@ export const jobdataIntTemplate: jobdataInt = {
     rate_type: "Number",
     workhoursselection: "< 10 hours",
     workmodel: "Onsite",
-    consecutivesemestersselect: "A semester"
+    consecutivesemestersselect: "A semester",
 };
 
 export interface UserData {
@@ -205,4 +205,11 @@ export interface SchoolFilterProps{
 export interface EmailBadgeProps{
     emails: String[],
     people: String[]
+};
+
+
+export interface SimpleJobInfoType {
+    id: number,
+    title: string,
+    labname: string
 };
