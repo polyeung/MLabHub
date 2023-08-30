@@ -15,7 +15,7 @@ import { umichImg, stadiumImg, bbbImg } from '@/assets';
 import { useNavigate } from 'react-router-dom';
 import StarIcon from '@mui/icons-material/Star';
 import { LocationState } from '@/types/interface';
-import { UserData, parsedNameInt } from '@/types/interface';
+import { UserData, parsedNameInt, PicType } from '@/types/interface';
 import { useNotifs } from '@/context';
 import getCookie from '@/components/csrfToken';
 import Tooltip from '@mui/material/Tooltip';
@@ -32,10 +32,11 @@ interface labinfoInt {
     dep: string,
     isSaved: boolean,
     emails: string,
-    userData: UserData | null | undefined;
+    userData: UserData | null | undefined,
+    picList: PicType[]
 };
 
-export default function RecipeReviewCard({ name, link, people, intro, id, userData, dep, emails, isSaved}: labinfoInt) {
+export default function RecipeReviewCard({ name, link, people, intro, id, userData, dep, emails, isSaved, picList}: labinfoInt) {
   const navigate = useNavigate();
   const notifs = useNotifs();
   const [saved, setSaved] = useState<boolean>(isSaved);
@@ -161,7 +162,7 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
         sx={{cursor: 'pointer'}}
       /> */}
       <CardMedia>
-        <ImageSlide />
+        <ImageSlide picList={picList} />
       </CardMedia>
 
       <CardContent sx={{cursor: 'pointer'}} onClick={handleClick}>

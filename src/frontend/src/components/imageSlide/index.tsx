@@ -7,30 +7,53 @@ import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import { PicType } from '@/types/interface';
+import {umichImg} from '@/assets';
+import CircularProgress from '@mui/material/CircularProgress';
 
-export default function TitlebarImageList() {
+interface ImgProps{
+    picList: PicType[]
+};
+export default function TitlebarImageList({picList}:ImgProps) {
     const [idx, setIdx] = React.useState(0);
-    const urlList = [
-        "https://theory.engin.umich.edu/wp-content/uploads/sites/9/2019/08/whiteboard.jpg",
-        "	https://guoanhong.com/paperimages/CHI23-VRGit.jpg",
-        "https://guoanhong.com/paperimages/CHI23-DIYAT.jpg",
-        "https://eecsnews.engin.umich.edu/wp-content/uploads/sites/2/2023/08/new-fac-23-featured-470x312.jpg"
-    ];
+    const [isLoading, setIsLoading] = React.useState(true);
 
     const leftClick = () => {
-        setIdx((idx - 1 + urlList.length) % urlList.length);
+        setIdx((idx - 1 + picList.length) % picList.length);
     };
 
     const rightClick = () => {
-        setIdx((idx + 1) % urlList.length);
+        setIdx((idx + 1) % picList.length);
     };
+
+    const handleImageLoad = () => {
+        setIsLoading(false);
+      };
   return (
 
         <ImageListItem key={"some key"} sx={{width: '100%'}}>
+            {isLoading ? (
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+          }}
+        >
+          <CircularProgress color="inherit" />
+        </div>
+      ) : null}
+
           <img
-            src={urlList[idx]}
+            src={picList.length == 0 ? umichImg :picList[idx].url}
             alt={"img"}
             loading="lazy"
+            onLoad={handleImageLoad}
           />
          <ImageListItemBar
           sx={{
@@ -41,6 +64,7 @@ export default function TitlebarImageList() {
           }}
             actionIcon={
                 <>
+                {picList.length != 0 &&
                 <IconButton
                 sx={{
                   color: 'white',
@@ -55,8 +79,8 @@ export default function TitlebarImageList() {
                 aria-label={`info about ${"labimage"}`}
               >
                 <KeyboardArrowLeftIcon fontSize="inherit" />
-              </IconButton>
-
+              </IconButton>}
+                {picList.length != 0 &&
               <IconButton
                 sx={{
                   color: 'white',
@@ -70,10 +94,10 @@ export default function TitlebarImageList() {
                 onClick={rightClick}
               >
                 <KeyboardArrowRightIcon fontSize="inherit" />
-              </IconButton>
-              </>
+              </IconButton>}
+              </>}
               
-            }
+            
           />
         </ImageListItem>
 

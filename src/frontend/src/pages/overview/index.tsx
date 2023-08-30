@@ -130,6 +130,7 @@ export default function overview({userData, searchCriteria, setDict}: overviewPr
                         userData={userData}
                         emails={item.emails}
                         isSaved={item.isSaved}
+                        picList={item.pic}
                     />
                 </Grid>
             ))}

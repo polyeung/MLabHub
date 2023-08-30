@@ -7,6 +7,12 @@ export interface SimpleLabInfoType {
     link: string,
     dep: string
 };
+
+export interface PicType {
+    fromS3: boolean,
+    url: string
+};
+
 export interface LabInfoType { 
     id: number,
     name: string,
@@ -15,7 +21,8 @@ export interface LabInfoType {
     intro: string,
     emails: string,
     dep: string,
-    isSaved: boolean
+    isSaved: boolean,
+    pic: PicType[]
 };
 
 export interface ResponseAllLabs {
