@@ -15,7 +15,7 @@ import getCookie from './components/csrfToken';
 import Fab from '@mui/material/Fab';
 import BottomBanner from './components/bottombanner'
 
-export const firstRelease = false;
+export const firstRelease = true;
 
 function ProtectedRoute(props: {
 	userData: UserData | undefined | null;

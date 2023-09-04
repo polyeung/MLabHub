@@ -16,7 +16,9 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import PendingIcon from '@mui/icons-material/Pending';
 import { styled } from '@mui/material/styles';
 import { ButtonProps } from '@mui/material/Button';
-import { yellow, green} from '@mui/material/colors';
+import { yellow, green } from '@mui/material/colors';
+import { firstRelease } from '../../App'
+import ComingSoon from '../post/index'
 
 interface labCardProps { 
     name: string,
@@ -114,12 +116,17 @@ const labData = [
   ];
 export default function postedLabPanel() { 
     return (
-        <>{labData.map((item, index) => (
-            <LabCard
+      <>
+        {firstRelease ? <ComingSoon /> :
+          <>
+            {labData.map((item, index) => (
+              <LabCard
                 key={"labcard-" + String(index)}
                 name={item.name}
                 dep={item.dep}
                 isPending={item.isPending} />))
             }</>
+        }
+      </>
     );
 };
