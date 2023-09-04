@@ -14,6 +14,8 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import IconButton from '@mui/material/IconButton';
 import { ScreenContext } from '@/screenContext';
 import CardContent from '@mui/material/CardContent';
+import { firstRelease } from '../../App'
+import ComingSoon from '../post/index'
 
 import getCookie from '@/components/csrfToken';
 import {
@@ -183,7 +185,7 @@ function JobCard({ title, labname, jobID, handleOpen, setJobSelected, job, handl
     </Card>
   );
 }
-export default function PostedJobPanel() { 
+export default function PostedJobPanel() {
   const [jobData, setJobData] = useState<jobdataInt[]>([]);
   const [isWaiting, setIsWaiting] = useState<boolean>(false);
   const [open, setOpen] = React.useState(false);
@@ -194,19 +196,19 @@ export default function PostedJobPanel() {
 
   useEffect(() => {
     setIsWaiting(true);
-      fetch(`/api/jobpages/getPostedJobs`)
-          .then(response => response.json())
-        .then(data => { setJobData(data); setIsWaiting(false); });
+    fetch(`/api/jobpages/getPostedJobs`)
+      .then(response => response.json())
+      .then(data => { setJobData(data); setIsWaiting(false); });
   }, []);
 
   const handleDelete = (jobID: number) => {
     // Perform deletion logic here
     console.log("Delete clicked for job ID:", jobID);
     fetch('/api/account/csrf_cookie')
-    .then(response => response.json())
+      .then(response => response.json())
       .then(data => {
         const csrftoken: (string | null) = getCookie('csrftoken');
-        fetch('/api/jobpages/deletejob/'+jobID, {
+        fetch('/api/jobpages/deletejob/' + jobID, {
           method: 'DELETE',
           credentials: 'include',
           headers: {
@@ -219,8 +221,8 @@ export default function PostedJobPanel() {
             setIsWaiting(true);
             fetch(`/api/jobpages/getPostedJobs`)
               .then(response => response.json())
-                .then(data => { setJobData(data); setIsWaiting(false); });
-          } else { 
+              .then(data => { setJobData(data); setIsWaiting(false); });
+          } else {
             res.json().then(data =>
               notifs.addNotif({
                 severity: 'error',
@@ -230,29 +232,30 @@ export default function PostedJobPanel() {
           }
         }).catch(console.warn);
       })
-    .catch(error => {
-      // Handle any errors
-      console.error(error);
-    });
+      .catch(error => {
+        // Handle any errors
+        console.error(error);
+      });
   };
 
   return (
     <>
-    <Box sx={{ display: 'flex', flexDirection: 'column'}}>
+      {firstRelease ? <ComingSoon /> :
+        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
           {jobData.map((item, index) => (
-              <JobCard
-                  key={"job-card" + String(index)}
-                  title={item.title} labname={item.labname}
-                  handleOpen={handleOpen}
-                  jobID={index}
-                  job={item}
-                  setJobSelected={setJobSelected}
-                  handleDelete={handleDelete}
+            <JobCard
+              key={"job-card" + String(index)}
+              title={item.title} labname={item.labname}
+              handleOpen={handleOpen}
+              jobID={index}
+              job={item}
+              setJobSelected={setJobSelected}
+              handleDelete={handleDelete}
             />
           ))}
-        <JobModal open={open} handleClose={handleClose} jobID={jobSelected} item={ jobSelected ==-1 ?jobdataIntTemplate :jobData[jobSelected]} />
-    </Box>
+          <JobModal open={open} handleClose={handleClose} jobID={jobSelected} item={jobSelected == -1 ? jobdataIntTemplate : jobData[jobSelected]} />
+        </Box>
+      }
     </>
-
   );
 };
