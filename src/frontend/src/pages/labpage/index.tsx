@@ -188,7 +188,7 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
                 }}
             />
             { /* Real content begin */}
-            <Typography variant="h6">Reviews</Typography>
+            <Typography variant="h6">Reviews test</Typography>
             {isWaitingCom?  <Typography variant='h5'>Loading Lab comments...<CircularProgress /></Typography>:
                 <Box
                     sx={{
@@ -212,7 +212,7 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
                         
                             }}
                         >  <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                                <Typography sx={{ mr: 2 }}>{item.name}</Typography>
+                                <Typography sx={{ mr: 2 }}>Anonymous</Typography>
                                 <Rating
                                     name="simple-controlled"
                                     value={item.rating}
