@@ -15,6 +15,7 @@ import getCookie from './components/csrfToken';
 import Fab from '@mui/material/Fab';
 import BottomBanner from './components/bottombanner'
 
+export const firstRelease = false;
 
 function ProtectedRoute(props: {
 	userData: UserData | undefined | null;
@@ -41,6 +42,7 @@ function App() {
   const location = useLocation();
   const [userData, setUserData] = useState<UserData | undefined | null>(undefined);
   const [visible, setVisible] = useState(false);
+  
   useEffect(() => {
     // get csrf first
     fetch('/api/account/csrf_cookie')

@@ -17,6 +17,7 @@ import { useNotifs } from '@/context';
 import Modal from '@mui/material/Modal';
 import getCookie from '../../components/csrfToken';
 import { useNavigate } from 'react-router-dom';
+import { firstRelease } from '../../App'
 
 import {
     jobdataInt, jobdataIntTemplate,
@@ -45,6 +46,14 @@ function Copyright() {
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
+    </Typography>
+  );
+}
+
+function ComingSoon() {
+  return (
+    <Typography component="h1" variant="h4" align="center">
+      Coming Soon...
     </Typography>
   );
 }
@@ -252,6 +261,8 @@ export default function Post() {
       
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
+          {firstRelease ? <ComingSoon /> : 
+          <>
           <Typography component="h1" variant="h4" align="center">
             Post your job info
           </Typography>
@@ -289,7 +300,8 @@ export default function Post() {
                 </Button>
               </Box>
             </React.Fragment>
-          )}
+        )} </>
+                }
         </Paper>
         <Copyright />
       </Container>
