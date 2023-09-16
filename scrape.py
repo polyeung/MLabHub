@@ -2,108 +2,100 @@ import requests
 from bs4 import BeautifulSoup
 import sys
 
-potential_labname = []
-potential_peopleinfo=[]
+# potential_labname = []
+# potential_peopleinfo=[]
 
-def find_labname(soup):
-    global potential_labname  # Declare the variable as global
-    title_tag = soup.title
-    # find labname from className
-    title_elements = soup.find_all(class_=lambda x: x and x.endswith('title'))
+# def find_labname(soup):
+#     global potential_labname  # Declare the variable as global
+#     title_tag = soup.title
+#     # find labname from className
+#     title_elements = soup.find_all(class_=lambda x: x and x.endswith('title'))
 
-    # find labname from <title>
-    for title_element in title_elements:
-        potential_labname.append(title_element.get_text())
-    if title_tag:
-        # Get the content of the title tag
-        title_content = title_tag.get_text()
-        potential_labname.append(title_content)
-    # find Labname based on content
-    matching_elements = soup.find_all(lambda tag: tag.name != 'script' and tag.string is not None and tag.string.endswith('Lab'))
-    for ele in matching_elements:
-        potential_labname.append(ele.get_text())
+#     # find labname from <title>
+#     for title_element in title_elements:
+#         potential_labname.append(title_element.get_text())
+#     if title_tag:
+#         # Get the content of the title tag
+#         title_content = title_tag.get_text()
+#         potential_labname.append(title_content)
+#     # find Labname based on content
+#     matching_elements = soup.find_all(lambda tag: tag.name != 'script' and tag.string is not None and tag.string.endswith('Lab'))
+#     for ele in matching_elements:
+#         potential_labname.append(ele.get_text())
 
 
-def filter_labname():
-    global potential_labname
-    # filter all potentiallab name
-    # possible_endings = ["lab.", "Lab.", "lab", "Lab", "laboratory", "Laboratory", "laboratory.", "Laboratory."]
-    possible_endings = ["lab.", "Lab.", "lab,", "Lab,", "lab", "Lab","laboratory", "Laboratory", "laboratory, ", "Laboratory", "laboratory.", "Laboratory."]
-    possible_beginings = ["Lab", "Laboratory", "lab", "laboratory"]
-    # check whether ends with one of above for every potential
-    new_list = []
-    # check ending
-    for word in potential_labname:
-        #print("testing: ", word)
-        isMatch = False
-        for sub in possible_endings:
-            if word.endswith(sub):
-                isMatch = True
-            if isMatch:
-                break
-        if isMatch:
-            new_list.append(word)
-    # check starting
-    for word in potential_labname:
-        #print("testing: ", word)
-        isMatch = False
-        for sub in possible_beginings:
-            if word.startswith(sub):
-                isMatch = True
-            if isMatch:
-                break
-        if isMatch:
-            new_list.append(word)
-    return new_list
+# def filter_labname():
+#     global potential_labname
+#     # filter all potentiallab name
+#     # possible_endings = ["lab.", "Lab.", "lab", "Lab", "laboratory", "Laboratory", "laboratory.", "Laboratory."]
+#     possible_endings = ["lab.", "Lab.", "lab,", "Lab,", "lab", "Lab","laboratory", "Laboratory", "laboratory, ", "Laboratory", "laboratory.", "Laboratory."]
+#     possible_beginings = ["Lab", "Laboratory", "lab", "laboratory"]
+#     # check whether ends with one of above for every potential
+#     new_list = []
+#     # check ending
+#     for word in potential_labname:
+#         #print("testing: ", word)
+#         isMatch = False
+#         for sub in possible_endings:
+#             if word.endswith(sub):
+#                 isMatch = True
+#             if isMatch:
+#                 break
+#         if isMatch:
+#             new_list.append(word)
+#     # check starting
+#     for word in potential_labname:
+#         #print("testing: ", word)
+#         isMatch = False
+#         for sub in possible_beginings:
+#             if word.startswith(sub):
+#                 isMatch = True
+#             if isMatch:
+#                 break
+#         if isMatch:
+#             new_list.append(word)
+#     return new_list
 
-def print_res():
-    """Print results of finding."""
-    print("====== Potential Labname ======")
-    print(*(name for name in filter_labname()), sep="\n")
-    print("\n\n====== Potential People ======")
-    print(potential_peopleinfo)
-    #print(*(name for name in potential_peopleinfo()), sep="\n")
+# def print_res():
+#     """Print results of finding."""
+#     print("====== Potential Labname ======")
+#     print(*(name for name in filter_labname()), sep="\n")
+#     print("\n\n====== Potential People ======")
+#     print(potential_peopleinfo)
+#     #print(*(name for name in potential_peopleinfo()), sep="\n")
 
+
+# return html after remove tags
 def download_txt_main(url):
     # Send a GET request to the URL 
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
     }
-
     response = requests.get(url, headers=headers)
 
     # Check if the request was successful
     if response.status_code == 200:
         # Parse the HTML content
         soup = BeautifulSoup(response.content, 'html.parser')
-        # find labname
-        find_labname(soup)
-        # Right now, this is not useful
 
-        ### all this function does is return html after removing tags
-
-        # Remove all script tags
-
-        for script in soup.find_all('script'):
-            script.extract()
+        # # Remove all script tags
+        # for script in soup.find_all('script'):
+        #     script.extract()
         
-        # remove all style tag
-        for style in soup.find_all('style'):
-            style.extract()
+        # # remove all style tag
+        # for style in soup.find_all('style'):
+        #     style.extract()
         
-          # Remove all meta tags
-        for meta in soup.find_all('meta'):
-            meta.extract()
+        #   # Remove all meta tags
+        # for meta in soup.find_all('meta'):
+        #     meta.extract()
 
-        # Remove all link tags
-        for link in soup.find_all('link'):
-            link.extract()
+        # # Remove all link tags
+        # for link in soup.find_all('link'):
+        #     link.extract()
 
-        # Get the modified HTML content
+        # Get the HTML content
         modified_html = str(soup.get_text())
-
-
-
 
         return modified_html
     else:
@@ -111,16 +103,16 @@ def download_txt_main(url):
         return None
 
 
-def find_people(soup):
-    global potential_peopleinfo
-    class_name = "eecs_person_copy"
-    copys = soup.find_all(class_=class_name)
-    for copy in copys:
-        h_tags = copy.find_all(["h1", "h2", "h3","h4","h5","h6"])
+# def find_people(soup):
+#     global potential_peopleinfo
+#     class_name = "eecs_person_copy"
+#     copys = soup.find_all(class_=class_name)
+#     for copy in copys:
+#         h_tags = copy.find_all(["h1", "h2", "h3","h4","h5","h6"])
 
-        for h_tag in h_tags:
-            print("get person: ", h_tag.get_text())
-            potential_peopleinfo.append(h_tag.get_text())
+#         for h_tag in h_tags:
+#             print("get person: ", h_tag.get_text())
+#             potential_peopleinfo.append(h_tag.get_text())
 
 def find_potential_people_page(url):
     if url[-1] == '/':
@@ -131,22 +123,28 @@ def find_potential_people_page(url):
         url_1 = url + "/people"
         url_2 = url + "/faculty"
         url_3 = url + "/about"
+
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
     }
-    response = requests.get(url_1,headers=headers)
+    response = requests.get(url_1, headers=headers)
     if response.status_code == 200:
         print("Scrape from /people")
         return url_1
-    response = requests.get(url_2,headers=headers)
+    
+    response = requests.get(url_2, headers=headers)
     if response.status_code == 200:
         print("Scrape from /faculty")
         return url_2
-    response = requests.get(url_3,headers=headers)
+    
+    response = requests.get(url_3, headers=headers)
     if response.status_code == 200:
         print("Scrape from /about")
         return url_3
+    
+    print("We couldn't find a people page in the lab.")
     return url
+
 
 def download_txt_people(url):
     # Send a GET request to the URL 
@@ -160,15 +158,9 @@ def download_txt_people(url):
     if response.status_code == 200:
         # Parse the HTML content
         soup = BeautifulSoup(response.content, 'html.parser')
-        # find people
-        find_people(soup)
-        # this does nothing right now
-
-        # Remove all script tags
 
         # Get the modified HTML content
         modified_html = str(soup.get_text())
-        # this function basically returns html without tags
 
         return modified_html
     else:

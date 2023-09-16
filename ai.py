@@ -19,10 +19,10 @@ def ask_gpt(prompt):
     return response['choices'][0]['message']['content']
 
 def gen_prompt(scrape_text):
-    return "from below source, generate labname and brief intro of lab(400 characters max) output format: seperated by comma" + scrape_text
+    return "From the source below, generate a labname and a brief intro of the lab (400 characters max). Output format: info\n" + scrape_text
 
 def gen_prompt_people(scrape_text):
-    return "from below source of research lab's member intro, generate member1,member2, .... output membername one by one concatenated by comma " + scrape_text
+    return "From the source of the research lab members intro, generate member1,member2, .... Output member names one by one concatenated by comma\n" + scrape_text
 
 def get_labels(path):
     with open(path) as f:
@@ -39,13 +39,16 @@ def gen_prompt_for_labels(path_to_labels, summary):
     prompt = 'This is a list of labels:\n' + labels_list + '\n'
     prompt += "Give me appropriate labels from the list above for the description below. Return what are in the list and don't make new labels that are not in the list even if you think they are appropriate.\n"
     prompt += summary
+    return prompt
 
 
 def ai_exec(url, onlyPrompt):
-    print(f"Start crawling for {url}...")
+    print(f"Start crawling for {url}.")
 
     # for main page
     scrape_text = download_txt_main(url)
+    if scrape_text is None:
+        return None
 
     # remove punctuation
     if not onlyPrompt:
@@ -54,38 +57,66 @@ def ai_exec(url, onlyPrompt):
         scrape_text = scrape_text.replace("\n", "")
 
     # result
-    # prompt = gen_prompt(scrape_text)
-    # print("Prompting main start...")
-    # response = ""
-    # if not onlyPrompt:
-    #     response = ask_gpt(prompt[:4097])
-    # print("Prompting main ends..")
+    prompt = gen_prompt(scrape_text)
+    print("Getting a labname and a intro of the lab.")
+    response = ""
+    if not onlyPrompt:
+        if len(prompt) > 4096:
+            print("The prompt is too long. The answer might not be accurate.")
+        response = ask_gpt(prompt[:4097])
+    print("Got a labname and an introduction of the lab.")
 
-    # # for people page
-    # # get people scrape text
-    # scrape_text_people = download_txt_people(url)
-    # """
-    # if not onlyPrompt:
-    #     scrape_text_people = scrape_text_people.replace(" ", "").replace("\t", "").replace("\n", "")
-    # else:"""
+    # get a brief introduction of the lab
+    try:
+        intro = response[response.find("Brief Intro: "):]
+    except:
+        print("The answer from ChatGPT is invalid. Please try again.")
+        return None
 
-    # scrape_text_people = scrape_text_people.replace("\n", "")
-    # prompt_people = gen_prompt_people(scrape_text_people)
-    # print("Prompting people start...")
-    # response_people = ""
-    # """
-    # if not onlyPrompt:
-    #     response_people = ask_gpt(prompt_people[:4097])
-    # """
-    # print("Prompting people ends...")
-    # print(f"Finish crawling for {url}...")
 
-    # return {
-    #     "main_prompt": prompt,
-    #     "main_response": response,
-    #     "people_prompt": prompt_people,
-    #     "response_people": response_people
-    # }
+    # for people page
+    scrape_text_people = download_txt_people(url)
+    if scrape_text_people is None:
+        return None
+    
+    if not onlyPrompt:
+        scrape_text_people = scrape_text_people.replace(" ", "").replace("\t", "").replace("\n", "")
+    else:
+        scrape_text_people = scrape_text_people.replace("\n", "")
+
+    prompt_people = gen_prompt_people(scrape_text_people)
+    print("Getting information on people.")
+    response_people = ""
+    if not onlyPrompt:
+        if len(prompt_people) > 4096:
+            print("The prompt for people is too long. The answer might not be accurate.")
+        response_people = ask_gpt(prompt_people[:4097])
+    print("Got information on people.")
+
+
+    # for labels
+    prompt_labels = gen_prompt_for_labels("Labels.json", intro)
+    print("Getting labels for the lab.")
+    response_labels = ""
+    if not onlyPrompt:
+        if len(prompt_labels) > 4096:
+            print("The prompt for labels is too long. The answer might not be accurate.")
+        response_people = ask_gpt(prompt_labels[:4097])
+    print("Got labels for the lab.")
+
+    ### TO DO
+    ### I need to get labels sorted well.
+
+    print(f"Finish crawling for {url}.")
+
+    return {
+        "main_prompt": prompt,
+        "main_response": response,
+        "people_prompt": prompt_people,
+        "people_response": response_people,
+        "labels_prompt": prompt_labels,
+        "labels_response": response_labels
+    }
 
     return scrape_text
 
