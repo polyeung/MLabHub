@@ -1,70 +1,32 @@
 {
-    "UI/UX": ["UI", "UX", "ui", "ux"],
-    "Robotics": ["Robotics", "robotics"],
-    "WebDev": [""],
-"AI": "Artificial Intelligence",\
-"ML": "Machine Learning",\
-"CompVis": "Computer Vision",\
-"NLP": "Natural Language Processing",\
-"Cybersec": "Cybersecurity",\
-"Quantum": "",\
-"AR": "Augmented Reality",\
-"VR": "Virtual Reality",\
-"Blockchain": "",\
-"Bioinfo": "Bioinformatics",\
-"HCI": "Human-Computer Interaction",\
-"SoftEng": "Software Engineering",\
-"Embedded": "",\
-"NetCom": "Network & Communication",\
-"Cloud": "",\
-"IoT": "Internet of Things",\
-"DataSci": "Data Science",\
-"Graphics": "",\
-"Gaming": "",\
-"MobileApp": "",\
-"DSP": "Digital Signal Processing",\
-"Crypto": "Cryptography",\
-"EnergyComp": "Energy-efficient Computing",\
-"E-Health": "",\
-"CompBio": "Computational Biology",\
-"Systems": "",\
-"AutoSys": "Autonomous Systems",\
-"GreenComp": "Sustainability & Computing",\
-"HPC": "High-Performance Computing",\
-"DistSys": "Distributed Systems",\
-"CogPsych": "Cognitive Psychology",
-"BehavPsych": "Behavioral Psychology",
-"DevPsych": "Developmental Psychology",
-"SocPsych": "Social Psychology",
-"ClinPsych": "Clinical Psychology",
-"NeuroPsych": "Neuropsychology",
-"HealthPsych": "Health Psychology",
-"ForenPsych": "Forensic Psychology",
-"PosPsych": "Positive Psychology",
-"EvoPsych": "Evolutionary Psychology",
-"CellBio": "Cellular Biology",
-"MolBio": "Molecular Biology",
-"Genetics": "",
-"EvoBio": "Evolutionary Biology",
-"Ecology": "",
-"AnatPhys": "Anatomy & Physiology",
-"Microbio": "Microbiology",
-"Botany": "Study of Plants",
-"Zoology": "Study of Animals",
-"Biotech": "Biotechnology",
-    
-    # Medicine
-"IntMed": "Internal Medicine",
-"Surgery": "",
-"Pediatrics": "Child Health",
-"ObGyn": "Obstetrics & Gynecology (Women's Health and Childbirth)",
-"Cardio": "Cardiology (Heart and Blood Vessels)",
-"Endocr": "Endocrinology (Hormones and Glands)",
-"Neuro": "Neurology (Nervous System)",
-"Psychiatry": "Mental Health",
-"Radiology": "Imaging Techniques",
-"Oncology": "Cancer Treatment and Research",
+    "Algorithms and Data Structures" : "Alg and Data Struct",
+    "Artificial Intelligence" : "AI",
+    "Machine Learning" : "ML",
+    "Computer Vision" : "Comp Vis",
+    "Natural Language Processing" : "NLP",
+    "Human-Computer Interaction" : "HCI",
+    "Computer Graphics" : "Comp Graphics",
+    "Operating Systems" : "OS",
+    "Databases" : "DB",
+    "Software Engineering" : "Soft Eng",
+    "Networks" : "Networks",
+    "Security and Cybersecurity" : "Security",
+    "Computer Architecture" : "Comp Arch",
+    "Distributed Systems" : "Dis Sys",
+    "Theory of Computation" : "Theory of Computation",
+    "Cryptography" : "Crypt",
+    "Bioinformatics" : "BioInfo",
+    "Quantum Computing" : "Quantum Computing",
+    "Embedded Systems" : "Embedded Sys",
+    "Cloud Computing" : "Cloud Computing",
+    "UI/UX" : "UI/UX",
+    "Robotics" : "Robotics",
+    "Web Development" : "Web Dev",
+    "Hardware" : "Hardware",
+    "Augmented Reality and Virtual Reality" : "AR/VR",
+    "Blockchain" : "Blockchain",
+    "Internet of Things" : "IoT",
+    "Data Science" : "Game Dev",
+    "Game Development" : "Game Dev",
+    "Mobile App Development" : "Game Dev"
 }
-
-
-"UI/UX", "Robotics", "WebDev", "AI", "ML", "CompVis", "NLP", "Cybersec", "Quantum", "AR", "VR", "Bioinfo", "HCI", "SoftEng", "Embedded", "NetCom", "Cloud", "IoT", "DataSci", "Graphic", "Gaming", "MobileApp", "DSP", "Crypto", "EnergyComp", "E-Health", "CompBio", "Systems"

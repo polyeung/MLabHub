@@ -4,10 +4,11 @@ import sys
 from dotenv import load_dotenv
 from scrape import download_txt_main, download_txt_people
 import json
+
+
 # Load the .env file
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
-
 
 def ask_gpt(prompt):
     response = openai.ChatCompletion.create(
@@ -15,16 +16,29 @@ def ask_gpt(prompt):
             messages=[{'role': 'user', 'content': prompt}],
             temperature = 0 
         )
-    return (response['choices'][0]['message']['content'])
-
-
+    return response['choices'][0]['message']['content']
 
 def gen_prompt(scrape_text):
     return "from below source, generate labname and brief intro of lab(400 characters max) output format: seperated by comma" + scrape_text
 
-
 def gen_prompt_people(scrape_text):
     return "from below source of research lab's member intro, generate member1,member2, .... output membername one by one concatenated by comma " + scrape_text
+
+def get_labels(path):
+    with open(path) as f:
+        labels_dict = json.load(f)
+    return labels_dict
+
+def get_labels_in_str(labels_dict):
+    return '\n'.join(labels_dict.keys())
+
+def gen_prompt_for_labels(path_to_labels, summary):
+    labels_dict = get_labels(path_to_labels)
+    labels_list = get_labels_in_str(labels_dict)
+
+    prompt = 'This is a list of labels:\n' + labels_list + '\n'
+    prompt += "Give me appropriate labels from the list above for the description below. Return what are in the list and don't make new labels that are not in the list even if you think they are appropriate.\n"
+    prompt += summary
 
 
 def ai_exec(url, onlyPrompt):
