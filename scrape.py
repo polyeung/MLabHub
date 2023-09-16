@@ -27,7 +27,8 @@ def find_labname(soup):
 def filter_labname():
     global potential_labname
     # filter all potentiallab name
-    possible_endings = ["lab.", "Lab.", "lab", "Lab", "Laboratory", "laboratory", "Laboratory.", "laboratory."]
+    # possible_endings = ["lab.", "Lab.", "lab", "Lab", "laboratory", "Laboratory", "laboratory.", "Laboratory."]
+    possible_endings = ["lab.", "Lab.", "lab,", "Lab,", "lab", "Lab","laboratory", "Laboratory", "laboratory, ", "Laboratory", "laboratory.", "Laboratory."]
     possible_beginings = ["Lab", "Laboratory", "lab", "laboratory"]
     # check whether ends with one of above for every potential
     new_list = []
@@ -77,8 +78,11 @@ def download_txt_main(url):
         soup = BeautifulSoup(response.content, 'html.parser')
         # find labname
         find_labname(soup)
+        # Right now, this is not useful
 
-         # Remove all script tags
+        ### all this function does is return html after removing tags
+
+        # Remove all script tags
 
         for script in soup.find_all('script'):
             script.extract()
@@ -158,11 +162,13 @@ def download_txt_people(url):
         soup = BeautifulSoup(response.content, 'html.parser')
         # find people
         find_people(soup)
-        # Remove all script tags
+        # this does nothing right now
 
+        # Remove all script tags
 
         # Get the modified HTML content
         modified_html = str(soup.get_text())
+        # this function basically returns html without tags
 
         return modified_html
     else:

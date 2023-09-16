@@ -4,10 +4,11 @@ from ai import ai_entry
 from util import get_round, inc_round
 
 if __name__ == '__main__':
-    # Check if URL is provided as a command-line argument
+    ## TO DO: the file that has urls should be given in a command-line argument or we should use the department name to specify the file name
+    ## TO DO: It shouldn't be hardcoded
 
-    if len(sys.argv) < 3:
-        print("Please provide the onlyPrompt boolean as a command-line argument. and dep, python driver.py 1/0 dep_name")
+    if len(sys.argv) != 3:
+        print("Please provide the onlyPrompt boolean value and department name as a command-line argument.\nThe line should look like this. python driver.py 1/0 dep_name")
         sys.exit(1)
 
     onlyPrompt = bool(int(sys.argv[1])) # Get lab url
