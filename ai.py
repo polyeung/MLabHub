@@ -63,7 +63,8 @@ def ai_exec(url, onlyPrompt):
     if not onlyPrompt:
         if len(prompt) > 4096:
             print("The prompt is too long. The answer might not be accurate.")
-        response = ask_gpt(prompt[:4097])
+            prompt = prompt[:4097]
+        response = ask_gpt(prompt)
     print("Got a labname and an introduction of the lab.")
 
     # get a brief introduction of the lab
@@ -90,7 +91,8 @@ def ai_exec(url, onlyPrompt):
     if not onlyPrompt:
         if len(prompt_people) > 4096:
             print("The prompt for people is too long. The answer might not be accurate.")
-        response_people = ask_gpt(prompt_people[:4097])
+            prompt_people = prompt_people[:4097]
+        response_people = ask_gpt(prompt_people)
     print("Got information on people.")
 
 
@@ -101,11 +103,13 @@ def ai_exec(url, onlyPrompt):
     if not onlyPrompt:
         if len(prompt_labels) > 4096:
             print("The prompt for labels is too long. The answer might not be accurate.")
-        response_people = ask_gpt(prompt_labels[:4097])
+            prompt_labels = prompt_labels[:4097]
+        response_people = ask_gpt(prompt_labels)
     print("Got labels for the lab.")
 
     ### TO DO
     ### I need to get labels sorted well.
+
 
     print(f"Finish crawling for {url}.")
 
@@ -123,13 +127,13 @@ def ai_exec(url, onlyPrompt):
 # execute and write to file
 def ai_entry(url, round, onlyPrompt, dep):
     res = ai_exec(url, onlyPrompt)
-    # if not onlyPrompt:
-    #     with open(f'./result/{round}.txt' ,'w', encoding='utf-8') as file:
-    #         file.write(dep + "\n" + url + "\n" + res["main_response"] + "\n" + "[Paste below prompt to gpt]\n" + res["people_prompt"])
-    # with open(f'./prompt/{round}.txt' ,'w', encoding='utf-8') as file:
-    #     json.dump(res, file, indent=2)
-    #     if onlyPrompt:
-    #         file.write("people prompt: \n" + res["people_prompt"] + "\n\n" + "main prompt: \n" + res["main_prompt"])
+    if not onlyPrompt:
+        with open(f'./result/{round}.txt' ,'w', encoding='utf-8') as file:
+            file.write(dep + "\n" + url + "\n" + res["main_response"] + "\n" + "[Paste below prompt to gpt]\n" + res["people_prompt"])
+    with open(f'./prompt/{round}.txt' ,'w', encoding='utf-8') as file:
+        json.dump(res, file, indent=2)
+        if onlyPrompt:
+            file.write("people prompt: \n" + res["people_prompt"] + "\n\n" + "main prompt: \n" + res["main_prompt"])
     print(res)
 
 

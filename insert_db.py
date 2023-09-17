@@ -36,6 +36,7 @@ def parse_file(file):
     for line in file:
         key = map_key[index]
         value = line.strip()
+        # on name and intro rows, we need an actual value.
         if ":" in value and "http" not in value:
             value = value.split(":")[1]
 
