@@ -189,6 +189,6 @@ def insert_labels():
 
 if __name__ == '__main__':
         
-    # gen_init_labels()
+    # gen_init_labels(), 
     insert_labels()
     
