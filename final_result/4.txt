@@ -1,0 +1,6 @@
+ME
+https://me-web.engin.umich.edu/ibbl/
+Lab Name: Fu Group at the University of Michigan
+Brief Intro: The Fu Group at the University of Michigan conducts research at the intersection of engineering, biology, and medicine. They focus on integrating micro/nanoengineering, single-cell technologies, and systems and synthetic biology methods with discoveries in mechanobiology, epigenetics, and stem cell biology. Their research areas include stem cell bioengineering, developmental bioengineering, mechanobiology, and BioMEMS. The group has made significant contributions to these fields and has been featured in publications such as Nature News and MIT Technology Review.
+Jianping Fu,Sajedeh Nasr Esfahani,Agnes M Resto Irizarry,Zhaoyi Xu,Shiyu Sun
+jpfu@umich.edu,sanasr@umich.edu,NA,zhaoyix@umich.edu,shiyusun@umich.edu

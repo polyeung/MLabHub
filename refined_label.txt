@@ -1,0 +1,46 @@
+1|https://web.eecs.umich.edu/~xwanghci/lab.html|HCI, AI, NLP
+30|https://theory.engin.umich.edu/|Theory
+31|https://cse-teaching.engin.umich.edu/|SoftEng
+32|https://systems.engin.umich.edu/|Systems
+33|https://hcc.engin.umich.edu/|HCI
+34|https://ce.engin.umich.edu/|Embedded, Systems
+35|https://ai.engin.umich.edu/|AI
+36|https://radlab.engin.umich.edu/|Systems
+37|http://websites.umich.edu/~ocm/|
+38|https://optics.engin.umich.edu/|
+40|https://mpel.engin.umich.edu/|EnergyComp
+41|https://mint.engin.umich.edu/|Bioinfo, Systems
+42|https://ipan.engin.umich.edu/|Neurotech, Embedded
+43|https://cuos.engin.umich.edu/|UI/UX,Robotics,WebDev,NLP
+44|https://dynamo.engin.umich.edu/|EnergyComp, Systems
+45|https://micl.engin.umich.edu/|Embedded, IoT, Systems
+39|https://network-games-muri.engin.umich.edu/|NetCom, Cybersec, Systems
+46|https://michiganictd.org/|HCI, SoftEng, Systems
+48|http://edtech.labs.si.umich.edu/|WebDev,SoftEng
+49|https://iarg.si.umich.edu/|HCI, Digital Curation, Information Science
+50|https://www.mi2lab.com/|HCI, AR, VR
+52|http://www-personal.umich.edu/~annastef/PCL_Lab.html|Embedded, AutoSys
+53|https://sms.engin.umich.edu/|
+54|https://avm.engin.umich.edu/|
+55|https://brg.engin.umich.edu/|Robotics
+56|https://jwo.engin.umich.edu/|
+57|https://arc.engin.umich.edu/|Robotics, AI, Systems
+58|https://www-personal.umich.edu/~epureanu/|Systems, Bioinfo, Robotics, CompBio
+59|https://stml.engin.umich.edu/|SoftEng
+60|https://me.engin.umich.edu/people/faculty/noel-perkins/|
+61|https://me-web.engin.umich.edu/ibbl/|Bioinfo, CompBio, Systems
+62|https://www.kines.umich.edu/research/labs-centers/michigan-performance-research-laboratory|Robotics, WebDev, AI, ML, CompVis, NLP, Cybersec, HCI, SoftEng, Systems
+63|https://brl.engin.umich.edu/|
+64|https://bme.umich.edu/research-area/bio-micro-nanotechnology-and-molecular-engineering/bio-mems-and-microfluidics/|Bioinfo, Systems
+65|https://autolab.engin.umich.edu/|
+51|https://ledlab.si.umich.edu/|UI/UX, WebDev, HCI
+66|https://sms.engin.umich.edu/|
+67|https://imtl.engin.umich.edu/|Embedded, Systems
+68|https://mc2.engin.umich.edu/|Robotics, WebDev
+70|https://adera.engin.umich.edu|Labels: EnergyComp
+71|https://htp.engin.umich.edu/members/|Systems
+72|https://sites.google.com/umich.edu/violilab/home|WebDev
+73|http://websites.umich.edu/~nanomech/| Bioinfo, Systems
+74|https://cmite.bme.umich.edu/|Bioinfo, SoftEng
+75|https://shearesearch.engin.umich.edu/|Bioinfo, Systems, CompBio
+76|https://denglab.engin.umich.edu/|Bioinfo, Systems

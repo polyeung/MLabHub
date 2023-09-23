@@ -1,10 +1,10 @@
-https://micl.engin.umich.edu/
-https://dynamo.engin.umich.edu/
-https://cuos.engin.umich.edu/
-https://ipan.engin.umich.edu/
-https://mint.engin.umich.edu/
-https://mpel.engin.umich.edu/
-https://network-games-muri.engin.umich.edu/
-https://optics.engin.umich.edu/
-http://websites.umich.edu/~ocm/
-https://radlab.engin.umich.edu/
+# https://micl.engin.umich.edu/
+# https://dynamo.engin.umich.edu/
+# https://cuos.engin.umich.edu/
+# https://ipan.engin.umich.edu/
+# https://mint.engin.umich.edu/
+# https://mpel.engin.umich.edu/
+# https://network-games-muri.engin.umich.edu/
+# https://optics.engin.umich.edu/
+# http://websites.umich.edu/~ocm/
+# https://radlab.engin.umich.edu/

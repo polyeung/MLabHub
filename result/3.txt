@@ -1,0 +1,8 @@
+ME
+https://adera.engin.umich.edu
+Lab Name: Energy Transport Lab
+Brief Intro: Welcome to the Energy Transport Lab (ETL) in the Mechanical Engineering Department at the University of Michigan. Our research combines fundamental studies of micro and nanoscale transport processes and fluid-structure interactions to creatively design new materials and devices to improve efficiency of engineering systems in order to meet the rising demands of energy and water. Our lab focuses on utilizing engineered surfaces in complex thermo-fluidic systems and interfaces to improve heat and mass transfer processes for applications ranging from thermal management to water harvesting.
+Solomon Adera
+Tomasz Kulakowski
+Wei Lu
+Yimin Zhou

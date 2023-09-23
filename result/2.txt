@@ -1,9 +1,7 @@
 ME
-https://sms.engin.umich.edu/
-Lab Name: Smart Materials and Structures
-Brief Intro: The Smart Materials and Structures lab at the University of Michigan, in collaboration with General Motors, aims to exploit the emerging capabilities of smart materials and structures to create innovative advanced device technologies for automotive applications. The lab conducts theoretical and experimental research to expand the knowledge base of smart materials, develops design methodologies and tools to support smart material technologies, and utilizes emerging smart materials to invent leap-frog device technologies. The lab fosters a collaborative environment between researchers and engineers to improve the progression from basic materials research to innovative technology development and its inclusion in successful, marketable products.
-Diann Brei
-Nancy Johnson
-John A. Shaw
-Nilesh Mankame
-Jon Luntz
+https://htp.engin.umich.edu/members/
+Lab Name: Heat Transfer Physics Lab
+Brief Intro: The Heat Transfer Physics Lab, led by Professor Massoud Kaviany, focuses on research related to heat transfer phenomena. The lab investigates various topics such as numerical methods in heat transfer with phase-change, condensation in porous media, and diffusion-reaction in multi-length scale porous media. The lab also explores applications in areas such as fuel cells, combustion, and thermoelectricity. With a team of current lab members and a history of successful alumni, the Heat Transfer Physics Lab continues to contribute to the field of heat transfer physics.
+Massoud Kaviany
+Fan Lu
+Kyle Krippner
