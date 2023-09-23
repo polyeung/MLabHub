@@ -78,21 +78,21 @@ def download_txt_main(url):
         # Parse the HTML content
         soup = BeautifulSoup(response.content, 'html.parser')
 
-        # # Remove all script tags
-        # for script in soup.find_all('script'):
-        #     script.extract()
+        # Remove all script tags
+        for script in soup.find_all('script'):
+            script.extract()
         
-        # # remove all style tag
-        # for style in soup.find_all('style'):
-        #     style.extract()
+        # remove all style tag
+        for style in soup.find_all('style'):
+            style.extract()
         
-        #   # Remove all meta tags
-        # for meta in soup.find_all('meta'):
-        #     meta.extract()
+          # Remove all meta tags
+        for meta in soup.find_all('meta'):
+            meta.extract()
 
-        # # Remove all link tags
-        # for link in soup.find_all('link'):
-        #     link.extract()
+        # Remove all link tags
+        for link in soup.find_all('link'):
+            link.extract()
 
         # Get the HTML content
         modified_html = str(soup.get_text())

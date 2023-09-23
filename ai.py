@@ -104,7 +104,7 @@ def ai_exec(url, onlyPrompt):
         if len(prompt_labels) > 4096:
             print("The prompt for labels is too long. The answer might not be accurate.")
             prompt_labels = prompt_labels[:4097]
-        response_people = ask_gpt(prompt_labels)
+        response_labels = ask_gpt(prompt_labels)
     print("Got labels for the lab.")
 
     ### TO DO
