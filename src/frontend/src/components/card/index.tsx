@@ -15,7 +15,7 @@ import { umichImg, stadiumImg, bbbImg } from '@/assets';
 import { useNavigate } from 'react-router-dom';
 import StarIcon from '@mui/icons-material/Star';
 import { LocationState } from '@/types/interface';
-import { UserData, parsedNameInt, PicType } from '@/types/interface';
+import { UserData, parsedNameInt, PicType, LabelType} from '@/types/interface';
 import { useNotifs } from '@/context';
 import getCookie from '@/components/csrfToken';
 import Tooltip from '@mui/material/Tooltip';
@@ -33,10 +33,11 @@ interface labinfoInt {
     isSaved: boolean,
     emails: string,
     userData: UserData | null | undefined,
-    picList: PicType[]
+    picList: PicType[],
+    labelList: LabelType[]
 };
 
-export default function RecipeReviewCard({ name, link, people, intro, id, userData, dep, emails, isSaved, picList}: labinfoInt) {
+export default function RecipeReviewCard({ name, link, people, intro, id, userData, dep, emails, isSaved, picList, labelList}: labinfoInt) {
   const navigate = useNavigate();
   const notifs = useNotifs();
   const [saved, setSaved] = useState<boolean>(isSaved);
@@ -114,18 +115,18 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
         });
       }).catch(error => console.error('Error:', error));
   };
-  function chooseRandomThree( ) {
-    let chosenLabels = [];
-    let clonedLabels = [...labelsKey]; // Clone the original array to avoid modifying it
+  // function chooseRandomThree( ) {
+  //   let chosenLabels = [];
+  //   let clonedLabels = [...labelsKey]; // Clone the original array to avoid modifying it
 
-    for (let i = 0; i < 3; i++) {
-        const randomIndex = Math.floor(Math.random() * clonedLabels.length);
-        chosenLabels.push(clonedLabels[randomIndex]);
-        clonedLabels.splice(randomIndex, 1); // Remove the chosen label to avoid duplicates
-    }
+  //   for (let i = 0; i < 3; i++) {
+  //       const randomIndex = Math.floor(Math.random() * clonedLabels.length);
+  //       chosenLabels.push(clonedLabels[randomIndex]);
+  //       clonedLabels.splice(randomIndex, 1); // Remove the chosen label to avoid duplicates
+  //   }
 
-    return chosenLabels;
-  };
+  //   return chosenLabels;
+  // };
   return (
     <Card sx={{
       width: 350,
@@ -166,8 +167,8 @@ export default function RecipeReviewCard({ name, link, people, intro, id, userDa
       </CardMedia>
 
       <CardContent sx={{cursor: 'pointer'}} onClick={handleClick}>
-      {chooseRandomThree().map((item)=>(
-        <Chip label={item} size="small" key={item}/>
+      {labelList.map((item)=>(
+        <Chip label={item.shortname} size="small" key={item.shortname}/>
       ))}
       <Typography style={{fontSize: '11px', marginTop: '10px'}}>
       Lab excels in architecture, circuits, and design research, spanning hardware innovations to sonic attacks on MEMS accelerometers.

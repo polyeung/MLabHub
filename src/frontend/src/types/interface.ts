@@ -13,6 +13,11 @@ export interface PicType {
     url: string
 };
 
+export interface LabelType{
+    shortname: string,
+    fullname:string
+};
+
 export interface LabInfoType { 
     id: number,
     name: string,
@@ -22,7 +27,8 @@ export interface LabInfoType {
     emails: string,
     dep: string,
     isSaved: boolean,
-    pic: PicType[]
+    pic: PicType[],
+    label: LabelType[]
 };
 
 export interface ResponseAllLabs {
