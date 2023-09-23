@@ -31,8 +31,6 @@ const pagesStack = [['Browse Labs', '/labs?page=1'], ['Research Opportunities', 
 
 function NavBar({ userData }: { userData?: UserData | null }) {
 
-
-
   const { isSmallScreen, isMiddleScreen } = React.useContext(ScreenContext);
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const navigate = useNavigate();

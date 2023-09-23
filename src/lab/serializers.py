@@ -1,18 +1,23 @@
 from rest_framework import serializers
-from lab.models import Lab
-from lab.models import Pic
+from lab.models import Lab, Pic, Label
 
 class PicSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pic
         fields = ['url', 'fromS3']
 
+class LabelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Label
+        fields = ['shortname', 'fullname']
+
 class LabSerializer(serializers.ModelSerializer):
     isSaved = serializers.SerializerMethodField()
     pic = PicSerializer(many=True, read_only=True)
+    label = LabelSerializer(many=True, read_only=True)
     class Meta:
         model = Lab
-        fields = ['id', 'name', 'link', 'intro', 'people', 'funding', 'dep', 'approved', 'isSaved', 'emails','pic']
+        fields = ['id', 'name', 'link', 'intro', 'people', 'funding', 'dep', 'approved', 'isSaved', 'emails','pic', 'label']
 
     def get_isSaved(self, obj):
         user_id = self.context['request'].user.id
