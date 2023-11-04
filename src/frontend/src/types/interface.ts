@@ -7,14 +7,28 @@ export interface SimpleLabInfoType {
     link: string,
     dep: string
 };
+
+export interface PicType {
+    fromS3: boolean,
+    url: string
+};
+
+export interface LabelType{
+    shortname: string,
+    fullname:string
+};
+
 export interface LabInfoType { 
     id: number,
     name: string,
     link: string,
     people: string,
     intro: string,
+    emails: string,
     dep: string,
-    isSaved: boolean
+    isSaved: boolean,
+    pic: PicType[],
+    label: LabelType[]
 };
 
 export interface ResponseAllLabs {
@@ -43,7 +57,9 @@ export interface RichLabInfoType {
     name: string,
     link: string,
     people: string,
+    emails:string,
     intro: string
+
 };
 
 export const RichLabInfoTemplate:RichLabInfoType = { 
@@ -52,6 +68,7 @@ export const RichLabInfoTemplate:RichLabInfoType = {
     link: "",
     people: "",
     intro: "",
+    emails:""
 };
 
 export interface ReviewsType {
@@ -84,7 +101,7 @@ export interface jobdataInt {
     rate_type: string,
     workhoursselection: string,
     workmodel: string,
-    consecutivesemestersselect: string
+    consecutivesemestersselect: string,
 };
 
 export const jobdataIntTemplate: jobdataInt = {
@@ -100,7 +117,7 @@ export const jobdataIntTemplate: jobdataInt = {
     rate_type: "Number",
     workhoursselection: "< 10 hours",
     workmodel: "Onsite",
-    consecutivesemestersselect: "A semester"
+    consecutivesemestersselect: "A semester",
 };
 
 export interface UserData {
@@ -159,4 +176,53 @@ export interface ReviewFormProps {
 
 export interface JobReviewFormProps { 
     info: jobdataInt
+};
+
+
+export interface SearchCriteriaProps {
+    school: string,
+    dep: string,
+    label: string,
+    search: string
+};
+
+export const SearchRefProps:SearchCriteriaProps = {
+    school: "/",
+    dep: "/",
+    label: "/",
+    search: "/"
+};
+export interface FilterProps {
+    searchCriteria: SearchCriteriaProps,
+    setDict: (key: string, value:string) => any,
+    setSearchCriteria: React.Dispatch<React.SetStateAction<SearchCriteriaProps>>
+};
+
+export interface overviewProps {
+    userData: UserData | undefined | null,
+    searchCriteria: SearchCriteriaProps,
+    setDict: (key: string, value:string) => any
+}
+
+type StringDictType = {
+    [key: string]: boolean;
+};
+
+export interface SchoolFilterProps{
+    searchCriteria: SearchCriteriaProps,
+    setDict: (key: string, value:string) => any,
+    state: StringDictType,
+    setState: React.Dispatch<React.SetStateAction<StringDictType>>
+};
+
+export interface EmailBadgeProps{
+    emails: String[],
+    people: String[]
+};
+
+
+export interface SimpleJobInfoType {
+    id: number,
+    title: string,
+    labname: string
 };

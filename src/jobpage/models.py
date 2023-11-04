@@ -37,9 +37,8 @@ class JobData(models.Model):
         ('Academic year', 'Academic year'),
         ('Summer', 'Summer'),
     )
-
+    id = models.AutoField(primary_key=True)
     labid = models.ForeignKey(Lab, on_delete=models.CASCADE, db_column='labid')
-    oidc_auth_user = models.ForeignKey(User, on_delete=models.CASCADE, db_column='userid')
     title = models.CharField(max_length=100)
     course = ArrayField(models.CharField(max_length=100))
     rate_type = models.CharField(max_length=10, choices=RATE_CHOICES, default=NUMBER)
@@ -51,12 +50,8 @@ class JobData(models.Model):
     workhoursselection = models.CharField(max_length=20, choices=WORK_HOURS_CHOICES)
     workmodel = models.CharField(max_length=20, choices=WORK_MODEL_CHOICES)
     consecutivesemestersselect = models.CharField(max_length=20, choices=CONSECUTIVE_SEMESTERS_CHOICES)
-    # create_date = models.DateTimeField(default=timezone.now)
-
+    create_date = models.DateTimeField(default=timezone.now)
+    approved = models.BooleanField(default=False)
+    creator_id = models.CharField(max_length=20)
     def __str__(self):
         return self.title
-
-
-
-
-

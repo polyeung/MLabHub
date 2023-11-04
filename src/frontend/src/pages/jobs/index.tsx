@@ -8,6 +8,11 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CircularProgress from '@mui/material/CircularProgress';
+import { useNotifs } from '@/context';
+import getCookie from '@/components/csrfToken';
+import { UserData, parsedNameInt } from '@/types/interface';
+import IconButton from '@mui/material/IconButton';
+import StarIcon from '@mui/icons-material/Star';
 
 interface jobCardProps { 
   title: string,
@@ -19,7 +24,10 @@ interface jobCardProps {
   lablink: string,
   workHoursSelection: string,
   workModel: string,
-  consecutiveSemestersSelect: string
+  consecutiveSemestersSelect: string,
+  userData: UserData | null | undefined,
+  isSaved: boolean,
+  jobId: string
 };
 function JobCard(props: jobCardProps) {
   const {
@@ -33,7 +41,42 @@ function JobCard(props: jobCardProps) {
     workHoursSelection,
     workModel,
     consecutiveSemestersSelect,
+    userData,
+    isSaved,
+    jobId
   } = props;
+  const [saved, setSaved] = useState<boolean>(isSaved);
+  const notifs = useNotifs();
+  const handleSavedClick = () => { 
+    // implement submit logic code
+    if (!userData) {
+      notifs.addNotif({ severity: 'error', message: 'Please login to save!' });
+      return;
+    }
+    fetch('/api/account/csrf_cookie')
+    .then(response => response.json())
+      .then(data => {
+        const csrftoken: (string | null) = getCookie('csrftoken');
+        fetch('/api/account/update_saved_jobs',{
+                method: 'POST',
+                credentials: 'include',
+                headers: { 
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken ? csrftoken : "random_token"
+              },
+                body: JSON.stringify({
+                  'job_id': jobId,
+                }),
+                  }).then(res => {
+                    if (res.ok) {
+                      notifs.addNotif({ severity: 'success', message: 'Successfully Saved!' });
+                      setSaved(!saved);
+                    } else { 
+                      notifs.addNotif({ severity: 'error', message: 'Something went wrong!' });
+                    }
+        });
+      }).catch(error => console.error('Error:', error));
+  };
 
   return (
     <Card sx={{ minWidth: 275 }}>
@@ -72,19 +115,29 @@ function JobCard(props: jobCardProps) {
           <a href={lablink}>
             <Button size="small">Learn More</Button>
           </a>
+          <IconButton aria-label="star to save" onClick={ handleSavedClick } key="star-icon">
+          {saved? <StarIcon style={{ color: '#eb9834' }}/> : <StarIcon/>}
+        </IconButton>
         </CardActions>
       </CardContent>
     </Card>
   );
 }
+interface jobsProps{
+  userData: UserData | null | undefined;
+};
 
-function jobs() { 
+interface jobDataIntExtend extends jobdataInt{
+  isSaved: boolean;
+}
+
+function jobs({userData}: jobsProps) { 
     const navigate = useNavigate();
-    const [jobData, setJobData] = useState<jobdataInt[]>([]);
+    const [jobData, setJobData] = useState<jobDataIntExtend[]>([]);
     const [isWaiting, setIsWaiting] = useState<boolean>(false);
   useEffect(() => {
     setIsWaiting(true);
-      fetch(`/api/jobpages/getJobInfo`)
+      fetch(`/api/jobpages/getJobInfo/`)
           .then(response => response.json())
         .then(data => { setJobData(data); setIsWaiting(false); });
     }, []);
@@ -99,7 +152,8 @@ function jobs() {
               <Box key={index} sx={{ mt: "20px" }}>
                 <JobCard key={index} title={item.title} intro={item.intro} rate={item.rate} labname={item.labname}
                   course={item.course} contact={item.contact} lablink={item.lablink} workHoursSelection={item.workhoursselection}
-                  workModel={item.workmodel} consecutiveSemestersSelect={ item.consecutivesemestersselect }
+                  workModel={item.workmodel} consecutiveSemestersSelect={ item.consecutivesemestersselect } userData={userData} isSaved={item.isSaved}
+                  jobId={item.id.toString()}
                 />
               </Box>
             ))}

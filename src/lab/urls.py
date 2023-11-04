@@ -4,10 +4,12 @@ from . import views
 
 router = DefaultRouter()
 router.register(r'getLabInfo2', views.LabViewSet, basename='get lab info for overview page')
-
+router.register(r'getLabInfoRich', views.GetDetailedLabInfo, basename='get lab info for labpage')
+# router.register(r'getPic', views.PicViewSet, basename='get lab pic')
 urlpatterns = [
     path('getLabInfo', views.GetLabInfo.as_view()),
-    path('getLabInfo/<int:id>', views.GetDetailedLabInfo.as_view()),
+    # path('getLabInfo/<int:id>', views.GetDetailedLabInfo.as_view()),
+    # path('getLabInfoRich', views.GetDetailedLabInfo.as_view(), name='lab-detail'),
     path('create', views.CreateLabInfo.as_view()),
     path('', include(router.urls)), # This line includes the URL patterns defined by the router
 ]

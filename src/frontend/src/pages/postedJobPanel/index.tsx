@@ -121,27 +121,6 @@ function JobCardDetail(props: jobCardDetailProps) {
   );
 }
 
-function JobModal({ open,jobID, handleClose, item}: jobModalProps) {
-  return (
-    <div>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={{ mt: "20px" }}>
-          <JobCardDetail title={item.title} intro={item.intro} rate={item.rate} labname={item.labname}
-            course={item.course} contact={item.contact} lablink={item.lablink} workHoursSelection={item.workhoursselection}
-            workModel={item.workmodel} consecutiveSemestersSelect={ item.consecutivesemestersselect }
-          />
-        </Box>
-        
-        
-      </Modal>
-    </div>
-  );
-};
 
 function JobCard({ title, labname, jobID, handleOpen, setJobSelected, job, handleDelete}: jobCardProps) {
   const navigate = useNavigate();
@@ -250,7 +229,7 @@ export default function PostedJobPanel() {
                   handleDelete={handleDelete}
             />
           ))}
-        <JobModal open={open} handleClose={handleClose} jobID={jobSelected} item={ jobSelected ==-1 ?jobdataIntTemplate :jobData[jobSelected]} />
+        
     </Box>
     </>
 

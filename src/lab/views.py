@@ -9,8 +9,8 @@ from rest_framework.response import Response
 from rest_framework import generics, permissions, status
 import pprint
 import json
-from lab.models import Lab
-from .serializers import LabSerializer
+from lab.models import Lab, Pic
+from .serializers import LabSerializer, LabSerializerLabPage, PicSerializer
 from django.db.models import Q
 from account.models import UserProfile
 from .serializers import CreateLabSerializer
@@ -20,6 +20,8 @@ from django.core.paginator import Paginator
 from rest_framework import viewsets
 from rest_framework.pagination import PageNumberPagination
 from django.db.models import Q
+from lab.util import school_to_dep
+
 
 class CustomPagination(PageNumberPagination):
     def get_paginated_response(self, data):
@@ -71,24 +73,25 @@ class GetLabInfo(APIView):
 class LabViewSet(viewsets.ReadOnlyModelViewSet):
     pagination_class = CustomPagination
     serializer_class = LabSerializer
-    authentication_classes = []
     permission_classes = [permissions.AllowAny]
 
     def get_queryset(self):
         queryset = None
+        school = self.request.query_params.get('school')
         search = self.request.query_params.get('search')
+        school_list = school_to_dep(school)
+        queryset = Lab.objects.filter(approved=True)
+        if school and school_list:
+            queryset = queryset.filter(dep__in=school_list)
         if search:
-            queryset = Lab.objects.filter(
-                Q(name__icontains=search) |
-                Q(dep__icontains=search) |
-                Q(people__icontains=search)
-            )
-        else:
-            queryset = Lab.objects.filter(approved=True)
+            queryset = queryset.filter(Q(name__icontains=search) | 
+                                       Q(people__icontains=search) |
+                                       Q(dep__icontains=search))
         return queryset
 
     def get_serializer_context(self):
         context = super().get_serializer_context()
+        print("user id in vie: ", self.request.user.id)
         if self.request.user.id:
             context['saved_labs'] = self.get_saved_labs(self.request.user.id)
         else:
@@ -106,23 +109,14 @@ class LabViewSet(viewsets.ReadOnlyModelViewSet):
             ret_data = parsed_data[0]['fields']['data']['savedLabs']
         return ret_data
 
-class GetDetailedLabInfo(generics.GenericAPIView):
-    permission_classes = (permissions.AllowAny, )
-    def get(self, request, id):
-        try:
-            lab = Lab.objects.get(pk=id)
-        except Lab.DoesNotExist:
-            return JsonResponse({"error": "Lab not found"}, status=404)
-        lab_data = {
-            "id": lab.id,
-            "name": lab.name,
-            "link": lab.link,
-            "intro": lab.intro,
-            "people": lab.people,
-        }
-        
-        return JsonResponse(lab_data, safe = False)
 
+class GetDetailedLabInfo(viewsets.ReadOnlyModelViewSet):
+    permission_classes = (permissions.AllowAny, )
+    serializer_class = LabSerializerLabPage
+    pagination_class = None
+    def get_queryset(self):
+        id = self.request.query_params.get('id')
+        return Lab.objects.filter(pk=id)
 
 @method_decorator(csrf_exempt, name = 'dispatch')
 class CreateLabInfo(APIView):
@@ -148,3 +142,8 @@ class CreateLabInfo(APIView):
         except:
             return HttpResponseBadRequest({'error':"Something went wrong when checking authentication status"})
 
+class PicViewSet(viewsets.ReadOnlyModelViewSet):
+    permission_classes = (permissions.AllowAny, )
+    serializer_class = PicSerializer
+    pagination_class = None
+    queryset = Pic.objects.all()

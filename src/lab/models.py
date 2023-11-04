@@ -20,3 +20,16 @@ class Lab(models.Model):
     def __str__(self):
         return self.name
 
+
+class Pic(models.Model):
+    lab = models.ForeignKey(Lab, on_delete=models.CASCADE, related_name='pic', db_column='labs')  # Foreign key relationship with Lab
+    url = models.CharField(max_length=200)  # Assuming the URL for the picture
+    fromS3 = models.BooleanField(default=False) 
+    def __str__(self):
+        return f"Pic for {self.lab.name} ({self.id})"
+
+
+class Label(models.Model):
+    lab = models.ForeignKey(Lab, on_delete=models.CASCADE, related_name='label', db_column='labs')
+    shortname = models.CharField(max_length=100)
+    fullname = models.CharField(max_length=200)

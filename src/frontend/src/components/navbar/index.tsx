@@ -21,13 +21,15 @@ import { useNotifs } from '@/context';
 import { UserData } from '@/types/interface';
 import getCookie from '@/components/csrfToken';
 import { ScreenContext } from '@/screenContext';
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
 
-const pages = [['Research Opportunities', '/jobs', '1'], ['Post Jobs', '/post', '2'], ['Post Lab Info', '/create', '3']];
-const pagesStack = [['Research Opportunities', '/jobs'], ['Post Jobs', '/post'], ['Post Lab Info', '/create'], ['Dashboard', '/dashboard']]
+
+const pages = [['Browse Labs', '/labs?page=1', '0'], ['Research Opportunities', '/jobs', '1'],
+               ['Post Jobs', '/post', '2'], ['Post Lab', '/create', '3']];
+const pagesStack = [['Browse Labs', '/labs?page=1'], ['Research Opportunities', '/jobs'], 
+                    ['Post Jobs', '/post'], ['Post Lab', '/create'], ['Dashboard', '/dashboard']]
 
 function NavBar({ userData }: { userData?: UserData | null }) {
-
-
 
   const { isSmallScreen, isMiddleScreen } = React.useContext(ScreenContext);
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -87,7 +89,20 @@ function NavBar({ userData }: { userData?: UserData | null }) {
     setAnchorElNav(null);
 
   };
-
+  const getStartIcon = (id: string) => {
+    switch(id) {
+        case '0':
+            return <FilterAltIcon />;
+        case '1':
+            return <SchoolIcon />;
+        case '2':
+            return <WorkIcon />;
+        case '3':
+          return <ScienceIcon />;
+        default:
+            return <ScienceIcon />;
+    }
+};
   const getImgStyle = () => { 
     if (isSmallScreen) {
       return ['50px', '5%'];
@@ -98,6 +113,7 @@ function NavBar({ userData }: { userData?: UserData | null }) {
     }
   }
   const [imgHeight, imgLeftMargin] = getImgStyle();
+
 
   return (
 
@@ -112,6 +128,7 @@ function NavBar({ userData }: { userData?: UserData | null }) {
       {/*First Tool Bar */ }
         <Toolbar disableGutters variant='dense'>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none', }  }}>
+         
             <IconButton
               size="small"
               aria-label="account of current user"
@@ -166,7 +183,7 @@ function NavBar({ userData }: { userData?: UserData | null }) {
                   justifyContent: 'center',
                 fontSize: '0.8rem'
                 }}
-                startIcon={id == '1' ? <SchoolIcon />:(id == '2'? <WorkIcon/>:<ScienceIcon />)}
+                startIcon={ getStartIcon(id)}
                 
               >
                   {page}

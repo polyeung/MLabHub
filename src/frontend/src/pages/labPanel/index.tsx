@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import { CardHeader } from '@mui/material';
+import { CardHeader, Stack, Skeleton } from '@mui/material';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
@@ -13,9 +13,9 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import IconButton from '@mui/material/IconButton';
 import { ScreenContext } from '@/screenContext';
 import {SimpleLabInfoType} from '@/types/interface';
-import CircularProgress from '@mui/material/CircularProgress';
 import getCookie from '@/components/csrfToken';
 import { useNotifs } from '@/context';
+import PlaceHolder from './placeHolder';
 
 interface labCardProps { 
   name: string,
@@ -115,7 +115,7 @@ export default function labPanel() {
 
     return (
         <>{isWaiting ?
-        <Typography variant='h5'>Loading Lab contents...<CircularProgress /></Typography>:
+          <PlaceHolder/>:
         data.map((item, index) => (<LabCard key={ "labcard-"+ String(index)}
                                             name={item.name}
                                             dep={item.dep}
@@ -123,6 +123,9 @@ export default function labPanel() {
                                             link={item.link}
                                             setIsUpdating={setIsUpdating}
                                             isUpdating={isUpdateing}/>))
-    }</>
+    }
+    {(!isWaiting && data.length == 0) && <Typography sx={{mt: 1}}>
+                        🥺 Oops! No labs found</Typography>}
+    </>
     );
 };

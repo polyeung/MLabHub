@@ -14,7 +14,9 @@ import Dashboard from './pages/dashboard';
 import getCookie from './components/csrfToken';
 import Fab from '@mui/material/Fab';
 import BottomBanner from './components/bottombanner'
-
+import {SearchCriteriaProps} from '@/types/interface';
+import FilterBar from '@/components/filterbar';
+import HomePage from './pages/homePage';
 
 function ProtectedRoute(props: {
 	userData: UserData | undefined | null;
@@ -85,12 +87,35 @@ function App() {
     });
   };
 
+  // For Search Criteria
+  const searchParams = new URLSearchParams(location.search);
+  // get param from current url
+  const initialSchool = searchParams.get('school') ? searchParams.get('school') as string : "";
+  const initialDep = searchParams.get('dep') ? searchParams.get('dep') as string : "";
+  const initialLabel = searchParams.get('label') ? searchParams.get('label') as string : "";
+  const initialSearch = searchParams.get('search') ? searchParams.get('search') as string: "";
+  const setSearchKey = React.useCallback((key:string, value:string) => {
+    setSearchCriteria(prevCriteria => ({
+      ...prevCriteria,
+      [key]: value
+    }));
+  }, []);
+
+  const [searchCriteria, setSearchCriteria] = useState<SearchCriteriaProps>({
+    school: initialSchool,
+    dep: initialDep,
+    label: initialLabel,
+    search:initialSearch
+  });
+
+
 
   return (
 
       <React.Fragment>
       { /* navbar begin. */}
       <Navbar userData={userData} />
+      
       {visible && <Fab aria-label="go to top" onClick={scrollTop}
         sx={{
           position: 'fixed',
@@ -113,6 +138,7 @@ function App() {
         </Typography>
       </Fab>}
       { /*navbar end */}
+
         <Container
 				maxWidth="lg"
 				sx={{
@@ -126,9 +152,22 @@ function App() {
 			>
         <Routes>
           { /*Non protected Routes */}
-          <Route path="/" element={<Overview userData={userData}/>} />
+          <Route path="/" element={<HomePage/>}></Route>
+          <Route path="/labs" element={
+            <Box 
+            sx={{ 
+                display: 'flex', 
+                flexDirection: 'column',
+                width: '100%'
+            }}
+        >
+              <FilterBar searchCriteria={searchCriteria} setDict={setSearchKey} setSearchCriteria={setSearchCriteria}/>
+              <Overview userData={userData} searchCriteria={searchCriteria} setDict={setSearchKey}/>
+            </Box>
+          } />
+          
           <Route path="/labpage" element={<Labpage userData={userData}/>} />
-          <Route path="/jobs" element={<Jobs />} />
+          <Route path="/jobs" element={<Jobs userData={userData}/>} />
 
             { /*Protected routes */}
           <Route path="/post" element={<ProtectedRoute userData={userData} page={<Post />}/>} />
@@ -141,6 +180,7 @@ function App() {
         </Routes>
         
       </Container>
+
       <BottomBanner/>
       </React.Fragment>
 

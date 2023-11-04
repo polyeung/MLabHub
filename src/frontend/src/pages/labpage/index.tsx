@@ -11,6 +11,11 @@ import getCookie from '../../components/csrfToken';
 import CircularProgress from '@mui/material/CircularProgress';
 import { ScreenContext } from '@/screenContext';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
+import Skeleton from "@mui/material/Skeleton";
+import Stack from "@mui/material/Stack";
+import IntroPlaceHolder from './infoLoading';
+import ComPlaceHolder from './comPlaceHolder';
+import EmailBadge from '@/components/emailBadge';
 
 function getRandomColor(): string { 
     const colors = ['red','#90731E', '#0277BD', 'pink', 'green', 'orange', 'purple', '#F29902', 'brown', 'gray', 'teal'];
@@ -18,13 +23,6 @@ function getRandomColor(): string {
     return colors[randomIndex];
 }
 
-const boxStyles = {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(12, 1fr)',
-    gridAutoRows: '400px',
-    gap: '20px',
-    width: '100vw',
-  };
   
 const smallScreenStyles = {
     gridTemplateColumns: 'repeat(6, 1fr)',
@@ -52,19 +50,32 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
         let ret: parsedNameInt[] = [];
         for (let i = 0; i < strList.length; i++) {
             let nameSep = strList[i].trim().split(' ');
-            // console.log(nameSep);
             let initial = nameSep.length == 1 ? String(nameSep[0][0]) : String(nameSep[0][0] + nameSep[1][0]);
             ret.push({ name: strList[i], initial: initial });
         }
         return ret;
-      }
+      };
+
+      function getNameList(): String[] {
+        if(!labinfo.people){
+            return [];
+        };
+        return labinfo.people.split(",");
+      };
+
+      function getEmailList(): String[] {
+        if(!labinfo.emails){
+            return [];
+        }
+        return labinfo.emails.split(",");
+      };
 
     // fetch content through api
     useEffect(() => {
         setIsWaitingInfo(true);
-        fetch(`/api/lab/getLabInfo/${ID}`)
+        fetch(`/api/lab/getLabInfoRich/?id=${ID}`)
             .then(response => response.json())
-            .then(data => { setLabinfo(data); setIsWaitingInfo(false)});
+            .then(data => { setLabinfo(data[0]);setIsWaitingInfo(false)});
     }, []);
 
     // fetch comments
@@ -107,21 +118,34 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
                     .catch(console.warn);
         })
     };
-    return (<Box style={boxStyles} sx={{ '@media (max-width: 600px)': smallScreenStyles }}>
-        <Box padding={2}
-            sx={{
-                gridColumn: (isSmallScreen || isMiddleScreen)? 'span 12':'span 8',
-                gridRow: (isSmallScreen || isMiddleScreen)? '':'span 4',
-                backgroundColor: 'white',
-                borderRadius: '10px',
-                boxShadow: '0px 3px 10px rgba(0, 0, 0, 0.5)',
-                borderTop: '1px solid blue',
-                maxHeight: '60vh',
-                position: 'relative',
-                display: 'flex',
-                flexDirection: 'column',
-            }}
-        >
+    const boxStyles = {
+        display: 'grid',
+        gridTemplateColumns: 'repeat(12, 1fr)',
+        //gridAutoRows: '200px',
+        gridAutoRows: 'minmax(100px, auto)',
+        gap: '20px',
+        width: '100vw',
+      };
+    
+    const emailList = getEmailList();
+    const peopleList = getNameList();
+    return (<Box style={boxStyles} >
+        
+    <Box
+      padding={2}
+      sx={{
+        gridColumn: isSmallScreen || isMiddleScreen ? 'span 12' : 'span 8',
+        gridRow: isSmallScreen || isMiddleScreen ? '' : 'span 4',
+        backgroundColor: 'white',
+        borderRadius: '10px',
+       
+        boxShadow: '0px 3px 10px rgba(0, 0, 0, 0.5)',
+
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between', // Added this to make content distribute evenly
+      }}
+    >{/* 
             <Box
                 sx={{
                     position: 'absolute',
@@ -135,10 +159,11 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
                     borderTopRightRadius: '10px',
                     borderBottom: '1px solid #00274c',
                 }}
-            />
+            />*/}
             { /* Real content begin */}
-            {isWaitingInfo ? <Typography variant='h5'>Loading Lab content ...<CircularProgress /> </Typography>:
-            <Box>
+            {isWaitingInfo ? 
+            <IntroPlaceHolder/>:
+            <Box sx={{ flexGrow: 1, overflow: 'auto' }}>
             <Typography variant="h5">{labinfo.name}</Typography>
             
             <Box sx={{display: 'flex', flexDirection: 'row', mt: '10px'}}>
@@ -148,12 +173,15 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
                     </Tooltip>
                 ))}
             </Box>
-            <a href={ labinfo.link }>
+            <a href={ labinfo.link } target="_blank" rel="noopener noreferrer">
             <Button variant="outlined" endIcon={<ArrowOutwardIcon />} sx={{ mt: '20px', mb: '15px'}}>
                 Go to website
             </Button>
             </a>
-            <Typography sx={{ mt: '10px' }}>{ labinfo.intro }</Typography>
+            <EmailBadge emails={emailList} people={peopleList}/>
+            <Box sx={{flexGrow: 1, overflow: 'auto'}}>
+            <Typography sx={{ mt: '10px' }}>{labinfo.intro}</Typography>
+            </Box>
             
             </Box>
             }
@@ -161,19 +189,17 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
         <Box
             padding={2}
             sx={{
-                gridColumn: (isSmallScreen || isMiddleScreen)? 'span 12':'span 4',
+                gridColumn: isSmallScreen || isMiddleScreen ? 'span 12' : 'span 4',
                 gridRow: 'span 4',
                 backgroundColor: 'white',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'left',
-                overflow: 'auto',
-                maxHeight: '60vh',
                 borderRadius: '10px',
                 boxShadow: '0px 3px 10px rgba(0, 0, 0, 0.5)',
-                position: 'relative'
+                display: 'flex',
+                flexDirection: 'column',
+
             }}
-        >
+            >
+                {/* 
             <Box
                 sx={{
                     position: 'absolute',
@@ -186,17 +212,25 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
                     borderTopRightRadius: '10px',
                     borderBottom: '1px solid #FFCB02',
                 }}
-            />
+            />*/}
             { /* Real content begin */}
             <Typography variant="h6">Reviews</Typography>
-            {isWaitingCom?  <Typography variant='h5'>Loading Lab comments...<CircularProgress /></Typography>:
+            {isWaitingCom? 
+            <ComPlaceHolder/>:
                 <Box
+                    
                     sx={{
-                        maxHeight: '50vh',
+                        // maxHeight: '70vh',
+                        // overflowY: 'auto',
+                        flexGrow: 1, // Make this Box grow to fill available space
+                        flexShrink: 0, // Prevent this Box from shrinking
                         overflowY: 'auto',
+                        spacing: 2
                     }}
+                    
                 >
-            
+                    {comments.length == 0 && <Typography>
+                        🥺 Oops! No comments found</Typography>}
                     {comments.map((item) => (
                         <Box
                             padding={2}
@@ -208,8 +242,6 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
                                 overflow: 'auto',
                                 boxShadow: '0px 2px 3px rgba(0, 0, 0, 0.5)',
                                 position: 'relative',
-                                marginTop: '10px'
-                        
                             }}
                         >  <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                                 <Typography sx={{ mr: 2 }}>{item.name}</Typography>
@@ -232,13 +264,13 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
                     ))}
                 </Box>
             }
-            <Box sx={{
-                    position: "absolute",
-                    bottom: 10,
-                    width: "90%",
+              <Box
+                    sx={{
                     display: 'flex',
-                    flexDirection: 'row'
-                }}>
+                    flexDirection: 'row',
+                    alignItems: 'center', // Align items to the center
+                    }}
+                >
                 <ComPopper
                     userData={props.userData}
                     labid={ID}
@@ -247,7 +279,7 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
             </Box>
         </Box>
 
-       
+        
     </Box>
 );
 };
