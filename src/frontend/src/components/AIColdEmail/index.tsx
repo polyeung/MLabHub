@@ -67,6 +67,13 @@ const Title = styled.div`
         color: #00e2d2;
     }
 `
+interface WhiteTextProps {
+    isWhite?: boolean;
+}
+  
+const WhiteText = styled.div<WhiteTextProps>`
+  color: ${(props) => (props.isWhite ? 'white' : 'initial')};
+`;
 
 const ShareSubTitle = styled.div`
     display: flex;
@@ -127,6 +134,7 @@ const ColdEmailPreview: FC<ColdEmailPreviewProps> = ({
     const hiddenFileInput = useRef<HTMLInputElement>(null)
     const [uploadedFile, setUploadedFile] = useState<any | null>(null)
     const [coldEmailContent, setColdEmailContent] = useState<string>('')
+    const controllerRef = useRef(new AbortController())
 
     const handleUploadButtonClick = (event: React.MouseEvent) => {
         hiddenFileInput.current?.click()
@@ -144,44 +152,68 @@ const ColdEmailPreview: FC<ColdEmailPreviewProps> = ({
         const formData = new FormData()
         formData.append("pdfFile", uploadedFile)
         formData.append("labInfo", labInfo)
-        setColdEmailOpen(false)
+        await fetch(`/api/coldemail/stream-query/`, {
+            method: "POST",
+            body: formData,
+            credentials: "include",
+            signal: controllerRef.current.signal,
+        })
+            .then(async (response) => {
+                if (!response.ok) {
+                    throw new Error(`${response.status}`)
+                }
+                if (!response.body) return
+                const reader = response.body.getReader()
+                let accumulatedText = ""
+                while (true) {
+                    const { done, value } = await reader.read()
+
+                    if (done) {
+                        break
+                    }
+
+                    accumulatedText += new TextDecoder("utf-8").decode(value)
+                    setColdEmailContent(accumulatedText)
+                }
+            })
+        //setColdEmailOpen(false)
 
         // for (let file of uploadedFiles) {
         //     formData.append("imageFiles", file)
         // }
-        await getColdEmailRequest
-            .post(formData)
-            .then((response:any) => {
-                if (response.picture_message) {
-                    notifs.addNotif({ severity: 'success', message: 'Resume Submitted Successful!' });
-                    notifs.addNotif({ severity: 'error', message: 'Something went wrong!' });
+        // await getColdEmailRequest
+        //     .post(formData)
+        //     .then((response:any) => {
+        //         if (response.picture_message) {
+        //             notifs.addNotif({ severity: 'success', message: 'Resume Submitted Successful!' });
+        //             notifs.addNotif({ severity: 'error', message: 'Something went wrong!' });
                     
-                    let content = response.content
-                    setColdEmailContent(content)
+        //             let content = response.content
+        //             setColdEmailContent(content)
                     
-                } else {
-                    notifs.addNotif({ severity: 'error', message: 'Resume Submitted Error!' });
+        //         } else {
+        //             notifs.addNotif({ severity: 'error', message: 'Resume Submitted Error!' });
                     
-                }
-            })
-            .catch((error:any) => {
-                notifs.addNotif({ severity: 'error', message: error });
+        //         }
+        //     })
+        //     .catch((error:any) => {
+        //         notifs.addNotif({ severity: 'error', message: error });
                 
-                // if (error.response.status == 403) {
-                //     addNotification("Guest user can not perform this action!", "info", 2000)
-                // } else if (error.response.status == 429) {
-                //     setTimeout(() => {
-                //         addNotification("ratelimited! try again later", "error", 2000)
-                //     }, 500)
-                // }
-            })
-            .finally(() => {
-                setUploadedFile(null)
-                // setUploadedLatexFile(null)
-                // setUploadedImage(null)
-                // setUploadedFiles([])
-                // setImageDetecting(false)
-            })
+        //         // if (error.response.status == 403) {
+        //         //     addNotification("Guest user can not perform this action!", "info", 2000)
+        //         // } else if (error.response.status == 429) {
+        //         //     setTimeout(() => {
+        //         //         addNotification("ratelimited! try again later", "error", 2000)
+        //         //     }, 500)
+        //         // }
+        //     })
+        //     .finally(() => {
+        //         setUploadedFile(null)
+        //         // setUploadedLatexFile(null)
+        //         // setUploadedImage(null)
+        //         // setUploadedFiles([])
+        //         // setImageDetecting(false)
+        //     })
     }
 
     const handleUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -194,11 +226,36 @@ const ColdEmailPreview: FC<ColdEmailPreviewProps> = ({
                 return
             }
 
+            // if (file.type === "application/pdf") {
+            //     const reader = new FileReader();
+    
+            //     reader.onload = (loadEvent: ProgressEvent<FileReader>) => {
+            //         // Check if the result is not null and is an ArrayBuffer
+            //         if (loadEvent.target?.result instanceof ArrayBuffer) {
+            //             const blob = new Blob([loadEvent.target.result], { type: 'application/pdf' });
+                        
+            //             // Here you can set the blob to the state or perform other actions
+            //             // setUploadedFile(blob);
+            //         } else {
+            //             // Handle the error scenario or throw an exception
+            //             console.error('File could not be read as ArrayBuffer.');
+            //         }
+            //     };
+    
+            //     reader.onerror = (errorEvent) => {
+            //         // Handle errors here
+            //         console.error('An error occurred reading the file:', errorEvent);
+            //     };
+    
+            //     // Read the file as ArrayBuffer
+            //     reader.readAsArrayBuffer(file);
+            // } else {
+            //     alert('Please upload a PDF file.');
+            // }
             if (file.type === "application/pdf") {
-                
-                setUploadedFile(file);
+                setUploadedFile(file); // Store the file object directly
             } else {
-                alert('Please upload a PDF file.'); 
+                alert('Please upload a PDF file.');
             }
         }
         event.target.value = ""
@@ -221,16 +278,19 @@ const ColdEmailPreview: FC<ColdEmailPreviewProps> = ({
                 {/* {uploadedFile &&<Image src={URL.createObjectURL(uploadedFile)} width = {400} height = {300} alt = "uploaded pic"/>} */}
                 <input
                     type="file"
-                    accept="image/*"
+                    accept="application/pdf"
                     ref={hiddenFileInput}
                     onChange={handleUpload}
                     style={{ display: "none" }}
-                />
+                    />
+
                 <UploadButton onClick={ handleUploadButtonClick}>Upload Resume</UploadButton>
                 <Spacer height="20px" />
+                <WhiteText isWhite={true}>
                 {coldEmailContent}
+                </WhiteText>
                 <ButtonContainer>
-                    <UpgradeButton >Submit</UpgradeButton>
+                    <UpgradeButton onClick={handleGetColdEmailRequest}>Submit</UpgradeButton>
                     <UpgradeButton
                         onClick={() => {
                             setColdEmailOpen(false)

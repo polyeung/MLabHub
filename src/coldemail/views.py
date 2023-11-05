@@ -5,6 +5,16 @@ from dotenv import load_dotenv
 from django.views.decorators.csrf import ensure_csrf_cookie, csrf_protect, csrf_exempt
 from django.utils.decorators import method_decorator
 import os
+from django.conf import settings
+import shutil
+import uuid
+from llama_index import (
+    VectorStoreIndex,
+    get_response_synthesizer,
+)
+from llama_index.retrievers import VectorIndexRetriever
+from llama_index.query_engine import RetrieverQueryEngine
+from llama_index.indices.postprocessor import SimilarityPostprocessor
 load_dotenv()
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 
@@ -36,30 +46,48 @@ class StreamQueryResponseView(APIView):
         self.static_dir_path = os.path.join(settings.BASE_DIR, 'static', 'coldEmailData')
         pass
 
-    def get(self, request):
+    def post(self, request):
+        
+        pdf_file = request.data.get('pdfFile')  
+        lab_info = request.data.get('labInfo')  
+        pdf_file = request.FILES.get('pdfFile')
+        print(pdf_file)
+        print(lab_info)
 
-        query = request.GET.get('q')  # Assuming you pass the query as a URL parameter
+        if pdf_file and lab_info:
+            unique_filename = str(uuid.uuid4()) + '.pdf'
+
+            pdf_file_path = os.path.join(self.static_dir_path, unique_filename)
+            with open(pdf_file_path, 'wb+') as f:
+                for chunk in pdf_file.chunks():
+                    f.write(chunk)
+        else:
+            return Response("PDF is missing.", status=status.HTTP_400_BAD_REQUEST)
+
+        reader = SimpleDirectoryReader(
+            input_files=[pdf_file_path]
+        )
+        documents = reader.load_data()
         
-        if not query:
-            return Response("Query parameter 'q' is missing.", status=status.HTTP_400_BAD_REQUEST)
-        
-        documents = SimpleDirectoryReader(self.static_dir_path).load_data()
         index = VectorStoreIndex.from_documents(documents)
         query_engine = index.as_query_engine(streaming=True,)
-        print("Current Working Directory: ", os.getcwd())
+        query = """I would like you to draft a professional cold email for me, tailored to a job application for a laboratory position. The email should be structured to be recipient-agnostic, meaning it should not contain any direct salutations to a specific individual. Instead, the email should highlight the applicant's qualifications and interest in the lab's work.
+
+        Use the resume provided to extract the sender's name and relevant experience. In your composition, make sure to include key points that align with the lab's research focus and objectives. However, do not use placeholders like "[recipient]" or "[your name]" in the email's text.
+
+        Lab Information: """+ lab_info
         def stream_response_generator():
-            # Here's where you put the logic to generate the response
             try:
                 for part in query_engine.query(query).response_gen:
-                    # You would need to serialize 'part' if it's not already a string
                     yield part+ "\n\n"
             except Exception as e:
                 # Handle exceptions if any
                 yield str(e)
         
-        # Create a StreamingHttpResponse with the response generator and return it
         response = StreamingHttpResponse(stream_response_generator())
         
-        # You can set the content_type to text/plain or any other appropriate type
+
         response['Content-Type'] = 'text/plain'
         return response
+        
+        
