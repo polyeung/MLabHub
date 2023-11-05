@@ -46,4 +46,4 @@ src/frontend/bundles
 
 # ignore webpack bundle files
 
-src/frontend/webpack-stats.json
+/src/frontend/webpack-stats.json
