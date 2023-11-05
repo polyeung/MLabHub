@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'oidc_auth',
     'mozilla_django_oidc',
     'webpack_loader',
-    'mlabhub_template'
+    'mlabhub_template',
+    'coldemail',
 ]
 
 MIDDLEWARE = [

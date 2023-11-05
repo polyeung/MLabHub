@@ -7,4 +7,5 @@ urlpatterns = [
     path('comment/', include('comment.urls')),
     path('account/', include('account.urls')),
     path('jobpages/', include('jobpage.urls')),
+    path('coldemail/', include('coldemail.urls')),
 ]
