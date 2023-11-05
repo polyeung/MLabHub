@@ -71,7 +71,7 @@ class StreamQueryResponseView(APIView):
         
         index = VectorStoreIndex.from_documents(documents)
         query_engine = index.as_query_engine(streaming=True,)
-        query = """I would like you to draft a professional cold email for me, tailored to a job application for a laboratory position. The email should be structured to be recipient-agnostic, meaning it should not contain any direct salutations to a specific individual. Instead, the email should highlight the applicant's qualifications and interest in the lab's work.
+        query = """I would like you to draft a professional cold email for me(but not too long), tailored to a job application for a laboratory position. The email should be structured to be recipient-agnostic, meaning it should not contain any direct salutations to a specific individual. Instead, the email should highlight the applicant's qualifications and interest in the lab's work.
 
         Use the resume provided to extract the sender's name and relevant experience. In your composition, make sure to include key points that align with the lab's research focus and objectives. However, do not use placeholders like "[recipient]" or "[your name]" in the email's text.
 
