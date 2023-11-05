@@ -151,7 +151,7 @@ const ColdEmailPreview: FC<ColdEmailPreviewProps> = ({
         // }
         await getColdEmailRequest
             .post(formData)
-            .then((response) => {
+            .then((response:any) => {
                 if (response.picture_message) {
                     notifs.addNotif({ severity: 'success', message: 'Resume Submitted Successful!' });
                     notifs.addNotif({ severity: 'error', message: 'Something went wrong!' });
@@ -164,7 +164,7 @@ const ColdEmailPreview: FC<ColdEmailPreviewProps> = ({
                     
                 }
             })
-            .catch((error) => {
+            .catch((error:any) => {
                 notifs.addNotif({ severity: 'error', message: error });
                 
                 // if (error.response.status == 403) {

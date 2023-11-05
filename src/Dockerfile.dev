@@ -4,6 +4,7 @@ FROM node:16.13.2 AS webpack-builder
 WORKDIR /usr/src/app
 
 COPY frontend/package.json /usr/src/app/
+COPY frontend/.babelrc /usr/src/app/
 RUN rm -rf node_modules
 RUN npm cache clean --force
 RUN npm install

@@ -226,3 +226,8 @@ export interface SimpleJobInfoType {
     title: string,
     labname: string
 };
+
+export interface ColdEmailPreviewProps{
+    labInfo:string,
+    setColdEmailOpen: React.Dispatch<React.SetStateAction<boolean>>,
+}

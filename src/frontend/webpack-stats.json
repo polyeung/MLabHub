@@ -1,7 +1,58 @@
 {
-  "status": "error",
-  "assets": {},
-  "chunks": {},
-  "error": "ModuleBuildError",
-  "message": "Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: Cannot find package '@babel/preset-env' imported from /usr/src/app/babel-virtual-resolve-base.js\n    at new NodeError (/usr/src/app/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:203:5)\n    at packageResolve (/usr/src/app/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:873:9)\n    at moduleResolve (/usr/src/app/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:902:20)\n    at defaultResolve (/usr/src/app/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:985:15)\n    at resolve (/usr/src/app/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:999:12)\n    at tryImportMetaResolve (/usr/src/app/node_modules/@babel/core/lib/config/files/plugins.js:137:45)\n    at resolveStandardizedNameForImport (/usr/src/app/node_modules/@babel/core/lib/config/files/plugins.js:159:19)\n    at resolveStandardizedName (/usr/src/app/node_modules/@babel/core/lib/config/files/plugins.js:168:12)\n    at loadPreset (/usr/src/app/node_modules/@babel/core/lib/config/files/plugins.js:56:20)\n    at loadPreset.next (<anonymous>)\n    at createDescriptor (/usr/src/app/node_modules/@babel/core/lib/config/config-descriptors.js:140:16)\n    at createDescriptor.next (<anonymous>)\n    at step (/usr/src/app/node_modules/gensync/index.js:261:32)\n    at evaluateAsync (/usr/src/app/node_modules/gensync/index.js:291:5)\n    at /usr/src/app/node_modules/gensync/index.js:44:11\n    at Array.forEach (<anonymous>)\n    at Function.async (/usr/src/app/node_modules/gensync/index.js:43:15)\n    at Function.all (/usr/src/app/node_modules/gensync/index.js:216:13)\n    at Generator.next (<anonymous>)\n    at createDescriptors (/usr/src/app/node_modules/@babel/core/lib/config/config-descriptors.js:102:41)\n    at createDescriptors.next (<anonymous>)\n    at createPresetDescriptors (/usr/src/app/node_modules/@babel/core/lib/config/config-descriptors.js:96:17)\n    at createPresetDescriptors.next (<anonymous>)\n    at /usr/src/app/node_modules/@babel/core/lib/config/config-descriptors.js:57:32\n    at Generator.next (<anonymous>)\n    at Function.<anonymous> (/usr/src/app/node_modules/@babel/core/lib/gensync-utils/async.js:21:3)\n    at Generator.next (<anonymous>)\n    at step (/usr/src/app/node_modules/gensync/index.js:269:25)\n    at evaluateAsync (/usr/src/app/node_modules/gensync/index.js:291:5)\n    at Function.errback (/usr/src/app/node_modules/gensync/index.js:113:7)\n    at errback (/usr/src/app/node_modules/@babel/core/lib/gensync-utils/async.js:66:18)\n    at async (/usr/src/app/node_modules/gensync/index.js:188:17)\n    at onFirstPause (/usr/src/app/node_modules/gensync/index.js:216:13)\n    at Generator.next (<anonymous>)\n    at cachedFunction (/usr/src/app/node_modules/@babel/core/lib/config/caching.js:52:46)\n    at cachedFunction.next (<anonymous>)\n    at mergeChainOpts (/usr/src/app/node_modules/@babel/core/lib/config/config-chain.js:351:34)\n    at mergeChainOpts.next (<anonymous>)\n    at chainWalker (/usr/src/app/node_modules/@babel/core/lib/config/config-chain.js:317:14)\n    at chainWalker.next (<anonymous>)\n    at buildRootChain (/usr/src/app/node_modules/@babel/core/lib/config/config-chain.js:57:36)\n    at buildRootChain.next (<anonymous>)\n    at loadPrivatePartialConfig (/usr/src/app/node_modules/@babel/core/lib/config/partial.js:72:62)\n    at loadPrivatePartialConfig.next (<anonymous>)\n    at loadPartialConfig (/usr/src/app/node_modules/@babel/core/lib/config/partial.js:115:25)\n    at loadPartialConfig.next (<anonymous>)\n    at step (/usr/src/app/node_modules/gensync/index.js:269:25)\n    at evaluateAsync (/usr/src/app/node_modules/gensync/index.js:291:5)\n    at /usr/src/app/node_modules/gensync/index.js:93:9\n    at new Promise (<anonymous>)"
+  "status": "done",
+  "assets": {
+    "images/bbb.png": {
+      "name": "images/bbb.png",
+      "path": "/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/bundles/images/bbb.png"
+    },
+    "images/CloseButton.svg": {
+      "name": "images/CloseButton.svg",
+      "path": "/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/bundles/images/CloseButton.svg"
+    },
+    "images/dashboard.png": {
+      "name": "images/dashboard.png",
+      "path": "/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/bundles/images/dashboard.png"
+    },
+    "images/favicon.png": {
+      "name": "images/favicon.png",
+      "path": "/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/bundles/images/favicon.png"
+    },
+    "images/footer-logo.svg": {
+      "name": "images/footer-logo.svg",
+      "path": "/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/bundles/images/footer-logo.svg"
+    },
+    "images/jobs.png": {
+      "name": "images/jobs.png",
+      "path": "/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/bundles/images/jobs.png"
+    },
+    "images/labs_img.png": {
+      "name": "images/labs_img.png",
+      "path": "/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/bundles/images/labs_img.png"
+    },
+    "images/michigan-logo.png": {
+      "name": "images/michigan-logo.png",
+      "path": "/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/bundles/images/michigan-logo.png"
+    },
+    "images/myLogo.png": {
+      "name": "images/myLogo.png",
+      "path": "/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/bundles/images/myLogo.png"
+    },
+    "images/umich_stadium.png": {
+      "name": "images/umich_stadium.png",
+      "path": "/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/bundles/images/umich_stadium.png"
+    },
+    "images/umich.png": {
+      "name": "images/umich.png",
+      "path": "/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/bundles/images/umich.png"
+    },
+    "main-19ba71bc17111690611a.js": {
+      "name": "main-19ba71bc17111690611a.js",
+      "path": "/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/bundles/main-19ba71bc17111690611a.js"
+    }
+  },
+  "chunks": {
+    "main": [
+      "main-19ba71bc17111690611a.js"
+    ]
+  }
 }

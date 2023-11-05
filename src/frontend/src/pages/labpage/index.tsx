@@ -16,6 +16,8 @@ import Stack from "@mui/material/Stack";
 import IntroPlaceHolder from './infoLoading';
 import ComPlaceHolder from './comPlaceHolder';
 import EmailBadge from '@/components/emailBadge';
+import Chip from '@mui/material/Chip';
+import ColdEmailPreview from "@/components/AIColdEmail";
 
 function getRandomColor(): string { 
     const colors = ['red','#90731E', '#0277BD', 'pink', 'green', 'orange', 'purple', '#F29902', 'brown', 'gray', 'teal'];
@@ -34,6 +36,7 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
     const notifs = useNotifs();
     const [isWaitingCom, setIsWaitingCom] = useState<boolean>(false);
     const [isWaitingInfo, setIsWaitingInfo] = useState<boolean>(false);
+    const [coldEmailOpen, setColdEmailOpen] = useState<boolean>(false);
     const [waiting, setWaiting] = useState<boolean>(false);
     const [deleteClicked, setDeleteClicked] = useState<boolean>(false);
     const { isSmallScreen, isMiddleScreen } = React.useContext(ScreenContext);
@@ -129,6 +132,7 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
     
     const emailList = getEmailList();
     const peopleList = getNameList();
+    const handleColdEmailOpen = ()=>{setColdEmailOpen(true)}
     return (<Box style={boxStyles} >
         
     <Box
@@ -179,6 +183,15 @@ const labpage = (props: {userData: UserData | undefined | null}) =>{
             </Button>
             </a>
             <EmailBadge emails={emailList} people={peopleList}/>
+            <Chip
+                label="Use AI generate Cold Email"
+                onClick={handleColdEmailOpen}
+                
+            />
+            {coldEmailOpen && <ColdEmailPreview
+                setColdEmailOpen = {setColdEmailOpen}
+                labInfo = {labinfo.intro}
+            />}
             <Box sx={{flexGrow: 1, overflow: 'auto'}}>
             <Typography sx={{ mt: '10px' }}>{labinfo.intro}</Typography>
             </Box>

@@ -8,6 +8,7 @@ import stadium from './umich_stadium.png';
 import jobs_png from './jobs.png';
 import dashboard_png from './dashboard.png';
 import labs_png from './labs_img.png';
+import close_button_svg from './CloseButton.svg'
 // ad img
 export const labsPng = labs_png;
 export const jobsPng = jobs_png;
@@ -22,6 +23,7 @@ export const footerLogo = footer_logo;
 export const umichImg = umich;
 export const bbbImg = bbb;
 export const stadiumImg = stadium;
+export const CloseButtonSVG = close_button_svg;
 // some static files 
 export const depList = [
     ['AAS', 'LSA:Afroamerican & African Studies'],
