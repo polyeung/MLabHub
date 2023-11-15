@@ -45,60 +45,14 @@
       "name": "images/umich.png",
       "path": "/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/bundles/images/umich.png"
     },
-    "main-4da7bb953938ffd4a18b.js": {
-      "name": "main-4da7bb953938ffd4a18b.js",
-      "path": "/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/bundles/main-4da7bb953938ffd4a18b.js"
-    },
-    "main-713491a3d5dbc463cd99.js": {
-      "name": "main-713491a3d5dbc463cd99.js",
-      "path": "/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/bundles/main-713491a3d5dbc463cd99.js"
-    },
-    "main-720890c2188eae7b3e90.js": {
-      "name": "main-720890c2188eae7b3e90.js",
-      "path": "/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/bundles/main-720890c2188eae7b3e90.js"
-    },
-    "main-b0a6168d2d7b08154d97.js": {
-      "name": "main-b0a6168d2d7b08154d97.js",
-      "path": "/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/bundles/main-b0a6168d2d7b08154d97.js"
-    },
-    "main-b9378e808551c79bb9d9.js": {
-      "name": "main-b9378e808551c79bb9d9.js",
-      "path": "/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/bundles/main-b9378e808551c79bb9d9.js"
-    },
-    "main-b9a36bd7a4c440466c8a.js": {
-      "name": "main-b9a36bd7a4c440466c8a.js",
-      "path": "/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/bundles/main-b9a36bd7a4c440466c8a.js"
-    },
-    "main-bf14771cc979cbd85121.js": {
-      "name": "main-bf14771cc979cbd85121.js",
-      "path": "/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/bundles/main-bf14771cc979cbd85121.js"
-    },
     "main-c3953505af910c39b91f.js": {
       "name": "main-c3953505af910c39b91f.js",
       "path": "/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/bundles/main-c3953505af910c39b91f.js"
-    },
-    "main-d791b69ed079f9bde16e.js": {
-      "name": "main-d791b69ed079f9bde16e.js",
-      "path": "/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/bundles/main-d791b69ed079f9bde16e.js"
-    },
-    "main-d7bcdad978dd6db9bb7c.js": {
-      "name": "main-d7bcdad978dd6db9bb7c.js",
-      "path": "/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/bundles/main-d7bcdad978dd6db9bb7c.js"
-    },
-    "main-ded655efc91645ae98eb.js": {
-      "name": "main-ded655efc91645ae98eb.js",
-      "path": "/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/bundles/main-ded655efc91645ae98eb.js"
-    },
-    "main-fcee939674a1e8620c2b.js": {
-      "name": "main-fcee939674a1e8620c2b.js",
-      "path": "/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/bundles/main-fcee939674a1e8620c2b.js"
     }
   },
   "chunks": {
     "main": [
       "main-c3953505af910c39b91f.js"
     ]
-  },
-  "error": "ModuleBuildError",
-  "message": "Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/src/components/AIColdEmail/index.tsx: Unexpected token, expected \",\" (199:4)\n\n  197 |     }\n  198 |\n> 199 |     const handleUpload = (event: React.ChangeEvent<HTMLInputElement>) => {\n      |     ^\n  200 |         if (event.target.files && event.target.files.length > 0) {\n  201 |             const file = event.target.files[0]\n  202 |\n    at constructor (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:356:19)\n    at TypeScriptParserMixin.raise (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:3223:19)\n    at TypeScriptParserMixin.unexpected (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:3253:16)\n    at TypeScriptParserMixin.expect (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:3590:28)\n    at TypeScriptParserMixin.parseCallExpressionArguments (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:11045:14)\n    at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10969:29)\n    at TypeScriptParserMixin.parseSubscript (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10904:19)\n    at TypeScriptParserMixin.parseSubscript (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:9172:18)\n    at TypeScriptParserMixin.parseSubscripts (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10875:19)\n    at TypeScriptParserMixin.parseExprSubscripts (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10866:17)\n    at TypeScriptParserMixin.parseUpdate (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10845:21)\n    at TypeScriptParserMixin.parseMaybeUnary (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10821:23)\n    at TypeScriptParserMixin.parseMaybeUnary (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:9701:18)\n    at TypeScriptParserMixin.parseAwait (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:12139:28)\n    at TypeScriptParserMixin.parseMaybeUnary (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10786:25)\n    at TypeScriptParserMixin.parseMaybeUnary (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:9701:18)\n    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10659:61)\n    at TypeScriptParserMixin.parseExprOps (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10664:23)\n    at TypeScriptParserMixin.parseMaybeConditional (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10641:23)\n    at TypeScriptParserMixin.parseMaybeAssign (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10602:21)\n    at TypeScriptParserMixin.parseMaybeAssign (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:9648:20)\n    at TypeScriptParserMixin.parseExpressionBase (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10556:23)\n    at /Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10552:39\n    at TypeScriptParserMixin.allowInAnd (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:12284:16)\n    at TypeScriptParserMixin.parseExpression (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10552:17)\n    at TypeScriptParserMixin.parseStatementContent (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:12742:23)\n    at TypeScriptParserMixin.parseStatementContent (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:9345:18)\n    at TypeScriptParserMixin.parseStatementLike (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:12593:17)\n    at TypeScriptParserMixin.parseStatementListItem (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:12573:17)\n    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:13194:61)\n    at TypeScriptParserMixin.parseBlockBody (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:13187:10)\n    at TypeScriptParserMixin.parseBlock (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:13175:10)\n    at TypeScriptParserMixin.parseFunctionBody (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:11940:24)\n    at TypeScriptParserMixin.parseArrowExpression (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:11915:10)\n    at TypeScriptParserMixin.parseAsyncArrowFromCallExpression (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:11071:10)\n    at TypeScriptParserMixin.parseAsyncArrowFromCallExpression (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:9628:18)\n    at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10977:27)\n    at TypeScriptParserMixin.parseSubscript (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10904:19)\n    at TypeScriptParserMixin.parseSubscript (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:9172:18)\n    at TypeScriptParserMixin.parseSubscripts (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10875:19)\n    at TypeScriptParserMixin.parseExprSubscripts (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10866:17)\n    at TypeScriptParserMixin.parseUpdate (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10845:21)\n    at TypeScriptParserMixin.parseMaybeUnary (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10821:23)\n    at TypeScriptParserMixin.parseMaybeUnary (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:9701:18)\n    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10659:61)\n    at TypeScriptParserMixin.parseExprOps (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10664:23)\n    at TypeScriptParserMixin.parseMaybeConditional (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10641:23)\n    at TypeScriptParserMixin.parseMaybeAssign (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10602:21)\n    at TypeScriptParserMixin.parseMaybeAssign (/Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:9648:20)\n    at /Users/elijahqi/Documents/Mlabhub/MLabHub/src/frontend/node_modules/@babel/parser/lib/index.js:10572:39"
+  }
 }
